@@ -1,0 +1,64 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("./mario-bg.jpg");
+    background-size: cover;
+    display: flex;
+    
+}
+#text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px 0 30px 160px;
+}
+#board{
+    width: 540px;
+    height: 540px;
+    background-color: green;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: url("./soil.png");
+    background-size: cover;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+#board div{
+    width: 180px;
+    height: 180px;
+    background-image: url("./pipe.png");
+    background-size: cover;
+}
+#board div img{
+    width: 100px;
+    height: 100px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+button {
+    background: linear-gradient(180deg, #ffdd57 0%, #ffbe0b 100%);
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #c59a00, 0 6px 15px rgba(0,0,0,0.3);
+    transition: 0.15s ease-out;
+    letter-spacing: 1px;
+    font-family: "Arial", sans-serif;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #c59a00, 0 8px 18px rgba(0,0,0,0.35);
+    background: linear-gradient(180deg, #ffe36e 0%, #ffc533 100%);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #c59a00;
+}

@@ -1,0 +1,69 @@
+body{
+    background-color: rgba(241, 209, 209, 0.774);
+    font-family: Arial, sans-serif;
+    text-align: center;}
+h1{
+    font-size: 24px;
+    color: rgb(156, 8, 8);
+    align-items: center;
+}
+p {
+    font-size: 20px;
+    color: blue;
+    line-height: 1.5;
+    margin: 20px;
+    list-style: none;
+}
+.list2{
+    font-size: 20px;
+    color: rgb(255, 0, 170);
+    line-height: 1.5;
+    margin: 20px;
+    
+}
+a{
+    font-size: 18px;
+    color: green;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+li{
+    font-size: 18px;
+    color: purple;
+    margin: 10px 0;
+    list-style: none;
+
+}
+img{
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 15px 0;
+    object-fit: cover;
+}
+.hakkimizda2{
+    background-color: rgba(200, 200, 255, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+}
+.aile{
+    text-align: center;
+    background-color: rgba(255, 200, 200, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.aile h1{
+    color: rgb(200, 0, 0);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}

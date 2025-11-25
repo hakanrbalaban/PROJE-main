@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerçekçi Kın ve Kılıç Animasyonu</title>
+  <style>
+    body { background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .container { width: 200px; height: 400px; position: relative; }
+    #kilic { transition: transform 1s; transform: translateY(120px); }
+    #kilic.cik { transform: translateY(-40px); }
+    .button { margin-top: 20px; text-align: center; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="container">
+      <svg width="200" height="400">
+        <!-- Kın (Scabbard) -->
+        <rect x="80" y="120" width="40" height="220" rx="20" fill="#4b3f2a" stroke="#a58c6f" stroke-width="6"/>
+        <!-- Kılıç (Sword) -->
+        <g id="kilic">
+          <!-- Blade -->
+          <rect x="95" y="40" width="10" height="180" rx="5" fill="#cfd8dc" stroke="#b0bec5" stroke-width="2"/>
+          <!-- Guard -->
+          <rect x="90" y="35" width="20" height="10" rx="3" fill="#ffd700" stroke="#bfa100" stroke-width="2"/>
+          <!-- Handle -->
+          <rect x="97" y="10" width="6" height="30" rx="3" fill="#795548" stroke="#5d4037" stroke-width="2"/>
+          <!-- Pommel -->
+          <circle cx="100" cy="10" r="5" fill="#ffd700" stroke="#bfa100" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+    <div class="button">
+      <button onclick="toggleKilic()">Kılıcı Sok/Çıkar</button>
+    </div>
+  </div>
+  <script>
+    const kilic = document.getElementById('kilic');
+    function toggleKilic() {
+      kilic.classList.toggle('cik');
+    }
+  </script>
+</body>
+</html>
