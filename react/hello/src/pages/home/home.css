@@ -1,0 +1,9 @@
+.home {
+    background-color: #f6f3f3;
+}
+
+@media (prefers-color-scheme: dark) {
+    .home {
+        background-color: #111;
+    }
+}
