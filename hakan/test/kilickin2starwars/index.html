@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesli Işın Kılıcı (Lightsaber)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .saber-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .saber-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Align handle to bottom */
+        }
+
+        .handle {
+            width: 24px;
+            height: 100px;
+            background: linear-gradient(to right, #dcdcdc 0%, #888 20%, #222 30%, #222 70%, #888 80%, #dcdcdc 100%);
+            border-radius: 0 0 4px 4px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Emitter guard */
+        .handle::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -8px;
+            width: 40px;
+            height: 15px;
+            background: linear-gradient(to right, #aaa, #ddd, #aaa);
+            border-radius: 4px 4px 0 0;
+            z-index: 10;
+        }
+
+        /* Button on handle */
+        .handle::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 20px;
+            background: #a00;
+            border-radius: 2px;
+            box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .blade {
+            position: absolute;
+            bottom: 85px; /* Sit inside the handle */
+            left: 50%;
+            transform: translateX(-50%) scaleY(0);
+            transform-origin: bottom center;
+            width: 14px;
+            height: 350px;
+            background: white;
+            border-radius: 10px 10px 0 0;
+            transition: transform 0.3s cubic-bezier(0, 0.88, 0.65, 1.15); /* Snappy extension */
+            z-index: 5;
+            box-shadow: 
+                0 0 10px 2px rgba(255, 255, 255, 0.8),
+                0 0 20px 5px var(--saber-color, #0f0),
+                0 0 40px 15px var(--saber-color, #0f0),
+                0 0 60px 25px var(--saber-color, #0f0);
+            opacity: 0;
+        }
+
+        .active .blade {
+            transform: translateX(-50%) scaleY(1);
+            opacity: 1;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .color-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .color-btn:hover { transform: scale(1.1); }
+        .bg-red { background-color: #f00; }
+        .bg-green { background-color: #0f0; }
+        .bg-blue { background-color: #00f; }
+        .bg-purple { background-color: #a0f; }
+
+        .instruction {
+            position: absolute;
+            top: 20%;
+            text-align: center;
+            color: #aaa;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        
+        .saber-container.active .instruction {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="saber-container" id="saber-container">
+        <div class="instruction">
+            <h1 class="text-3xl font-bold mb-2">Işın Kılıcı</h1>
+            <p>Açmak/Kapatmak için tıklayın</p>
+        </div>
+
+        <div class="saber-wrapper">
+            <div class="blade" id="blade" style="--saber-color: #0f0;"></div>
+            <div class="handle"></div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="color-btn bg-green" onclick="setColor('#0f0')"></div>
+        <div class="color-btn bg-blue" onclick="setColor('#00f')"></div>
+        <div class="color-btn bg-red" onclick="setColor('#f00')"></div>
+        <div class="color-btn bg-purple" onclick="setColor('#a0f')"></div>
+    </div>
+
+    <script>
+        let isActive = false;
+        let audioCtx;
+        let humNodes = [];
+        let humGainNode;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function createNoiseBuffer() {
+            if (!audioCtx) return null;
+            const bufferSize = audioCtx.sampleRate * 2.0; 
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+            return buffer;
+        }
+
+        function playIgnitionSound() {
+            initAudio();
+            const t = audioCtx.currentTime;
+            
+            // "Pshh" noise
+            const noiseBuffer = createNoiseBuffer();
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = noiseBuffer;
+            const noiseFilter = audioCtx.createBiquadFilter();
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.setValueAtTime(100, t);
+            noiseFilter.frequency.exponentialRampToValueAtTime(2000, t + 0.1);
+            noiseFilter.frequency.exponentialRampToValueAtTime(1000, t + 0.4);
+            
+            const noiseGain = audioCtx.createGain();
+            noiseGain.gain.setValueAtTime(0.8, t);
+            noiseGain.gain.exponentialRampToValueAtTime(0.01, t + 0.5);
+            
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(t);
+            
+            // Sine sweep
+            const osc = audioCtx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, t);
+            osc.frequency.exponentialRampToValueAtTime(50, t + 0.5);
+            
+            const oscGain = audioCtx.createGain();
+            oscGain.gain.setValueAtTime(0.5, t);
+            oscGain.gain.exponentialRampToValueAtTime(0.01, t + 0.5);
+            
+            osc.connect(oscGain);
+            oscGain.connect(audioCtx.destination);
+            osc.start(t);
+            osc.stop(t + 0.6);
+        }
+
+        function playRetractSound() {
+            initAudio();
+            const t = audioCtx.currentTime;
+            
+            // Reverse Sine sweep
+            const osc = audioCtx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(50, t);
+            osc.frequency.exponentialRampToValueAtTime(600, t + 0.3);
+            
+            const oscGain = audioCtx.createGain();
+            oscGain.gain.setValueAtTime(0.3, t);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+            
+            osc.connect(oscGain);
+            oscGain.connect(audioCtx.destination);
+            osc.start(t);
+            osc.stop(t + 0.4);
+            
+            // Short Noise
+            const noiseBuffer = createNoiseBuffer();
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = noiseBuffer;
+            const noiseFilter = audioCtx.createBiquadFilter();
+            noiseFilter.type = 'lowpass';
+            noiseFilter.frequency.value = 800;
+            
+            const noiseGain = audioCtx.createGain();
+            noiseGain.gain.setValueAtTime(0.3, t);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+            
+            noise.connect(noiseFilter);
+            noiseFilter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+            noise.start(t);
+        }
+
+        function startHum() {
+            if (humNodes.length > 0) return;
+            initAudio();
+            
+            // Main Hum - Low frequency square wave filtered
+            const humOsc1 = audioCtx.createOscillator();
+            humOsc1.type = 'sawtooth';
+            humOsc1.frequency.value = 48; 
+            
+            const humOsc2 = audioCtx.createOscillator();
+            humOsc2.type = 'sine';
+            humOsc2.frequency.value = 50; 
+            
+            humGainNode = audioCtx.createGain();
+            humGainNode.gain.value = 0.08;
+            
+            // Filter to remove harshness
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 150;
+            
+            humOsc1.connect(filter);
+            humOsc2.connect(filter);
+            filter.connect(humGainNode);
+            humGainNode.connect(audioCtx.destination);
+            
+            humOsc1.start();
+            humOsc2.start();
+            
+            humNodes = [humOsc1, humOsc2];
+        }
+
+        function stopHum() {
+            if (humNodes.length > 0) {
+                // Fade out slightly to avoid click
+                const t = audioCtx.currentTime;
+                humGainNode.gain.cancelScheduledValues(t);
+                humGainNode.gain.setValueAtTime(humGainNode.gain.value, t);
+                humGainNode.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+                
+                humNodes.forEach(node => {
+                    node.stop(t + 0.1);
+                });
+                
+                setTimeout(() => {
+                   humNodes.forEach(node => node.disconnect());
+                   humNodes = [];
+                   if (humGainNode) {
+                       humGainNode.disconnect();
+                       humGainNode = null;
+                   }
+                }, 150);
+            }
+        }
+
+        function toggleSaber() {
+            const container = document.getElementById('saber-container');
+            isActive = !isActive;
+            
+            if (isActive) {
+                container.classList.add('active');
+                playIgnitionSound();
+                setTimeout(startHum, 200);
+            } else {
+                container.classList.remove('active');
+                playRetractSound();
+                stopHum();
+            }
+        }
+
+        function setColor(color) {
+            const blade = document.getElementById('blade');
+            blade.style.setProperty('--saber-color', color);
+            // Also need to handle event bubbling
+        }
+
+        document.getElementById('saber-container').addEventListener('click', (e) => {
+            // Check if clicked element is NOT a color button
+            if (!e.target.classList.contains('color-btn')) {
+                toggleSaber();
+            }
+        });
+        
+        // Setup color buttons individually to stop propagation properly if needed
+        document.querySelectorAll('.color-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isActive) {
+               stopHum();
+            } else if (!document.hidden && isActive) {
+               startHum();
+            }
+        });
+    </script>
+</body>
+</html>
