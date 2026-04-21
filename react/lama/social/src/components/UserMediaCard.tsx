@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const UserMediaCard = ({userId}: {userId: string}) => {
@@ -11,7 +12,72 @@ const UserMediaCard = ({userId}: {userId: string}) => {
         </Link>
       </div>
       {/* BOTTOM */}
-      <div className="flex gap-4 justify-between flex-wrap"></div>
+      <div className="flex gap-4 justify-between flex-wrap">
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/2225673/pexels-photo-2225673.jpeg"
+            alt="Avatar"
+            fill
+            className="object-cover rounded-md"
+          />  
+        </div>
+      </div>
     </div>
   )
 }
