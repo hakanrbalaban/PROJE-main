@@ -1,0 +1,8 @@
+# 1. 'oyun_ortami' adında sanal bir alan oluştur
+python -m venv oyun_ortami
+
+# 2. Bu sanal ortamı aktif et (Terminalin başında (oyun_ortami) yazar)
+source oyun_ortami/bin/activate
+
+# 3. Şimdi pip ile rahatça kurabilirsin
+pip install pygame
