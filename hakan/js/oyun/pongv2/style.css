@@ -1,0 +1,13 @@
+body {
+    background-color: #111; /* Ekranın geri kalanı karanlık olsun */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.canvas {
+    border: 2px solid #fff; /* Oyun alanının etrafına beyaz bir çerçeve */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
