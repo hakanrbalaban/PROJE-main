@@ -5,14 +5,18 @@ const dpr = window.devicePixelRatio || 1
 
 canvas.width = 1024 * dpr
 canvas.height = 576 * dpr
-const MAP_SCALE = 2
+const MAP_COLS = 28
+const MAP_ROWS = 28
+const MAP_WIDTH = 16 * MAP_COLS
+const MAP_HEIGHT = 16 * MAP_ROWS
+
+const MAP_SCALE = 3
 const VIEWPORT_WIDTH = canvas.width / MAP_SCALE
 const VIEWPORT_HEIGHT = canvas.height / MAP_SCALE
 const VIEWPORT_CENTER_X = VIEWPORT_WIDTH / 2
 const VIEWPORT_CENTER_Y = VIEWPORT_HEIGHT / 2
-console.log('Viewport dimensions:', VIEWPORT_WIDTH, VIEWPORT_HEIGHT)
-console.log('Viewport center:', VIEWPORT_CENTER_X, VIEWPORT_CENTER_Y)
-
+const MAX_SCROLL_X = MAP_WIDTH - VIEWPORT_WIDTH
+const MAX_SCROLL_Y = MAP_HEIGHT - VIEWPORT_HEIGHT
 const layersData = {
    l_Terrain: l_Terrain,
    l_Trees_1: l_Trees_1,
@@ -66,8 +70,7 @@ collisions.forEach((row, y) => {
 
 const firstLayerKey = Object.keys(layersData)[0]
 const firstLayer = layersData[firstLayerKey]
-const mapWidthPx = firstLayer ? firstLayer[0].length * blockSize : 0
-const mapHeightPx = firstLayer ? firstLayer.length * blockSize : 0
+
 
 const tilesetImages = {}
 const animatedCells = {}
@@ -94,11 +97,10 @@ const renderLayer = (tilesData, tilesetImage, tileSize, context, skipSymbols) =>
 
 const renderStaticLayers = async (layersData) => {
   const offscreenCanvas = document.createElement('canvas')
-  offscreenCanvas.width = Math.max(mapWidthPx * dpr, 1)
-  offscreenCanvas.height = Math.max(mapHeightPx * dpr, 1)
+  offscreenCanvas.width = MAP_WIDTH
+  offscreenCanvas.height = MAP_HEIGHT
   const offscreenContext = offscreenCanvas.getContext('2d')
-  offscreenContext.imageSmoothingEnabled = false
-  offscreenContext.scale(dpr, dpr)
+  
 
   for (const [layerName, tilesData] of Object.entries(layersData)) {
     const tilesetInfo = tilesets[layerName]
@@ -163,6 +165,80 @@ const player = new Player({
   y: 100,
   size: 15,
 })
+const monsterSprites = {
+      walkDown: {
+        x: 0,
+        y: 0,
+        width: 16,
+        height: 16,
+        frameCount: 4,
+      },
+      walkUp: {
+        x: 16,
+        y: 0,
+        width: 16,
+        height: 16,
+        frameCount: 4,
+      },
+      walkLeft: {
+        x: 32,
+        y: 0,
+        width: 16,
+        height: 16,
+        frameCount: 4,
+      },
+      walkRight: {
+        x: 48,
+        y: 0,
+        width: 16,
+        height: 16,
+        frameCount: 4,
+      },
+    };
+const monsters = [
+ new Monster({
+  x: 200,
+  y: 150,
+  size: 15,
+  imgSrc: './images/bamboo.png',
+  sprites: monsterSprites
+}),
+ new Monster({
+  x: 300,
+  y: 150,
+  size: 15,
+  imgSrc: './images/dragon.png',
+  sprites: monsterSprites
+}),
+new Monster({
+  x: 48,
+  y: 400,
+  size: 15,
+  imgSrc: './images/bamboo.png',
+  sprites: monsterSprites
+}),
+new Monster({
+  x: 288,
+  y: 416,
+  size: 15,
+  imgSrc: './images/bamboo.png',
+  sprites: monsterSprites
+}),
+new Monster({
+  x: 112,
+  y: 416,
+  size: 15,
+  imgSrc: './images/dragon.png',
+  sprites: monsterSprites
+}),
+new Monster({
+  x: 400,
+  y: 400,
+  size: 15,
+  imgSrc: './images/bamboo.png',
+  sprites: monsterSprites
+}),
+]
 
 const keys = {
   w: {
@@ -180,6 +256,7 @@ const keys = {
 }
 
 let lastTime = performance.now()
+let frontRendersCanvas
 function animate(backgroundCanvas) {
   // Calculate delta time
   const currentTime = performance.now()
@@ -190,14 +267,26 @@ function animate(backgroundCanvas) {
   player.handleInput(keys)
   player.update(deltaTime, collisionBlocks)
 
+  const horizontalScrollDistance = Math.min(Math.max(0, player.center.x - VIEWPORT_CENTER_X), MAX_SCROLL_X)
+  const verticalScrollDistance = Math.min(Math.max(0, player.center.y - VIEWPORT_CENTER_Y), MAX_SCROLL_Y)
+
   // Render scene
   c.save()
   c.scale(MAP_SCALE, MAP_SCALE)
+  c.translate(-horizontalScrollDistance, -verticalScrollDistance)
   c.clearRect(0, 0, canvas.width, canvas.height)
-  c.drawImage(backgroundCanvas, 0, 0, mapWidthPx, mapHeightPx)
+  c.drawImage(backgroundCanvas, 0, 0,)
   drawAnimatedTiles(c, currentTime)
   player.draw(c)
-  console.log('Player position:', player.x, player.y)
+
+  // render monsters
+  for(let i = monsters.length - 1; i>=0; i--){
+    const monster = monsters[i]
+    monster.update(deltaTime, collisionBlocks)
+    monster.draw(c)
+  }
+
+  c.drawImage(frontRendersCanvas, 0, 0)
   c.restore()
 
   requestAnimationFrame(() => animate(backgroundCanvas))
@@ -206,7 +295,8 @@ function animate(backgroundCanvas) {
 const startRendering = async () => {
   try {
     const backgroundCanvas = await renderStaticLayers(layersData)
-    const frontRendersCanvas = await renderStaticLayers(frontRenderLayersData)
+    frontRendersCanvas = await renderStaticLayers(frontRenderLayersData)
+    console.log('Front renders canvas:', frontRendersCanvas)
     if (!backgroundCanvas) {
       console.error('Failed to create the background canvas')
       return
