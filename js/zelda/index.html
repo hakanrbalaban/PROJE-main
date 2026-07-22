@@ -8,13 +8,21 @@
   vertical-align: baseline;
 }
 body {
-  background: black;
-  margin: 0;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 canvas {
   width: 1024px;
   height: 576px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* En-boy oranını korur, taşma yapmaz */
 }
 </style>
 <canvas style="image-rendering: pixelated"></canvas>
@@ -35,6 +43,8 @@ canvas {
 <script src="./classes/CollisionBlock.js"></script>
 <script src="./classes/Player.js"></script>
 <script src="./classes/Monster.js"></script>
+<script src="./classes/Heart.js"></script>
+<script src="./classes/Sprite.js"></script>
 
 
 <script src="./js/index.js"></script>

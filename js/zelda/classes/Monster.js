@@ -1,5 +1,13 @@
 class Monster {
-  constructor({ x, y, size, velocity = { x: 0, y: 0 }, imgSrc, sprites }) {
+  constructor({
+    x,
+    y,
+    size,
+    velocity = { x: 0, y: 0 },
+    imgSrc,
+    sprites,
+    health = 3,
+  }) {
     this.x = x;
     this.y = y;
     this.originalPosition = {
@@ -25,6 +33,15 @@ class Monster {
     this.elapsedMovementTime = 0;
     this.sprites = sprites;
     this.currentSprite = Object.values(this.sprites)[0];
+    this.health = health;
+    this.isInvincible = false;
+    this.elapsedInvincibilityTime = 0;
+    this.invincibilityInterval = 0.3;
+  }
+  receiveHit() {
+    if (this.isInvincible) return;
+    this.health--;
+    this.isInvincible = true;
   }
 
   draw(c) {
@@ -33,7 +50,12 @@ class Monster {
     // Red square debug code
     // c.fillStyle = "rgba(0, 0, 255, 0.5)";
     // c.fillRect(this.x, this.y, this.width, this.height);
-
+    let alpha = 1
+    if (this.isInvincible) {
+      alpha = 0.5;
+    }
+    c.save();
+    c.globalAlpha = alpha;
     c.drawImage(
       this.image,
       this.currentSprite.x,
@@ -45,11 +67,40 @@ class Monster {
       this.width,
       this.height,
     );
+    c.restore();
   }
 
   update(deltaTime, collisionBlocks) {
     if (!deltaTime) return;
     this.elapsTime += deltaTime;
+    //tutorial
+    //this.elapsedInvincibilityTime += deltaTime;
+
+    // tutorial kodu
+    // if (this.elapsedInvincibilityTime > this.invincibilityInterval) {
+    //   this.isInvincible = false;
+    //   this.elapsedInvincibilityTime = 0;
+    // }
+    if (this.isInvincible) {
+      this.elapsedInvincibilityTime += deltaTime;
+      if (this.elapsedInvincibilityTime >= this.invincibilityInterval) {
+        this.isInvincible = false;
+        this.elapsedInvincibilityTime = 0; // Süre bittiğinde sıfırla
+      }
+    } else {
+      this.elapsedInvincibilityTime = 0; // Hasar almıyorken sayaç hep 0'da beklesin
+    }
+    // update(deltaTime, collisionBlocks) fonksiyonunun içi:
+    // if (this.invincible) {
+    //   this.elapsedInvincibilityTime += deltaTime;
+    //   if (this.elapsedInvincibilityTime > this.invincibilityInterval) {
+    //     this.invincible = false;
+    //     this.elapsedInvincibilityTime = 0;
+    //   }
+    // } else {
+    //   // Hasar almıyorsa sayacı sıfırda tut ki bir sonraki darbede 0'dan başlasın
+    //   this.elapsedInvincibilityTime = 0;
+    // }
 
     const intervalToGoToNextFrame = 0.15; // 100ms per frame
     if (this.elapsTime > intervalToGoToNextFrame) {
@@ -91,7 +142,10 @@ class Monster {
   }
   setVelocity(deltaTime) {
     const changeDirectionInterval = 3; // Change direction every 3 seconds
-    if (this.elapsedMovementTime > changeDirectionInterval || this.elapsedMovementTime === 0) {
+    if (
+      this.elapsedMovementTime > changeDirectionInterval ||
+      this.elapsedMovementTime === 0
+    ) {
       this.elapsedMovementTime -= changeDirectionInterval;
       const angle = Math.random() * 2 * Math.PI;
       const CIRCLE_RADIUS = 15;
@@ -108,7 +162,6 @@ class Monster {
       this.velocity.y = normalizedDeltaY * CIRCLE_RADIUS; // Adjust speed as needed
     }
     this.elapsedMovementTime += deltaTime;
-
   }
 
   updateHorizontalPosition(deltaTime) {

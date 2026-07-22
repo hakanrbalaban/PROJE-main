@@ -89,15 +89,56 @@ class Player {
     };
     this.currentSprite = this.sprites.walkDown; // Default sprite
     this.facing = "down"; // Default facing direction
-    this.isAttaking = false;
+    this.isAttacking = false;
     this.attackTimer = 0;
-    this.attackBox = {
-      x: 0,
-      y: 0,
-      width: 0,
-      height: 0,
+    this.attackBoxes = {
+      right: {
+        xOffset: 10,
+        yOffset: 9,
+        width: 20,
+        height: 5
+      },
+      left: {
+        xOffset: -16,
+        yOffset: 9,
+        width: 20,
+        height: 5
+      },
+      up: {
+        xOffset: 2,
+        yOffset: -15,
+        width: 5,
+        height: 20
+      },
+      down: {
+        xOffset: 2,
+        yOffset: 10,
+        width: 5,
+        height: 20
+      }
+      
     }
+
+    
+    
+    this.attackBox = {
+      x: this.x + this.attackBoxes[this.facing].xOffset,
+      y: this.y + this.attackBoxes[this.facing].yOffset,
+      width: this.attackBoxes[this.facing].width,
+      height: this.attackBoxes[this.facing].height,
+    }
+    this.hasHitEnemy = false
+    this.isInvincible = false
+    this.elapsedInvincibilityTime = 0
+    this.invincibilityInterval = 0.8
   }
+
+  receiveHit() {
+    if (this.isInvincible) return
+
+    this.isInvincible = true
+  }
+  
   switchBackToIdleState() {
     switch (this.facing){
       case "down":
@@ -130,7 +171,7 @@ class Player {
         break;
     }
       this.currentFrame = 0
-      this.isAttaking = true;
+      this.isAttacking = true;
   }
 
   draw(c) {
@@ -139,7 +180,16 @@ class Player {
     // Red square debug code
     // c.fillStyle = "rgba(0, 0, 255, 0.5)";
     // c.fillRect(this.x, this.y, this.width, this.height);
-
+    // Attack box debug code
+    // c.fillStyle = "rgba(0, 0, 255, 0.5)";
+    // c.fillRect(this.attackBox.x, this.attackBox.y, this.attackBox.width, this.attackBox.height);
+    
+    let alpha = 1
+    if (this.isInvincible) {
+      alpha = 0.5;
+    }
+    c.save();
+    c.globalAlpha = alpha;
     c.drawImage(
       this.image,
       this.currentSprite.x,
@@ -151,7 +201,8 @@ class Player {
       this.width,
       this.height,
     );
-    if (this.isAttaking) {
+    c.restore();
+    if (this.isAttacking) {
     let angle = 0;
     let xOffset = 0;
     let yOffset = 0;
@@ -179,6 +230,7 @@ class Player {
     }
 
     c.save()
+    c.globalAlpha = alpha;
     c.translate(this.x + xOffset, this.y + yOffset);
     c.rotate(angle)
     c.drawImage(this.weaponSprite, -3, -8, 6, 16);
@@ -189,14 +241,23 @@ class Player {
   update(deltaTime, collisionBlocks) {
     if (!deltaTime) return;
     const timeToCompleteAttack = 0.3;
-    if(this.isAttaking && this.attackTimer < timeToCompleteAttack){
+    if(this.isAttacking && this.attackTimer < timeToCompleteAttack){
     this.attackTimer += deltaTime;
-    }else if(this.isAttaking && this.attackTimer >= timeToCompleteAttack){
-      this.isAttaking = false;
+    }else if(this.isAttacking && this.attackTimer >= timeToCompleteAttack){
+      this.isAttacking = false;
       this.attackTimer = 0;
       this.switchBackToIdleState()
+      this.hasHitEnemy = false;
     }
     this.elapsTime += deltaTime;
+     if (this.isInvincible) {
+      this.elapsedInvincibilityTime += deltaTime
+
+      if (this.elapsedInvincibilityTime >= this.invincibilityInterval) {
+        this.isInvincible = false
+        this.elapsedInvincibilityTime = 0
+      }
+    }
 
     const intervalToGoToNextFrame = 0.15; // 100ms per frame
     if (this.elapsTime > intervalToGoToNextFrame) {
@@ -212,6 +273,21 @@ class Player {
     this.updateVerticalPosition(deltaTime);
     this.checkForVerticalCollisions(collisionBlocks);
 
+    // Merkez koordinatını sınır kontrolünden sonra hesaplıyoruz ki kamera sapıtmasın
+    this.center = {
+      x: this.x + this.width / 2,
+      y: this.y + this.height / 2,
+    };
+    
+    this.attackBox = {
+      x: this.x + this.attackBoxes[this.facing].xOffset,
+      y: this.y + this.attackBoxes[this.facing].yOffset,
+      width: this.attackBoxes[this.facing].width,
+      height: this.attackBoxes[this.facing].height,
+    }
+  
+    
+
     if (this.x < 0) this.x = 0;
 
     // Sağ sınır kontrolü
@@ -226,13 +302,9 @@ class Player {
     if (this.y + this.height > MAP_HEIGHT) {
       this.y = MAP_HEIGHT - this.height;
     }
-    // =========================================================
+    
 
-    // Merkez koordinatını sınır kontrolünden sonra hesaplıyoruz ki kamera sapıtmasın
-    this.center = {
-      x: this.x + this.width / 2,
-      y: this.y + this.height / 2,
-    };
+    
   }
 
   updateHorizontalPosition(deltaTime) {
@@ -246,7 +318,7 @@ class Player {
   handleInput(keys) {
     this.velocity.x = 0;
     this.velocity.y = 0;
-    if (this.isAttaking) return
+    if (this.isAttacking) return
     if (keys.d.pressed) {
       this.velocity.x = X_VELOCITY;
       this.currentSprite = this.sprites.walkRight;

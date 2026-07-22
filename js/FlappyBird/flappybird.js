@@ -1,4 +1,4 @@
-//board
+ o//board
 let board;
 // let boardWidth = 360;
 // let boardHeight = 640;
