@@ -12,13 +12,13 @@ const RightBar = () => {
             try {
                 const res = await axios.get("http://localhost:8800/api/users/suggestions");
                 // Filter out current user from suggestions just in case db query included it
-                setSuggestions(res.data.filter(u => u.id !== currentUser.id));
+                setSuggestions(res.data.filter(u => u.id !== currentUser?.id));
             } catch (err) {
                 console.log(err);
             }
         };
         fetchSuggestions();
-    }, [currentUser.id]);
+    }, [currentUser?.id]);
 
     return (
         <div className="flex-[3.5] bg-[#f6f3f3] dark:bg-[#333] hidden lg:block overflow-scroll h-[calc(100vh-50px)] sticky top-[50px] scrollbar-hide">
@@ -28,7 +28,7 @@ const RightBar = () => {
                     {suggestions.map((user) => (
                         <div className="flex items-center justify-between my-5" key={user.id}>
                             <div className="flex items-center gap-2.5">
-                                <img src={user.profilePic || "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600"} alt="" className="w-10 h-10 rounded-full object-cover" />
+                                <img src={user?.profilePic || "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1600"} alt="" className="w-10 h-10 rounded-full object-cover" />
                                 <Link to={`/profile/${user.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                                     <span className="font-semibold text-gray-700 dark:text-gray-200">{user.name}</span>
                                 </Link>

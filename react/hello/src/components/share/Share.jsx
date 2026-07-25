@@ -54,13 +54,13 @@ const Share = () => {
                 <div className="flex items-center gap-5">
                     <div className="flex items-center gap-2.5 flex-[3]">
                         <img
-                            src={currentUser.profilePic}
+                            src={currentUser?.profilePic}
                             alt=""
                             className="w-10 h-10 rounded-full object-cover"
                         />
                         <input
                             type="text"
-                            placeholder={`What's on your mind ${currentUser.name}?`}
+                            placeholder={`What's on your mind ${currentUser?.name}?`}
                             onChange={(e) => setDesc(e.target.value)}
                             value={desc}
                             className="border-none outline-none p-2.5 w-full bg-transparent text-gray-700 dark:text-gray-200"

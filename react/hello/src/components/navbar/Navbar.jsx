@@ -46,11 +46,11 @@ const Navbar = () => {
                 <IoMailOutline className='w-5 h-5 cursor-pointer dark:text-gray-200' />
                 <IoNotificationsOutline className='w-5 h-5 cursor-pointer dark:text-gray-200' />
                 <div className="flex items-center gap-2.5 font-bold relative cursor-pointer" onClick={() => setOpen(!open)}>
-                    <img src={currentUser.profilePic} alt="" className="w-8 h-8 rounded-full object-cover" />
-                    <span className="hidden sm:block dark:text-gray-200">{currentUser.name}</span>
+                    <img src={currentUser?.profilePic} alt="" className="w-8 h-8 rounded-full object-cover" />
+                    <span className="hidden sm:block dark:text-gray-200">{currentUser?.name}</span>
                     {open && (
                         <div className="absolute top-[50px] right-0 bg-white dark:bg-[#333] p-5 shadow-md rounded-md flex flex-col gap-2.5 z-50 w-[200px]">
-                            <Link to={`/profile/${currentUser.id}`} className="flex items-center gap-2 text-gray-500 dark:text-gray-200 hover:text-blue-500">
+                            <Link to={`/profile/${currentUser?.id}`} className="flex items-center gap-2 text-gray-500 dark:text-gray-200 hover:text-blue-500">
                                 <IoPersonOutline />
                                 <span>Profile</span>
                             </Link>
