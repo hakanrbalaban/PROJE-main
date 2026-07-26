@@ -183,7 +183,7 @@
     tabs.forEach(function (btn) {
       btn.addEventListener("click", function () {
         tabs.forEach(function (b) {
-          b.className = "tab-btn py-3 bg-white/5 text-slate-300 hover:text-white transition";
+          b.className = "tab-btn py-3 bg-stone-100 text-stone-600 hover:text-brand transition";
         });
         btn.className = "tab-btn py-3 bg-brand text-white transition";
         document.querySelectorAll(".tab-panel").forEach(function (panel) {
@@ -196,9 +196,9 @@
   /* ========== Ana kategori vitrini (6 kategori) ========== */
   function initHomeCategories() {
     var host = document.getElementById("homeCategories");
-    if (!host || !window.VT_CATEGORIES || !window.VT_ARTICLES) return;
+    if (!host || !window.MG_CATEGORIES || !window.MG_ARTICLES) return;
 
-    var slugs = window.VT_HOME_CATEGORIES || [];
+    var slugs = window.MG_HOME_CATEGORIES || [];
     var accentMap = {
       sky: "after:bg-sky-500",
       emerald: "after:bg-emerald-500",
@@ -211,7 +211,7 @@
     };
 
     slugs.forEach(function (slug) {
-      var cat = window.VT_CATEGORIES[slug];
+      var cat = window.MG_CATEGORIES[slug];
       if (!cat) return;
       var ids = (cat.ids || []).slice(0, 6);
       if (!ids.length) return;
@@ -227,15 +227,15 @@
 
       var accent = accentMap[cat.accent] || "after:bg-brand";
       var header =
-        '<div class="flex items-end justify-between border-b border-white/10 pb-2 mb-5">' +
-        '<h3 class="font-head text-lg font-bold uppercase tracking-wide text-white relative after:content-[\'\'] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] ' + accent + '">' +
+        '<div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-5">' +
+        '<h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[\'\'] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] ' + accent + '">' +
         cat.name +
         "</h3>" +
         '<div class="flex items-center gap-2">' +
-        '<a href="' + categoryUrl(slug) + '" class="text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Tümü</a>' +
+        '<a href="' + categoryUrl(slug) + '" class="text-[10px] font-bold uppercase tracking-widest text-stone-500 hover:text-brand transition">Tümü</a>' +
         (pages.length > 1
-          ? '<button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>' +
-            '<button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>'
+          ? '<button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+            '<button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>'
           : "") +
         "</div></div>";
 
@@ -243,18 +243,18 @@
         .map(function (pageIds, pi) {
           var cards = pageIds
             .map(function (id) {
-              var a = window.VT_ARTICLES[id];
+              var a = window.MG_ARTICLES[id];
               if (!a) return "";
               return (
                 '<a href="' +
                 articleUrl(a.id) +
-                '" class="group flex gap-3 items-start border-b border-white/5 pb-4">' +
+                '" class="group flex gap-3 items-start border-b border-stone-100 pb-4">' +
                 '<span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="' +
                 a.image +
                 '" alt="" class="w-full h-full object-cover"></span>' +
-                "<div><h4 class=\"text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2\">" +
+                "<div><h4 class=\"text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2\">" +
                 a.title +
-                '</h4><p class="text-[10px] text-slate-400 mt-1.5">' +
+                '</h4><p class="text-[10px] text-stone-500 mt-1.5">' +
                 a.date +
                 "</p></div></a>"
               );

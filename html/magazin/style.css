@@ -1,11 +1,25 @@
-/* Magazinolog — özel stiller (Tailwind sınıflarını tamamlar) */
+/* Magazinolog — light theme yardımcı stiller */
+
+:root {
+  --mg-brand: #e11d48;
+  --mg-ink: #1c1917;
+  --mg-mist: #f5f5f4;
+  --mg-paper: #ffffff;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Manrope", system-ui, sans-serif;
+  background: var(--mg-mist);
+  color: var(--mg-ink);
+}
+
+.font-display {
+  font-family: "Sora", system-ui, sans-serif;
+  letter-spacing: 0.04em;
 }
 
 .clamp-2 {
@@ -33,7 +47,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Manşet slider geçişleri */
 .hero-slide {
   opacity: 0;
   pointer-events: none;
@@ -50,7 +63,7 @@ body {
   width: 0.625rem;
   height: 0.625rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.45);
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -59,7 +72,6 @@ body {
   transform: scale(1.15);
 }
 
-/* Bölüm carousel sayfaları */
 .js-carousel-page {
   animation: carouselIn 0.35s ease;
 }
@@ -67,7 +79,7 @@ body {
 @keyframes carouselIn {
   from {
     opacity: 0;
-    transform: translateX(12px);
+    transform: translateX(10px);
   }
   to {
     opacity: 1;
@@ -82,4 +94,8 @@ body {
 #toTop.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+#toTop {
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.25);
 }

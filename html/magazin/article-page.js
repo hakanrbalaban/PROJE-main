@@ -35,7 +35,7 @@
 
   function allArticles() {
     var list = [];
-    var map = window.VT_ARTICLES || {};
+    var map = window.MG_ARTICLES || {};
     Object.keys(map).forEach(function (k) {
       list.push(map[k]);
     });
@@ -51,9 +51,9 @@
     return (
       '<a href="' + articleUrl(a.id) + '" class="group flex gap-3 items-start">' +
       '<span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="' + a.image + '" alt="" class="w-full h-full object-cover"></span>' +
-      "<div><h4 class=\"text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2\">" +
+      "<div><h4 class=\"text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2\">" +
       a.title +
-      '</h4><p class="text-[10px] text-slate-400 mt-1">' +
+      '</h4><p class="text-[10px] text-stone-500 mt-1">' +
       a.date +
       "</p></div></a>"
     );
@@ -61,12 +61,12 @@
 
   function cardHtml(a) {
     return (
-      '<a href="' + articleUrl(a.id) + '" class="group block border border-white/10 overflow-hidden hover:border-brand/50 transition">' +
+      '<a href="' + articleUrl(a.id) + '" class="group block border border-stone-200 overflow-hidden hover:border-brand/50 transition">' +
       '<span class="block h-40 overflow-hidden"><img src="' + a.image + '" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></span>' +
-      '<div class="p-3"><p class="text-[10px] uppercase tracking-widest text-brand">' + a.categoryLabel + "</p>" +
-      '<h3 class="mt-1 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition clamp-2">' +
+      '<div class="p-3"><p class="text-[10px] uppercase tracking-[0.18em] text-brand">' + a.categoryLabel + "</p>" +
+      '<h3 class="mt-1 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition clamp-2">' +
       a.title +
-      '</h3><p class="text-[10px] text-slate-500 mt-2">' + a.date + " · " + a.comments + " yorum</p></div></a>"
+      '</h3><p class="text-[10px] text-stone-500 mt-2">' + a.date + " · " + a.comments + " yorum</p></div></a>"
     );
   }
 
@@ -74,7 +74,7 @@
     return (
       '<a href="' + articleUrl(a.id) + '" class="group block">' +
       '<span class="block h-28 overflow-hidden"><img src="' + a.image + '" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></span>' +
-      '<h4 class="mt-2 text-[12px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">' +
+      '<h4 class="mt-2 text-[12px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">' +
       a.title +
       "</h4></a>"
     );
@@ -84,7 +84,7 @@
   function loadArticle() {
     var params = new URLSearchParams(window.location.search);
     var id = params.get("id");
-    var article = id && window.VT_ARTICLES ? window.VT_ARTICLES[id] : null;
+    var article = id && window.MG_ARTICLES ? window.MG_ARTICLES[id] : null;
 
     if (!article) {
       document.getElementById("articleLayout").classList.add("hidden");
@@ -124,7 +124,7 @@
       var a = document.createElement("a");
       a.href = "kategori.html?cat=" + encodeURIComponent(article.category);
       a.className =
-        "border border-white/15 text-slate-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition";
+        "border border-white/15 text-stone-500 text-[10px] font-bold uppercase tracking-[0.18em] px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition";
       a.textContent = t;
       tags.appendChild(a);
     });
@@ -151,9 +151,9 @@
 
     document.getElementById("sideComments").innerHTML = SEED_COMMENTS.map(function (c) {
       return (
-        '<div class="border-b border-white/5 pb-3">' +
-        '<p class="text-[13px] text-slate-300 leading-snug clamp-3">"' + c.text + '"</p>' +
-        '<p class="text-[10px] text-slate-400 mt-2"><span class="text-brand font-semibold">' +
+        '<div class="border-b border-stone-100 pb-3">' +
+        '<p class="text-[13px] text-stone-700 leading-snug clamp-3">"' + c.text + '"</p>' +
+        '<p class="text-[10px] text-stone-500 mt-2"><span class="text-brand font-semibold">' +
         c.name +
         "</span> · " +
         c.likes +
@@ -181,18 +181,18 @@
       .slice(0, 6);
     document.getElementById("alsoLiked").innerHTML = also.map(miniCardHtml).join("");
 
-    var cats = window.VT_CATEGORIES || {};
+    var cats = window.MG_CATEGORIES || {};
     var catHtml = "";
     Object.keys(cats).forEach(function (key) {
       if (key === "gundem") return;
       var c = cats[key];
       catHtml +=
-        '<li class="flex justify-between border-b border-white/5 py-2">' +
+        '<li class="flex justify-between border-b border-stone-100 py-2">' +
         '<a href="kategori.html?cat=' +
         encodeURIComponent(c.slug) +
-        '" class="text-slate-300 hover:text-brand transition">' +
+        '" class="text-stone-700 hover:text-brand transition">' +
         c.name +
-        '</a><span class="text-slate-500">' +
+        '</a><span class="text-stone-500">' +
         (c.ids ? c.ids.length : 0) +
         "</span></li>";
     });
@@ -205,7 +205,7 @@
     tabs.forEach(function (btn) {
       btn.addEventListener("click", function () {
         tabs.forEach(function (b) {
-          b.className = "tab-btn py-3 bg-white/5 text-slate-300 hover:text-white transition";
+          b.className = "tab-btn py-3 bg-stone-100 text-stone-700 hover:text-stone-900 transition";
         });
         btn.className = "tab-btn py-3 bg-brand text-white transition";
         document.querySelectorAll(".tab-panel").forEach(function (panel) {
@@ -268,26 +268,26 @@
       listEl.innerHTML = items
         .map(function (c, idx) {
           return (
-            '<div class="border-b border-white/10 pb-4" data-cidx="' +
+            '<div class="border-b border-stone-200 pb-4" data-cidx="' +
             idx +
             '">' +
             '<div class="flex items-start gap-3">' +
-            '<span class="grid place-items-center w-9 h-9 rounded-full bg-brand/20 text-brand font-head font-bold text-sm shrink-0">' +
+            '<span class="grid place-items-center w-9 h-9 rounded-full bg-brand/20 text-brand font-display font-bold text-sm shrink-0">' +
             (c.name || "?").charAt(0).toUpperCase() +
             "</span>" +
             "<div class=\"flex-1 min-w-0\">" +
             '<div class="flex flex-wrap items-center gap-2">' +
-            '<p class="text-[13px] font-semibold text-white">' +
+            '<p class="text-[13px] font-semibold text-stone-900">' +
             c.name +
-            '</p><p class="text-[10px] text-slate-500">' +
+            '</p><p class="text-[10px] text-stone-500">' +
             (c.time || "Az önce") +
             "</p></div>" +
-            '<p class="text-[14px] text-slate-300 leading-relaxed mt-1.5">' +
+            '<p class="text-[14px] text-stone-700 leading-relaxed mt-1.5">' +
             c.text +
             "</p>" +
             '<button type="button" data-like-c="' +
             idx +
-            '" class="mt-2 text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Beğen · ' +
+            '" class="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Beğen · ' +
             (c.likes || 0) +
             "</button>" +
             "</div></div></div>"
@@ -379,7 +379,7 @@
       result.innerHTML = Object.keys(base)
         .map(function (k) {
           return (
-            '<div><div class="flex justify-between mb-1"><span class="text-slate-300">' +
+            '<div><div class="flex justify-between mb-1"><span class="text-stone-700">' +
             labels[k] +
             '</span><span class="text-brand font-semibold">%' +
             base[k] +

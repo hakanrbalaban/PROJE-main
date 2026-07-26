@@ -8,22 +8,22 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600;700" rel="stylesheet">
 <script>
 tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink:   '#0f172a',
-        inkier:'#0b1220',
-        brand: '#2563eb',
-        paper: '#f8fafc'
+        brand: '#e11d48',
+        paper: '#ffffff',
+        mist: '#f5f5f4',
+        ink: '#1c1917'
       },
       fontFamily: {
-        head: ['"Barlow Condensed"', 'sans-serif'],
-        body: ['Inter', 'sans-serif']
+        display: ['"Sora"', 'sans-serif'],
+        body: ['Manrope', 'sans-serif']
       },
-      maxWidth: { shell: '1180px' }
+      maxWidth: { page: '1180px' }
     }
   }
 }
@@ -31,28 +31,28 @@ tailwind.config = {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-ink font-body text-slate-200 antialiased">
+<body class="bg-stone-50 font-body text-stone-800 antialiased">
 
 <!-- ============ 1. ÜST BANT : Hava durumu / tarih / servis linkleri ============ -->
-<div class="bg-inkier border-b border-white/5 text-[11px] tracking-wide">
-  <div class="mx-auto max-w-shell px-4 h-9 flex items-center justify-between">
-    <div class="flex items-center gap-5 text-slate-400">
+<div class="bg-white border-b border-stone-200 text-[11px] tracking-[0.08em]">
+  <div class="mx-auto max-w-page px-4 h-9 flex items-center justify-between">
+    <div class="flex items-center gap-5 text-stone-500">
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 16a4.5 4.5 0 01-.9-8.9 5.5 5.5 0 0110.7-1.3A4 4 0 0115 16H5.5z"/></svg>
-        Ankara <span class="text-slate-200 font-semibold">+21°</span>
+        Ankara <span class="text-stone-800 font-semibold">+21°</span>
       </span>
-      <span class="hidden sm:inline text-slate-600">|</span>
+      <span class="hidden sm:inline text-stone-600">|</span>
       <span class="hidden sm:inline">USD 32,84 &nbsp;·&nbsp; EUR 35,61 &nbsp;·&nbsp; ONS 2.318$</span>
-      <span class="hidden lg:inline text-slate-600">|</span>
+      <span class="hidden lg:inline text-stone-600">|</span>
       <span class="hidden lg:inline">26 Temmuz 2026, Pazar</span>
     </div>
     <div class="flex items-center gap-4">
-      <nav class="hidden md:flex items-center gap-4 text-slate-400">
-        <a href="#" class="hover:text-white transition">Giriş Yap</a>
-        <a href="#" class="hover:text-white transition">Künye</a>
-        <a href="#" class="hover:text-white transition">İletişim</a>
+      <nav class="hidden md:flex items-center gap-4 text-stone-500">
+        <a href="#" class="hover:text-brand transition">Giriş Yap</a>
+        <a href="#" class="hover:text-brand transition">Künye</a>
+        <a href="#" class="hover:text-brand transition">İletişim</a>
       </nav>
-      <div class="flex items-center gap-2.5 text-slate-500">
+      <div class="flex items-center gap-2.5 text-stone-500">
         <a href="#" aria-label="Facebook" class="hover:text-brand transition"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
         <a href="#" aria-label="X" class="hover:text-brand transition"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6l-4.7-6.1L5.7 21h-3l7.1-8.1L2.5 3h6.2l4.2 5.6L17.5 3zm-1 16h1.6L8.1 4.7H6.4L16.5 19z"/></svg></a>
         <a href="#" aria-label="Instagram" class="hover:text-brand transition"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6A4.4 4.4 0 1016.4 12 4.4 4.4 0 0012 7.6zm0 7.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 14.8zM17.8 2H6.2A4.2 4.2 0 002 6.2v11.6A4.2 4.2 0 006.2 22h11.6a4.2 4.2 0 004.2-4.2V6.2A4.2 4.2 0 0017.8 2zm2.6 15.8a2.6 2.6 0 01-2.6 2.6H6.2a2.6 2.6 0 01-2.6-2.6V6.2a2.6 2.6 0 012.6-2.6h11.6a2.6 2.6 0 012.6 2.6z"/></svg></a>
@@ -64,42 +64,42 @@ tailwind.config = {
 </div>
 
 <!-- ============ 2. HEADER : Logo + 728x90 reklam ============ -->
-<header class="bg-ink">
-  <p class="text-center text-[9px] tracking-[0.3em] text-slate-600 uppercase pt-3">Reklam</p>
-  <div class="mx-auto max-w-shell px-4 py-4 flex flex-col lg:flex-row items-center justify-between gap-6">
+<header class="bg-stone-50">
+  <p class="text-center text-[9px] tracking-[0.3em] text-stone-600 uppercase pt-3">Reklam</p>
+  <div class="mx-auto max-w-page px-4 py-4 flex flex-col lg:flex-row items-center justify-between gap-6">
     <a href="index.html" class="flex items-center gap-3 shrink-0">
-      <span class="grid place-items-center w-11 h-11 rounded bg-brand font-head text-2xl font-bold text-white leading-none pt-1">M</span>
-      <span class="font-head uppercase leading-none">
-        <span class="block text-[34px] font-bold tracking-tight text-white">Magazin<span class="text-brand">olog</span></span>
-        <span class="block text-[10px] tracking-[0.42em] text-slate-500 mt-1">bağımsız haber · analiz · veri</span>
+      <span class="grid place-items-center w-11 h-11 rounded bg-brand font-display text-2xl font-bold text-white leading-none pt-1">M</span>
+      <span class="font-display uppercase leading-none">
+        <span class="block text-[34px] font-bold tracking-[-0.02em] text-stone-900">Magazin<span class="text-brand">olog</span></span>
+        <span class="block text-[10px] tracking-[0.42em] text-stone-500 mt-1">bağımsız haber · analiz · veri</span>
       </span>
     </a>
-    <div class="w-full lg:w-[728px] h-[90px] rounded-sm bg-gradient-to-r from-slate-800 to-slate-900 border border-white/10 flex items-center justify-between px-6">
-      <div class="grid place-items-center w-16 h-16 border-2 border-brand text-brand font-head font-bold text-sm leading-tight text-center">MG<br>ADS</div>
-      <p class="hidden sm:block flex-1 px-6 text-slate-400 text-[13px] italic">dünya / ekonomi / teknoloji / yaşam / spor / kültür ve daha fazlası</p>
-      <a href="#" class="bg-brand hover:bg-blue-500 transition text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2 rounded-sm">Keşfet</a>
-      <span class="hidden md:block ml-4 text-[9px] tracking-widest text-slate-600 [writing-mode:vertical-rl]">728 x 90</span>
+    <div class="w-full lg:w-[728px] h-[90px] rounded-sm bg-gradient-to-r from-rose-50 to-amber-50 border border-stone-200 flex items-center justify-between px-6">
+      <div class="grid place-items-center w-16 h-16 border-2 border-brand text-brand font-display font-bold text-sm leading-tight text-center">MG<br>ADS</div>
+      <p class="hidden sm:block flex-1 px-6 text-stone-500 text-[13px] italic">dünya / ekonomi / teknoloji / yaşam / spor / kültür ve daha fazlası</p>
+      <a href="#" class="bg-brand hover:bg-rose-600 transition text-white text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2 rounded-sm">Keşfet</a>
+      <span class="hidden md:block ml-4 text-[9px] tracking-[0.18em] text-stone-600 [writing-mode:vertical-rl]">728 x 90</span>
     </div>
   </div>
 </header>
 
 <!-- ============ 3. ANA MENÜ (renkli kategori çizgileri) ============ -->
-<nav class="sticky top-0 z-50 bg-inkier/95 backdrop-blur border-y border-white/10">
-  <div class="mx-auto max-w-shell px-4 flex items-center justify-between gap-4">
-    <ul class="flex items-stretch overflow-x-auto no-bar font-head text-[15px] font-semibold uppercase tracking-wide">
-      <li><a href="index.html" class="block px-4 py-3.5 border-t-2 border-brand text-white bg-white/5">Anasayfa</a></li>
-      <li><a href="kategori.html?cat=dunya" class="block px-4 py-3.5 border-t-2 border-sky-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Dünya</a></li>
-      <li><a href="kategori.html?cat=ekonomi" class="block px-4 py-3.5 border-t-2 border-emerald-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Ekonomi</a></li>
-      <li><a href="kategori.html?cat=teknoloji" class="block px-4 py-3.5 border-t-2 border-amber-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Teknoloji</a></li>
-      <li><a href="kategori.html?cat=yasam" class="block px-4 py-3.5 border-t-2 border-fuchsia-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Yaşam</a></li>
-      <li><a href="kategori.html?cat=video" class="block px-4 py-3.5 border-t-2 border-violet-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Video</a></li>
-      <li><a href="kategori.html?cat=spor" class="block px-4 py-3.5 border-t-2 border-rose-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Spor</a></li>
-      <li><a href="kategori.html?cat=saglik" class="block px-4 py-3.5 border-t-2 border-teal-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Sağlık</a></li>
-      <li><a href="kategori.html?cat=kultur" class="block px-4 py-3.5 border-t-2 border-orange-500 text-slate-300 hover:text-white hover:bg-white/5 transition">Kültür</a></li>
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-y border-stone-200">
+  <div class="mx-auto max-w-page px-4 flex items-center justify-between gap-4">
+    <ul class="flex items-stretch overflow-x-auto no-bar font-display text-[15px] font-semibold uppercase tracking-[0.08em]">
+      <li><a href="index.html" class="block px-4 py-3.5 border-t-2 border-brand text-brand bg-rose-50">Anasayfa</a></li>
+      <li><a href="kategori.html?cat=dunya" class="block px-4 py-3.5 border-t-2 border-sky-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Dünya</a></li>
+      <li><a href="kategori.html?cat=ekonomi" class="block px-4 py-3.5 border-t-2 border-emerald-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Ekonomi</a></li>
+      <li><a href="kategori.html?cat=teknoloji" class="block px-4 py-3.5 border-t-2 border-amber-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Teknoloji</a></li>
+      <li><a href="kategori.html?cat=yasam" class="block px-4 py-3.5 border-t-2 border-fuchsia-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Yaşam</a></li>
+      <li><a href="kategori.html?cat=video" class="block px-4 py-3.5 border-t-2 border-violet-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Video</a></li>
+      <li><a href="kategori.html?cat=spor" class="block px-4 py-3.5 border-t-2 border-rose-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Spor</a></li>
+      <li><a href="kategori.html?cat=saglik" class="block px-4 py-3.5 border-t-2 border-teal-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Sağlık</a></li>
+      <li><a href="kategori.html?cat=kultur" class="block px-4 py-3.5 border-t-2 border-orange-500 text-stone-700 hover:text-brand hover:bg-rose-50 transition">Kültür</a></li>
     </ul>
-    <form class="hidden md:flex items-center gap-2 bg-white/5 border border-white/10 rounded-sm px-3 py-2 focus-within:border-brand transition" onsubmit="return false">
-      <input type="search" placeholder="HABER ARA" class="bg-transparent text-[11px] tracking-widest uppercase text-slate-200 placeholder-slate-500 outline-none w-36">
-      <button aria-label="Ara" class="text-slate-400 hover:text-brand transition">
+    <form class="hidden md:flex items-center gap-2 bg-stone-100 border border-stone-200 rounded-sm px-3 py-2 focus-within:border-brand transition" onsubmit="return false">
+      <input type="search" placeholder="HABER ARA" class="bg-transparent text-[11px] tracking-[0.18em] uppercase text-stone-800 placeholder-stone-400 outline-none w-36">
+      <button aria-label="Ara" class="text-stone-500 hover:text-brand transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
       </button>
     </form>
@@ -107,27 +107,27 @@ tailwind.config = {
 </nav>
 
 <!-- ============ 4. MANŞET MOZAİĞİ ============ -->
-<section class="bg-inkier">
+<section class="bg-stone-100 border-y border-stone-200">
   <div class="grid grid-cols-12 gap-[3px] lg:h-[380px]">
 
     <!-- sol dikey ikili -->
     <div class="col-span-12 lg:col-span-3 grid grid-rows-2 gap-[3px] lg:h-full min-h-0">
       <a href="article.html?id=ege-sezon" class="group relative block h-48 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=800&q=70" alt="Ege kıyılarında yaz sezonu" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1">Seyahat</span>
+        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2 py-1">Seyahat</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight text-white">Ege kıyılarında sezon erken açıldı, doluluk yüzde 74'e ulaştı</h3>
-          <p class="text-[11px] text-slate-400 mt-2">26 Temmuz 2026 · 18 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight text-white">Ege kıyılarında sezon erken açıldı, doluluk yüzde 74'e ulaştı</h3>
+          <p class="text-[11px] text-white/75 mt-2">26 Temmuz 2026 · 18 yorum</p>
         </div>
       </a>
       <a href="article.html?id=sakatlik-soku" class="group relative block h-48 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1508997449629-303059a039c0?auto=format&fit=crop&w=800&q=70" alt="Süper Lig hazırlık maçları" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1">Spor</span>
+        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2 py-1">Spor</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
         <div class="absolute bottom-0 p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight text-white">Hazırlık kampında sakatlık şoku: iki oyuncu kadro dışı</h3>
-          <p class="text-[11px] text-slate-400 mt-2">26 Temmuz 2026 · 31 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight text-white">Hazırlık kampında sakatlık şoku: iki oyuncu kadro dışı</h3>
+          <p class="text-[11px] text-white/75 mt-2">26 Temmuz 2026 · 31 yorum</p>
         </div>
       </a>
     </div>
@@ -139,30 +139,30 @@ tailwind.config = {
           <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=1400&q=75" alt="Metropollerde ulaşım dönüşümü" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/25"></div>
           <div class="absolute bottom-0 p-6 lg:p-8">
-            <span class="inline-block bg-brand text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 mb-3">Gündem</span>
-            <h2 class="font-head text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Büyükşehirlerde raylı sistem seferberliği: 11 hat için imzalar atıldı</h2>
-            <p class="hidden sm:block text-slate-300 text-sm mt-3 max-w-xl clamp-2">Toplam 214 kilometrelik yeni güzergâh planı, kent içi ulaşımda özel araç kullanımını üçte bir oranında azaltmayı hedefliyor.</p>
-            <p class="text-[11px] text-slate-400 mt-3">26 Temmuz 2026 · Deniz Aksoy · 47 yorum · 1.284 görüntülenme</p>
+            <span class="inline-block bg-brand text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2.5 py-1 mb-3">Gündem</span>
+            <h2 class="font-display text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Büyükşehirlerde raylı sistem seferberliği: 11 hat için imzalar atıldı</h2>
+            <p class="hidden sm:block text-white/80 text-sm mt-3 max-w-xl clamp-2">Toplam 214 kilometrelik yeni güzergâh planı, kent içi ulaşımda özel araç kullanımını üçte bir oranında azaltmayı hedefliyor.</p>
+            <p class="text-[11px] text-white/75 mt-3">26 Temmuz 2026 · Deniz Aksoy · 47 yorum · 1.284 görüntülenme</p>
           </div>
         </article>
         <article class="hero-slide absolute inset-0 overflow-hidden cursor-pointer" data-article="yenilenebilir">
           <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1400&q=75" alt="Enerji piyasasında yeni denge" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/25"></div>
           <div class="absolute bottom-0 p-6 lg:p-8">
-            <span class="inline-block bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 mb-3">Ekonomi</span>
-            <h2 class="font-head text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Yenilenebilir üretim ilk kez toplam elektriğin yarısını karşıladı</h2>
-            <p class="hidden sm:block text-slate-300 text-sm mt-3 max-w-xl clamp-2">Rüzgâr ve güneşteki kapasite artışı, yaz aylarındaki rekor talebe rağmen ithal yakıt faturasını gerileterek dengeyi değiştirdi.</p>
-            <p class="text-[11px] text-slate-400 mt-3">25 Temmuz 2026 · Selin Karaca · 22 yorum · 963 görüntülenme</p>
+            <span class="inline-block bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2.5 py-1 mb-3">Ekonomi</span>
+            <h2 class="font-display text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Yenilenebilir üretim ilk kez toplam elektriğin yarısını karşıladı</h2>
+            <p class="hidden sm:block text-white/80 text-sm mt-3 max-w-xl clamp-2">Rüzgâr ve güneşteki kapasite artışı, yaz aylarındaki rekor talebe rağmen ithal yakıt faturasını gerileterek dengeyi değiştirdi.</p>
+            <p class="text-[11px] text-white/75 mt-3">25 Temmuz 2026 · Selin Karaca · 22 yorum · 963 görüntülenme</p>
           </div>
         </article>
         <article class="hero-slide absolute inset-0 overflow-hidden cursor-pointer" data-article="uydu">
           <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=75" alt="Uydu ağı projesi" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/25"></div>
           <div class="absolute bottom-0 p-6 lg:p-8">
-            <span class="inline-block bg-amber-500 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 mb-3">Teknoloji</span>
-            <h2 class="font-head text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Yerli haberleşme uydusu için fırlatma takvimi öne çekildi</h2>
-            <p class="hidden sm:block text-slate-300 text-sm mt-3 max-w-xl clamp-2">Test süreçlerini planlanandan erken tamamlayan ekip, kırsal bölgelerde geniş bant erişimini iki katına çıkarmayı planlıyor.</p>
-            <p class="text-[11px] text-slate-400 mt-3">25 Temmuz 2026 · Emre Tunç · 15 yorum · 771 görüntülenme</p>
+            <span class="inline-block bg-amber-500 text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2.5 py-1 mb-3">Teknoloji</span>
+            <h2 class="font-display text-3xl lg:text-[40px] font-bold uppercase leading-[1.05] text-white max-w-2xl">Yerli haberleşme uydusu için fırlatma takvimi öne çekildi</h2>
+            <p class="hidden sm:block text-white/80 text-sm mt-3 max-w-xl clamp-2">Test süreçlerini planlanandan erken tamamlayan ekip, kırsal bölgelerde geniş bant erişimini iki katına çıkarmayı planlıyor.</p>
+            <p class="text-[11px] text-white/75 mt-3">25 Temmuz 2026 · Emre Tunç · 15 yorum · 771 görüntülenme</p>
           </div>
         </article>
 
@@ -180,56 +180,217 @@ tailwind.config = {
     <div class="col-span-12 lg:col-span-3 grid grid-cols-2 grid-rows-2 gap-[3px] lg:h-full min-h-0">
       <a href="article.html?id=tarifler" class="group relative block h-40 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=70" alt="Gastronomi rotaları" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5">Lezzet</span>
+        <span class="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-0.5">Lezzet</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
-        <h3 class="absolute bottom-0 p-3 font-head text-[15px] font-semibold uppercase leading-tight text-white">Anadolu'nun unutulan tarifleri kayıt altına alınıyor</h3>
+        <h3 class="absolute bottom-0 p-3 font-display text-[15px] font-semibold uppercase leading-tight text-white">Anadolu'nun unutulan tarifleri kayıt altına alınıyor</h3>
       </a>
       <a href="article.html?id=hibrit-ofis" class="group relative block h-40 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=70" alt="Uzaktan çalışma raporu" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-2 left-2 bg-brand text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5">Çalışma</span>
+        <span class="absolute top-2 left-2 bg-brand text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-0.5">Çalışma</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
-        <h3 class="absolute bottom-0 p-3 font-head text-[15px] font-semibold uppercase leading-tight text-white">Hibrit düzen kalıcılaşıyor: ofis talebi yüzde 12 düştü</h3>
+        <h3 class="absolute bottom-0 p-3 font-display text-[15px] font-semibold uppercase leading-tight text-white">Hibrit düzen kalıcılaşıyor: ofis talebi yüzde 12 düştü</h3>
       </a>
       <a href="article.html?id=kent-orman" class="group relative block h-40 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=70" alt="Kentsel yeşil alanlar" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5">Çevre</span>
+        <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-0.5">Çevre</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
-        <h3 class="absolute bottom-0 p-3 font-head text-[15px] font-semibold uppercase leading-tight text-white">Kent ormanları için 40 bin fidanlık yeni plan</h3>
+        <h3 class="absolute bottom-0 p-3 font-display text-[15px] font-semibold uppercase leading-tight text-white">Kent ormanları için 40 bin fidanlık yeni plan</h3>
       </a>
       <a href="article.html?id=festival" class="group relative block h-40 lg:h-full overflow-hidden min-h-0">
         <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=600&q=70" alt="Yaz festivalleri" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700">
-        <span class="absolute top-2 left-2 bg-fuchsia-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5">Kültür</span>
+        <span class="absolute top-2 left-2 bg-fuchsia-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-0.5">Kültür</span>
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div>
-        <h3 class="absolute bottom-0 p-3 font-head text-[15px] font-semibold uppercase leading-tight text-white">Festival takvimi genişledi: 63 şehirde sahne kuruluyor</h3>
+        <h3 class="absolute bottom-0 p-3 font-display text-[15px] font-semibold uppercase leading-tight text-white">Festival takvimi genişledi: 63 şehirde sahne kuruluyor</h3>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ============ 5. SON DAKİKA BANDI ============ -->
-<div class="bg-paper text-ink border-b border-slate-300">
-  <div class="mx-auto max-w-shell px-4 h-12 flex items-center gap-4">
-    <span class="relative shrink-0 bg-brand text-white font-head font-bold uppercase text-[13px] tracking-widest px-4 py-1.5 after:content-[''] after:absolute after:-right-2 after:top-0 after:border-y-[15px] after:border-y-transparent after:border-l-8 after:border-l-brand">Son Dakika</span>
-    <span class="hidden sm:inline-flex items-center gap-2 text-[11px] font-bold text-slate-500 shrink-0">
-      <span class="bg-ink text-white px-1.5 py-0.5 uppercase tracking-widest">Yeni</span> 09:36
+<div class="bg-paper text-stone-900 border-b border-stone-300">
+  <div class="mx-auto max-w-page px-4 h-12 flex items-center gap-4">
+    <span class="relative shrink-0 bg-brand text-white font-display font-bold uppercase text-[13px] tracking-[0.18em] px-4 py-1.5 after:content-[''] after:absolute after:-right-2 after:top-0 after:border-y-[15px] after:border-y-transparent after:border-l-8 after:border-l-brand">Son Dakika</span>
+    <span class="hidden sm:inline-flex items-center gap-2 text-[11px] font-bold text-stone-500 shrink-0">
+      <span class="bg-stone-50 text-white px-1.5 py-0.5 uppercase tracking-[0.18em]">Yeni</span> 09:36
     </span>
     <div class="flex-1 overflow-hidden">
-      <p id="ticker" class="text-[13px] font-medium text-slate-700 truncate transition-opacity duration-300">Merkez Bankası yıl sonu enflasyon tahminini yüzde 24,6 olarak revize etti.</p>
+      <p id="ticker" class="text-[13px] font-medium text-stone-700 truncate transition-opacity duration-300">Merkez Bankası yıl sonu enflasyon tahminini yüzde 24,6 olarak revize etti.</p>
     </div>
     <div class="hidden sm:flex items-center gap-1 shrink-0">
-      <button data-tick="prev" aria-label="Önceki başlık" class="w-7 h-7 grid place-items-center border border-slate-300 text-slate-500 hover:bg-ink hover:text-white hover:border-ink transition"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button data-tick="next" aria-label="Sonraki başlık" class="w-7 h-7 grid place-items-center border border-slate-300 text-slate-500 hover:bg-ink hover:text-white hover:border-ink transition"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button data-tick="prev" aria-label="Önceki başlık" class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:text-white hover:border-brand transition"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button data-tick="next" aria-label="Sonraki başlık" class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:text-white hover:border-brand transition"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </div>
 
-<!-- ============ 6. GÜNÜN SEÇKİLERİ (4'lü kart) ============ -->
-<section class="mx-auto max-w-shell px-4 pt-10 js-carousel">
-  <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-    <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Günün Seçkileri</h2>
+<!-- ============ FOTO GALERİ (üstte) ============ -->
+<!-- GALERİ -->
+<section id="foto-galeri" class="bg-rose-50 border-y border-rose-100 py-10 js-carousel">
+  <div class="mx-auto max-w-page px-4">
+  <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+    <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Foto Galeri</h2>
     <div class="flex gap-1">
-      <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+  <div class="js-carousel-page is-active grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <a href="article.html?id=yayla-rota" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=70" alt="Dağ yürüyüşü rotaları" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Yaylalarda 12 yeni yürüyüş rotası</h4>
+        <p class="text-[10px] text-white/75 mt-1">26 Temmuz 2026</p>
+      </div>
+    </a>
+    <a href="article.html?id=mavi-bayrak" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=70" alt="Mavi bayraklı plajlar" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Mavi bayrak sayısı 41 plajda arttı</h4>
+        <p class="text-[10px] text-white/75 mt-1">25 Temmuz 2026</p>
+      </div>
+    </a>
+    <a href="article.html?id=sakin-sehir" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=700&q=70" alt="Sahil kasabaları" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Sakin şehirlerde yaz nüfusu rekoru</h4>
+        <p class="text-[10px] text-white/75 mt-1">24 Temmuz 2026</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="js-carousel-page hidden grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <a href="article.html?id=festival" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Festival takvimi genişledi: 63 şehirde sahne</h4>
+        <p class="text-[10px] text-white/75 mt-1">21 Temmuz 2026</p>
+      </div>
+    </a>
+    <a href="article.html?id=ege-sezon" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Ege kıyılarında sezon erken açıldı</h4>
+        <p class="text-[10px] text-white/75 mt-1">26 Temmuz 2026</p>
+      </div>
+    </a>
+    <a href="article.html?id=muzik-arsiv" class="group relative block h-44 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
+      <div class="absolute bottom-0 p-3">
+        <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Anadolu ezgileri dijital arşivde</h4>
+        <p class="text-[10px] text-white/75 mt-1">18 Temmuz 2026</p>
+      </div>
+    </a>
+  </div>
+  </div>
+</section>
+
+<!-- ============ VİDEO BANDI ============ -->
+<!-- ============ 10. VİDEO GALERİ (renkli bant) ============ -->
+<section id="video" class="bg-cyan-50 border-y border-cyan-100 py-10">
+  <div class="mx-auto max-w-page px-4 js-carousel">
+    <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+      <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-violet-500">Öne Çıkan Videolar</h2>
+      <div class="flex gap-1">
+        <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="js-carousel-page is-active grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <a href="article.html?id=video-randevu" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=70" alt="Sağlık sisteminde dijital dönüşüm videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3">
+          <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Hastanelerde randevu sistemi nasıl değişti?</h4>
+          <p class="text-[10px] text-white/75 mt-1">04:12 · 26 Temmuz 2026</p>
+        </div>
+      </a>
+      <a href="article.html?id=akdeniz-mutfak" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=700&q=70" alt="Ev ekonomisi videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3">
+          <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Mutfak enflasyonu: sepet nasıl küçüldü?</h4>
+          <p class="text-[10px] text-white/75 mt-1">06:38 · 25 Temmuz 2026</p>
+        </div>
+      </a>
+      <a href="article.html?id=tarifler" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=700&q=70" alt="Yerel üretim videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3">
+          <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Tarladan rafa: kısa tedarik zinciri deneyi</h4>
+          <p class="text-[10px] text-white/75 mt-1">08:05 · 24 Temmuz 2026</p>
+        </div>
+      </a>
+      <a href="article.html?id=tarim-fon" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=70" alt="Perakende videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3">
+          <h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Perakendede indirim takvimi değişiyor</h4>
+          <p class="text-[10px] text-white/75 mt-1">03:47 · 23 Temmuz 2026</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="js-carousel-page hidden grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <a href="article.html?id=stadyum" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3"><h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Stadyum yenileme projeleri sahada</h4><p class="text-[10px] text-white/75 mt-1">05:20 · 26 Temmuz 2026</p></div>
+      </a>
+      <a href="article.html?id=e-spor" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3"><h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">E-spor finalinden sahne arkası</h4><p class="text-[10px] text-white/75 mt-1">07:10 · 22 Temmuz 2026</p></div>
+      </a>
+      <a href="article.html?id=dijital-kamu" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3"><h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Tek pencere kamu hizmeti anlatımı</h4><p class="text-[10px] text-white/75 mt-1">09:00 · 26 Temmuz 2026</p></div>
+      </a>
+      <a href="article.html?id=yapay-zeka" class="group relative block h-44 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
+        <div class="absolute bottom-0 p-3"><h4 class="font-display text-[15px] font-semibold uppercase text-white leading-tight">Arşivde yapay zekâ nasıl çalışıyor?</h4><p class="text-[10px] text-white/75 mt-1">06:45 · 21 Temmuz 2026</p></div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ KATEGORİLER (6) ============ -->
+<!-- ============ KATEGORİLER (6) ============ -->
+<section id="kategoriler" class="mx-auto max-w-page px-4 py-10 bg-amber-50/40">
+  <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-8">
+    <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Kategoriler</h2>
+    <p class="text-[11px] text-stone-500 uppercase tracking-[0.18em]">6 ana kategori · oklarla kaydırın</p>
+  </div>
+  <div id="homeCategories" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+</section>
+
+
+<!-- ============ GÜNÜN SEÇKİLERİ (kategorilerin altı) ============ -->
+<!-- ============ GÜNÜN SEÇKİLERİ ============ -->
+<section class="mx-auto max-w-page px-4 pt-10 js-carousel">
+  <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+    <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Günün Seçkileri</h2>
+    <div class="flex gap-1">
+      <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 
@@ -237,34 +398,34 @@ tailwind.config = {
     <article class="group">
       <a href="article.html?id=stadyum" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=70" alt="Stadyum yenileme projesi" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Spor</span>
+        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Spor</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=stadyum">Yeni stadyumlarda seyirci kapasitesi yüzde 30 artıyor</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">26 Temmuz 2026 · Berk Aydın · 23 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=stadyum">Yeni stadyumlarda seyirci kapasitesi yüzde 30 artıyor</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">26 Temmuz 2026 · Berk Aydın · 23 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=akdeniz-mutfak" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=70" alt="Beslenme araştırması" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Sağlık</span>
+        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Sağlık</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=akdeniz-mutfak">Akdeniz mutfağı üzerine on yıllık takip çalışması sonuçlandı</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">26 Temmuz 2026 · Dr. Ayşe Duran · 11 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=akdeniz-mutfak">Akdeniz mutfağı üzerine on yıllık takip çalışması sonuçlandı</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">26 Temmuz 2026 · Dr. Ayşe Duran · 11 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=basket-yayin" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=700&q=70" alt="Basketbol ligi" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Spor</span>
+        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Spor</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=basket-yayin">Basketbol liginde yayın hakları rekor bedelle satıldı</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">25 Temmuz 2026 · Berk Aydın · 8 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=basket-yayin">Basketbol liginde yayın hakları rekor bedelle satıldı</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">25 Temmuz 2026 · Berk Aydın · 8 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=tarim-fon" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=70" alt="Girişimcilik yatırımı" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Girişim</span>
+        <span class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Girişim</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=tarim-fon">Erken aşama fonlar tarım teknolojilerine yöneldi</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">25 Temmuz 2026 · Selin Karaca · 14 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=tarim-fon">Erken aşama fonlar tarım teknolojilerine yöneldi</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">25 Temmuz 2026 · Selin Karaca · 14 yorum</p>
     </article>
   </div>
 
@@ -272,52 +433,65 @@ tailwind.config = {
     <article class="group">
       <a href="article.html?id=e-spor" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=70" alt="E-spor" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Spor</span>
+        <span class="absolute top-3 left-3 bg-rose-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Spor</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=e-spor">Ulusal e-spor liginde seyirci rekoru kırıldı</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">22 Temmuz 2026 · Berk Aydın · 19 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=e-spor">Ulusal e-spor liginde seyirci rekoru kırıldı</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">22 Temmuz 2026 · Berk Aydın · 19 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=yapay-zeka" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=70" alt="Yapay zeka" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Teknoloji</span>
+        <span class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Teknoloji</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=yapay-zeka">Kamu arşivlerinde yapay zekâ ile sınıflandırma dönemi</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">21 Temmuz 2026 · Emre Tunç · 14 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=yapay-zeka">Kamu arşivlerinde yapay zekâ ile sınıflandırma dönemi</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">21 Temmuz 2026 · Emre Tunç · 14 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=asistan-saglik" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=70" alt="Sağlık" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Sağlık</span>
+        <span class="absolute top-3 left-3 bg-teal-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Sağlık</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=asistan-saglik">Aile hekimliğinde dijital asistan pilotu genişliyor</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">20 Temmuz 2026 · Dr. Ayşe Duran · 8 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=asistan-saglik">Aile hekimliğinde dijital asistan pilotu genişliyor</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">20 Temmuz 2026 · Dr. Ayşe Duran · 8 yorum</p>
     </article>
     <article class="group">
       <a href="article.html?id=karbon-borsa" class="relative block h-44 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=700&q=70" alt="Karbon" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-        <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">Ekonomi</span>
+        <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-2 py-1">Ekonomi</span>
       </a>
-      <h3 class="mt-3 font-head text-[17px] font-semibold uppercase leading-tight text-white group-hover:text-brand transition"><a href="article.html?id=karbon-borsa">Karbon piyasasında işlem hacmi yeni zirveye çıktı</a></h3>
-      <p class="mt-2 text-[11px] text-slate-400">19 Temmuz 2026 · Selin Karaca · 7 yorum</p>
+      <h3 class="mt-3 font-display text-[17px] font-semibold uppercase leading-tight text-stone-900 group-hover:text-brand transition"><a href="article.html?id=karbon-borsa">Karbon piyasasında işlem hacmi yeni zirveye çıktı</a></h3>
+      <p class="mt-2 text-[11px] text-stone-500">19 Temmuz 2026 · Selin Karaca · 7 yorum</p>
     </article>
   </div>
 </section>
 
-<!-- ============ 7-8. KATEGORİ BLOKLARI + SIDEBAR ============ -->
-<div class="mx-auto max-w-shell px-4 py-10 grid grid-cols-12 gap-8">
+
+<!-- ============ BANNER ============ -->
+<!-- ============ 9. GENİŞ BANNER 728x90 ============ -->
+<div class="mx-auto max-w-page px-4 pb-10">
+  <p class="text-center text-[9px] tracking-[0.3em] text-stone-600 uppercase mb-2">Reklam</p>
+  <div class="w-full h-[90px] bg-gradient-to-r from-rose-50 to-amber-50 border border-stone-200 flex items-center justify-between px-6">
+    <div class="grid place-items-center w-16 h-16 border-2 border-brand text-brand font-display font-bold text-sm leading-tight text-center">MG<br>ADS</div>
+    <p class="hidden sm:block flex-1 px-6 text-stone-500 text-[13px] italic">reklam alanınız burada · haftalık 2,4 milyon görüntülenme</p>
+    <a href="#" class="bg-brand hover:bg-rose-600 transition text-white text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2">İletişim</a>
+  </div>
+</div>
+
+
+<!-- ============ DÜNYA / YAŞAM / KÜLTÜR + SIDEBAR ============ -->
+<div class="mx-auto max-w-page px-4 py-10 grid grid-cols-12 gap-8">
 
   <!-- ---------- SOL SÜTUN ---------- -->
   <div class="col-span-12 lg:col-span-8 space-y-12">
 
     <!-- DÜNYA: 2 büyük + 4 küçük -->
     <section id="dunya" class="js-carousel">
-      <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-        <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-sky-500">Dünya</h2>
+      <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+        <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-sky-500">Dünya</h2>
         <div class="flex items-center gap-2">
-          <a href="kategori.html?cat=dunya" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Tümü</a>
-          <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          <a href="kategori.html?cat=dunya" class="text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Tümü</a>
+          <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
       </div>
 
@@ -326,47 +500,47 @@ tailwind.config = {
           <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=70" alt="İklim zirvesi" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4">
-            <h3 class="font-head text-[21px] font-semibold uppercase leading-tight text-white">İklim zirvesinde ortak fon için uzlaşma sağlandı</h3>
-            <p class="text-[11px] text-slate-400 mt-2">26 Temmuz 2026 · 19 yorum · 640 görüntülenme</p>
+            <h3 class="font-display text-[21px] font-semibold uppercase leading-tight text-white">İklim zirvesinde ortak fon için uzlaşma sağlandı</h3>
+            <p class="text-[11px] text-white/75 mt-2">26 Temmuz 2026 · 19 yorum · 640 görüntülenme</p>
           </div>
         </a>
         <a href="article.html?id=tedarik" class="group relative block h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=70" alt="Küresel tedarik zinciri" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4">
-            <h3 class="font-head text-[21px] font-semibold uppercase leading-tight text-white">Tedarik zincirinde rota değişimi: yeni koridor devrede</h3>
-            <p class="text-[11px] text-slate-400 mt-2">25 Temmuz 2026 · 27 yorum · 812 görüntülenme</p>
+            <h3 class="font-display text-[21px] font-semibold uppercase leading-tight text-white">Tedarik zincirinde rota değişimi: yeni koridor devrede</h3>
+            <p class="text-[11px] text-white/75 mt-2">25 Temmuz 2026 · 27 yorum · 812 görüntülenme</p>
           </div>
         </a>
       </div>
 
       <div class="js-carousel-page is-active grid sm:grid-cols-2 gap-x-6 gap-y-4 mt-6">
-        <a href="article.html?id=secim-takvim" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=secim-takvim" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=300&q=70" alt="Avrupa'da seçim takvimi" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Avrupa'da yerel seçim takvimi netleşti, kampanyalar başladı</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Avrupa'da yerel seçim takvimi netleşti, kampanyalar başladı</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=kuraklik" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=kuraklik" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=300&q=70" alt="Kuraklık haritası" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Akdeniz havzasında kuraklık haritası yeniden çizildi</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Akdeniz havzasında kuraklık haritası yeniden çizildi</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=kira-sinir" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=kira-sinir" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=300&q=70" alt="Konut piyasası" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Büyük şehirlerde kira artışına yeni üst sınır tartışması</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Büyük şehirlerde kira artışına yeni üst sınır tartışması</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=liman" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=liman" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1473445730015-841f29a9490b?auto=format&fit=crop&w=300&q=70" alt="Liman yatırımı" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Liman yatırımlarında konteyner kapasitesi ikiye katlanıyor</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">23 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Liman yatırımlarında konteyner kapasitesi ikiye katlanıyor</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">23 Temmuz 2026</p>
           </div>
         </a>
       </div>
@@ -374,236 +548,171 @@ tailwind.config = {
 
 
       <div class="js-carousel-page hidden grid sm:grid-cols-2 gap-x-6 gap-y-4 mt-6">
-        <a href="article.html?id=iklim-fon" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=iklim-fon" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">İklim zirvesinde ortak fon için uzlaşma sağlandı</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">26 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">İklim zirvesinde ortak fon için uzlaşma sağlandı</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">26 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=tedarik" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=tedarik" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Tedarik zincirinde rota değişimi: yeni koridor devrede</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Tedarik zincirinde rota değişimi: yeni koridor devrede</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=karbon-borsa" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=karbon-borsa" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Karbon piyasasında işlem hacmi yeni zirveye çıktı</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">19 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Karbon piyasasında işlem hacmi yeni zirveye çıktı</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">19 Temmuz 2026</p>
           </div>
         </a>
-        <a href="article.html?id=yenilenebilir" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=yenilenebilir" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Yenilenebilir üretim ilk kez toplam elektriğin yarısını karşıladı</h4>
-            <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Yenilenebilir üretim ilk kez toplam elektriğin yarısını karşıladı</h4>
+            <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026</p>
           </div>
         </a>
       </div>
-
-    <!-- GALERİ -->
-    <section class="js-carousel">
-      <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-        <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Foto Galeri</h2>
-        <div class="flex gap-1">
-          <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="js-carousel-page is-active grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <a href="article.html?id=yayla-rota" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=70" alt="Dağ yürüyüşü rotaları" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Yaylalarda 12 yeni yürüyüş rotası</h4>
-            <p class="text-[10px] text-slate-400 mt-1">26 Temmuz 2026</p>
-          </div>
-        </a>
-        <a href="article.html?id=mavi-bayrak" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=70" alt="Mavi bayraklı plajlar" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Mavi bayrak sayısı 41 plajda arttı</h4>
-            <p class="text-[10px] text-slate-400 mt-1">25 Temmuz 2026</p>
-          </div>
-        </a>
-        <a href="article.html?id=sakin-sehir" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=700&q=70" alt="Sahil kasabaları" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Sakin şehirlerde yaz nüfusu rekoru</h4>
-            <p class="text-[10px] text-slate-400 mt-1">24 Temmuz 2026</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="js-carousel-page hidden grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <a href="article.html?id=festival" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Festival takvimi genişledi: 63 şehirde sahne</h4>
-            <p class="text-[10px] text-slate-400 mt-1">21 Temmuz 2026</p>
-          </div>
-        </a>
-        <a href="article.html?id=ege-sezon" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Ege kıyılarında sezon erken açıldı</h4>
-            <p class="text-[10px] text-slate-400 mt-1">26 Temmuz 2026</p>
-          </div>
-        </a>
-        <a href="article.html?id=muzik-arsiv" class="group relative block h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent group-hover:from-brand/85 transition"></div>
-          <div class="absolute bottom-0 p-3">
-            <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Anadolu ezgileri dijital arşivde</h4>
-            <p class="text-[10px] text-slate-400 mt-1">18 Temmuz 2026</p>
-          </div>
-        </a>
-      </div>
-
-    </section>
 
     <!-- YAŞAM (kapak) + KÜLTÜR (liste) : çift sütun -->
     <section id="yasam" class="grid md:grid-cols-2 gap-8">
       <div class="js-carousel">
-        <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-          <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-fuchsia-500">Yaşam</h2>
+        <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+          <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-fuchsia-500">Yaşam</h2>
           <div class="flex items-center gap-2">
-            <a href="kategori.html?cat=yasam" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Tümü</a>
-            <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            <a href="kategori.html?cat=yasam" class="text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Tümü</a>
+            <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <a href="article.html?id=kooperatif" class="group relative block h-64 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=70" alt="Şehirde topluluk yaşamı" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4">
-            <h3 class="font-head text-[21px] font-semibold uppercase leading-tight text-white">Mahalle kooperatifleri yeniden canlanıyor: 300 yeni girişim</h3>
-            <p class="text-[11px] text-slate-400 mt-2">26 Temmuz 2026 · Nil Erdoğan · 12 yorum</p>
+            <h3 class="font-display text-[21px] font-semibold uppercase leading-tight text-white">Mahalle kooperatifleri yeniden canlanıyor: 300 yeni girişim</h3>
+            <p class="text-[11px] text-white/75 mt-2">26 Temmuz 2026 · Nil Erdoğan · 12 yorum</p>
           </div>
         </a>
 
         <div class="js-carousel-page is-active space-y-4 mt-5">
-          <a href="article.html?id=kooperatif" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=kooperatif" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=300&q=70" alt="Toplum mutfağı" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Toplum mutfakları haftada 18 bin öğün dağıtıyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026 · Nil Erdoğan · 7 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Toplum mutfakları haftada 18 bin öğün dağıtıyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026 · Nil Erdoğan · 7 yorum</p>
             </div>
           </a>
-          <a href="article.html?id=kent-orman" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=kent-orman" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=300&q=70" alt="Kent bahçeleri" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Çatı bahçeleri projesi 14 mahalleye yayılıyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026 · Deniz Aksoy · 5 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Çatı bahçeleri projesi 14 mahalleye yayılıyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026 · Deniz Aksoy · 5 yorum</p>
             </div>
           </a>
-          <a href="article.html?id=egitim-takvim" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=egitim-takvim" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=300&q=70" alt="Gençlik merkezleri" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Gençlik merkezlerinde ücretsiz atölye kontenjanı arttı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">23 Temmuz 2026 · Selin Karaca · 9 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Gençlik merkezlerinde ücretsiz atölye kontenjanı arttı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">23 Temmuz 2026 · Selin Karaca · 9 yorum</p>
             </div>
           </a>
         </div>
         <div class="js-carousel-page hidden space-y-4 mt-5">
-          <a href="article.html?id=yayla-rota" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=yayla-rota" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Yaylalarda 12 yeni yürüyüş rotası açıldı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">26 Temmuz 2026 · Nil Erdoğan · 4 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Yaylalarda 12 yeni yürüyüş rotası açıldı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">26 Temmuz 2026 · Nil Erdoğan · 4 yorum</p>
             </div>
           </a>
-          <a href="article.html?id=mavi-bayrak" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=mavi-bayrak" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Mavi bayrak sayısı 41 plajda arttı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026 · Selin Karaca · 6 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Mavi bayrak sayısı 41 plajda arttı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026 · Selin Karaca · 6 yorum</p>
             </div>
           </a>
-          <a href="article.html?id=sokak-hayvan" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=sokak-hayvan" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-20 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Belediyelerden sokak hayvanları için ortak bakım ağı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026 · Nil Erdoğan · 27 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Belediyelerden sokak hayvanları için ortak bakım ağı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026 · Nil Erdoğan · 27 yorum</p>
             </div>
           </a>
         </div>
       </div>
 
       <div class="js-carousel">
-        <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-          <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-orange-500">Kültür</h2>
+        <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+          <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-orange-500">Kültür</h2>
           <div class="flex items-center gap-2">
-            <a href="kategori.html?cat=kultur" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Tümü</a>
-            <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            <a href="kategori.html?cat=kultur" class="text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Tümü</a>
+            <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="js-carousel-page is-active space-y-4">
-          <a href="article.html?id=sinema-fon" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=sinema-fon" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=300&q=70" alt="Bağımsız sinema" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Bağımsız sinemaya destek fonu üç kat büyüdü</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">26 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Bağımsız sinemaya destek fonu üç kat büyüdü</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">26 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=gece-kutuphane" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=gece-kutuphane" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=300&q=70" alt="Kütüphane projesi" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Gece kütüphaneleri projesi 24 ilde uygulanacak</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">25 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Gece kütüphaneleri projesi 24 ilde uygulanacak</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">25 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=konser" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=konser" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=300&q=70" alt="Açık hava konserleri" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Açık hava konserlerinde bilet satışları ikiye katlandı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Açık hava konserlerinde bilet satışları ikiye katlandı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=sanat-atolye" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=sanat-atolye" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=300&q=70" alt="Sanat atölyesi" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Çağdaş sanat atölyeleri üniversite kampüslerine taşınıyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">23 Temmuz 2026 · Emre Tunç · 6 yorum</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Çağdaş sanat atölyeleri üniversite kampüslerine taşınıyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">23 Temmuz 2026 · Emre Tunç · 6 yorum</p>
             </div>
           </a>
         </div>
 
         <div class="js-carousel-page hidden space-y-4">
-          <a href="article.html?id=muze-ucretsiz" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=muze-ucretsiz" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Kent müzelerinde ücretsiz giriş uygulaması genişliyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">26 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Kent müzelerinde ücretsiz giriş uygulaması genişliyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">26 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=muzik-arsiv" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=muzik-arsiv" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Anadolu ezgileri dijital arşivde yeniden hayat buluyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">18 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Anadolu ezgileri dijital arşivde yeniden hayat buluyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">18 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=festival" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=festival" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Festival takvimi genişledi: 63 şehirde sahne kuruluyor</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">21 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Festival takvimi genişledi: 63 şehirde sahne kuruluyor</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">21 Temmuz 2026</p>
             </div>
           </a>
-          <a href="article.html?id=konser" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+          <a href="article.html?id=konser" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
             <span class="w-24 h-16 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=300&q=70" alt="" class="w-full h-full object-cover"></span>
             <div>
-              <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Açık hava konserlerinde bilet satışları ikiye katlandı</h4>
-              <p class="text-[10px] text-slate-400 mt-1.5">24 Temmuz 2026</p>
+              <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Açık hava konserlerinde bilet satışları ikiye katlandı</h4>
+              <p class="text-[10px] text-stone-500 mt-1.5">24 Temmuz 2026</p>
             </div>
           </a>
         </div>
@@ -614,55 +723,32 @@ tailwind.config = {
   <!-- ---------- SAĞ SIDEBAR ---------- -->
   <aside class="col-span-12 lg:col-span-4 space-y-8">
 
-    <!-- Takipte kalın -->
-    <div>
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide text-white border-b border-white/10 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Takipte Kalın</h3>
-      <div class="grid grid-cols-2 gap-2">
-        <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-2.5">
-          <span class="grid place-items-center w-9 h-9 bg-orange-500 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3v3a15 15 0 0113 13h3A18 18 0 005 3zm0 7v3a8 8 0 016 6h3a11 11 0 00-9-9zm1.5 6.5A2.5 2.5 0 109 19a2.5 2.5 0 00-2.5-2.5z"/></svg></span>
-          <div><p class="text-sm font-bold text-white leading-none">12.480</p><p class="text-[10px] text-slate-400 mt-1">Abone</p></div>
-        </div>
-        <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-2.5">
-          <span class="grid place-items-center w-9 h-9 bg-blue-600 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></span>
-          <div><p class="text-sm font-bold text-white leading-none">64.905</p><p class="text-[10px] text-slate-400 mt-1">Takipçi</p></div>
-        </div>
-        <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-2.5">
-          <span class="grid place-items-center w-9 h-9 bg-slate-900 border border-white/20 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6l-4.7-6.1L5.7 21h-3l7.1-8.1L2.5 3h6.2l4.2 5.6L17.5 3z"/></svg></span>
-          <div><p class="text-sm font-bold text-white leading-none">38.117</p><p class="text-[10px] text-slate-400 mt-1">Takipçi</p></div>
-        </div>
-        <div class="flex items-center gap-3 bg-white/5 border border-white/10 p-2.5">
-          <span class="grid place-items-center w-9 h-9 bg-fuchsia-600 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6A4.4 4.4 0 1016.4 12 4.4 4.4 0 0012 7.6zm0 7.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 14.8zM17.8 2H6.2A4.2 4.2 0 002 6.2v11.6A4.2 4.2 0 006.2 22h11.6a4.2 4.2 0 004.2-4.2V6.2A4.2 4.2 0 0017.8 2z"/></svg></span>
-          <div><p class="text-sm font-bold text-white leading-none">27.336</p><p class="text-[10px] text-slate-400 mt-1">Takipçi</p></div>
-        </div>
-      </div>
-    </div>
-
     <!-- Öne çıkan yazılar (slider görünümü) -->
     <div>
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide text-white border-b border-white/10 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Öne Çıkanlar</h3>
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Öne Çıkanlar</h3>
       <div id="featuredSide" class="relative h-56 overflow-hidden mb-4">
         <a href="article.html?id=dijital-kamu" class="featured-side-slide is-active group relative block h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=70" alt="" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4 z-[1]">
-            <h4 class="font-head text-[19px] font-semibold uppercase leading-tight text-white">Dijital kamu hizmetlerinde tek pencere dönemi başlıyor</h4>
-            <p class="text-[11px] text-slate-400 mt-2">26 Temmuz 2026 · Deniz Aksoy · 23 yorum</p>
+            <h4 class="font-display text-[19px] font-semibold uppercase leading-tight text-white">Dijital kamu hizmetlerinde tek pencere dönemi başlıyor</h4>
+            <p class="text-[11px] text-white/75 mt-2">26 Temmuz 2026 · Deniz Aksoy · 23 yorum</p>
           </div>
         </a>
         <a href="article.html?id=yapay-zeka" class="featured-side-slide hidden group relative block h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=70" alt="" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4 z-[1]">
-            <h4 class="font-head text-[19px] font-semibold uppercase leading-tight text-white">Kamu arşivlerinde yapay zekâ ile sınıflandırma dönemi</h4>
-            <p class="text-[11px] text-slate-400 mt-2">21 Temmuz 2026 · Emre Tunç · 14 yorum</p>
+            <h4 class="font-display text-[19px] font-semibold uppercase leading-tight text-white">Kamu arşivlerinde yapay zekâ ile sınıflandırma dönemi</h4>
+            <p class="text-[11px] text-white/75 mt-2">21 Temmuz 2026 · Emre Tunç · 14 yorum</p>
           </div>
         </a>
         <a href="article.html?id=uydu" class="featured-side-slide hidden group relative block h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=70" alt="" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"></div>
           <div class="absolute bottom-0 p-4 z-[1]">
-            <h4 class="font-head text-[19px] font-semibold uppercase leading-tight text-white">Yerli haberleşme uydusu için fırlatma takvimi öne çekildi</h4>
-            <p class="text-[11px] text-slate-400 mt-2">25 Temmuz 2026 · Emre Tunç · 15 yorum</p>
+            <h4 class="font-display text-[19px] font-semibold uppercase leading-tight text-white">Yerli haberleşme uydusu için fırlatma takvimi öne çekildi</h4>
+            <p class="text-[11px] text-white/75 mt-2">25 Temmuz 2026 · Emre Tunç · 15 yorum</p>
           </div>
         </a>
         <button type="button" data-featured-prev aria-label="Önceki" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 grid place-items-center bg-black/40 hover:bg-brand text-white transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -674,339 +760,263 @@ tailwind.config = {
         </div>
       </div>
       <div class="space-y-4 mt-4">
-        <a href="article.html?id=dijital-kamu" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=dijital-kamu" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=200&q=70" alt="Dijital kimlik" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Dijital kimlik doğrulamada yeni standart devreye girdi</h4>
-            <p class="text-[10px] text-slate-400 mt-1">25 Temmuz 2026 · 14 yorum</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Dijital kimlik doğrulamada yeni standart devreye girdi</h4>
+            <p class="text-[10px] text-stone-500 mt-1">25 Temmuz 2026 · 14 yorum</p>
           </div>
         </a>
-        <a href="article.html?id=hibrit-ofis" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=hibrit-ofis" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=200&q=70" alt="Şirket kültürü" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Kamu kurumlarında uzaktan hizmet masası yaygınlaşıyor</h4>
-            <p class="text-[10px] text-slate-400 mt-1">24 Temmuz 2026 · 11 yorum</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Kamu kurumlarında uzaktan hizmet masası yaygınlaşıyor</h4>
+            <p class="text-[10px] text-stone-500 mt-1">24 Temmuz 2026 · 11 yorum</p>
           </div>
         </a>
-        <a href="article.html?id=tarim-fon" class="group flex gap-3 items-start border-b border-white/5 pb-4">
+        <a href="article.html?id=tarim-fon" class="group flex gap-3 items-start border-b border-stone-100 pb-4">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=200&q=70" alt="Veri panosu" class="w-full h-full object-cover"></span>
           <div>
-            <h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Açık veri panoları 81 ilde eş zamanlı yayınlanacak</h4>
-            <p class="text-[10px] text-slate-400 mt-1">23 Temmuz 2026 · 8 yorum</p>
+            <h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Açık veri panoları 81 ilde eş zamanlı yayınlanacak</h4>
+            <p class="text-[10px] text-stone-500 mt-1">23 Temmuz 2026 · 8 yorum</p>
           </div>
         </a>
       </div>
 
-    </div>
-
-    <!-- Bülten aboneliği -->
-    <div class="bg-paper text-ink p-6">
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide">Bültene Abone Olun</h3>
-      <div class="w-14 h-[3px] bg-brand mt-2 mb-4"></div>
-      <form class="flex" onsubmit="return false">
-        <input type="email" required placeholder="E-posta adresiniz" class="flex-1 min-w-0 bg-white border border-slate-300 text-[13px] px-3 py-2.5 outline-none focus:border-brand transition">
-        <button aria-label="Abone ol" class="w-11 shrink-0 grid place-items-center bg-brand hover:bg-blue-500 text-white transition">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
-      <p class="text-[12px] text-slate-600 mt-3 leading-relaxed">Günün öne çıkan haberlerini ve haftalık veri analizlerini e-posta kutunuza gönderiyoruz. İstediğiniz an çıkabilirsiniz.</p>
     </div>
 
     <!-- Günün anketi -->
-    <div class="border border-white/10 bg-white/5 p-6">
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide text-white">Günün Anketi</h3>
+    <div class="border border-stone-200 bg-stone-100 p-6">
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900">Günün Anketi</h3>
       <div class="w-14 h-[3px] bg-brand mt-2 mb-4"></div>
-      <p class="text-[13px] font-semibold text-slate-200 leading-snug mb-4">Toplu ulaşım yatırımlarının önceliği sizce ne olmalı?</p>
-      <div class="space-y-2.5 text-[13px] text-slate-300">
-        <label class="flex items-center gap-3 cursor-pointer hover:text-white transition"><input type="radio" name="anket" class="accent-brand"> Raylı sistem hatları</label>
-        <label class="flex items-center gap-3 cursor-pointer hover:text-white transition"><input type="radio" name="anket" class="accent-brand"> Bisiklet ve yaya yolları</label>
-        <label class="flex items-center gap-3 cursor-pointer hover:text-white transition"><input type="radio" name="anket" class="accent-brand"> Elektrikli otobüs filosu</label>
-        <label class="flex items-center gap-3 cursor-pointer hover:text-white transition"><input type="radio" name="anket" class="accent-brand"> Deniz ulaşımı</label>
+      <p class="text-[13px] font-semibold text-stone-800 leading-snug mb-4">Toplu ulaşım yatırımlarının önceliği sizce ne olmalı?</p>
+      <div class="space-y-2.5 text-[13px] text-stone-700">
+        <label class="flex items-center gap-3 cursor-pointer hover:text-brand transition"><input type="radio" name="anket" class="accent-brand"> Raylı sistem hatları</label>
+        <label class="flex items-center gap-3 cursor-pointer hover:text-brand transition"><input type="radio" name="anket" class="accent-brand"> Bisiklet ve yaya yolları</label>
+        <label class="flex items-center gap-3 cursor-pointer hover:text-brand transition"><input type="radio" name="anket" class="accent-brand"> Elektrikli otobüs filosu</label>
+        <label class="flex items-center gap-3 cursor-pointer hover:text-brand transition"><input type="radio" name="anket" class="accent-brand"> Deniz ulaşımı</label>
       </div>
-      <button class="w-full mt-5 border border-brand text-brand text-[11px] font-bold uppercase tracking-widest py-2.5 hover:bg-brand hover:text-white transition">Oy Ver</button>
-      <p class="text-[11px] text-slate-400 mt-3">Toplam 4.812 katılım</p>
+      <button class="w-full mt-5 border border-brand text-brand text-[11px] font-bold uppercase tracking-[0.18em] py-2.5 hover:bg-brand hover:text-white transition">Oy Ver</button>
+      <p class="text-[11px] text-stone-500 mt-3">Toplam 4.812 katılım</p>
+    </div>
+
+    <!-- Takipte kalın -->
+    <div>
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Takipte Kalın</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <div class="flex items-center gap-3 bg-stone-100 border border-stone-200 p-2.5">
+          <span class="grid place-items-center w-9 h-9 bg-orange-500 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3v3a15 15 0 0113 13h3A18 18 0 005 3zm0 7v3a8 8 0 016 6h3a11 11 0 00-9-9zm1.5 6.5A2.5 2.5 0 109 19a2.5 2.5 0 00-2.5-2.5z"/></svg></span>
+          <div><p class="text-sm font-bold text-stone-900 leading-none">12.480</p><p class="text-[10px] text-stone-500 mt-1">Abone</p></div>
+        </div>
+        <div class="flex items-center gap-3 bg-stone-100 border border-stone-200 p-2.5">
+          <span class="grid place-items-center w-9 h-9 bg-blue-600 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></span>
+          <div><p class="text-sm font-bold text-stone-900 leading-none">64.905</p><p class="text-[10px] text-stone-500 mt-1">Takipçi</p></div>
+        </div>
+        <div class="flex items-center gap-3 bg-stone-100 border border-stone-200 p-2.5">
+          <span class="grid place-items-center w-9 h-9 bg-slate-900 border border-white/20 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6l-4.7-6.1L5.7 21h-3l7.1-8.1L2.5 3h6.2l4.2 5.6L17.5 3z"/></svg></span>
+          <div><p class="text-sm font-bold text-stone-900 leading-none">38.117</p><p class="text-[10px] text-stone-500 mt-1">Takipçi</p></div>
+        </div>
+        <div class="flex items-center gap-3 bg-stone-100 border border-stone-200 p-2.5">
+          <span class="grid place-items-center w-9 h-9 bg-fuchsia-600 text-white"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6A4.4 4.4 0 1016.4 12 4.4 4.4 0 0012 7.6zm0 7.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 14.8zM17.8 2H6.2A4.2 4.2 0 002 6.2v11.6A4.2 4.2 0 006.2 22h11.6a4.2 4.2 0 004.2-4.2V6.2A4.2 4.2 0 0017.8 2z"/></svg></span>
+          <div><p class="text-sm font-bold text-stone-900 leading-none">27.336</p><p class="text-[10px] text-stone-500 mt-1">Takipçi</p></div>
+        </div>
+      </div>
     </div>
 
     <!-- 300x250 reklam -->
     <div class="text-center">
-      <p class="text-[9px] tracking-[0.3em] text-slate-600 uppercase mb-2">Reklam</p>
-      <div class="mx-auto w-full max-w-[300px] h-[250px] bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 grid place-items-center text-center px-6">
+      <p class="text-[9px] tracking-[0.3em] text-stone-600 uppercase mb-2">Reklam</p>
+      <div class="mx-auto w-full max-w-[300px] h-[250px] bg-gradient-to-br from-rose-50 to-amber-50 border border-stone-200 grid place-items-center text-center px-6">
         <div>
-          <div class="mx-auto grid place-items-center w-20 h-20 border-2 border-brand text-brand font-head font-bold text-lg leading-tight">MG<br>ADS</div>
-          <p class="text-slate-400 text-[12px] italic mt-4">dünya / ekonomi / teknoloji<br>yaşam / spor / kültür</p>
-          <a href="#" class="inline-block mt-4 text-[11px] font-bold uppercase tracking-widest text-white border-b-2 border-brand pb-0.5">Reklam Verin</a>
-          <p class="text-[9px] tracking-widest text-slate-600 mt-4">300 x 250</p>
+          <div class="mx-auto grid place-items-center w-20 h-20 border-2 border-brand text-brand font-display font-bold text-lg leading-tight">MG<br>ADS</div>
+          <p class="text-stone-500 text-[12px] italic mt-4">dünya / ekonomi / teknoloji<br>yaşam / spor / kültür</p>
+          <a href="#" class="inline-block mt-4 text-[11px] font-bold uppercase tracking-[0.18em] text-white border-b-2 border-brand pb-0.5">Reklam Verin</a>
+          <p class="text-[9px] tracking-[0.18em] text-stone-600 mt-4">300 x 250</p>
         </div>
       </div>
     </div>
+    <!-- Bülten aboneliği -->
+    <div class="bg-paper text-stone-900 p-6">
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em]">Bültene Abone Olun</h3>
+      <div class="w-14 h-[3px] bg-brand mt-2 mb-4"></div>
+      <form class="flex" onsubmit="return false">
+        <input type="email" required placeholder="E-posta adresiniz" class="flex-1 min-w-0 bg-white border border-stone-300 text-[13px] px-3 py-2.5 outline-none focus:border-brand transition">
+        <button aria-label="Abone ol" class="w-11 shrink-0 grid place-items-center bg-brand hover:bg-rose-600 text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="text-[12px] text-stone-600 mt-3 leading-relaxed">Günün öne çıkan haberlerini ve haftalık veri analizlerini e-posta kutunuza gönderiyoruz. İstediğiniz an çıkabilirsiniz.</p>
+    </div>
+
   </aside>
 </div>
 
-<!-- ============ 9. GENİŞ BANNER 728x90 ============ -->
-<div class="mx-auto max-w-shell px-4 pb-10">
-  <p class="text-center text-[9px] tracking-[0.3em] text-slate-600 uppercase mb-2">Reklam</p>
-  <div class="w-full h-[90px] bg-gradient-to-r from-slate-800 to-slate-900 border border-white/10 flex items-center justify-between px-6">
-    <div class="grid place-items-center w-16 h-16 border-2 border-brand text-brand font-head font-bold text-sm leading-tight text-center">MG<br>ADS</div>
-    <p class="hidden sm:block flex-1 px-6 text-slate-400 text-[13px] italic">reklam alanınız burada · haftalık 2,4 milyon görüntülenme</p>
-    <a href="#" class="bg-brand hover:bg-blue-500 transition text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2">İletişim</a>
-  </div>
-</div>
-
-<!-- ============ 10. VİDEO GALERİ (koyu bant) ============ -->
-<section id="video" class="bg-inkier border-y border-white/10 py-10">
-  <div class="mx-auto max-w-shell px-4 js-carousel">
-    <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-      <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-violet-500">Öne Çıkan Videolar</h2>
-      <div class="flex gap-1">
-        <button type="button" data-carousel-prev class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Önceki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" data-carousel-next class="w-7 h-7 grid place-items-center border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition" aria-label="Sonraki"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-
-    <div class="js-carousel-page is-active grid grid-cols-2 lg:grid-cols-4 gap-3">
-      <a href="article.html?id=video-randevu" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=70" alt="Sağlık sisteminde dijital dönüşüm videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3">
-          <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Hastanelerde randevu sistemi nasıl değişti?</h4>
-          <p class="text-[10px] text-slate-400 mt-1">04:12 · 26 Temmuz 2026</p>
-        </div>
-      </a>
-      <a href="article.html?id=akdeniz-mutfak" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=700&q=70" alt="Ev ekonomisi videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3">
-          <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Mutfak enflasyonu: sepet nasıl küçüldü?</h4>
-          <p class="text-[10px] text-slate-400 mt-1">06:38 · 25 Temmuz 2026</p>
-        </div>
-      </a>
-      <a href="article.html?id=tarifler" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=700&q=70" alt="Yerel üretim videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3">
-          <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Tarladan rafa: kısa tedarik zinciri deneyi</h4>
-          <p class="text-[10px] text-slate-400 mt-1">08:05 · 24 Temmuz 2026</p>
-        </div>
-      </a>
-      <a href="article.html?id=tarim-fon" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=70" alt="Perakende videosu" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white group-hover:bg-brand group-hover:border-brand transition"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3">
-          <h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Perakendede indirim takvimi değişiyor</h4>
-          <p class="text-[10px] text-slate-400 mt-1">03:47 · 23 Temmuz 2026</p>
-        </div>
-      </a>
-    </div>
-
-    <div class="js-carousel-page hidden grid grid-cols-2 lg:grid-cols-4 gap-3">
-      <a href="article.html?id=stadyum" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3"><h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Stadyum yenileme projeleri sahada</h4><p class="text-[10px] text-slate-400 mt-1">05:20 · 26 Temmuz 2026</p></div>
-      </a>
-      <a href="article.html?id=e-spor" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3"><h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">E-spor finalinden sahne arkası</h4><p class="text-[10px] text-slate-400 mt-1">07:10 · 22 Temmuz 2026</p></div>
-      </a>
-      <a href="article.html?id=dijital-kamu" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3"><h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Tek pencere kamu hizmeti anlatımı</h4><p class="text-[10px] text-slate-400 mt-1">09:00 · 26 Temmuz 2026</p></div>
-      </a>
-      <a href="article.html?id=yapay-zeka" class="group relative block h-44 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=70" alt="" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-        <span class="absolute top-3 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/15 border border-white/40 text-white"><svg class="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent group-hover:from-brand/85 transition"></div>
-        <div class="absolute bottom-0 p-3"><h4 class="font-head text-[15px] font-semibold uppercase text-white leading-tight">Arşivde yapay zekâ nasıl çalışıyor?</h4><p class="text-[10px] text-slate-400 mt-1">06:45 · 21 Temmuz 2026</p></div>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ KATEGORİLER (6) ============ -->
-<section id="kategoriler" class="mx-auto max-w-shell px-4 py-10">
-  <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-8">
-    <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Kategoriler</h2>
-    <p class="text-[11px] text-slate-500 uppercase tracking-widest">6 ana kategori · oklarla kaydırın</p>
-  </div>
-  <div id="homeCategories" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-</section>
-
 <!-- ============ 11. HABER AKIŞI + SEKMELİ SIDEBAR ============ -->
-<div class="mx-auto max-w-shell px-4 py-10 grid grid-cols-12 gap-8">
+<div class="mx-auto max-w-page px-4 py-10 grid grid-cols-12 gap-8">
 
   <!-- akış -->
   <div class="col-span-12 lg:col-span-8">
-    <div class="flex items-end justify-between border-b border-white/10 pb-2 mb-6">
-      <h2 class="font-head text-xl font-bold uppercase tracking-wide text-white relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Son Haberler</h2>
-      <a href="#" class="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-brand transition">Arşiv</a>
+    <div class="flex items-end justify-between border-b border-stone-200 pb-2 mb-6">
+      <h2 class="font-display text-xl font-bold uppercase tracking-[0.08em] text-stone-900 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-16 after:h-[3px] after:bg-brand">Son Haberler</h2>
+      <a href="#" class="text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Arşiv</a>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-6">
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=muze-ucretsiz" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=700&q=70" alt="Sanat sergisi" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=muze-ucretsiz">Kent müzelerinde ücretsiz giriş uygulaması genişliyor</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Pilot uygulamanın ardından 18 müzede daha hafta içi ziyaretler ücretsiz hâle geliyor; ziyaretçi sayısında ilk artış kaydedildi.</p>
-          <p class="text-[10px] text-slate-500 mt-3">26 Temmuz 2026 · Nil Erdoğan · 23 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=muze-ucretsiz">Kent müzelerinde ücretsiz giriş uygulaması genişliyor</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Pilot uygulamanın ardından 18 müzede daha hafta içi ziyaretler ücretsiz hâle geliyor; ziyaretçi sayısında ilk artış kaydedildi.</p>
+          <p class="text-[10px] text-stone-500 mt-3">26 Temmuz 2026 · Nil Erdoğan · 23 yorum</p>
         </div>
       </article>
 
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=balikcilik" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?auto=format&fit=crop&w=700&q=70" alt="Balıkçılık sezonu" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=balikcilik">Balıkçılık sezonu öncesi kota düzenlemesi yürürlükte</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Stokların korunması amacıyla belirlenen yeni av kotaları, küçük ölçekli teknelere ek destekle birlikte uygulanacak.</p>
-          <p class="text-[10px] text-slate-500 mt-3">26 Temmuz 2026 · Emre Tunç · 9 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=balikcilik">Balıkçılık sezonu öncesi kota düzenlemesi yürürlükte</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Stokların korunması amacıyla belirlenen yeni av kotaları, küçük ölçekli teknelere ek destekle birlikte uygulanacak.</p>
+          <p class="text-[10px] text-stone-500 mt-3">26 Temmuz 2026 · Emre Tunç · 9 yorum</p>
         </div>
       </article>
 
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=serbest-calisma" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=700&q=70" alt="Ofis tasarımı" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=serbest-calisma">Serbest çalışma alanları küçük şehirlere yayılıyor</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Kira avantajı ve fiber altyapı yatırımları, ortak çalışma alanı sayısını bir yılda yüzde 38 artırdı.</p>
-          <p class="text-[10px] text-slate-500 mt-3">25 Temmuz 2026 · Selin Karaca · 16 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=serbest-calisma">Serbest çalışma alanları küçük şehirlere yayılıyor</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Kira avantajı ve fiber altyapı yatırımları, ortak çalışma alanı sayısını bir yılda yüzde 38 artırdı.</p>
+          <p class="text-[10px] text-stone-500 mt-3">25 Temmuz 2026 · Selin Karaca · 16 yorum</p>
         </div>
       </article>
 
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=egitim-takvim" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=70" alt="Okul dönemi hazırlığı" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=egitim-takvim">Yeni eğitim yılı takvimi açıklandı, ders saatleri güncellendi</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Sıcak hava koşulları nedeniyle bazı bölgelerde başlangıç tarihi bir hafta ertelendi; telafi planı da paylaşıldı.</p>
-          <p class="text-[10px] text-slate-500 mt-3">25 Temmuz 2026 · Deniz Aksoy · 34 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=egitim-takvim">Yeni eğitim yılı takvimi açıklandı, ders saatleri güncellendi</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Sıcak hava koşulları nedeniyle bazı bölgelerde başlangıç tarihi bir hafta ertelendi; telafi planı da paylaşıldı.</p>
+          <p class="text-[10px] text-stone-500 mt-3">25 Temmuz 2026 · Deniz Aksoy · 34 yorum</p>
         </div>
       </article>
 
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=ihracat-paket" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=70" alt="Şirket toplantısı" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=ihracat-paket">İhracatçı firmalar için yeni finansman paketi devrede</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Paket, özellikle orta ölçekli üreticilerin döviz kazandırıcı işlemlerinde maliyetleri düşürmeyi hedefliyor.</p>
-          <p class="text-[10px] text-slate-500 mt-3">24 Temmuz 2026 · Selin Karaca · 12 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=ihracat-paket">İhracatçı firmalar için yeni finansman paketi devrede</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Paket, özellikle orta ölçekli üreticilerin döviz kazandırıcı işlemlerinde maliyetleri düşürmeyi hedefliyor.</p>
+          <p class="text-[10px] text-stone-500 mt-3">24 Temmuz 2026 · Selin Karaca · 12 yorum</p>
         </div>
       </article>
 
-      <article class="group bg-paper text-ink overflow-hidden">
+      <article class="group bg-paper text-stone-900 overflow-hidden">
         <a href="article.html?id=sokak-hayvan" class="block h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=700&q=70" alt="Sokak hayvanları" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></a>
         <div class="p-4">
-          <h3 class="font-head text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=sokak-hayvan">Belediyelerden sokak hayvanları için ortak bakım ağı</a></h3>
-          <p class="text-[12px] text-slate-600 mt-2 clamp-2">Yedi ilçenin katıldığı protokolle kısırlaştırma ve barınak kapasitesi tek merkezden yönetilecek.</p>
-          <p class="text-[10px] text-slate-500 mt-3">24 Temmuz 2026 · Nil Erdoğan · 27 yorum</p>
+          <h3 class="font-display text-[19px] font-semibold uppercase leading-tight group-hover:text-brand transition"><a href="article.html?id=sokak-hayvan">Belediyelerden sokak hayvanları için ortak bakım ağı</a></h3>
+          <p class="text-[12px] text-stone-600 mt-2 clamp-2">Yedi ilçenin katıldığı protokolle kısırlaştırma ve barınak kapasitesi tek merkezden yönetilecek.</p>
+          <p class="text-[10px] text-stone-500 mt-3">24 Temmuz 2026 · Nil Erdoğan · 27 yorum</p>
         </div>
       </article>
     </div>
 
     <!-- Sayfalama -->
     <div class="flex items-center justify-between mt-8">
-      <div class="flex items-center gap-1.5 font-head font-semibold">
+      <div class="flex items-center gap-1.5 font-display font-semibold">
         <a href="#" class="w-9 h-9 grid place-items-center bg-brand text-white">1</a>
-        <a href="#" class="w-9 h-9 grid place-items-center border border-white/15 text-slate-300 hover:bg-brand hover:border-brand hover:text-white transition">2</a>
-        <a href="#" class="w-9 h-9 grid place-items-center border border-white/15 text-slate-300 hover:bg-brand hover:border-brand hover:text-white transition">3</a>
-        <span class="w-9 h-9 grid place-items-center text-slate-600">…</span>
-        <a href="#" class="w-9 h-9 grid place-items-center border border-white/15 text-slate-300 hover:bg-brand hover:border-brand hover:text-white transition">9</a>
-        <a href="#" class="h-9 px-4 grid place-items-center border border-white/15 text-slate-300 text-[13px] uppercase tracking-widest hover:bg-brand hover:border-brand hover:text-white transition">Sonraki</a>
+        <a href="#" class="w-9 h-9 grid place-items-center border border-stone-300 text-stone-700 hover:bg-brand hover:border-brand hover:text-white transition">2</a>
+        <a href="#" class="w-9 h-9 grid place-items-center border border-stone-300 text-stone-700 hover:bg-brand hover:border-brand hover:text-white transition">3</a>
+        <span class="w-9 h-9 grid place-items-center text-stone-600">…</span>
+        <a href="#" class="w-9 h-9 grid place-items-center border border-stone-300 text-stone-700 hover:bg-brand hover:border-brand hover:text-white transition">9</a>
+        <a href="#" class="h-9 px-4 grid place-items-center border border-stone-300 text-stone-700 text-[13px] uppercase tracking-[0.18em] hover:bg-brand hover:border-brand hover:text-white transition">Sonraki</a>
       </div>
-      <p class="text-[11px] text-slate-400">Sayfa 1 / 9</p>
+      <p class="text-[11px] text-stone-500">Sayfa 1 / 9</p>
     </div>
   </div>
 
   <!-- sekmeli sidebar -->
   <aside class="col-span-12 lg:col-span-4 space-y-8">
 
+    <!-- Popüler etiketler -->
     <div>
-      <div class="grid grid-cols-3 font-head text-[13px] font-semibold uppercase tracking-wide">
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Popüler Etiketler</h3>
+      <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.18em]">
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Gündem</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Enflasyon</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">İklim</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Ulaşım</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Girişim</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Sinema</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Sağlık</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Eğitim</a>
+        <a href="#" class="border border-stone-300 text-stone-500 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Seyahat</a>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="grid grid-cols-3 font-display text-[13px] font-semibold uppercase tracking-[0.08em]">
         <button data-tab="pop" class="tab-btn py-3 bg-brand text-white transition">Popüler</button>
-        <button data-tab="son" class="tab-btn py-3 bg-white/5 text-slate-300 hover:text-white transition">Güncel</button>
-        <button data-tab="yorum" class="tab-btn py-3 bg-white/5 text-slate-300 hover:text-white transition">Yorumlar</button>
+        <button data-tab="son" class="tab-btn py-3 bg-stone-100 text-stone-700 hover:text-brand transition">Güncel</button>
+        <button data-tab="yorum" class="tab-btn py-3 bg-stone-100 text-stone-700 hover:text-brand transition">Yorumlar</button>
       </div>
 
-      <div class="border border-white/10 border-t-0 p-4">
+      <div class="border border-stone-200 border-t-0 p-4">
         <div data-panel="pop" class="tab-panel space-y-4">
-          <a href="article.html?id=asistan-saglik" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=70" alt="Laboratuvar" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Ulusal aşı laboratuvarında ilk seri üretim tamamlandı</h4><p class="text-[10px] text-slate-400 mt-1">26 Temmuz 2026</p></div></a>
-          <a href="article.html?id=karbon-borsa" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=200&q=70" alt="Finans" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Tahvil piyasasında getiri eğrisi normale dönüyor</h4><p class="text-[10px] text-slate-400 mt-1">25 Temmuz 2026</p></div></a>
-          <a href="article.html?id=yapay-zeka" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=200&q=70" alt="Yazılım" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Açık kaynak kod fonu 120 projeye destek verecek</h4><p class="text-[10px] text-slate-400 mt-1">25 Temmuz 2026</p></div></a>
-          <a href="article.html?id=tarifler" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=200&q=70" alt="Gıda" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Gıda israfını azaltan uygulamalar yaygınlaşıyor</h4><p class="text-[10px] text-slate-400 mt-1">24 Temmuz 2026</p></div></a>
-          <a href="article.html?id=kira-sinir" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=200&q=70" alt="Konut" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Konut kredilerinde vade yapısı yeniden şekilleniyor</h4><p class="text-[10px] text-slate-400 mt-1">23 Temmuz 2026</p></div></a>
+          <a href="article.html?id=asistan-saglik" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=200&q=70" alt="Laboratuvar" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Ulusal aşı laboratuvarında ilk seri üretim tamamlandı</h4><p class="text-[10px] text-stone-500 mt-1">26 Temmuz 2026</p></div></a>
+          <a href="article.html?id=karbon-borsa" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=200&q=70" alt="Finans" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Tahvil piyasasında getiri eğrisi normale dönüyor</h4><p class="text-[10px] text-stone-500 mt-1">25 Temmuz 2026</p></div></a>
+          <a href="article.html?id=yapay-zeka" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=200&q=70" alt="Yazılım" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Açık kaynak kod fonu 120 projeye destek verecek</h4><p class="text-[10px] text-stone-500 mt-1">25 Temmuz 2026</p></div></a>
+          <a href="article.html?id=tarifler" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=200&q=70" alt="Gıda" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Gıda israfını azaltan uygulamalar yaygınlaşıyor</h4><p class="text-[10px] text-stone-500 mt-1">24 Temmuz 2026</p></div></a>
+          <a href="article.html?id=kira-sinir" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=200&q=70" alt="Konut" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Konut kredilerinde vade yapısı yeniden şekilleniyor</h4><p class="text-[10px] text-stone-500 mt-1">23 Temmuz 2026</p></div></a>
         </div>
 
         <div data-panel="son" class="tab-panel hidden space-y-4">
-          <a href="article.html?id=yayla-rota" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=200&q=70" alt="Doğa" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Milli parklarda ziyaretçi kapasitesi sınırlandırılıyor</h4><p class="text-[10px] text-slate-400 mt-1">26 Temmuz 2026</p></div></a>
-          <a href="article.html?id=yapay-zeka" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=200&q=70" alt="Veri merkezi" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Veri merkezleri için soğutmada su tasarrufu şartı</h4><p class="text-[10px] text-slate-400 mt-1">26 Temmuz 2026</p></div></a>
-          <a href="article.html?id=stadyum" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=200&q=70" alt="Spor salonu" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Okul sonrası spor programına kayıtlar açıldı</h4><p class="text-[10px] text-slate-400 mt-1">25 Temmuz 2026</p></div></a>
-          <a href="article.html?id=sanat-atolye" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=200&q=70" alt="Yazarlık" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Genç yazarlar için ulusal ödül başvuruları başladı</h4><p class="text-[10px] text-slate-400 mt-1">24 Temmuz 2026</p></div></a>
-          <a href="article.html?id=kent-orman" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=200&q=70" alt="Orman" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-slate-200 group-hover:text-brand transition clamp-2">Yangın sezonunda erken uyarı ağı devreye alındı</h4><p class="text-[10px] text-slate-400 mt-1">23 Temmuz 2026</p></div></a>
+          <a href="article.html?id=yayla-rota" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=200&q=70" alt="Doğa" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Milli parklarda ziyaretçi kapasitesi sınırlandırılıyor</h4><p class="text-[10px] text-stone-500 mt-1">26 Temmuz 2026</p></div></a>
+          <a href="article.html?id=yapay-zeka" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=200&q=70" alt="Veri merkezi" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Veri merkezleri için soğutmada su tasarrufu şartı</h4><p class="text-[10px] text-stone-500 mt-1">26 Temmuz 2026</p></div></a>
+          <a href="article.html?id=stadyum" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=200&q=70" alt="Spor salonu" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Okul sonrası spor programına kayıtlar açıldı</h4><p class="text-[10px] text-stone-500 mt-1">25 Temmuz 2026</p></div></a>
+          <a href="article.html?id=sanat-atolye" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=200&q=70" alt="Yazarlık" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Genç yazarlar için ulusal ödül başvuruları başladı</h4><p class="text-[10px] text-stone-500 mt-1">24 Temmuz 2026</p></div></a>
+          <a href="article.html?id=kent-orman" class="group flex gap-3 items-start"><span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=200&q=70" alt="Orman" class="w-full h-full object-cover"></span><div><h4 class="text-[13px] font-semibold leading-snug text-stone-800 group-hover:text-brand transition clamp-2">Yangın sezonunda erken uyarı ağı devreye alındı</h4><p class="text-[10px] text-stone-500 mt-1">23 Temmuz 2026</p></div></a>
         </div>
 
         <div data-panel="yorum" class="tab-panel hidden space-y-4">
-          <div class="border-b border-white/5 pb-3">
-            <p class="text-[13px] text-slate-300 leading-snug clamp-3">"Raylı sistem yatırımı iyi ama aktarma noktalarındaki yürüme mesafeleri de planlanmalı."</p>
-            <p class="text-[10px] text-slate-400 mt-2"><span class="text-brand font-semibold">Kerem Y.</span> · Raylı sistem seferberliği</p>
+          <div class="border-b border-stone-100 pb-3">
+            <p class="text-[13px] text-stone-700 leading-snug clamp-3">"Raylı sistem yatırımı iyi ama aktarma noktalarındaki yürüme mesafeleri de planlanmalı."</p>
+            <p class="text-[10px] text-stone-500 mt-2"><span class="text-brand font-semibold">Kerem Y.</span> · Raylı sistem seferberliği</p>
           </div>
-          <div class="border-b border-white/5 pb-3">
-            <p class="text-[13px] text-slate-300 leading-snug clamp-3">"Kuraklık haritasındaki veriler bölge bazında da yayınlanırsa çiftçi için çok faydalı olur."</p>
-            <p class="text-[10px] text-slate-400 mt-2"><span class="text-brand font-semibold">Elif D.</span> · Akdeniz havzasında kuraklık</p>
+          <div class="border-b border-stone-100 pb-3">
+            <p class="text-[13px] text-stone-700 leading-snug clamp-3">"Kuraklık haritasındaki veriler bölge bazında da yayınlanırsa çiftçi için çok faydalı olur."</p>
+            <p class="text-[10px] text-stone-500 mt-2"><span class="text-brand font-semibold">Elif D.</span> · Akdeniz havzasında kuraklık</p>
           </div>
-          <div class="border-b border-white/5 pb-3">
-            <p class="text-[13px] text-slate-300 leading-snug clamp-3">"Gece kütüphaneleri fikri harika, sınav dönemlerinde gerçekten ihtiyaç var."</p>
-            <p class="text-[10px] text-slate-400 mt-2"><span class="text-brand font-semibold">Mert A.</span> · Gece kütüphaneleri projesi</p>
+          <div class="border-b border-stone-100 pb-3">
+            <p class="text-[13px] text-stone-700 leading-snug clamp-3">"Gece kütüphaneleri fikri harika, sınav dönemlerinde gerçekten ihtiyaç var."</p>
+            <p class="text-[10px] text-stone-500 mt-2"><span class="text-brand font-semibold">Mert A.</span> · Gece kütüphaneleri projesi</p>
           </div>
           <div>
-            <p class="text-[13px] text-slate-300 leading-snug clamp-3">"Kısa tedarik zinciri videosu için teşekkürler, üreticiyle doğrudan iletişim örnekleri çok öğreticiydi."</p>
-            <p class="text-[10px] text-slate-400 mt-2"><span class="text-brand font-semibold">Sena B.</span> · Tarladan rafa</p>
+            <p class="text-[13px] text-stone-700 leading-snug clamp-3">"Kısa tedarik zinciri videosu için teşekkürler, üreticiyle doğrudan iletişim örnekleri çok öğreticiydi."</p>
+            <p class="text-[10px] text-stone-500 mt-2"><span class="text-brand font-semibold">Sena B.</span> · Tarladan rafa</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Popüler etiketler -->
-    <div>
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide text-white border-b border-white/10 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Popüler Etiketler</h3>
-      <div class="flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-widest">
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Gündem</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Enflasyon</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">İklim</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Ulaşım</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Girişim</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Sinema</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Sağlık</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Eğitim</a>
-        <a href="#" class="border border-white/15 text-slate-400 px-3 py-1.5 hover:bg-brand hover:border-brand hover:text-white transition">Seyahat</a>
-      </div>
-    </div>
-
     <!-- Kategori sayaçları -->
     <div>
-      <h3 class="font-head text-lg font-bold uppercase tracking-wide text-white border-b border-white/10 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Kategoriler</h3>
+      <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Kategoriler</h3>
       <ul class="grid grid-cols-2 gap-x-6 text-[13px]">
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=ekonomi" class="text-slate-300 hover:text-brand transition">Ekonomi</a><span class="text-slate-500">8</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=spor" class="text-slate-300 hover:text-brand transition">Spor</a><span class="text-slate-500">4</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=yasam" class="text-slate-300 hover:text-brand transition">Yaşam</a><span class="text-slate-500">9</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=teknoloji" class="text-slate-300 hover:text-brand transition">Teknoloji</a><span class="text-slate-500">4</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=kultur" class="text-slate-300 hover:text-brand transition">Kültür</a><span class="text-slate-500">7</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=dunya" class="text-slate-300 hover:text-brand transition">Dünya</a><span class="text-slate-500">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=ekonomi" class="text-stone-700 hover:text-brand transition">Ekonomi</a><span class="text-stone-500">8</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=spor" class="text-stone-700 hover:text-brand transition">Spor</a><span class="text-stone-500">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=yasam" class="text-stone-700 hover:text-brand transition">Yaşam</a><span class="text-stone-500">9</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=teknoloji" class="text-stone-700 hover:text-brand transition">Teknoloji</a><span class="text-stone-500">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=kultur" class="text-stone-700 hover:text-brand transition">Kültür</a><span class="text-stone-500">7</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=dunya" class="text-stone-700 hover:text-brand transition">Dünya</a><span class="text-stone-500">4</span></li>
       </ul>
     </div>
 
     <!-- 300x250 reklam 2 -->
     <div class="text-center">
-      <p class="text-[9px] tracking-[0.3em] text-slate-600 uppercase mb-2">Reklam</p>
-      <div class="mx-auto w-full max-w-[300px] h-[250px] bg-gradient-to-br from-blue-900 to-slate-900 border border-white/10 grid place-items-center text-center px-6">
+      <p class="text-[9px] tracking-[0.3em] text-stone-600 uppercase mb-2">Reklam</p>
+      <div class="mx-auto w-full max-w-[300px] h-[250px] bg-gradient-to-br from-rose-100 to-orange-50 border border-stone-200 grid place-items-center text-center px-6">
         <div>
-          <p class="font-head text-3xl font-bold uppercase text-white leading-none">Magazinolog<br><span class="text-brand">Premium</span></p>
-          <p class="text-slate-400 text-[12px] mt-3">Reklamsız okuma, haftalık veri bülteni ve arşiv erişimi.</p>
-          <a href="#" class="inline-block mt-4 bg-brand hover:bg-blue-500 transition text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2">Üye Ol</a>
-          <p class="text-[9px] tracking-widest text-slate-600 mt-4">300 x 250</p>
+          <p class="font-display text-3xl font-bold uppercase text-stone-900 leading-none">Magazinolog<br><span class="text-brand">Premium</span></p>
+          <p class="text-stone-500 text-[12px] mt-3">Reklamsız okuma, haftalık veri bülteni ve arşiv erişimi.</p>
+          <a href="#" class="inline-block mt-4 bg-brand hover:bg-rose-600 transition text-white text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-2">Üye Ol</a>
+          <p class="text-[9px] tracking-[0.18em] text-stone-600 mt-4">300 x 250</p>
         </div>
       </div>
     </div>
@@ -1014,70 +1024,70 @@ tailwind.config = {
 </div>
 
 <!-- ============ 12. FOOTER (4 sütun) ============ -->
-<footer class="bg-inkier border-t-2 border-brand">
-  <div class="mx-auto max-w-shell px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+<footer class="bg-stone-100 border-t-4 border-brand">
+  <div class="mx-auto max-w-page px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
     <div>
-      <h4 class="font-head text-base font-bold uppercase tracking-widest text-white border-b border-white/10 pb-2 mb-4">Hakkımızda</h4>
-      <p class="text-[13px] text-slate-400 leading-relaxed">Magazinolog, 2019'dan bu yana bağımsız haberciliği veri gazeteciliğiyle birleştiren dijital bir yayın. Kaynaklarımızı açık, yöntemlerimizi şeffaf tutuyoruz.</p>
-      <p class="text-[13px] text-slate-400 leading-relaxed mt-3">Yayın ilkelerimiz, düzeltme politikamız ve finansman kaynaklarımız künye sayfamızda listelidir.</p>
-      <h5 class="font-head text-sm font-bold uppercase tracking-widest text-white mt-6 mb-3">Bizi Takip Edin</h5>
+      <h4 class="font-display text-base font-bold uppercase tracking-[0.18em] text-stone-900 border-b border-stone-200 pb-2 mb-4">Hakkımızda</h4>
+      <p class="text-[13px] text-stone-500 leading-relaxed">Magazinolog, 2019'dan bu yana bağımsız haberciliği veri gazeteciliğiyle birleştiren dijital bir yayın. Kaynaklarımızı açık, yöntemlerimizi şeffaf tutuyoruz.</p>
+      <p class="text-[13px] text-stone-500 leading-relaxed mt-3">Yayın ilkelerimiz, düzeltme politikamız ve finansman kaynaklarımız künye sayfamızda listelidir.</p>
+      <h5 class="font-display text-sm font-bold uppercase tracking-[0.18em] text-stone-900 mt-6 mb-3">Bizi Takip Edin</h5>
       <div class="flex gap-2">
-        <a href="#" aria-label="Facebook" class="grid place-items-center w-9 h-9 border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
-        <a href="#" aria-label="X" class="grid place-items-center w-9 h-9 border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6l-4.7-6.1L5.7 21h-3l7.1-8.1L2.5 3h6.2l4.2 5.6L17.5 3z"/></svg></a>
-        <a href="#" aria-label="Instagram" class="grid place-items-center w-9 h-9 border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6A4.4 4.4 0 1016.4 12 4.4 4.4 0 0012 7.6zm0 7.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 14.8zM17.8 2H6.2A4.2 4.2 0 002 6.2v11.6A4.2 4.2 0 006.2 22h11.6a4.2 4.2 0 004.2-4.2V6.2A4.2 4.2 0 0017.8 2z"/></svg></a>
-        <a href="#" aria-label="YouTube" class="grid place-items-center w-9 h-9 border border-white/15 text-slate-400 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5a2.5 2.5 0 00-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 001.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 001.8-1.8C22 15.2 22 12 22 12zM10 15V9l5.2 3z"/></svg></a>
+        <a href="#" aria-label="Facebook" class="grid place-items-center w-9 h-9 border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a>
+        <a href="#" aria-label="X" class="grid place-items-center w-9 h-9 border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-6l-4.7-6.1L5.7 21h-3l7.1-8.1L2.5 3h6.2l4.2 5.6L17.5 3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="grid place-items-center w-9 h-9 border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6A4.4 4.4 0 1016.4 12 4.4 4.4 0 0012 7.6zm0 7.2A2.8 2.8 0 1114.8 12 2.8 2.8 0 0112 14.8zM17.8 2H6.2A4.2 4.2 0 002 6.2v11.6A4.2 4.2 0 006.2 22h11.6a4.2 4.2 0 004.2-4.2V6.2A4.2 4.2 0 0017.8 2z"/></svg></a>
+        <a href="#" aria-label="YouTube" class="grid place-items-center w-9 h-9 border border-stone-300 text-stone-500 hover:bg-brand hover:border-brand hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5a2.5 2.5 0 00-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 001.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 001.8-1.8C22 15.2 22 12 22 12zM10 15V9l5.2 3z"/></svg></a>
       </div>
     </div>
 
     <div>
-      <h4 class="font-head text-base font-bold uppercase tracking-widest text-white border-b border-white/10 pb-2 mb-4">Rastgele Haber</h4>
+      <h4 class="font-display text-base font-bold uppercase tracking-[0.18em] text-stone-900 border-b border-stone-200 pb-2 mb-4">Rastgele Haber</h4>
       <div class="space-y-4">
         <a href="article.html?id=sakin-sehir" class="group flex gap-3 items-start">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=200&q=70" alt="Şehir yaşamı" class="w-full h-full object-cover"></span>
           <div>
-            <span class="text-[10px] uppercase tracking-widest text-brand">Yaşam</span>
-            <h5 class="text-[13px] font-semibold leading-snug text-slate-300 group-hover:text-white transition clamp-2">Kent meydanlarında gölge alan planlaması başlıyor</h5>
-            <p class="text-[10px] text-slate-400 mt-1">24 Temmuz 2026</p>
+            <span class="text-[10px] uppercase tracking-[0.18em] text-brand">Yaşam</span>
+            <h5 class="text-[13px] font-semibold leading-snug text-stone-700 group-hover:text-stone-900 transition clamp-2">Kent meydanlarında gölge alan planlaması başlıyor</h5>
+            <p class="text-[10px] text-stone-500 mt-1">24 Temmuz 2026</p>
           </div>
         </a>
         <a href="article.html?id=ihracat-paket" class="group flex gap-3 items-start">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=200&q=70" alt="Muhasebe" class="w-full h-full object-cover"></span>
           <div>
-            <span class="text-[10px] uppercase tracking-widest text-brand">Ekonomi</span>
-            <h5 class="text-[13px] font-semibold leading-snug text-slate-300 group-hover:text-white transition clamp-2">Küçük işletmeler için dijital muhasebe zorunluluğu ertelendi</h5>
-            <p class="text-[10px] text-slate-400 mt-1">23 Temmuz 2026</p>
+            <span class="text-[10px] uppercase tracking-[0.18em] text-brand">Ekonomi</span>
+            <h5 class="text-[13px] font-semibold leading-snug text-stone-700 group-hover:text-stone-900 transition clamp-2">Küçük işletmeler için dijital muhasebe zorunluluğu ertelendi</h5>
+            <p class="text-[10px] text-stone-500 mt-1">23 Temmuz 2026</p>
           </div>
         </a>
         <a href="article.html?id=uydu" class="group flex gap-3 items-start">
           <span class="w-16 h-14 shrink-0 overflow-hidden block"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=200&q=70" alt="Donanım" class="w-full h-full object-cover"></span>
           <div>
-            <span class="text-[10px] uppercase tracking-widest text-brand">Teknoloji</span>
-            <h5 class="text-[13px] font-semibold leading-snug text-slate-300 group-hover:text-white transition clamp-2">Yerli işlemci projesinde test üretimi tamamlandı</h5>
-            <p class="text-[10px] text-slate-400 mt-1">22 Temmuz 2026</p>
+            <span class="text-[10px] uppercase tracking-[0.18em] text-brand">Teknoloji</span>
+            <h5 class="text-[13px] font-semibold leading-snug text-stone-700 group-hover:text-stone-900 transition clamp-2">Yerli işlemci projesinde test üretimi tamamlandı</h5>
+            <p class="text-[10px] text-stone-500 mt-1">22 Temmuz 2026</p>
           </div>
         </a>
       </div>
     </div>
 
     <div>
-      <h4 class="font-head text-base font-bold uppercase tracking-widest text-white border-b border-white/10 pb-2 mb-4">Öne Çıkan Konular</h4>
+      <h4 class="font-display text-base font-bold uppercase tracking-[0.18em] text-stone-900 border-b border-stone-200 pb-2 mb-4">Öne Çıkan Konular</h4>
       <ul class="grid grid-cols-2 gap-x-5 text-[13px]">
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=ekonomi" class="text-slate-400 hover:text-brand transition">Ekonomi</a><span class="text-slate-600">8</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=spor" class="text-slate-400 hover:text-brand transition">Spor</a><span class="text-slate-600">4</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=yasam" class="text-slate-400 hover:text-brand transition">Yaşam</a><span class="text-slate-600">9</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=saglik" class="text-slate-400 hover:text-brand transition">Sağlık</a><span class="text-slate-600">2</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=teknoloji" class="text-slate-400 hover:text-brand transition">Teknoloji</a><span class="text-slate-600">4</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=kultur" class="text-slate-400 hover:text-brand transition">Kültür</a><span class="text-slate-600">7</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=dunya" class="text-slate-400 hover:text-brand transition">Dünya</a><span class="text-slate-600">4</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=video" class="text-slate-400 hover:text-brand transition">Video</a><span class="text-slate-600">5</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=ekonomi" class="text-slate-400 hover:text-brand transition">İhracat</a><span class="text-slate-600">3</span></li>
-        <li class="flex justify-between border-b border-white/5 py-2"><a href="kategori.html?cat=yasam" class="text-slate-400 hover:text-brand transition">Seyahat</a><span class="text-slate-600">6</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=ekonomi" class="text-stone-500 hover:text-brand transition">Ekonomi</a><span class="text-stone-600">8</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=spor" class="text-stone-500 hover:text-brand transition">Spor</a><span class="text-stone-600">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=yasam" class="text-stone-500 hover:text-brand transition">Yaşam</a><span class="text-stone-600">9</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=saglik" class="text-stone-500 hover:text-brand transition">Sağlık</a><span class="text-stone-600">2</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=teknoloji" class="text-stone-500 hover:text-brand transition">Teknoloji</a><span class="text-stone-600">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=kultur" class="text-stone-500 hover:text-brand transition">Kültür</a><span class="text-stone-600">7</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=dunya" class="text-stone-500 hover:text-brand transition">Dünya</a><span class="text-stone-600">4</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=video" class="text-stone-500 hover:text-brand transition">Video</a><span class="text-stone-600">5</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=ekonomi" class="text-stone-500 hover:text-brand transition">İhracat</a><span class="text-stone-600">3</span></li>
+        <li class="flex justify-between border-b border-stone-100 py-2"><a href="kategori.html?cat=yasam" class="text-stone-500 hover:text-brand transition">Seyahat</a><span class="text-stone-600">6</span></li>
       </ul>
     </div>
 
     <div>
-      <h4 class="font-head text-base font-bold uppercase tracking-widest text-white border-b border-white/10 pb-2 mb-4">Foto Akış</h4>
+      <h4 class="font-display text-base font-bold uppercase tracking-[0.18em] text-stone-900 border-b border-stone-200 pb-2 mb-4">Foto Akış</h4>
       <div class="grid grid-cols-3 gap-2">
         <a href="#" class="block h-16 overflow-hidden"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=200&q=70" alt="Foto akış görseli" class="w-full h-full object-cover opacity-70 hover:opacity-100 transition"></a>
         <a href="#" class="block h-16 overflow-hidden"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=200&q=70" alt="Foto akış görseli" class="w-full h-full object-cover opacity-70 hover:opacity-100 transition"></a>
@@ -1086,10 +1096,10 @@ tailwind.config = {
         <a href="#" class="block h-16 overflow-hidden"><img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=200&q=70" alt="Foto akış görseli" class="w-full h-full object-cover opacity-70 hover:opacity-100 transition"></a>
         <a href="#" class="block h-16 overflow-hidden"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=200&q=70" alt="Foto akış görseli" class="w-full h-full object-cover opacity-70 hover:opacity-100 transition"></a>
       </div>
-      <a href="#" class="inline-block mt-3 text-[11px] uppercase tracking-widest text-slate-500 hover:text-brand transition">Tüm fotoğraflar</a>
+      <a href="#" class="inline-block mt-3 text-[11px] uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">Tüm fotoğraflar</a>
 
-      <h5 class="font-head text-sm font-bold uppercase tracking-widest text-white mt-6 mb-3">Hızlı Erişim</h5>
-      <ul class="text-[13px] space-y-1.5 text-slate-400">
+      <h5 class="font-display text-sm font-bold uppercase tracking-[0.18em] text-stone-900 mt-6 mb-3">Hızlı Erişim</h5>
+      <ul class="text-[13px] space-y-1.5 text-stone-500">
         <li><a href="#" class="hover:text-brand transition">Yayın ilkeleri</a></li>
         <li><a href="#" class="hover:text-brand transition">Düzeltme talebi</a></li>
         <li><a href="#" class="hover:text-brand transition">Reklam ve iş birliği</a></li>
@@ -1098,10 +1108,10 @@ tailwind.config = {
     </div>
   </div>
 
-  <div class="border-t border-white/10">
-    <div class="mx-auto max-w-shell px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="text-[11px] tracking-widest uppercase text-slate-500">© 2026 Magazinolog — Tüm hakları saklıdır.</p>
-      <nav class="flex flex-wrap justify-center gap-5 text-[11px] uppercase tracking-widest text-slate-500">
+  <div class="border-t border-stone-200">
+    <div class="mx-auto max-w-page px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-[11px] tracking-[0.18em] uppercase text-stone-500">© 2026 Magazinolog — Tüm hakları saklıdır.</p>
+      <nav class="flex flex-wrap justify-center gap-5 text-[11px] uppercase tracking-[0.18em] text-stone-500">
         <a href="#" class="hover:text-brand transition">Gizlilik</a>
         <a href="#" class="hover:text-brand transition">Çerez politikası</a>
         <a href="#" class="hover:text-brand transition">Kullanım şartları</a>
@@ -1112,7 +1122,7 @@ tailwind.config = {
 </footer>
 
 <!-- yukarı çık -->
-<button type="button" id="toTop" aria-label="Yukarı çık" class="fixed bottom-6 right-6 z-50 w-11 h-11 grid place-items-center bg-brand text-white shadow-lg opacity-0 pointer-events-none transition hover:bg-blue-500">
+<button type="button" id="toTop" aria-label="Yukarı çık" class="fixed bottom-6 right-6 z-50 w-11 h-11 grid place-items-center bg-brand text-white shadow-lg opacity-0 pointer-events-none transition hover:bg-rose-600">
   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 

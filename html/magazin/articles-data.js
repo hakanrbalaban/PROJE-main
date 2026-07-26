@@ -1,5 +1,5 @@
 /* Magazinolog — makale & kategori veri deposu */
-window.VT_ARTICLES = {
+window.MG_ARTICLES = {
   "rayli-sistem": {
     id: "rayli-sistem",
     title: "Büyükşehirlerde raylı sistem seferberliği: 11 hat için imzalar atıldı",
@@ -540,7 +540,7 @@ window.VT_ARTICLES = {
   }
 };
 
-window.VT_CATEGORIES = {
+window.MG_CATEGORIES = {
   dunya: { slug: "dunya", name: "Dünya", accent: "sky", ids: ["iklim-fon", "tedarik", "secim-takvim", "kuraklik", "kira-sinir", "liman"] },
   ekonomi: { slug: "ekonomi", name: "Ekonomi", accent: "emerald", ids: ["yenilenebilir", "hibrit-ofis", "tarim-fon", "kira-sinir", "liman", "balikcilik", "ihracat-paket", "karbon-borsa"] },
   teknoloji: { slug: "teknoloji", name: "Teknoloji", accent: "amber", ids: ["uydu", "dijital-kamu", "serbest-calisma", "yapay-zeka"] },
@@ -552,4 +552,4 @@ window.VT_CATEGORIES = {
   gundem: { slug: "gundem", name: "Gündem", accent: "brand", ids: ["rayli-sistem"] }
 };
 
-window.VT_HOME_CATEGORIES = ["dunya", "ekonomi", "teknoloji", "yasam", "spor", "kultur"];
+window.MG_HOME_CATEGORIES = ["dunya", "ekonomi", "teknoloji", "yasam", "spor", "kultur"];

@@ -7,95 +7,172 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600;700" rel="stylesheet">
 <script>
 tailwind.config = {
   theme: {
     extend: {
-      colors: { ink:'#0f172a', inkier:'#0b1220', brand:'#2563eb', paper:'#f8fafc' },
-      fontFamily: { head:['"Barlow Condensed"', 'sans-serif'], body:['Inter', 'sans-serif'] },
-      maxWidth: { shell:'1180px' }
+      colors: {
+        brand: '#e11d48',
+        paper: '#ffffff',
+        mist: '#f5f5f4',
+        ink: '#1c1917'
+      },
+      fontFamily: {
+        display: ['"Sora"', 'sans-serif'],
+        body: ['Manrope', 'sans-serif']
+      },
+      maxWidth: { page: '1180px' }
     }
   }
 }
 </script>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-ink font-body text-slate-200 antialiased">
+<body class="bg-stone-50 font-body text-stone-800 antialiased">
 
-<header class="border-b border-white/10 bg-inkier">
-  <div class="mx-auto max-w-shell px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div class="bg-white border-b border-stone-200">
+  <div class="mx-auto max-w-page px-4 py-2 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-stone-500">
+    <p>26 Temmuz 2026 · Pazar</p>
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="hover:text-brand transition">Anasayfa</a>
+      <a href="kategori.html?cat=ekonomi" class="hover:text-brand transition">Ekonomi</a>
+      <a href="kategori.html?cat=yasam" class="hover:text-brand transition">Yaşam</a>
+    </div>
+  </div>
+</div>
+
+<header class="border-b border-stone-200 bg-stone-50">
+  <div class="mx-auto max-w-page px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
     <a href="index.html" class="flex items-center gap-2.5 shrink-0">
-      <span class="grid place-items-center w-9 h-9 rounded bg-brand font-head text-xl font-bold text-white leading-none pt-0.5">M</span>
-      <span class="font-head text-2xl font-bold uppercase tracking-tight text-white">Magazin<span class="text-brand">olog</span></span>
+      <span class="grid place-items-center w-9 h-9 rounded bg-brand font-display text-xl font-bold text-white leading-none pt-0.5">M</span>
+      <span class="font-display text-2xl font-bold uppercase tracking-[-0.02em] text-stone-900">Magazin<span class="text-brand">olog</span></span>
     </a>
-    <nav id="catNav" class="flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-widest"></nav>
+    <nav id="topCatNav" class="flex flex-wrap gap-1 text-[11px] font-bold uppercase tracking-[0.18em]"></nav>
   </div>
 </header>
 
-<main class="mx-auto max-w-shell px-4 py-8 lg:py-12">
-  <div class="flex items-end justify-between border-b border-white/10 pb-3 mb-8">
+<main class="mx-auto max-w-page px-4 py-8 lg:py-10">
+  <div class="flex flex-wrap items-end justify-between gap-4 border-b border-stone-200 pb-4 mb-6">
     <div>
-      <p class="text-[11px] uppercase tracking-widest text-slate-500">Kategori</p>
-      <h1 id="catTitle" class="font-head text-3xl font-bold uppercase text-white"></h1>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-stone-500">Kategori arşivi</p>
+      <h1 id="catTitle" class="font-display text-3xl font-bold uppercase text-stone-900"></h1>
+      <p id="catCount" class="text-[12px] text-stone-500 mt-1"></p>
     </div>
-    <a href="index.html" class="text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-brand transition">Anasayfa</a>
+    <a href="index.html" class="text-[11px] font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-brand transition">← Anasayfa</a>
   </div>
-  <div id="catGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-  <p id="catEmpty" class="hidden text-slate-400 py-16 text-center">Bu kategoride henüz haber yok.</p>
+
+  <!-- Filtre çubuğu -->
+  <div class="bg-white border border-stone-200 p-4 mb-8 space-y-4">
+    <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+      <label class="sr-only" for="catSearch">Ara</label>
+      <input id="catSearch" type="search" placeholder="Bu listede ara…" class="flex-1 min-w-0 bg-stone-50 border border-stone-200 px-3 py-2.5 text-[13px] outline-none focus:border-brand transition">
+      <div class="flex flex-wrap gap-2">
+        <select id="catSort" class="bg-stone-50 border border-stone-200 px-3 py-2.5 text-[12px] font-semibold uppercase tracking-[0.12em] outline-none focus:border-brand">
+          <option value="date">En yeni</option>
+          <option value="views">En çok okunan</option>
+          <option value="comments">En çok yorum</option>
+          <option value="title">A–Z</option>
+        </select>
+        <select id="catView" class="bg-stone-50 border border-stone-200 px-3 py-2.5 text-[12px] font-semibold uppercase tracking-[0.12em] outline-none focus:border-brand">
+          <option value="grid">Izgara</option>
+          <option value="list">Liste</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-stone-500 mb-2">Kategori filtresi</p>
+      <div id="filterChips" class="flex flex-wrap gap-2"></div>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-stone-100">
+      <p id="filterStatus" class="text-[12px] text-stone-500">Tüm haberler gösteriliyor</p>
+      <button type="button" id="filterReset" class="text-[11px] font-bold uppercase tracking-[0.18em] text-brand hover:underline">Filtreleri sıfırla</button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-12 gap-8">
+    <!-- Ana liste -->
+    <div class="col-span-12 lg:col-span-8">
+      <div id="catGrid" class="grid sm:grid-cols-2 gap-6"></div>
+      <p id="catEmpty" class="hidden text-stone-500 py-16 text-center border border-dashed border-stone-300">Bu filtrelere uygun haber bulunamadı.</p>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="col-span-12 lg:col-span-4 space-y-8">
+
+      <div class="bg-white border border-stone-200 p-5">
+        <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Tüm Kategoriler</h3>
+        <ul id="sideCats" class="space-y-0 text-[13px]"></ul>
+      </div>
+
+      <div>
+        <div class="grid grid-cols-2 font-display text-[13px] font-semibold uppercase tracking-[0.08em]">
+          <button type="button" data-tab="pop" class="tab-btn py-3 bg-brand text-white transition">Popüler</button>
+          <button type="button" data-tab="son" class="tab-btn py-3 bg-stone-100 text-stone-600 hover:text-brand transition">Son</button>
+        </div>
+        <div class="border border-stone-200 border-t-0 p-4 bg-white">
+          <div data-panel="pop" class="tab-panel space-y-4" id="sidePopular"></div>
+          <div data-panel="son" class="tab-panel hidden space-y-4" id="sideLatest"></div>
+        </div>
+      </div>
+
+      <div class="bg-rose-50 border border-rose-100 p-5">
+        <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-rose-100 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Bu Kategoride Öne Çıkan</h3>
+        <div id="sideFeatured" class="space-y-4"></div>
+      </div>
+
+      <div class="bg-white border border-stone-200 p-5">
+        <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-amber-400">Hızlı Filtreler</h3>
+        <div class="space-y-2" id="quickFilters">
+          <button type="button" data-quick="views" class="w-full text-left border border-stone-200 px-3 py-2.5 text-[12px] font-semibold hover:border-brand hover:text-brand transition">En çok okunanlar</button>
+          <button type="button" data-quick="comments" class="w-full text-left border border-stone-200 px-3 py-2.5 text-[12px] font-semibold hover:border-brand hover:text-brand transition">Çok yorumlananlar</button>
+          <button type="button" data-quick="date" class="w-full text-left border border-stone-200 px-3 py-2.5 text-[12px] font-semibold hover:border-brand hover:text-brand transition">En yeni haberler</button>
+        </div>
+      </div>
+
+      <div class="bg-white border border-stone-200 p-5">
+        <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em] text-stone-900 border-b border-stone-200 pb-2 mb-4 relative after:content-[''] after:absolute after:-bottom-[9px] after:left-0 after:w-14 after:h-[3px] after:bg-brand">Etiketler</h3>
+        <div id="sideTags" class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-[0.18em]"></div>
+      </div>
+
+      <div class="bg-paper text-ink p-6 border border-stone-200">
+        <h3 class="font-display text-lg font-bold uppercase tracking-[0.08em]">Bültene Abone Olun</h3>
+        <div class="w-14 h-[3px] bg-brand mt-2 mb-4"></div>
+        <form id="newsForm" class="flex">
+          <input type="email" required placeholder="E-posta adresiniz" class="flex-1 min-w-0 bg-white border border-stone-300 text-[13px] px-3 py-2.5 outline-none focus:border-brand transition">
+          <button type="submit" aria-label="Abone ol" class="w-11 shrink-0 grid place-items-center bg-brand hover:bg-rose-600 text-white transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p id="newsMsg" class="hidden text-[12px] text-emerald-700 mt-3">Aboneliğiniz alındı!</p>
+        <p class="text-[12px] text-stone-600 mt-3 leading-relaxed">Seçtiğiniz kategorinin özetini haftalık alın.</p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-[9px] tracking-[0.3em] text-stone-500 uppercase mb-2">Reklam</p>
+        <div class="mx-auto w-full max-w-[300px] h-[250px] bg-gradient-to-br from-rose-50 to-amber-50 border border-stone-200 grid place-items-center text-center px-6">
+          <div>
+            <div class="mx-auto grid place-items-center w-20 h-20 border-2 border-brand text-brand font-display font-bold text-lg leading-tight">MG<br>ADS</div>
+            <p class="text-stone-500 text-[12px] italic mt-4">reklam alanınız burada</p>
+            <p class="text-[9px] tracking-[0.18em] text-stone-500 mt-4">300 x 250</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
 </main>
 
+<footer class="bg-stone-100 border-t-4 border-brand mt-8">
+  <div class="mx-auto max-w-page px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="grid place-items-center w-8 h-8 rounded bg-brand font-display text-lg font-bold text-white leading-none pt-0.5">M</span>
+      <span class="font-display text-xl font-bold uppercase text-stone-900">Magazin<span class="text-brand">olog</span></span>
+    </a>
+    <p class="text-[11px] tracking-[0.18em] uppercase text-stone-500">© 2026 Magazinolog</p>
+  </div>
+</footer>
+
 <script src="articles-data.js"></script>
-<script>
-(function () {
-  var params = new URLSearchParams(window.location.search);
-  var slug = (params.get("cat") || "dunya").toLowerCase();
-  var cats = window.VT_CATEGORIES || {};
-  var articles = window.VT_ARTICLES || {};
-  var cat = cats[slug] || cats.dunya;
-  if (!cat) return;
-
-  document.title = cat.name + " — Magazinolog";
-  document.getElementById("catTitle").textContent = cat.name;
-
-  var nav = document.getElementById("catNav");
-  Object.keys(cats).forEach(function (key) {
-    if (key === "gundem") return;
-    var c = cats[key];
-    var a = document.createElement("a");
-    a.href = "kategori.html?cat=" + encodeURIComponent(c.slug);
-    a.textContent = c.name;
-    a.className = "px-3 py-1.5 border transition " + (c.slug === cat.slug
-      ? "bg-brand border-brand text-white"
-      : "border-white/15 text-slate-400 hover:border-brand hover:text-white");
-    nav.appendChild(a);
-  });
-
-  var grid = document.getElementById("catGrid");
-  var ids = cat.ids || [];
-  if (!ids.length) {
-    document.getElementById("catEmpty").classList.remove("hidden");
-    return;
-  }
-
-  ids.forEach(function (id) {
-    var item = articles[id];
-    if (!item) return;
-    var card = document.createElement("article");
-    card.className = "group bg-paper text-ink overflow-hidden";
-    card.innerHTML =
-      '<a href="article.html?id=' + encodeURIComponent(item.id) + '" class="block h-44 overflow-hidden">' +
-      '<img src="' + item.image + '" alt="' + item.title.replace(/"/g, "&quot;") + '" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">' +
-      "</a>" +
-      '<div class="p-4">' +
-      '<p class="text-[10px] font-bold uppercase tracking-widest text-brand mb-1">' + item.categoryLabel + "</p>" +
-      '<h2 class="font-head text-lg font-semibold uppercase leading-tight group-hover:text-brand transition">' +
-      '<a href="article.html?id=' + encodeURIComponent(item.id) + '">' + item.title + "</a></h2>" +
-      '<p class="text-[11px] text-slate-500 mt-2">' + item.date + " · " + item.author + "</p>" +
-      "</div>";
-    grid.appendChild(card);
-  });
-})();
-</script>
+<script src="kategori-page.js"></script>
 </body>
 </html>
