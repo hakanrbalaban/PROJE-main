@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Balaban Ailesi &mdash; Hakan Rüştü, Gökhan, Merve, Özcan, Aziz</title>
+<meta name="description" content="Balaban ailesi: Hakan Rüştü, Gökhan, Merve, Özcan ve Aziz. Büyükler: Rüştü &amp; Emet Balaban, Cemil &amp; Turcan Gökçen." />
+<meta name="theme-color" content="#0d0b14" />
+
+<meta property="og:title" content="Balaban Ailesi — Beş Kardeş, Bir Soyadı" />
+<meta property="og:description" content="Hakan Rüştü, Gökhan, Merve, Özcan ve Aziz Balaban’ın aile albümü." />
+<meta property="og:image" content="images/sahil-sarilma.webp" />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============ AÇILIŞ EKRANI ============ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__mark">
+      <span>B</span>
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" /></svg>
+    </div>
+    <p class="loader__text">Anılar yükleniyor</p>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+  </div>
+</div>
+
+<div class="scroll-progress"><i id="scrollBar"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+<!-- ============ NAVİGASYON ============ -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__logo">
+    <span class="nav__logo-mark">B</span>
+    <span class="nav__logo-text">Balaban<em>ailesi</em></span>
+  </a>
+
+  <nav class="nav__links" id="navLinks">
+    <a href="#hikaye">Hikâyemiz</a>
+    <a href="#biz">Aile</a>
+    <a href="#kokler">Köklerimiz</a>
+    <a href="#zaman">Zaman Tüneli</a>
+    <a href="#album">Albüm</a>
+    <a href="#sozler">Sözlerimiz</a>
+    <a href="#defter">Ziyaretçi Defteri</a>
+  </nav>
+
+  <div class="nav__actions">
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir" title="Aydınlık / Karanlık">
+      <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></svg>
+      <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>
+    </button>
+    <button class="burger" id="burger" type="button" aria-label="Menü" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__slides" id="heroSlides">
+    <div class="hero__slide is-active"><img src="images/sahil-sarilma.webp" alt="" fetchpriority="high" /></div>
+    <div class="hero__slide"><img src="images/gol-kenari.webp" alt="" loading="lazy" /></div>
+    <div class="hero__slide"><img src="images/tavla-gece.webp" alt="" loading="lazy" /></div>
+    <div class="hero__slide"><img src="images/begonvil.webp" alt="" loading="lazy" /></div>
+  </div>
+  <div class="hero__veil"></div>
+
+  <div class="hero__content" data-parallax="0.18">
+    <p class="hero__eyebrow"><span class="dot"></span> Hakan Rüştü &middot; Gökhan &middot; Merve &middot; Özcan &middot; Aziz</p>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="word">Balaban</span></span>
+      <span class="line"><em class="word">ailesinin</em> <span class="word">hikâyesi</span></span>
+      <span class="line"><span class="word">burada.</span></span>
+    </h1>
+
+    <p class="hero__desc">
+      Beş kardeş, dört büyük anne-baba ve aynı soydan gelen bir sıcaklık.
+      Bu sayfada deniz kenarı kareleri, tavla masaları ve “iyi ki varsınız”
+      demenin yüz farklı yolu var — hepsi Balaban.
+    </p>
+
+    <div class="hero__cta">
+      <a href="#hikaye" class="btn btn--primary">Hikâyeyi Oku <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#biz" class="btn btn--ghost">Aileyi Tanı</a>
+    </div>
+
+    <div class="hero__meta">
+      <div><b>5</b><span>kardeş</span></div>
+      <div><b>4</b><span>dede &amp; nine</span></div>
+      <div><b>1</b><span>soyadı: Balaban</span></div>
+    </div>
+  </div>
+
+  <div class="hero__side">
+    <div class="hero__dots" id="heroDots"></div>
+  </div>
+
+  <a href="#hikaye" class="hero__scroll" aria-label="Aşağı kaydır">
+    <span></span>
+    <em>kaydır</em>
+  </a>
+</section>
+
+<!-- ============ HİKÂYE / GİRİŞ ============ -->
+<section class="section story" id="hikaye">
+  <div class="wrap story__grid">
+    <div class="story__media reveal" data-reveal="left">
+      <figure class="frame frame--tall">
+        <img src="images/ikili-portre.webp" alt="Bir restoranda gülümseyen çift" loading="lazy" />
+      </figure>
+      <figure class="frame frame--float">
+        <img src="images/sevgi.webp" alt="Yanağından öpülen bir an" loading="lazy" />
+      </figure>
+      <div class="story__badge">
+        <b>“</b>
+        <p>Beş kardeş, bir çatı — Balaban’ın en güzel hâli.</p>
+      </div>
+    </div>
+
+    <div class="story__text reveal" data-reveal="right">
+      <p class="kicker">Hikâyemiz</p>
+      <h2 class="h2">Hakan Rüştü’den Aziz’e, <em>aynı kök</em> aynı sevgi.</h2>
+      <p>
+        Bu aile, Rüştü ile Emet’in ve Cemil ile Turcan’ın bıraktığı izlerden büyüdü.
+        Hakan Rüştü, Gökhan, Merve, Özcan ve Aziz — beş isim, tek soyadı, sayısız anı.
+      </p>
+      <p>
+        Sofra kurulunca herkes yerini bilir. Tavla masası açılınca rekabet başlar.
+        Deniz çağırınca yol biter. Bizim hikâyemiz büyük sözlerle değil;
+        küçük, sıcak ve gerçek günlerle anlatılır.
+      </p>
+
+      <ul class="story__list">
+        <li><span>01</span><div><b>Soy devam eder</b><p>Büyüklerden kalan isimler, sofra kültürü ve “Balaban” adı hâlâ aynı kapıda yaşar.</p></div></li>
+        <li><span>02</span><div><b>Kardeş bağı</b><p>Beş farklı karakter; bir araya gelince ev yeniden kalabalık ve sıcak olur.</p></div></li>
+        <li><span>03</span><div><b>Anılar birikir</b><p>Sahil, tavla, kahvaltı… Her kare, bir sonraki nesle taşınacak bir hatıra.</p></div></li>
+      </ul>
+
+      <div class="signature">
+        <svg viewBox="0 0 220 60" aria-hidden="true"><path class="sig-path" d="M6 44c14-26 24-32 30-18s-4 26 4 24 14-24 22-22 2 20 12 18 16-26 26-24 0 20 10 20 20-14 32-30" /></svg>
+        <span>Balaban Ailesi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAYAÇLAR ============ -->
+<section class="stats">
+  <div class="wrap stats__grid">
+    <div class="stat reveal"><b class="count" data-target="5">0</b><i></i><span>kardeş</span></div>
+    <div class="stat reveal"><b class="count" data-target="4">0</b><i></i><span>dede &amp; nine</span></div>
+    <div class="stat reveal"><b class="count" data-target="2">0</b><i></i><span>soy kökü</span></div>
+    <div class="stat reveal"><b class="count" data-target="1">0</b><i></i><span>aile: Balaban</span></div>
+  </div>
+</section>
+
+<!-- ============ BİZ KİMİZ ============ -->
+<section class="section members" id="biz">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="kicker">Biz Kimiz</p>
+      <h2 class="h2">Beş isim, <em>bir</em> soyadı.</h2>
+      <p class="head__desc">Hakan Rüştü, Gökhan, Merve, Özcan ve Aziz — Balaban kardeşler. Farklı yollar, aynı kapı.</p>
+    </header>
+
+    <div class="members__grid members__grid--5">
+      <article class="member reveal">
+        <div class="member__photo">
+          <img src="images/sahil-portre.webp" alt="Hakan Rüştü Balaban" loading="lazy" />
+          <span class="member__tag">Ağabey</span>
+        </div>
+        <div class="member__body">
+          <h3>Hakan Rüştü</h3>
+          <p class="member__role">Balaban &middot; Dededen gelen isim</p>
+          <p>
+            Adını büyükbaba Rüştü’den alır. Ailenin sakin limanı; denizi, sabrı ve
+            sohbeti sever. Herkesin “hallederiz” dediği yerde genelde o vardır.
+          </p>
+          <ul class="chips"><li>Deniz</li><li>Sohbet</li><li>Aile bağı</li></ul>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member__photo">
+          <img src="images/tavla-gulus.webp" alt="Gökhan Balaban" loading="lazy" />
+          <span class="member__tag">Kardeş</span>
+        </div>
+        <div class="member__body">
+          <h3>Gökhan</h3>
+          <p class="member__role">Balaban &middot; Neşe &amp; hareket</p>
+          <p>
+            Masayı güldüren, planı bozup daha güzelini bulan. Tavla, yol ve
+            kahkaha onun dilinden konuşur; yanında sıkılmak mümkün değildir.
+          </p>
+          <ul class="chips"><li>Tavla</li><li>Yolculuk</li><li>Kahkaha</li></ul>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member__photo">
+          <img src="images/gol-kenari.webp" alt="Merve Balaban" loading="lazy" />
+          <span class="member__tag">Kardeş</span>
+        </div>
+        <div class="member__body">
+          <h3>Merve</h3>
+          <p class="member__role">Balaban &middot; Evin ışığı</p>
+          <p>
+            Ailenin dengesi ve zarafeti. Sofrayı kurar, anıyı yakalar, herkesin
+            kalbini bir cümleyle ısıtır. Bu albümdeki sıcaklığın çoğu ona aittir.
+          </p>
+          <ul class="chips"><li>Sofra</li><li>Fotoğraf</li><li>Şefkat</li></ul>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member__photo">
+          <img src="images/begonvil.webp" alt="Özcan Balaban" loading="lazy" />
+          <span class="member__tag">Kardeş</span>
+        </div>
+        <div class="member__body">
+          <h3>Özcan</h3>
+          <p class="member__role">Balaban &middot; Güvenilir duruş</p>
+          <p>
+            Az konuşur, çok dinler; işin doğrusunu sessizce bilir. Ailede
+            “Özcan’a soralım” cümlesi sık duyulur — çünkü o, güven demektir.
+          </p>
+          <ul class="chips"><li>Dürüstlük</li><li>Sabır</li><li>Destek</li></ul>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member__photo">
+          <img src="images/park-yaz.webp" alt="Aziz Balaban" loading="lazy" />
+          <span class="member__tag">Kardeş</span>
+        </div>
+        <div class="member__body">
+          <h3>Aziz</h3>
+          <p class="member__role">Balaban &middot; Genç ruh</p>
+          <p>
+            Ailenin enerjisi. Yeni fikir, yeni rota, yeni bir “hadi gidelim”.
+            Yanında olmak, hayatı biraz daha hafif ve renkli yaşamaktır.
+          </p>
+          <ul class="chips"><li>Keşif</li><li>Müzik</li><li>Hareket</li></ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- Kökler / Büyükler -->
+    <header class="head head--center reveal roots-head" id="kokler">
+      <p class="kicker">Köklerimiz</p>
+      <h2 class="h2">Bizi büyüten <em>dört</em> isim.</h2>
+      <p class="head__desc">Baba tarafı Balaban, anne tarafı Gökçen — iki kök, tek aile.</p>
+    </header>
+
+    <div class="roots">
+      <div class="roots__branch reveal">
+        <p class="roots__side">Baba tarafı</p>
+        <h3 class="roots__title">Balaban</h3>
+        <div class="roots__people">
+          <article class="elder">
+            <div class="elder__avatar" aria-hidden="true">R</div>
+            <div>
+              <h4>Rüştü Balaban</h4>
+              <p>Büyükbaba &middot; Hakan Rüştü’nün isim babası</p>
+            </div>
+          </article>
+          <article class="elder">
+            <div class="elder__avatar" aria-hidden="true">E</div>
+            <div>
+              <h4>Emet Balaban</h4>
+              <p>Büyükanne &middot; Evin bereketi</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="roots__branch reveal">
+        <p class="roots__side">Anne tarafı</p>
+        <h3 class="roots__title">Gökçen</h3>
+        <div class="roots__people">
+          <article class="elder">
+            <div class="elder__avatar elder__avatar--alt" aria-hidden="true">C</div>
+            <div>
+              <h4>Cemil Gökçen</h4>
+              <p>Büyükbaba &middot; Anne tarafından dede</p>
+            </div>
+          </article>
+          <article class="elder">
+            <div class="elder__avatar elder__avatar--alt" aria-hidden="true">T</div>
+            <div>
+              <h4>Turcan Gökçen</h4>
+              <p>Büyükanne &middot; Anne tarafından nine</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZAMAN TÜNELİ ============ -->
+<section class="section timeline" id="zaman">
+  <div class="wrap">
+    <header class="head head--center reveal">
+      <p class="kicker">Zaman Tüneli</p>
+      <h2 class="h2">Yıllar geçti, <em>biz</em> kaldık.</h2>
+    </header>
+
+    <div class="tl">
+      <span class="tl__line"><i id="tlFill"></i></span>
+
+      <div class="tl__item reveal">
+        <div class="tl__card">
+          <span class="tl__year">Kökler</span>
+          <h3>Rüştü, Emet, Cemil, Turcan</h3>
+          <p>Baba tarafında Rüştü ile Emet Balaban; anne tarafında Cemil ile Turcan Gökçen. Bu dört isim, beş kardeşin hikâyesinin başlangıcıdır.</p>
+        </div>
+        <span class="tl__dot"></span>
+        <div class="tl__thumb"><img src="images/ikili-portre.webp" alt="Aile bağının simgesi" loading="lazy" /></div>
+      </div>
+
+      <div class="tl__item reveal">
+        <div class="tl__card">
+          <span class="tl__year">Beş Kardeş</span>
+          <h3>Hakan Rüştü, Gökhan, Merve, Özcan, Aziz</h3>
+          <p>Aynı soyadı taşıyan beş farklı karakter. Büyükbaba Rüştü’nün adı Hakan’a geçti; sevgi ise hepsine.</p>
+        </div>
+        <span class="tl__dot"></span>
+        <div class="tl__thumb"><img src="images/sahil-sarilma.webp" alt="Aile anısı" loading="lazy" /></div>
+      </div>
+
+      <div class="tl__item reveal">
+        <div class="tl__card">
+          <span class="tl__year">Kış Akşamları</span>
+          <h3>Tavla masası kuruldu</h3>
+          <p>Soğuk havada sıcak bir köşe, iki latte ve bitmeyen bir rekabet. Skoru kimse hatırlamıyor ama o kahkahalar hâlâ aklımızda.</p>
+        </div>
+        <span class="tl__dot"></span>
+        <div class="tl__thumb"><img src="images/kis-aksami.webp" alt="Kış akşamı tavla masası" loading="lazy" /></div>
+      </div>
+
+      <div class="tl__item reveal">
+        <div class="tl__card">
+          <span class="tl__year">Bugün</span>
+          <h3>Aynı yolda, daha güçlü</h3>
+          <p>Begonvillerin döküldüğü sokaklarda, göl kenarındaki kahvaltılarda, sıradan bir salı akşamında… Balaban hikâyesi devam ediyor.</p>
+        </div>
+        <span class="tl__dot"></span>
+        <div class="tl__thumb"><img src="images/begonvil.webp" alt="Begonvillerin önünde" loading="lazy" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALBÜM ============ -->
+<section class="section gallery" id="album">
+  <div class="wrap">
+    <header class="head head--center reveal">
+      <p class="kicker">Albüm</p>
+      <h2 class="h2">Onlarca kare, <em>tek bir</em> duygu.</h2>
+      <p class="head__desc">Filtreye dokun, hikâyenin o bölümüne git. Fotoğrafa tıklayınca büyük hâliyle açılır.</p>
+    </header>
+
+    <div class="filters reveal" id="filters">
+      <button class="chip is-active" data-filter="all" type="button">Hepsi</button>
+      <button class="chip" data-filter="deniz" type="button">Deniz</button>
+      <button class="chip" data-filter="ikili" type="button">İkimiz</button>
+      <button class="chip" data-filter="tavla" type="button">Tavla</button>
+      <button class="chip" data-filter="doga" type="button">Doğa</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <figure class="card is-wide reveal" data-cat="deniz ikili" data-src="images/sahil-sarilma.webp" data-title="Rüzgâra Karşı" data-caption="Deniz kenarında, saçlar savrulurken çekilmiş en sevdiğimiz kare.">
+        <img src="images/sahil-sarilma.webp" alt="Sahilde sarılan çift" loading="lazy" />
+        <figcaption><b>Rüzgâra Karşı</b><span>Deniz &middot; İkimiz</span></figcaption>
+      </figure>
+
+      <figure class="card reveal" data-cat="tavla" data-src="images/tavla-gece.webp" data-title="Gece Yarısı Zarları" data-caption="Latte soğumadan biten bir oyun; kaybeden bir sonrakine söz veriyor.">
+        <img src="images/tavla-gece.webp" alt="Kafede tavla oynayan adam" loading="lazy" />
+        <figcaption><b>Gece Yarısı Zarları</b><span>Tavla</span></figcaption>
+      </figure>
+
+      <figure class="card is-tall reveal" data-cat="ikili" data-src="images/ikili-portre.webp" data-title="Aynı Kadraj" data-caption="Fotoğraf çekmeyi bilmeyen iki kişinin en iyi denemesi.">
+        <img src="images/ikili-portre.webp" alt="Çiftin yakın portresi" loading="lazy" />
+        <figcaption><b>Aynı Kadraj</b><span>İkimiz</span></figcaption>
+      </figure>
+
+      <figure class="card reveal" data-cat="doga" data-src="images/begonvil.webp" data-title="Begonvil Mevsimi" data-caption="Pembe çiçeklerin döküldüğü o sokak, her baharda bizi bekliyor.">
+        <img src="images/begonvil.webp" alt="Begonvillerin önünde duran adam" loading="lazy" />
+        <figcaption><b>Begonvil Mevsimi</b><span>Doğa</span></figcaption>
+      </figure>
+
+      <figure class="card reveal" data-cat="tavla" data-src="images/kis-aksami.webp" data-title="Kışın Sıcak Köşesi" data-caption="Bere, mont ve ışıl ışıl bir teras. Kış böyle güzel.">
+        <img src="images/kis-aksami.webp" alt="Kış akşamı kafede tavla" loading="lazy" />
+        <figcaption><b>Kışın Sıcak Köşesi</b><span>Tavla</span></figcaption>
+      </figure>
+
+      <figure class="card is-wide reveal" data-cat="ikili doga" data-src="images/gol-kenari.webp" data-title="Göl Kenarı Kahvaltısı" data-caption="Güneşin ısıttığı bir sabah, uzun bir sohbet ve acelesi olmayan saatler.">
+        <img src="images/gol-kenari.webp" alt="Göl kenarında oturan çift" loading="lazy" />
+        <figcaption><b>Göl Kenarı Kahvaltısı</b><span>İkimiz &middot; Doğa</span></figcaption>
+      </figure>
+
+      <figure class="card is-tall reveal" data-cat="deniz" data-src="images/sahil-portre.webp" data-title="Ada Manzarası" data-caption="Arkada ada, önde deniz; ortada gülümsemesini saklayamayan biri.">
+        <img src="images/sahil-portre.webp" alt="Sahilde ada manzarası önünde portre" loading="lazy" />
+        <figcaption><b>Ada Manzarası</b><span>Deniz</span></figcaption>
+      </figure>
+
+      <figure class="card reveal" data-cat="tavla" data-src="images/tavla-gulus.webp" data-title="Kazananın Gülüşü" data-caption="Bu gülüş genelde tek bir anlama gelir: mars.">
+        <img src="images/tavla-gulus.webp" alt="Tavla oynarken gülen adam" loading="lazy" />
+        <figcaption><b>Kazananın Gülüşü</b><span>Tavla</span></figcaption>
+      </figure>
+
+      <figure class="card reveal" data-cat="doga" data-src="images/park-yaz.webp" data-title="Palmiyeler Altında" data-caption="Yazın ilk günü, terlikler ayakta, program yok.">
+        <img src="images/park-yaz.webp" alt="Parkta palmiyelerin önünde" loading="lazy" />
+        <figcaption><b>Palmiyeler Altında</b><span>Doğa</span></figcaption>
+      </figure>
+
+      <figure class="card is-wide reveal" data-cat="ikili" data-src="images/sevgi.webp" data-title="Bir Öpücük Kadar" data-caption="Anlatmaya kelime yetmeyince, fotoğraf devreye giriyor.">
+        <img src="images/sevgi.webp" alt="Yanağından öpen kadın" loading="lazy" />
+        <figcaption><b>Bir Öpücük Kadar</b><span>İkimiz</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÖZLER ============ -->
+<section class="section quotes" id="sozler">
+  <div class="quotes__bg" style="background-image:url('images/kis-aksami.webp')"></div>
+  <div class="wrap quotes__inner">
+    <div class="quotes__box reveal">
+      <svg class="quotes__mark" viewBox="0 0 48 32" aria-hidden="true"><path d="M20 0v12c0 11-6 18-16 20v-6c6-2 9-6 9-11H0V0h20zm28 0v12c0 11-6 18-16 20v-6c6-2 9-6 9-11H28V0h20z"/></svg>
+
+      <div class="quotes__track" id="quoteTrack">
+        <blockquote class="quote is-active">
+          <p>Ev dediğin dört duvar değil; dönmek için sabırsızlandığın kişi.</p>
+          <cite>Akşam sohbetlerinden</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>Birlikte gülebiliyorsanız, geri kalan her şey çözülür.</p>
+          <cite>Bir tavla maçının ortasında</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>En güzel yol, yanındaki kişi doğruysa en uzun olanıdır.</p>
+          <cite>Sahile giderken, arabada</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p>Mutluluk fotoğrafta poz vermez; arka planda yakalanır.</p>
+          <cite>Albümü karıştırırken</cite>
+        </blockquote>
+      </div>
+
+      <div class="quotes__nav">
+        <button class="icon-btn" id="qPrev" type="button" aria-label="Önceki söz"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="quotes__dots" id="quoteDots"></div>
+        <button class="icon-btn" id="qNext" type="button" aria-label="Sonraki söz"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEVDİKLERİMİZ ============ -->
+<section class="section loves">
+  <div class="wrap">
+    <header class="head head--center reveal">
+      <p class="kicker">Küçük Şeyler</p>
+      <h2 class="h2">Bizi <em>biz</em> yapan ayrıntılar.</h2>
+    </header>
+
+    <div class="loves__grid">
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">🌊</span>
+        <h3>Deniz Terapisi</h3>
+        <p>Moral bozulduğunda reçete bellidir: arabaya atla, camı aç, sahile in. Dalga sesi her şeyi yerine oturtur.</p>
+      </article>
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">🎲</span>
+        <h3>Tavla Rekabeti</h3>
+        <p>Aile içi tek ciddi mesele. Skor tabelası yok ama iddiaya göre herkes önde.</p>
+      </article>
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">☕</span>
+        <h3>Uzun Kahvaltılar</h3>
+        <p>İki saatten kısa süren kahvaltı, kahvaltı sayılmaz. Sohbet bittiğinde masa kalkar.</p>
+      </article>
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">📷</span>
+        <h3>Habersiz Kareler</h3>
+        <p>En sevdiğimiz fotoğraflar, kimsenin poz vermediği fotoğraflar. Bu albüm de öyle doldu.</p>
+      </article>
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">🎶</span>
+        <h3>Yol Müziği</h3>
+        <p>Aynı şarkıyı yüzüncü kez dinlemek, o yolculuğu yeniden yaşamak demek.</p>
+      </article>
+      <article class="love reveal">
+        <span class="love__ico" aria-hidden="true">🌸</span>
+        <h3>Bahar Yürüyüşleri</h3>
+        <p>Begonviller açtığında sokaklar değişir, biz de tekrar aynı rotayı yürürüz.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZİYARETÇİ DEFTERİ ============ -->
+<section class="section guest" id="defter">
+  <div class="wrap guest__grid">
+    <div class="guest__intro reveal" data-reveal="left">
+      <p class="kicker">Ziyaretçi Defteri</p>
+      <h2 class="h2">Balaban’a bir <em>selam</em> bırak.</h2>
+      <p>
+        Hakan Rüştü, Gökhan, Merve, Özcan veya Aziz’e; Rüştü, Emet, Cemil ya da Turcan’a
+        bir cümle yaz. Notlar yalnızca bu tarayıcıda saklanır.
+      </p>
+      <div class="guest__photo">
+        <img src="images/tavla-gulus.webp" alt="Gülümseyen aile üyesi" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="guest__panel reveal" data-reveal="right">
+      <form class="form" id="guestForm" novalidate>
+        <div class="field">
+          <input type="text" id="gName" name="name" placeholder=" " maxlength="40" required />
+          <label for="gName">Adın</label>
+        </div>
+        <div class="field">
+          <textarea id="gMsg" name="msg" rows="4" placeholder=" " maxlength="240" required></textarea>
+          <label for="gMsg">Notun</label>
+          <span class="field__counter"><i id="msgCount">0</i>/240</span>
+        </div>
+        <button class="btn btn--primary" type="submit">Deftere Yaz <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="form__hint" id="formHint" role="status"></p>
+      </form>
+
+      <div class="notes" id="notes"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <span class="nav__logo-mark">B</span>
+      <p>Balaban Ailesi</p>
+      <small>Sevgiyle derlenmiş bir dijital albüm.</small>
+    </div>
+
+    <nav class="footer__links" aria-label="Alt menü">
+      <a href="#hikaye">Hikâyemiz</a>
+      <a href="#biz">Aile</a>
+      <a href="#kokler">Köklerimiz</a>
+      <a href="#zaman">Zaman Tüneli</a>
+      <a href="#album">Albüm</a>
+      <a href="#defter">Ziyaretçi Defteri</a>
+    </nav>
+
+    <p class="footer__note">
+      <span id="year">2026</span> &middot; Hakan Rüştü &middot; Gökhan &middot; Merve &middot; Özcan &middot; Aziz
+      <br /><em>“Rüştü’den Emet’e, Cemil’den Turcan’a — köklerimiz sağlam.”</em>
+    </p>
+  </div>
+  <button class="to-top" id="toTop" type="button" aria-label="Yukarı çık"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf görüntüleyici">
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Önceki"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Sonraki"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+
+  <figure class="lightbox__stage">
+    <img id="lbImg" src="" alt="" />
+    <figcaption>
+      <b id="lbTitle"></b>
+      <span id="lbCaption"></span>
+      <small id="lbCounter"></small>
+    </figcaption>
+  </figure>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
