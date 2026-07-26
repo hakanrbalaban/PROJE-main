@@ -3,254 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vizyon Haber - Kapsamlı Haber Portalı</title>
+    <title>Vizyon Haber - Profesyonel Haber Portalı</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Open Sans', sans-serif; }
         .heading-font { font-family: 'Roboto Condensed', sans-serif; }
-        .section-title { position: relative; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-bottom: 24px; }
-        .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background-color: #4f46e5; }
+        .section-title { position: relative; border-bottom: 2px solid #e5e7eb; padding-bottom: 4px; margin-bottom: 16px; }
+        .section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 60px; height: 2px; background-color: #0f172a; }
     </style>
 </head>
 <body class="bg-white text-gray-900">
 
-    <!-- 1. HEADER & MENÜ -->
-    <header class="container mx-auto px-4 py-6">
-        <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
+    <!-- HEADER & NAV (Sıkılaştırıldı) -->
+    <header class="container mx-auto px-4 py-3">
+        <div class="flex flex-col lg:flex-row justify-between items-center gap-2">
             <div class="text-4xl font-bold tracking-tighter uppercase heading-font">
-                VİZYON<span class="text-indigo-600 ml-1">HABER</span>
+                VİZYON<span class="text-blue-700 ml-1">HABER</span>
             </div>
-            <div class="w-full lg:w-[728px] h-[90px] bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400 text-[10px] tracking-widest">
-                ADVERTISEMENT (728 x 90 ads)
+            <div class="w-full lg:w-[728px] h-[90px] bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-400 text-[10px] tracking-widest uppercase">
+                728x90 Billboard Reklam
             </div>
     </div>
     </header>
 
-    <nav class="border-t border-gray-200">
+    <nav class="border-t border-gray-100 border-b-2 border-blue-600 sticky top-0 bg-white z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <ul class="flex flex-wrap space-x-6 py-4 text-[13px] font-bold uppercase heading-font">
-                <li class="text-indigo-600 cursor-pointer">Anasayfa</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Dünya</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Ekonomi</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Teknoloji</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Moda</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Spor</li>
-                <li class="hover:text-indigo-600 cursor-pointer">Video</li>
+            <ul class="flex flex-wrap space-x-6 py-3 text-[13px] font-bold uppercase heading-font">
+                <li class="text-blue-700 cursor-pointer">Anasayfa</li>
+                <li class="hover:text-blue-700 cursor-pointer">Dünya</li>
+                <li class="hover:text-blue-700 cursor-pointer">Ekonomi</li>
+                <li class="hover:text-blue-700 cursor-pointer">Siyaset</li>
+                <li class="hover:text-blue-700 cursor-pointer">Yaşam</li>
+                <li class="hover:text-blue-700 cursor-pointer">Spor</li>
             </ul>
-            <div class="hidden md:flex items-center border-l border-gray-100 pl-6 h-full py-4">
-                <input type="text" placeholder="ARAMA YAP..." class="text-[11px] font-bold outline-none w-28 uppercase heading-font italic placeholder:text-gray-300">
+            <div class="hidden md:flex items-center bg-gray-50 border rounded px-3 py-1">
+                <input type="text" placeholder="Haber Ara..." class="bg-transparent text-[11px] outline-none w-28 uppercase">
                 <button class="text-gray-400 text-sm ml-2">🔍</button>
             </div>
         </div>
-        <!-- Çok Renkli Şerit -->
-        <div class="flex h-[4px] w-full">
-            <div class="flex-1 bg-blue-600"></div>
-            <div class="flex-1 bg-cyan-400"></div>
-            <div class="flex-1 bg-green-500"></div>
-            <div class="flex-1 bg-orange-500"></div>
-            <div class="flex-1 bg-purple-600"></div>
-            <div class="flex-1 bg-teal-400"></div>
-        </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-4">
 
-        <!-- 2. TOP STORIES MANŞET GRID'I -->
-        <div class="grid grid-cols-12 gap-1 mb-12">
-            <div class="col-span-12 lg:col-span-8 relative group overflow-hidden h-[500px]">
-                <img src="https://picsum.photos/id/20/1200/800" class="w-full h-full object-cover" alt="Main">
-                <div class="absolute top-0 left-0 bg-indigo-700 text-white text-[11px] font-bold px-3 py-1 uppercase heading-font z-10">Top Stories</div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute bottom-0 left-0 p-8 w-full">
-                    <h2 class="text-white text-3xl font-bold leading-tight hover:underline cursor-pointer heading-font uppercase mb-2">Fransa Göçmen Krizi İçin Yeni Adımlar Atıyor</h2>
-                    <div class="flex items-center text-gray-200 text-[11px] space-x-4"><span>🕒 27 Mayıs 2024</span><span>💬 23</span></div>
+        <!-- MANŞET GRID (Sıkılaştırılmış Boşluklar) -->
+        <div class="grid grid-cols-12 gap-1 mb-6">
+            <div class="col-span-12 lg:col-span-8 relative group overflow-hidden h-[450px]">
+                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=800&fit=crop" class="w-full h-full object-cover" alt="Haber">
+                <div class="absolute top-0 left-0 bg-slate-900 text-white text-[11px] font-bold px-3 py-1 uppercase heading-font z-10">Manşet</div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 w-full">
+                    <h2 class="text-white text-3xl font-bold leading-tight uppercase heading-font mb-2">Küresel Ekonomide Yeni Dönem: Stratejik Planlar Açıklandı</h2>
+                    <div class="text-gray-300 text-[11px] font-bold">15 MAYIS 2024 | 24 YORUM</div>
                 </div>
             </div>
-            <div class="col-span-12 lg:col-span-4 grid grid-cols-2 gap-1 h-[500px]">
+            <div class="col-span-12 lg:col-span-4 grid grid-cols-2 gap-1 h-[450px]">
                 <div class="relative overflow-hidden group">
-                    <img src="https://picsum.photos/id/21/400/400" class="w-full h-full object-cover" alt="S">
-                    <div class="absolute top-0 left-0 bg-orange-500 text-white text-[9px] font-bold px-2 py-0.5 uppercase z-10">Travel</div>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-3"><h3 class="text-white text-xs font-bold leading-tight uppercase heading-font">Dünya Turu Başlıyor</h3></div>
+                    <img src="https://images.unsplash.com/photo-1444653303775-96e850d0564f?w=400&h=400&fit=crop" class="w-full h-full object-cover" alt="Haber">
+                    <div class="absolute top-0 left-0 bg-slate-900 text-white text-[9px] px-2 py-0.5 uppercase z-10">Finans</div>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-3"><h3 class="text-white text-[10px] font-bold uppercase leading-tight">Borsa Endeksi Rekor Seviyede</h3></div>
                 </div>
                 <div class="relative overflow-hidden group">
-                    <img src="https://picsum.photos/id/22/400/400" class="w-full h-full object-cover" alt="S">
-                    <div class="absolute top-0 left-0 bg-green-500 text-white text-[9px] font-bold px-2 py-0.5 uppercase z-10">Food</div>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-3"><h3 class="text-white text-xs font-bold leading-tight uppercase heading-font">Yeni Nesil Gurme Trendleri</h3></div>
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=400&fit=crop" class="w-full h-full object-cover" alt="Haber">
+                    <div class="absolute top-0 left-0 bg-slate-900 text-white text-[9px] px-2 py-0.5 uppercase z-10">Tekno</div>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-3"><h3 class="text-white text-[10px] font-bold uppercase leading-tight">Yeni Yazılım Güncellemesi</h3></div>
                 </div>
                 <div class="relative overflow-hidden group">
-                    <img src="https://picsum.photos/id/23/400/400" class="w-full h-full object-cover" alt="S">
-                    <div class="absolute top-0 left-0 bg-purple-600 text-white text-[9px] font-bold px-2 py-0.5 uppercase z-10">Fashion</div>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-3"><h3 class="text-white text-xs font-bold leading-tight uppercase heading-font">Yaz Koleksiyonu Tanıtıldı</h3></div>
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop" class="w-full h-full object-cover" alt="Haber">
+                    <div class="absolute top-0 left-0 bg-slate-900 text-white text-[9px] px-2 py-0.5 uppercase z-10">Mobil</div>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-3"><h3 class="text-white text-[10px] font-bold uppercase leading-tight">Cihaz Lansmanı Ertelendi</h3></div>
                 </div>
                 <div class="relative overflow-hidden group">
-                    <img src="https://picsum.photos/id/24/400/400" class="w-full h-full object-cover" alt="S">
-                    <div class="absolute top-0 left-0 bg-blue-500 text-white text-[9px] font-bold px-2 py-0.5 uppercase z-10">Business</div>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-3"><h3 class="text-white text-xs font-bold leading-tight uppercase heading-font">Borsa Rekorla Kapandı</h3></div>
+                    <img src="https://images.unsplash.com/photo-1491336477066-31156b5e4f35?w=400&h=400&fit=crop" class="w-full h-full object-cover" alt="Haber">
+                    <div class="absolute top-0 left-0 bg-slate-900 text-white text-[9px] px-2 py-0.5 uppercase z-10">Yaşam</div>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-3"><h3 class="text-white text-[10px] font-bold uppercase leading-tight">Şehir Rehberi Yayında</h3></div>
                 </div>
             </div>
         </div>
 
-        <!-- 3. WORLD BÖLÜMÜ (Zenginleştirildi: 2 Büyük + 4 Küçük) -->
-        <div class="grid grid-cols-12 gap-8 mb-12">
-            <div class="col-span-12 lg:col-span-8">
-                <div class="section-title"><h2 class="text-lg font-bold uppercase heading-font">World</h2></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <!-- 2 Büyük Kart -->
-                    <div class="relative h-64 overflow-hidden border border-gray-100 rounded-md">
-                        <img src="https://picsum.photos/id/10/600/400" class="w-full h-full object-cover" alt="W">
-                        <div class="absolute inset-0 bg-black/60 p-6 flex flex-col justify-end text-white"><h3 class="text-sm font-bold uppercase heading-font">Avrupa Birliği Enerji Krizine Çözüm Arıyor</h3><span class="text-[9px] mt-2">27 May 2024</span></div>
-                    </div>
-                    <div class="relative h-64 overflow-hidden border border-gray-100 rounded-md">
-                        <img src="https://picsum.photos/id/11/600/400" class="w-full h-full object-cover" alt="W">
-                        <div class="absolute inset-0 bg-black/60 p-6 flex flex-col justify-end text-white"><h3 class="text-sm font-bold uppercase heading-font">Yeni İklim Anlaşması Yürürlüğe Girdi</h3><span class="text-[9px] mt-2">27 May 2024</span></div>
-                    </div>
-                </div>
-                <!-- 4 Küçük Haber Kartı (2x2 Grid) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    <div class="flex gap-3"><img src="https://picsum.photos/id/12/100/100" class="w-20 h-14 object-cover flex-shrink-0" alt="S"><div><h4 class="text-[11px] font-bold uppercase leading-tight heading-font">ASYA PAZARLARINDA SON DURUM</h4><span class="text-[9px] text-gray-400">27 May 2024</span></div></div>
-                    <div class="flex gap-3"><img src="https://picsum.photos/id/13/100/100" class="w-20 h-14 object-cover flex-shrink-0" alt="S"><div><h4 class="text-[11px] font-bold uppercase leading-tight heading-font">YENİ TEKNOLOJİ YASASI TASLAĞI</h4><span class="text-[9px] text-gray-400">27 May 2024</span></div></div>
-                    <div class="flex gap-3"><img src="https://picsum.photos/id/14/100/100" class="w-20 h-14 object-cover flex-shrink-0" alt="S"><div><h4 class="text-[11px] font-bold uppercase leading-tight heading-font">UZAY ARAŞTIRMALARINDA DEV ADIM</h4><span class="text-[9px] text-gray-400">27 May 2024</span></div></div>
-                    <div class="flex gap-3"><img src="https://picsum.photos/id/15/100/100" class="w-20 h-14 object-cover flex-shrink-0" alt="S"><div><h4 class="text-[11px] font-bold uppercase leading-tight heading-font">EĞİTİMDE DİJİTAL DÖNÜŞÜM</h4><span class="text-[9px] text-gray-400">27 May 2024</span></div></div>
-                </div>
-            </div>
-            <div class="col-span-12 lg:col-span-4">
-                <div class="section-title"><h2 class="text-sm font-bold uppercase heading-font">Stay Connected</h2></div>
-                <div class="grid grid-cols-2 gap-1 mb-10">
-                    <div class="bg-orange-500 text-white p-3 text-center"><div class="text-xs font-bold">9,455</div><div class="text-[8px] uppercase">Subscribers</div></div>
-                    <div class="bg-blue-800 text-white p-3 text-center"><div class="text-xs font-bold">56,743</div><div class="text-[8px] uppercase">Fans</div></div>
-                    <div class="bg-sky-400 text-white p-3 text-center"><div class="text-xs font-bold">43,501</div><div class="text-[8px] uppercase">Followers</div></div>
-                    <div class="bg-red-600 text-white p-3 text-center"><div class="text-xs font-bold">35,003</div><div class="text-[8px] uppercase">Followers</div></div>
-                </div>
-                <div class="section-title"><h2 class="text-sm font-bold uppercase heading-font">Featured Posts</h2></div>
-                <div class="relative h-60 overflow-hidden"><img src="https://picsum.photos/id/29/400/400" class="w-full h-full object-cover" alt="F"><div class="absolute inset-0 bg-black/50 p-4 flex flex-col justify-end text-white"><h3 class="text-xs font-bold uppercase heading-font">Haftanın En Çok Okunan Haberi</h3></div></div>
-            </div>
-        </div>
+        <!-- ANA İÇERİK & SIDEBAR -->
+        <div class="grid grid-cols-12 gap-8">
 
-        <!-- 4. GALLERY & LIFESTYLE (6'lı Lifestyle Listesi) -->
-        <div class="grid grid-cols-12 gap-8 mb-12">
+            <!-- SOL KOLON (Haber Akışı) -->
             <div class="col-span-12 lg:col-span-8">
-                <div class="section-title"><h2 class="text-lg font-bold uppercase heading-font">Gallery</h2></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-10">
-                    <div class="relative h-48 overflow-hidden"><img src="https://picsum.photos/id/30/400/400" class="w-full h-full object-cover" alt="G"><div class="absolute bottom-0 bg-black/70 p-2 w-full text-[10px] text-white font-bold uppercase">Şehir Rehberi</div></div>
-                    <div class="relative h-48 overflow-hidden"><img src="https://picsum.photos/id/31/400/400" class="w-full h-full object-cover" alt="G"><div class="absolute bottom-0 bg-black/70 p-2 w-full text-[10px] text-white font-bold uppercase">Mimari Yapılar</div></div>
-                    <div class="relative h-48 overflow-hidden"><img src="https://picsum.photos/id/32/400/400" class="w-full h-full object-cover" alt="G"><div class="absolute bottom-0 bg-indigo-600/90 p-2 w-full text-[10px] text-white font-bold uppercase">Özel Galeri</div></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <div class="section-title"><h2 class="text-md font-bold uppercase heading-font">Fashion</h2></div>
-                        <div class="relative h-[340px] overflow-hidden rounded-md">
-                            <img src="https://picsum.photos/id/16/400/600" class="w-full h-full object-cover" alt="F">
-                            <h3 class="absolute bottom-4 left-4 text-white text-xs font-bold uppercase bg-indigo-600 px-2 py-1">Yaz Modası</h3>
+                <div class="section-title"><h2 class="text-lg font-bold uppercase heading-font">Son Haberler</h2></div>
+                <div class="space-y-4">
+                    <!-- 6 Haber Kartı (Dikey Boşluk Azaltıldı) -->
+                    <div class="flex flex-col md:flex-row gap-4 border-b border-gray-100 pb-4">
+                        <img src="https://images.unsplash.com/photo-1585829365234-781f8c4c4475?w=400&h=250&fit=crop" class="w-full md:w-56 h-36 object-cover flex-shrink-0" alt="Haber">
+                        <div>
+                            <h3 class="text-lg font-bold uppercase heading-font leading-tight hover:text-blue-700 cursor-pointer">Yerli Üretimde Yeni Hedefler Belirlendi</h3>
+                            <div class="text-[10px] text-gray-400 my-1 font-bold">15 MAYIS 2024 | EKONOMİ</div>
+                            <p class="text-xs text-gray-600 line-clamp-2">Sanayi ve Teknoloji Bakanlığı, yerli üretim kapasitesini artırmak için yeni teşvik paketini duyurdu...</p>
                         </div>
                     </div>
-                    <div>
-                        <div class="section-title"><h2 class="text-md font-bold uppercase heading-font">Lifestyle</h2></div>
-                        <!-- 6'lı Lifestyle Listesi (Sıkılaştırılmış) -->
-                        <div class="space-y-2">
-                            <div class="flex gap-3 border-b border-gray-50 pb-2"><img src="https://picsum.photos/id/101/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">YENİ NESİL KAHVE KÜLTÜRÜ</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                            <div class="flex gap-3 border-b border-gray-50 pb-2"><img src="https://picsum.photos/id/102/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">MİNİMALİST YAŞAM REHBERİ</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                            <div class="flex gap-3 border-b border-gray-50 pb-2"><img src="https://picsum.photos/id/103/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">EVDEN ÇALIŞMA TÜYOLARI</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                            <div class="flex gap-3 border-b border-gray-50 pb-2"><img src="https://picsum.photos/id/104/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">SAĞLIKLI BESLENME İPUÇLARI</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                            <div class="flex gap-3 border-b border-gray-50 pb-2"><img src="https://picsum.photos/id/105/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">MODERN MİMARİDE YENİ TRENDLER</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                            <div class="flex gap-3"><img src="https://picsum.photos/id/106/100/100" class="w-14 h-11 object-cover flex-shrink-0" alt="L"><div><h4 class="text-[10px] font-bold uppercase leading-tight">SÜRDÜRÜLEBİLİR BAHÇECİLİK</h4><span class="text-[8px] text-gray-400 uppercase">27 May 2024</span></div></div>
-                        </div>
-                    </div>
+                    <!-- Haberler devam eder... -->
+                    <div class="flex flex-col md:flex-row gap-4 border-b border-gray-100 pb-4"><img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&h=250&fit=crop" class="w-full md:w-56 h-36 object-cover flex-shrink-0"><div><h3 class="text-lg font-bold uppercase heading-font leading-tight">Borsa Haftaya Pozitif Başladı</h3><div class="text-[10px] text-gray-400 my-1 font-bold">15 MAYIS 2024 | FİNANS</div><p class="text-xs text-gray-600 line-clamp-2">Piyasalardaki iyimser hava borsa istanbul endekslerine yansıdı...</p></div></div>
+                    <div class="flex flex-col md:flex-row gap-4 border-b border-gray-100 pb-4"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop" class="w-full md:w-56 h-36 object-cover flex-shrink-0"><div><h3 class="text-lg font-bold uppercase heading-font leading-tight">Uzayda Yeni Bir Gezegen Keşfedildi</h3><div class="text-[10px] text-gray-400 my-1 font-bold">15 MAYIS 2024 | BİLİM</div><p class="text-xs text-gray-600 line-clamp-2">Gökbilimciler, dünyaya benzerlik gösteren yeni bir gezegenin sinyallerini yakaladı...</p></div></div>
                 </div>
             </div>
-            <div class="col-span-12 lg:col-span-4">
-                <div class="bg-zinc-900 p-6 mb-8 text-center"><p class="text-gray-400 text-[11px] mb-4 italic leading-relaxed">Haberleri e-posta ile almak için kaydolun.</p><input type="email" placeholder="Email" class="bg-zinc-800 border border-zinc-700 text-white text-[11px] px-3 py-2 w-full mb-2 outline-none"><button class="w-full bg-white text-black font-bold text-[10px] py-2 uppercase hover:bg-indigo-600 hover:text-white transition">Kayıt Ol</button></div>
-                <div class="text-center pt-2 pb-10 border-t border-gray-100"><span class="text-[9px] text-gray-400 uppercase tracking-widest mb-4 block">- Advertisement -</span><div class="relative w-[300px] h-[250px] bg-gray-50 border border-gray-200 mx-auto flex items-center justify-center"><h2 class="text-xl font-black heading-font italic text-gray-300">300x250 AD</h2></div></div>
-            </div>
+
+            <!-- SAĞ SIDEBAR (Yeni Bileşenlerle Dolduruldu) -->
+            <aside class="col-span-12 lg:col-span-4 space-y-6">
+                <!-- 300x250 Reklam 1 -->
+                <div class="bg-gray-50 border p-4 text-center">
+                    <span class="text-[9px] text-gray-400 uppercase block mb-2">- Reklam -</span>
+                    <div class="w-[300px] h-[250px] bg-gray-200 mx-auto flex items-center justify-center font-bold text-gray-400">300x250 Reklam</div>
+                </div>
+
+                <!-- Haber Bülteni (Newsletter) -->
+                <div class="bg-slate-900 text-white p-6 rounded-sm shadow-md">
+                    <h3 class="text-sm font-bold uppercase heading-font mb-2">Haber Bülteni</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">En güncel haberleri her sabah e-postanıza gönderiyoruz.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="E-posta Adresiniz" class="bg-slate-800 border-none text-[11px] px-3 py-2 w-full outline-none focus:ring-1 focus:ring-blue-600">
+                        <button class="bg-blue-600 px-3 py-2 text-[11px] font-bold uppercase whitespace-nowrap">Abone Ol</button>
+                    </div>
+                </div>
+
+                <!-- Günün Anketi (Poll Widget) -->
+                <div class="border p-5 bg-white shadow-sm">
+                    <h3 class="text-sm font-bold uppercase heading-font border-b pb-2 mb-3">Günün Anketi</h3>
+                    <p class="text-[12px] font-semibold mb-4 leading-snug">Yeni ekonomik paket hakkında ne düşünüyorsunuz?</p>
+                    <div class="space-y-3">
+                        <label class="flex items-center text-[11px] cursor-pointer hover:bg-gray-50 p-1">
+                            <input type="radio" name="poll" class="mr-3"> Çok Olumlu
+                        </label>
+                        <label class="flex items-center text-[11px] cursor-pointer hover:bg-gray-50 p-1">
+                            <input type="radio" name="poll" class="mr-3"> Kısmen Yeterli
+                        </label>
+                        <label class="flex items-center text-[11px] cursor-pointer hover:bg-gray-50 p-1">
+                            <input type="radio" name="poll" class="mr-3"> Olumsuz
+                        </label>
+                    </div>
+                    <button class="w-full mt-4 border border-blue-600 text-blue-700 text-[10px] font-bold py-2 uppercase hover:bg-blue-600 hover:text-white transition">Oyla</button>
+                </div>
+
+                <!-- 300x250 Reklam 2 -->
+                <div class="bg-gray-50 border p-4 text-center">
+                    <span class="text-[9px] text-gray-400 uppercase block mb-2">- Reklam -</span>
+                    <div class="w-[300px] h-[250px] bg-gray-200 mx-auto flex items-center justify-center font-bold text-gray-400">300x250 Reklam</div>
+                </div>
+            </aside>
         </div>
     </main>
 
-    <!-- 5. ÖNE ÇIKAN VİDEOLAR (Koyu Bant) -->
-    <section class="bg-zinc-900 py-10 text-white">
+    <!-- VIDEO BANDI (Dikey Boşluk Sıkılaştırıldı) -->
+    <section class="bg-slate-900 py-6 text-white">
         <div class="container mx-auto px-4">
-            <div class="section-title border-zinc-700"><h2 class="text-lg font-bold uppercase heading-font">Featured Video</h2></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="group relative h-40 overflow-hidden"><img src="https://picsum.photos/id/37/400/250" class="w-full h-full object-cover" alt="V"><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg">▶</div></div><div class="absolute bottom-0 bg-black/60 p-2 w-full text-[10px] font-bold uppercase">Video Başlığı 1</div></div>
-                <div class="group relative h-40 overflow-hidden"><img src="https://picsum.photos/id/38/400/250" class="w-full h-full object-cover" alt="V"><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg">▶</div></div><div class="absolute bottom-0 bg-black/60 p-2 w-full text-[10px] font-bold uppercase">Video Başlığı 2</div></div>
-                <div class="group relative h-40 overflow-hidden"><img src="https://picsum.photos/id/39/400/250" class="w-full h-full object-cover" alt="V"><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg">▶</div></div><div class="absolute bottom-0 bg-red-600 p-2 w-full text-[10px] font-bold uppercase">ÖZEL VİDEO</div></div>
-                <div class="group relative h-40 overflow-hidden"><img src="https://picsum.photos/id/40/400/250" class="w-full h-full object-cover" alt="V"><div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg">▶</div></div><div class="absolute bottom-0 bg-black/60 p-2 w-full text-[10px] font-bold uppercase">Video Başlığı 4</div></div>
+            <div class="section-title border-slate-700"><h2 class="text-lg font-bold uppercase heading-font">Video Galeri</h2></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="relative h-40 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=400&h=300&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">▶</div></div>
+                </div>
+                <div class="relative h-40 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">▶</div></div>
+                </div>
+                <div class="relative h-40 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">▶</div></div>
+                </div>
+                <div class="relative h-40 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center"><div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">▶</div></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. LATEST ARTICLES (6 Detaylı Haber Kartı) & SEKMELİ SIDEBAR (5 Haber) -->
-    <main class="container mx-auto px-4 py-12">
-        <div class="grid grid-cols-12 gap-8 mb-12">
-            <div class="col-span-12 lg:col-span-8">
-                <div class="section-title"><h2 class="text-lg font-bold uppercase heading-font">Latest Articles</h2></div>
-                <div class="space-y-6">
-                    <!-- 6 Detaylı Haber -->
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6">
-                        <img src="https://picsum.photos/id/201/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L">
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">KÜRESEL EKONOMİDE DİJİTAL PARA DÖNEMİ</h3>
-                            <div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY EDİTÖR | EKONOMİ</div>
-                            <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Merkez bankalarının dijital para birimleri konusundaki çalışmaları hız kazandı. Uzmanlar bu geçişin finansal piyasalardaki etkilerini değerlendiriyor...</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6"><img src="https://picsum.photos/id/202/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L"><div class="flex-1"><h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">YAPAY ZEKA VE ETİK TARTIŞMALARI</h3><div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY ADMİN | TEKNOLOJİ</div><p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Yapay zeka sistemlerinin karar alma süreçlerindeki şeffaflığı, yeni yasal düzenlemeleri beraberinde getiriyor...</p></div></div>
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6"><img src="https://picsum.photos/id/203/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L"><div class="flex-1"><h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">YENİLENEBİLİR ENERJİDE DEV YATIRIM</h3><div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY EDİTÖR | ÇEVRE</div><p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Güneş ve rüzgar enerjisi kapasitesinin önümüzdeki on yıl içinde üç katına çıkması bekleniyor...</p></div></div>
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6"><img src="https://picsum.photos/id/204/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L"><div class="flex-1"><h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">EĞİTİMDE HİBRİT MODELİN GELECEĞİ</h3><div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY ADMİN | EĞİTİM</div><p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Uzaktan eğitim araçları ile yüz yüze eğitimin birleştiği hibrit model, üniversitelerde standart hale geliyor...</p></div></div>
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6"><img src="https://picsum.photos/id/205/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L"><div class="flex-1"><h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">ELEKTRİKLİ ARAÇLARDA BATARYA DEVRİMİ</h3><div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY EDİTÖR | OTOMOTİV</div><p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Yeni katı hal batarya teknolojisi sayesinde menziller iki katına çıkarken şarj süreleri dakikalara iniyor...</p></div></div>
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-gray-100 pb-6"><img src="https://picsum.photos/id/206/600/400" class="w-full md:w-64 h-44 object-cover rounded-md flex-shrink-0" alt="L"><div class="flex-1"><h3 class="text-xl font-bold uppercase heading-font mb-2 hover:text-indigo-600 cursor-pointer tracking-tight">UZAY TURİZMİNDE İLK SİVİL UÇUŞLAR</h3><div class="text-[10px] text-gray-400 mb-2 uppercase font-bold tracking-wider">27 MAY 2024 | BY ADMİN | DÜNYA</div><p class="text-sm text-gray-600 leading-relaxed line-clamp-3">Yörünge altı uçuşlar için bilet satışları başladı. Önümüzdeki yıl yüzlerce sivil uzay ile buluşacak...</p></div></div>
-                </div>
-                <!-- Sayfalandırma Butonları -->
-                <div class="flex items-center space-x-2 mt-8">
-                    <button class="w-8 h-8 bg-indigo-600 text-white font-bold text-xs rounded-sm">1</button>
-                    <button class="w-8 h-8 border border-gray-200 text-gray-800 font-bold text-xs hover:bg-gray-50 rounded-sm">2</button>
-                    <button class="w-8 h-8 border border-gray-200 text-gray-800 font-bold text-xs hover:bg-gray-50 rounded-sm">3</button>
-                    <button class="w-8 h-8 border border-gray-200 text-gray-800 font-bold text-xs hover:bg-gray-50 rounded-sm">❯</button>
-                </div>
+    <!-- FOOTER (Özet ve Kurumsal) -->
+    <footer class="bg-zinc-950 text-gray-500 pt-10 pb-6 border-t-2 border-blue-800 mt-4">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-2xl font-bold uppercase heading-font text-white mb-4">VİZYON<span class="text-blue-700">HABER</span></div>
+            <div class="flex justify-center space-x-6 text-[11px] font-bold uppercase mb-6">
+                <a href="#" class="hover:text-white">Künye</a>
+                <a href="#" class="hover:text-white">İletişim</a>
+                <a href="#" class="hover:text-white">Reklam Ver</a>
+                <a href="#" class="hover:text-white">Gizlilik İlkeleri</a>
             </div>
-
-            <!-- Sağ Sidebar (Sekmeli Yapı - 5 Haber) -->
-            <div class="col-span-12 lg:col-span-4">
-                <div class="flex mb-6">
-                    <button class="flex-1 bg-indigo-600 text-white py-3 text-[10px] font-bold uppercase tracking-tighter">Popular</button>
-                    <button class="flex-1 bg-zinc-800 text-gray-400 py-3 text-[10px] font-bold uppercase tracking-tighter border-x border-zinc-700">Recent</button>
-                    <button class="flex-1 bg-zinc-800 text-gray-400 py-3 text-[10px] font-bold uppercase tracking-tighter">Top Reviews</button>
-                </div>
-                <div class="space-y-4">
-                    <!-- 5 Adet Sabit Resim Boyutlu Haber -->
-                    <div class="flex gap-3 items-center border-b border-gray-100 pb-3">
-                        <img src="https://picsum.photos/id/301/100/100" class="w-16 h-16 object-cover flex-shrink-0 rounded-sm" alt="T">
-                        <div class="overflow-hidden">
-                            <h4 class="text-[11px] font-bold leading-tight uppercase hover:text-indigo-600 cursor-pointer truncate">Haftanın En Çok Okunan Teknoloji Haberi</h4>
-                            <span class="text-[9px] text-gray-400 block mt-1 uppercase">27 MAY 2024</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-3 items-center border-b border-gray-100 pb-3"><img src="https://picsum.photos/id/302/100/100" class="w-16 h-16 object-cover flex-shrink-0 rounded-sm" alt="T"><div class="overflow-hidden"><h4 class="text-[11px] font-bold leading-tight uppercase hover:text-indigo-600 cursor-pointer truncate">Kripto Para Dünyasında Yeni Gelişmeler</h4><span class="text-[9px] text-gray-400 block mt-1 uppercase">27 MAY 2024</span></div></div>
-                    <div class="flex gap-3 items-center border-b border-gray-100 pb-3"><img src="https://picsum.photos/id/303/100/100" class="w-16 h-16 object-cover flex-shrink-0 rounded-sm" alt="T"><div class="overflow-hidden"><h4 class="text-[11px] font-bold leading-tight uppercase hover:text-indigo-600 cursor-pointer truncate">Şampiyonlar Ligi Finali Öncesi Son Durum</h4><span class="text-[9px] text-gray-400 block mt-1 uppercase">27 MAY 2024</span></div></div>
-                    <div class="flex gap-3 items-center border-b border-gray-100 pb-3"><img src="https://picsum.photos/id/304/100/100" class="w-16 h-16 object-cover flex-shrink-0 rounded-sm" alt="T"><div class="overflow-hidden"><h4 class="text-[11px] font-bold leading-tight uppercase hover:text-indigo-600 cursor-pointer truncate">Dünyanın En Güvenli Şehirleri Listesi</h4><span class="text-[9px] text-gray-400 block mt-1 uppercase">27 MAY 2024</span></div></div>
-                    <div class="flex gap-3 items-center"><img src="https://picsum.photos/id/305/100/100" class="w-16 h-16 object-cover flex-shrink-0 rounded-sm" alt="T"><div class="overflow-hidden"><h4 class="text-[11px] font-bold leading-tight uppercase hover:text-indigo-600 cursor-pointer truncate">Mutfakta Sağlıklı Yemek Pişirme Sırları</h4><span class="text-[9px] text-gray-400 block mt-1 uppercase">27 MAY 2024</span></div></div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 7. FOOTER -->
-    <footer class="bg-zinc-900 text-gray-400 pt-16 pb-8 border-t-4 border-indigo-900 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <div><h3 class="text-white text-sm font-bold uppercase heading-font mb-6 tracking-widest">About</h3><p class="text-[12px] leading-relaxed mb-6">Vizyon Haber, Türkiye'den ve dünyadan en güncel gelişmeleri objektif bir bakış açısıyla sunar.</p><h3 class="text-white text-xs font-bold uppercase heading-font mb-4">Stay Connected</h3><div class="flex gap-2"><a href="#" class="w-8 h-8 bg-zinc-800 flex items-center justify-center hover:bg-indigo-600 transition text-[10px]">FB</a><a href="#" class="w-8 h-8 bg-zinc-800 flex items-center justify-center hover:bg-indigo-600 transition text-[10px]">TW</a><a href="#" class="w-8 h-8 bg-zinc-800 flex items-center justify-center hover:bg-indigo-600 transition text-[10px]">IN</a></div></div>
-                <div>
-                    <h3 class="text-white text-sm font-bold uppercase heading-font mb-6 tracking-widest">Random Post</h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-3"><img src="https://picsum.photos/id/401/60/60" class="w-14 h-14 object-cover grayscale opacity-70 rounded-sm"><div class="flex-1"><span class="text-[8px] italic text-gray-500 block">YAŞAM</span><h4 class="text-[10px] font-bold text-gray-300 leading-tight">Modern Sanat Sergisi</h4><span class="text-[8px] text-gray-600">27 MAY 2024</span></div></div>
-                        <div class="flex gap-3"><img src="https://picsum.photos/id/402/60/60" class="w-14 h-14 object-cover grayscale opacity-70 rounded-sm"><div class="flex-1"><span class="text-[8px] italic text-gray-500 block">KÜLTÜR</span><h4 class="text-[10px] font-bold text-gray-300 leading-tight">Yeni Kitap İncelemesi</h4><span class="text-[8px] text-gray-600">27 MAY 2024</span></div></div>
-                        <div class="flex gap-3"><img src="https://picsum.photos/id/403/60/60" class="w-14 h-14 object-cover grayscale opacity-70 rounded-sm"><div class="flex-1"><span class="text-[8px] italic text-gray-500 block">TEKNOLOJİ</span><h4 class="text-[10px] font-bold text-gray-300 leading-tight">Robotik Kodlama Eğitimi</h4><span class="text-[8px] text-gray-600">27 MAY 2024</span></div></div>
-                        <div class="flex gap-3"><img src="https://picsum.photos/id/404/60/60" class="w-14 h-14 object-cover grayscale opacity-70 rounded-sm"><div class="flex-1"><span class="text-[8px] italic text-gray-500 block">DÜNYA</span><h4 class="text-[10px] font-bold text-gray-300 leading-tight">Antarktika Gezisi Notları</h4><span class="text-[8px] text-gray-600">27 MAY 2024</span></div></div>
-                    </div>
-                </div>
-                <div><h3 class="text-white text-sm font-bold uppercase heading-font mb-6 tracking-widest">Hot Categories</h3><div class="grid grid-cols-2 gap-x-4 gap-y-2 text-[10px] font-bold uppercase"><div class="flex justify-between border-b border-zinc-800 pb-2"><span>Business</span><span class="bg-zinc-800 px-1 text-[8px] text-zinc-500">12</span></div><div class="flex justify-between border-b border-zinc-800 pb-2"><span>Sport</span><span class="bg-zinc-800 px-1 text-[8px] text-zinc-500">26</span></div><div class="flex justify-between border-b border-zinc-800 pb-2"><span>LifeStyle</span><span class="bg-zinc-800 px-1 text-[8px] text-zinc-500">55</span></div><div class="flex justify-between border-b border-zinc-800 pb-2"><span>Fashion</span><span class="bg-zinc-800 px-1 text-[8px] text-zinc-500">37</span></div></div></div>
-                <div><h3 class="text-white text-sm font-bold uppercase heading-font mb-6 tracking-widest">Flickr Photos</h3><div class="grid grid-cols-3 gap-1 mb-4"><img src="https://picsum.photos/id/47/100/100" class="w-full h-12 object-cover opacity-60"><img src="https://picsum.photos/id/48/100/100" class="w-full h-12 object-cover opacity-60"><img src="https://picsum.photos/id/49/100/100" class="w-full h-12 object-cover opacity-60"><img src="https://picsum.photos/id/50/100/100" class="w-full h-12 object-cover opacity-60"><img src="https://picsum.photos/id/51/100/100" class="w-full h-12 object-cover opacity-60"><img src="https://picsum.photos/id/52/100/100" class="w-full h-12 object-cover opacity-60"></div><a href="#" class="text-[9px] italic text-zinc-500 hover:text-white">Daha fazlası...</a></div>
-            </div>
-            <div class="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase font-bold tracking-widest text-zinc-500"><p>© 2024 VİZYON HABER PORTALI</p><div class="flex space-x-4 mt-4 md:mt-0"><a href="#">Home</a><span>|</span><a href="#">About</a><span>|</span><a href="#">Contact</a></div></div>
+            <p class="text-[10px] uppercase tracking-widest">© 2024 VİZYON HABER PORTALI. TÜM HAKLARI SAKLIDIR.</p>
         </div>
     </footer>
 
