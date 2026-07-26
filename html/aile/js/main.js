@@ -423,8 +423,8 @@
 
     const KEY = "aile-defter";
     const seed = [
-      { name: "Bir Akraba", text: "Rüştü amcadan Turcan neneye, Hakan Rüştü’den Aziz’e — nice güzel yıllara Balaban ailesi!", date: Date.now() - 86400000 * 6 },
-      { name: "Eski Dost", text: "Beş kardeş bir arada, sofra kurulunca ev başka güzel oluyor. Sizi böyle görmek çok güzel.", date: Date.now() - 86400000 * 2 }
+      { name: "Bir Akraba", text: "Aziz amca, Özcan yenge ve üç kardeşe; Rüştü dededen Turcan neneye — nice güzel yıllara!", date: Date.now() - 86400000 * 6 },
+      { name: "Kuzen", text: "Sofra kalabalık olsun diye… Karahan’dan Gürbüz’e, hepinize selam.", date: Date.now() - 86400000 * 2 }
     ];
 
     const load = () => {

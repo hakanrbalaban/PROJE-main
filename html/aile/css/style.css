@@ -404,6 +404,8 @@ body.is-ready .hero__meta{opacity:1;transform:none;transition-delay:.74s;}
 /* ---------- 12. Üyeler ---------- */
 .members{background:var(--bg);}
 .members__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.5rem,3vw,2.4rem);}
+.members__grid--2{grid-template-columns:repeat(2,1fr);}
+.members__grid--3{grid-template-columns:repeat(3,1fr);}
 .members__grid--5{grid-template-columns:repeat(3,1fr);}
 .members__grid--5 .member:nth-child(4),
 .members__grid--5 .member:nth-child(5){grid-column:span 1;}
@@ -457,12 +459,41 @@ body.is-ready .hero__meta{opacity:1;transform:none;transition-delay:.74s;}
 .elder h4{margin:0;font-family:var(--font-d);font-weight:400;font-size:1.25rem;}
 .elder p{margin:.15rem 0 0;font-size:.82rem;color:var(--txt-dim);}
 
+/* ---------- 12c. Akrabalar ---------- */
+.kin{background:var(--bg-2);border-block:1px solid var(--line);}
+.kin__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.kin__card{
+  padding:clamp(1.4rem,2.5vw,2rem);border-radius:var(--r-l);
+  background:var(--surface);border:1px solid var(--line);
+  transition:.5s var(--ease-out);
+}
+.kin__card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 35%,transparent);box-shadow:var(--shadow-s);}
+.kin__card--wide{grid-column:1 / -1;}
+.kin__label{margin:0;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+.kin__card h3{font-family:var(--font-d);font-weight:400;font-size:1.55rem;margin:.4rem 0 1rem;}
+.kin__card h4{font-family:var(--font-d);font-weight:400;font-size:1.15rem;margin:0 0 .7rem;color:var(--txt-soft);}
+.kin__note{margin:0 0 1rem;font-size:.9rem;}
+.kin__list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;}
+.kin__list li{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding:.55rem .8rem;border-radius:var(--r-s);background:var(--bg);border:1px solid var(--line);
+}
+.kin__list b{font-weight:500;font-size:.95rem;}
+.kin__list span{font-size:.75rem;color:var(--txt-dim);letter-spacing:.04em;}
+.kin__list--wrap{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+.kin__list--wrap li{justify-content:center;text-align:center;}
+.kin__split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+
 @media (max-width:860px){
   .roots{grid-template-columns:1fr;}
-  .members__grid--5{grid-template-columns:1fr;}
+  .members__grid--5,.members__grid--3,.members__grid--2{grid-template-columns:1fr;}
+  .kin__grid,.kin__split{grid-template-columns:1fr;}
+  .kin__card--wide{grid-column:auto;}
 }
 @media (min-width:561px) and (max-width:860px){
-  .members__grid--5{grid-template-columns:repeat(2,1fr);}
+  .members__grid--5,.members__grid--3{grid-template-columns:repeat(2,1fr);}
+  .members__grid--2{grid-template-columns:repeat(2,1fr);}
+  .kin__grid{grid-template-columns:1fr;}
 }
 
 /* ---------- 13. Zaman tüneli ---------- */
