@@ -1,0 +1,6 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#1d4ed8"/><stop offset="1" stop-color="#172554"/></linearGradient></defs><rect width="1200" height="700" fill="url(#g)"/>
+  <circle cx="600" cy="320" r="235" fill="#60a5fa" opacity=".3"/><circle cx="600" cy="320" r="200" fill="#bfdbfe"/><path d="M480 155l75 35 42 78-55 45-80-34-38-65zM660 160l87 50-12 90-62 38-68-65 18-70zM485 365l105-20 70 75-25 95-115 18-72-82z" fill="#2563eb"/>
+  <path d="M600 120c-80 90-105 190-95 300M600 120c80 90 105 190 95 300M410 320h380" fill="none" stroke="#1e40af" stroke-width="8" opacity=".5"/>
+  <text x="70" y="630" fill="#fff" font-family="Arial,sans-serif" font-size="36" font-weight="700">GÜNDEM &amp; DÜNYA</text>
+</svg>

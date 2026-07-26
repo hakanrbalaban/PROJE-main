@@ -1,0 +1,17 @@
+/*
+ * Theme Name: Akış Haber
+ * Theme URI: https://example.com/akishaber
+ * Author: Akış Haber
+ * Author URI: https://example.com
+ * Description: Özgün Türkçe haber portalı teması. Manşet, son dakika, piyasalar, kategori blokları, yazarlar, galeri, burç, namaz ve daha fazlası.
+ * Version: 2.1.0
+ * Requires at least: 6.0
+ * Tested up to: 6.7
+ * Requires PHP: 7.4
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: akishaber
+ * Tags: news, blog, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, two-columns, theme-options
+ */
+
+/* Styles are loaded from assets/css/main.css via functions.php */

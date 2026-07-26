@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏆 Hazine Sandığı</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header class="hud">
+    <div class="coins">
+      <span class="coin-ico">🪙</span>
+      <span id="coinCount">0</span>
+    </div>
+    <div class="title">HAZİNE SANDIĞI</div>
+    <button id="soundToggle" class="sound-btn" title="Ses aç/kapat">🔊</button>
+  </header>
+
+  <main class="stage">
+    <!-- Işık huzmesi -->
+    <div class="light-beam" id="lightBeam"></div>
+
+    <!-- Sandık -->
+    <div class="chest" id="chest">
+      <div class="chest-base">
+        <div class="chest-band band-left"></div>
+        <div class="chest-band band-right"></div>
+        <div class="lock" id="lock">
+          <div class="keyhole"></div>
+        </div>
+      </div>
+      <div class="chest-lid" id="chestLid">
+        <div class="lid-band lid-band-left"></div>
+        <div class="lid-band lid-band-right"></div>
+        <div class="lid-shine"></div>
+      </div>
+      <div class="chest-inner" id="chestInner"></div>
+      <div class="chest-glow" id="chestGlow"></div>
+      <div class="shadow"></div>
+    </div>
+
+    <!-- Ödül gösterimi -->
+    <div class="reward-card" id="rewardCard">
+      <div class="reward-rays" id="rewardRays"></div>
+      <div class="reward-icon" id="rewardIcon">💎</div>
+      <div class="reward-name" id="rewardName">EFSANEVİ</div>
+      <div class="reward-desc" id="rewardDesc">Elmas +100</div>
+    </div>
+
+    <canvas id="fx"></canvas>
+  </main>
+
+  <footer class="controls">
+    <p class="hint" id="hint">Sandığa dokun ve aç! ✨</p>
+    <button id="openBtn" class="open-btn">SANDIĞI AÇ</button>
+    <button id="resetBtn" class="reset-btn hidden">Yeni Sandık</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

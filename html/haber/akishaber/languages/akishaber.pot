@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Akış Haber 2.0.0\n"
+"Report-Msgid-Bugs-To: https://example.com/support\n"
+"POT-Creation-Date: 2026-07-26 10:00+0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: akishaber\n"
+
+#: inc/class-theme-setup.php
+msgid "Ana Menü"
+msgstr ""
+
+#: template-parts/post/archive-filters.php
+msgid "Kategori"
+msgstr ""
+
+#: template-parts/post/archive-filters.php
+msgid "Tüm kategoriler"
+msgstr ""
+
+#: template-parts/post/archive-filters.php
+msgid "Dönem"
+msgstr ""
+
+#: template-parts/post/archive-filters.php
+msgid "Sıralama"
+msgstr ""
+
+#: template-parts/post/archive-filters.php
+msgid "Filtrele"
+msgstr ""
+
+#: template-parts/content-single.php
+msgid "Benzer Haberler"
+msgstr ""
+
+#: template-parts/content-single.php
+msgid "Paylaş:"
+msgstr ""
+
+#: sidebar.php
+msgid "Son Haberler"
+msgstr ""
