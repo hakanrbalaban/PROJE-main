@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akış Haber — Güncel Haberler</title>
+  <meta name="description" content="Akış Haber: gündem, ekonomi, spor, politika ve daha fazlası. Özgün haber portalı teması." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ÜST BAR -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <time class="topbar__date" id="todayDate"></time>
+        <span class="topbar__sep"></span>
+        <button type="button" class="weather-chip" id="weatherBtn" aria-expanded="false" aria-controls="weatherPanel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <strong id="weatherTemp">21°</strong>
+          <span id="weatherCity">Bursa</span>
+          <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="weather-panel" id="weatherPanel" hidden>
+          <label class="sr-only" for="citySelect">Şehir seçin</label>
+          <select id="citySelect"></select>
+        </div>
+      </div>
+      <div class="topbar__right">
+        <a href="#uyelik">Üye Girişi</a>
+        <a href="#yayinlar">Yayınlar</a>
+        <a href="#servisler">Servisler</a>
+        <a class="wa-link" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp İhbar</a>
+        <div class="topbar__tools">
+          <button type="button" class="icon-btn" id="fontDec" title="Yazı küçült" aria-label="Yazı küçült">A−</button>
+          <button type="button" class="icon-btn" id="fontInc" title="Yazı büyüt" aria-label="Yazı büyüt">A+</button>
+          <button type="button" class="icon-btn" id="themeToggle" title="Tema" aria-label="Karanlık/aydınlık tema">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="searchOpen" title="Ara" aria-label="Ara">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header__row">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="brand" href="index.html" aria-label="Akış Haber ana sayfa">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="40" height="40"><rect width="40" height="40" rx="4" fill="currentColor"/><path d="M8 28V12h6.2c3.4 0 5.4 1.8 5.4 4.5 0 1.8-.9 3.2-2.5 3.9L22 28h-5.2l-4-6.8H13V28H8zm5-10.8h1c1.4 0 2.2-.7 2.2-1.8S15.4 14 14 14h-1v3.2zM24 28l4.8-16H34L29.2 28H24z" fill="#fff"/></svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Akış</span>
+          <span class="brand__tag">Haber</span>
+        </span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="Ana menü">
+        <ul>
+          <li><a href="#gundem">Gündem</a></li>
+          <li><a href="#politika">Politika</a></li>
+          <li><a href="#ekonomi">Ekonomi</a></li>
+          <li><a href="#spor">Spor</a></li>
+          <li><a href="#magazin">Magazin</a></li>
+          <li><a href="#saglik">Sağlık</a></li>
+          <li><a href="#teknoloji">Teknoloji</a></li>
+          <li class="has-sub">
+            <a href="#servisler">Servisler</a>
+            <ul class="sub">
+              <li><a href="#eczane">Nöbetçi Eczaneler</a></li>
+              <li><a href="#namaz">Namaz Vakitleri</a></li>
+              <li><a href="#hava">Hava Durumu</a></li>
+              <li><a href="#puan">Puan Durumu</a></li>
+              <li><a href="#kripto">Kripto Para</a></li>
+              <li><a href="#yayinlar">Yayınlar</a></li>
+            </ul>
+          </li>
+          <li><a href="#ilanlar">Resmi İlanlar</a></li>
+        </ul>
+      </nav>
+      <div class="header__quick">
+        <a href="#foto">Foto</a>
+        <a href="#video">Video</a>
+        <a href="#yazarlar">Yazarlar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SON DAKİKA TICKER -->
+  <div class="breaking" role="region" aria-label="Son dakika">
+    <div class="container breaking__inner">
+      <span class="breaking__badge"><i class="pulse"></i> SON DAKİKA</span>
+      <div class="breaking__track" id="breakingTrack">
+        <div class="breaking__list" id="breakingList">
+          <a href="#"><time>16:57</time> Bilim dünyasında yeni keşif: Gezegenler arası seyahat mümkün mü?</a>
+          <a href="#"><time>16:56</time> Büyük İstanbul Maratonu koşucuları kendine hayran bıraktı</a>
+          <a href="#"><time>16:55</time> Ünlü şirketin CEO’su istifa etti</a>
+          <a href="#"><time>16:45</time> Moda haftası son trendleriyle göz kamaştırdı</a>
+          <a href="#"><time>16:44</time> Dünya şampiyonası final maçı özetleri</a>
+          <a href="#"><time>16:42</time> Oscar ödülleri sahiplerini buldu</a>
+          <a href="#"><time>16:41</time> Teknoloji devi yeni telefon modelini tanıttı</a>
+          <a href="#"><time>16:35</time> Meteoroloji’den 32 il için kritik uyarı</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PİYASALAR -->
+  <section class="markets" aria-label="Piyasalar">
+    <div class="container markets__inner" id="marketsBar">
+      <span class="markets__label">PİYASALAR</span>
+      <div class="market-item up"><span>DOLAR</span><strong>34,12</strong><em>+0,18%</em></div>
+      <div class="market-item down"><span>EURO</span><strong>37,05</strong><em>−0,09%</em></div>
+      <div class="market-item up"><span>ALTIN</span><strong>2.841</strong><em>+0,42%</em></div>
+      <div class="market-item up"><span>BİST</span><strong>9.412</strong><em>+0,65%</em></div>
+      <div class="market-item down" id="kripto"><span>BITCOIN</span><strong>67.240</strong><em>−1,12%</em></div>
+    </div>
+  </section>
+
+  <main>
+    <!-- MANŞET + YAN HABERLER -->
+    <section class="hero container">
+      <div class="hero__slider" id="heroSlider" aria-roledescription="carousel">
+        <article class="hero-slide is-active" data-index="0">
+          <a href="#" class="hero-slide__media">
+            <img src="https://picsum.photos/seed/akis1/1200/700" alt="" width="1200" height="700" />
+            <span class="live-badge">CANLI</span>
+          </a>
+          <div class="hero-slide__body">
+            <span class="cat cat--tech">Teknoloji</span>
+            <h1><a href="#">Yapay zeka çağı: Haber odalarında dönüşüm hızlanıyor</a></h1>
+            <p>Editöryel süreçlerde otomasyon artarken okuyucu güveni ve doğrulama standartları yeniden tanımlanıyor.</p>
+            <div class="meta"><time>2 saat önce</time><span>·</span><span>4 dk okuma</span></div>
+          </div>
+        </article>
+        <article class="hero-slide" data-index="1">
+          <a href="#" class="hero-slide__media">
+            <img src="https://picsum.photos/seed/akis2/1200/700" alt="" width="1200" height="700" />
+          </a>
+          <div class="hero-slide__body">
+            <span class="cat cat--gundem">Gündem</span>
+            <h1><a href="#">Boğaz geçişlerinde yeni düzenleme yürürlüğe girdi</a></h1>
+            <p>Ulaşım planlamasında yapılan değişiklikler sabah ve akşam saatlerinde trafiği doğrudan etkileyecek.</p>
+            <div class="meta"><time>3 saat önce</time><span>·</span><span>3 dk okuma</span></div>
+          </div>
+        </article>
+        <article class="hero-slide" data-index="2">
+          <a href="#" class="hero-slide__media">
+            <img src="https://picsum.photos/seed/akis3/1200/700" alt="" width="1200" height="700" />
+          </a>
+          <div class="hero-slide__body">
+            <span class="cat cat--spor">Spor</span>
+            <h1><a href="#">Devler Ligi finalinde dayanışma kampanyası</a></h1>
+            <p>Kulüpler ve taraftar grupları ortak yardım kampanyası için bir araya geldi.</p>
+            <div class="meta"><time>5 saat önce</time><span>·</span><span>2 dk okuma</span></div>
+          </div>
+        </article>
+        <article class="hero-slide" data-index="3">
+          <a href="#" class="hero-slide__media">
+            <img src="https://picsum.photos/seed/akis4/1200/700" alt="" width="1200" height="700" />
+          </a>
+          <div class="hero-slide__body">
+            <span class="cat cat--ekonomi">Ekonomi</span>
+            <h1><a href="#">Mayıs enflasyon rakamları açıklandı</a></h1>
+            <p>Piyasalar beklentilerin altında gelen verilere temkinli tepki verdi.</p>
+            <div class="meta"><time>6 saat önce</time><span>·</span><span>5 dk okuma</span></div>
+          </div>
+        </article>
+        <article class="hero-slide" data-index="4">
+          <a href="#" class="hero-slide__media">
+            <img src="https://picsum.photos/seed/akis5/1200/700" alt="" width="1200" height="700" />
+          </a>
+          <div class="hero-slide__body">
+            <span class="cat cat--saglik">Sağlık</span>
+            <h1><a href="#">Kalp sağlığı araştırmasında yeni bulgular</a></h1>
+            <p>Uzmanlar erken teşhis ve yaşam tarzı değişikliklerinin önemini vurguluyor.</p>
+            <div class="meta"><time>7 saat önce</time><span>·</span><span>4 dk okuma</span></div>
+          </div>
+        </article>
+        <div class="hero__controls">
+          <button type="button" class="hero__prev" aria-label="Önceki">‹</button>
+          <div class="hero__dots" id="heroDots"></div>
+          <button type="button" class="hero__next" aria-label="Sonraki">›</button>
+        </div>
+      </div>
+      <aside class="hero__side">
+        <h2 class="side-title">Öne çıkanlar</h2>
+        <ul class="side-list">
+          <li>
+            <a href="#">
+              <img src="https://picsum.photos/seed/side1/160/110" alt="" width="160" height="110" />
+              <div>
+                <span class="cat cat--politika">Politika</span>
+                <strong>TBMM’nin bu haftaki mesaisi belli oldu</strong>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="https://picsum.photos/seed/side2/160/110" alt="" width="160" height="110" />
+              <div>
+                <span class="cat cat--gundem">Gündem</span>
+                <strong>Köy yolunda göçme meydana geldi</strong>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="https://picsum.photos/seed/side3/160/110" alt="" width="160" height="110" />
+              <div>
+                <span class="cat cat--ekonomi">Ekonomi</span>
+                <strong>Mayıs ayı enflasyon rakamları açıklandı</strong>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="https://picsum.photos/seed/side4/160/110" alt="" width="160" height="110" />
+              <div>
+                <span class="cat cat--spor">Spor</span>
+                <strong>Süper Lig’de takımların yaş ortalaması 27,51</strong>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="https://picsum.photos/seed/side5/160/110" alt="" width="160" height="110" />
+              <div>
+                <span class="cat cat--saglik">Sağlık</span>
+                <strong>Hastane randevusunu iptal etmeyenlere yaptırım</strong>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- HIZLI BAŞLIK ŞERİDİ -->
+    <section class="flash-strip container" aria-label="Hızlı başlıklar">
+      <div class="flash-strip__track" id="flashTrack">
+        <a href="#"><span>SON DAKİKA</span> Boğaz geçişlerinde yeni düzenleme</a>
+        <a href="#"><span>SON DAKİKA</span> Faiz artışı mesajı piyasaları hareketlendirdi</a>
+        <a href="#"><span>SON DAKİKA</span> 32 il için flaş uyarı</a>
+        <a href="#"><span>SON DAKİKA</span> Anma töreni düzenlendi</a>
+        <a href="#"><span>SON DAKİKA</span> Tribün faciası: yüzlerce yaralı</a>
+        <a href="#"><span>SON DAKİKA</span> Milyonlarca hesap silinebilir</a>
+        <a href="#"><span>SON DAKİKA</span> Akdeniz’de göçmen faciası</a>
+        <a href="#"><span>SON DAKİKA</span> Veri sızıntısı doğrulandı</a>
+      </div>
+    </section>
+
+    <!-- POLİTİKA (sıra değişti: öne alındı) -->
+    <section class="section container" id="politika">
+      <div class="section__head">
+        <h2>Politika</h2>
+        <a class="all-link" href="#">Tümü</a>
+      </div>
+      <div class="grid-featured">
+        <article class="story story--lg">
+          <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol1/640/420" alt="" /></a>
+          <div class="story__body">
+            <span class="cat cat--politika">Politika</span>
+            <h3><a href="#">TBMM’nin bu haftaki mesaisi belli oldu</a></h3>
+            <p>Meclis genel kurulu ve komisyon gündemi yoğun bir haftaya işaret ediyor.</p>
+          </div>
+        </article>
+        <div class="story-stack">
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol2/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">İl başkanları ile kritik buluşma</a></h3></div>
+          </article>
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol3/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Partide istifa dalgası sürüyor</a></h3></div>
+          </article>
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol4/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Milletvekiline önemli görev</a></h3></div>
+          </article>
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol5/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Faiz artışı mesajı gündemde</a></h3></div>
+          </article>
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol6/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Dış politika açıklaması: “Yeterli değil”</a></h3></div>
+          </article>
+          <article class="story story--row">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/pol7/200/140" alt="" /></a>
+            <div class="story__body"><h3><a href="#">TBMM Başkanı heyet kabul etti</a></h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EKONOMİ -->
+    <section class="section section--alt" id="ekonomi">
+      <div class="container">
+        <div class="section__head">
+          <h2>Ekonomi</h2>
+          <a class="all-link" href="#">Tümü</a>
+        </div>
+        <div class="grid-3">
+          <article class="story">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/eko1/480/300" alt="" /><span class="story__badge">ANALİZ</span></a>
+            <div class="story__body">
+              <h3><a href="#">Erken emeklilik mümkün mü? Detaylar netleşiyor</a></h3>
+            </div>
+          </article>
+          <article class="story">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/eko2/480/300" alt="" /></a>
+            <div class="story__body">
+              <h3><a href="#">Yeni asgari ücretin detayları belli oldu</a></h3>
+            </div>
+          </article>
+          <article class="story">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/eko3/480/300" alt="" /></a>
+            <div class="story__body">
+              <h3><a href="#">Kirada yüzde 25 zam sınırı uzatılacak mı?</a></h3>
+            </div>
+          </article>
+        </div>
+        <ul class="bullet-list">
+          <li><a href="#">İstanbul’da ulaşım ücretlerine zam</a></li>
+          <li><a href="#">Yabancıya konut satışı azaldı</a></li>
+          <li><a href="#">Alman otomotiv devinden flaş karar</a></li>
+          <li><a href="#">Sanayide çarklar dönüyor</a></li>
+          <li><a href="#">Kayısıda ihracat rekoru</a></li>
+          <li><a href="#">Türkiye’nin turizm geliri arttı</a></li>
+          <li><a href="#">İnşaat sektörü endişeli</a></li>
+          <li><a href="#">Mayısta ‘kart’a yüklendik</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- YAZARLAR (öne alındı) -->
+    <section class="section container" id="yazarlar">
+      <div class="section__head">
+        <h2>Yazarlar</h2>
+        <a class="all-link" href="#">Tümü</a>
+      </div>
+      <div class="authors" id="authorsTrack">
+        <article class="author-card">
+          <img src="https://i.pravatar.cc/120?img=5" alt="" />
+          <div>
+            <h3>Esra Demiroğlu</h3>
+            <a href="#">Bahar aylarında nelere dikkat etmeliyiz?</a>
+          </div>
+        </article>
+        <article class="author-card">
+          <img src="https://i.pravatar.cc/120?img=12" alt="" />
+          <div>
+            <h3>Kayra Yazaroğulları</h3>
+            <a href="#">Kentsel dönüşüm karmaşası bitmek bilmiyor</a>
+          </div>
+        </article>
+        <article class="author-card">
+          <img src="https://i.pravatar.cc/120?img=33" alt="" />
+          <div>
+            <h3>Mustafa Türk</h3>
+            <a href="#">Bu yaz festival dolu geçecek</a>
+          </div>
+        </article>
+        <article class="author-card">
+          <img src="https://i.pravatar.cc/120?img=47" alt="" />
+          <div>
+            <h3>Semra Mutlu</h3>
+            <a href="#">Dijital çağda sosyal ilişkilerimiz</a>
+          </div>
+        </article>
+        <article class="author-card">
+          <img src="https://i.pravatar.cc/120?img=15" alt="" />
+          <div>
+            <h3>İbrahim Sevinç</h3>
+            <a href="#">Süper Lig’de kritik haftalara girilirken…</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SPOR + PUAN DURUMU -->
+    <section class="section section--alt" id="spor">
+      <div class="container spor-layout">
+        <div>
+          <div class="section__head">
+            <h2>Spor</h2>
+            <a class="all-link" href="#">Tümü</a>
+          </div>
+          <div class="spor-hero">
+            <article class="story story--overlay">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor1/800/480" alt="" /></a>
+              <div class="story__body">
+                <span class="cat cat--spor">Spor</span>
+                <h3><a href="#">Devler Ligi finalinde depremzedeler için kampanya</a></h3>
+              </div>
+            </article>
+          </div>
+          <div class="grid-2 mt">
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor2/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Süper Lig yayın gelirinde en fazla pay belli oldu</a></h3></div>
+            </article>
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor3/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">NBA’de finalin adı belli oldu</a></h3></div>
+            </article>
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor4/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Voleybolda Millilerin hedefi zirve</a></h3></div>
+            </article>
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor5/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Basketbol Süper Ligi’nde play-off zamanı</a></h3></div>
+            </article>
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor6/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">A Milli Takım’da sakatlık şoku</a></h3></div>
+            </article>
+            <article class="story story--row">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/spor7/200/140" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Filenin Sultanları Macaristan’ı devirdi</a></h3></div>
+            </article>
+          </div>
+        </div>
+        <aside class="standings" id="puan">
+          <div class="standings__head">
+            <h3>Puan Durumu</h3>
+            <select id="leagueSelect" aria-label="Lig seçin">
+              <option>TFF Süper Lig</option>
+              <option>TFF 1. Lig</option>
+              <option>Basketbol Süper Lig</option>
+              <option>Kadınlar Basketbol Süper Lig</option>
+            </select>
+          </div>
+          <table>
+            <thead>
+              <tr><th>#</th><th>Takım</th><th>O</th><th>Av</th><th>P</th></tr>
+            </thead>
+            <tbody id="standingsBody">
+              <tr><td>1</td><td>Galatasaray</td><td>34</td><td>+48</td><td>95</td></tr>
+              <tr><td>2</td><td>Fenerbahçe</td><td>34</td><td>+52</td><td>93</td></tr>
+              <tr><td>3</td><td>Beşiktaş</td><td>34</td><td>+28</td><td>72</td></tr>
+              <tr><td>4</td><td>Trabzonspor</td><td>34</td><td>+18</td><td>61</td></tr>
+              <tr><td>5</td><td>Başakşehir</td><td>34</td><td>+12</td><td>55</td></tr>
+              <tr><td>6</td><td>Eyüpspor</td><td>34</td><td>+6</td><td>50</td></tr>
+              <tr><td>7</td><td>Göztepe</td><td>34</td><td>+4</td><td>48</td></tr>
+              <tr><td>8</td><td>Kasımpaşa</td><td>34</td><td>+2</td><td>46</td></tr>
+              <tr><td>9</td><td>Samsunspor</td><td>34</td><td>0</td><td>44</td></tr>
+              <tr><td>10</td><td>Alanyaspor</td><td>34</td><td>−2</td><td>42</td></tr>
+            </tbody>
+          </table>
+          <ul class="mini-news">
+            <li><a href="#">Yeni sezonda 64 ilden 139 takım yer alacak</a></li>
+            <li><a href="#">Messi kariyerinin en hızlı golünü attı</a></li>
+            <li><a href="#">A Milli Takım’dan son dakika zaferi</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VİDEO GALERİ -->
+    <section class="section container" id="video">
+      <div class="section__head">
+        <h2>Video Galeri</h2>
+        <a class="all-link" href="#">Tümü</a>
+      </div>
+      <div class="video-grid">
+        <article class="video-card video-card--main">
+          <a href="#">
+            <img src="https://picsum.photos/seed/vid1/900/520" alt="" />
+            <span class="play-btn" aria-hidden="true"></span>
+            <div class="video-card__caption">
+              <h3>Bilim dünyasında yeni keşif: Gezegenler arası seyahat mümkün mü?</h3>
+            </div>
+          </a>
+        </article>
+        <div class="video-side">
+          <article class="video-card">
+            <a href="#">
+              <img src="https://picsum.photos/seed/vid2/400/240" alt="" />
+              <span class="play-btn play-btn--sm" aria-hidden="true"></span>
+              <h3>Büyük İstanbul Maratonu özetleri</h3>
+            </a>
+          </article>
+          <article class="video-card">
+            <a href="#">
+              <img src="https://picsum.photos/seed/vid3/400/240" alt="" />
+              <span class="play-btn play-btn--sm" aria-hidden="true"></span>
+              <h3>Moda haftası: son trendler</h3>
+            </a>
+          </article>
+          <article class="video-card">
+            <a href="#">
+              <img src="https://picsum.photos/seed/vid4/400/240" alt="" />
+              <span class="play-btn play-btn--sm" aria-hidden="true"></span>
+              <h3>Oscar gecesinden kareler</h3>
+            </a>
+          </article>
+        </div>
+      </div>
+      <ul class="bullet-list mt">
+        <li><a href="#">Popüler oyunun yeni sezonu heyecan yarattı</a></li>
+        <li><a href="#">Teknoloji devi yeni modeli tanıttı</a></li>
+        <li><a href="#">Korkunç kaza kameralara yansıdı</a></li>
+      </ul>
+    </section>
+
+    <!-- GÜNDEM -->
+    <section class="section section--alt" id="gundem">
+      <div class="container">
+        <div class="section__head">
+          <h2>Gündem</h2>
+          <a class="all-link" href="#">Tümü</a>
+        </div>
+        <div class="grid-numbered">
+          <ol class="numbered-news">
+            <li><a href="#"><span>01</span> Türkiye ihracatta önemli bir başarı yakaladı</a></li>
+            <li><a href="#"><span>02</span> Meteoroloji’den kritik uyarı</a></li>
+            <li><a href="#"><span>03</span> Boğaz geçişlerinde yeni düzenleme</a></li>
+            <li><a href="#"><span>04</span> Drift tutkunları Modifiye Araç Festivali’nde buluştu</a></li>
+            <li><a href="#"><span>05</span> 32 il için flaş uyarı</a></li>
+            <li><a href="#"><span>06</span> Mayısta kaç konut satıldı? Veriler belli oldu</a></li>
+          </ol>
+          <div class="gundem-featured">
+            <article class="story story--overlay">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/gun1/700/480" alt="" /></a>
+              <div class="story__body">
+                <span class="cat cat--gundem">Gündem</span>
+                <h3><a href="#">İhracat rekoru: sektörler arası tabloda sürpriz liderler</a></h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAĞLIK -->
+    <section class="section container" id="saglik">
+      <div class="section__head">
+        <h2>Sağlık</h2>
+        <a class="all-link" href="#">Tümü</a>
+      </div>
+      <div class="health-layout">
+        <div class="health-slider" id="healthSlider">
+          <article class="health-slide is-active">
+            <img src="https://picsum.photos/seed/sag1/800/440" alt="" />
+            <div><span class="flash-tag">SON DAKİKA</span><h3><a href="#">Geri mi geliyor? Aşı ve maske yine gündemde</a></h3></div>
+          </article>
+          <article class="health-slide">
+            <img src="https://picsum.photos/seed/sag2/800/440" alt="" />
+            <div><span class="flash-tag">SON DAKİKA</span><h3><a href="#">Kahvenizi içmeden 3 dakika bekleyin</a></h3></div>
+          </article>
+          <article class="health-slide">
+            <img src="https://picsum.photos/seed/sag3/800/440" alt="" />
+            <div><span class="flash-tag">SON DAKİKA</span><h3><a href="#">Uzmanlardan çay uyarısı</a></h3></div>
+          </article>
+          <article class="health-slide">
+            <img src="https://picsum.photos/seed/sag4/800/440" alt="" />
+            <div><span class="flash-tag">SON DAKİKA</span><h3><a href="#">Bu içeceklere dikkat! Zehirli metal içeriyor</a></h3></div>
+          </article>
+          <article class="health-slide">
+            <img src="https://picsum.photos/seed/sag5/800/440" alt="" />
+            <div><span class="flash-tag">SON DAKİKA</span><h3><a href="#">Dang humması vakaları artıyor</a></h3></div>
+          </article>
+          <div class="health-dots" id="healthDots"></div>
+        </div>
+        <ul class="bullet-list">
+          <li><a href="#">Ayak izi veya nefesten insan DNA’sı tespit edilebiliyor</a></li>
+          <li><a href="#">Kalp krizi ile ilgili yeni keşif</a></li>
+          <li><a href="#">Akciğer kanseri ilacında ilerleme</a></li>
+          <li><a href="#">Çöpe atmaktan vazgeçin! Bakın ne işe yarıyor</a></li>
+          <li><a href="#">10 yıl içerisinde felce neden olabilir</a></li>
+          <li><a href="#">Deri kanserindeki artış alarm veriyor</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MAGAZİN + BURÇLAR -->
+    <section class="section section--alt" id="magazin">
+      <div class="container magazin-layout">
+        <div>
+          <div class="section__head">
+            <h2>Magazin</h2>
+            <a class="all-link" href="#">Tümü</a>
+          </div>
+          <div class="grid-2">
+            <article class="story">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/mag1/480/320" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Instagram’dan kazandığı para dudak uçuklattı</a></h3></div>
+            </article>
+            <article class="story">
+              <a href="#" class="story__media"><img src="https://picsum.photos/seed/mag2/480/320" alt="" /></a>
+              <div class="story__body"><h3><a href="#">Eğlenceye doymadılar! Sabaha kadar sürdü</a></h3></div>
+            </article>
+          </div>
+          <ul class="bullet-list mt">
+            <li><a href="#">Güzel oyuncudan ‘havuz’ pozu</a></li>
+            <li><a href="#">Sevilen dizi için final kararı</a></li>
+            <li><a href="#">Setlere veda etti</a></li>
+            <li><a href="#">Ünlü çift nikah masasına oturdu</a></li>
+          </ul>
+        </div>
+        <aside class="horoscope" aria-label="Günlük burç yorumları">
+          <h3>Günlük Burç</h3>
+          <div class="zodiac-tabs" id="zodiacTabs" role="tablist">
+            <button type="button" role="tab" aria-selected="true" data-z="koc">Koç</button>
+            <button type="button" role="tab" aria-selected="false" data-z="boga">Boğa</button>
+            <button type="button" role="tab" aria-selected="false" data-z="ikizler">İkizler</button>
+            <button type="button" role="tab" aria-selected="false" data-z="yengec">Yengeç</button>
+            <button type="button" role="tab" aria-selected="false" data-z="aslan">Aslan</button>
+            <button type="button" role="tab" aria-selected="false" data-z="basak">Başak</button>
+            <button type="button" role="tab" aria-selected="false" data-z="terazi">Terazi</button>
+            <button type="button" role="tab" aria-selected="false" data-z="akrep">Akrep</button>
+            <button type="button" role="tab" aria-selected="false" data-z="yay">Yay</button>
+            <button type="button" role="tab" aria-selected="false" data-z="oglak">Oğlak</button>
+            <button type="button" role="tab" aria-selected="false" data-z="kova">Kova</button>
+            <button type="button" role="tab" aria-selected="false" data-z="balik">Balık</button>
+          </div>
+          <div class="zodiac-panel" id="zodiacPanel">
+            <h4 id="zodiacTitle">Koç Burcu Yorumu</h4>
+            <p id="zodiacText">Bugün cesaretin ve kararlılığın ön plana çıktığı bir gün. İçsel motivasyonun yüksek; yeni projelere adım atmak için uygun bir zaman.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TEKNOLOJİ -->
+    <section class="section container" id="teknoloji">
+      <div class="section__head">
+        <h2>Teknoloji</h2>
+        <a class="all-link" href="#">Tümü</a>
+      </div>
+      <div class="grid-3">
+        <article class="story">
+          <a href="#" class="story__media"><img src="https://picsum.photos/seed/tek1/480/280" alt="" /></a>
+          <div class="story__body"><h3><a href="#">Milyonlarca hesap silinmeye hazırlanıyor</a></h3></div>
+        </article>
+        <article class="story">
+          <a href="#" class="story__media"><img src="https://picsum.photos/seed/tek2/480/280" alt="" /></a>
+          <div class="story__body"><h3><a href="#">Sosyal medya şirketinin piyasa değerinde düşüş</a></h3></div>
+        </article>
+        <article class="story">
+          <a href="#" class="story__media"><img src="https://picsum.photos/seed/tek3/480/280" alt="" /></a>
+          <div class="story__body"><h3><a href="#">Tüm ürünlere yüzde 10 zam</a></h3></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOTO GALERİ -->
+    <section class="section section--alt" id="foto">
+      <div class="container">
+        <div class="section__head">
+          <h2>Foto Galeri</h2>
+          <a class="all-link" href="#">Tümü</a>
+        </div>
+        <div class="photo-grid">
+          <a class="photo-card photo-card--wide" href="#">
+            <img src="https://picsum.photos/seed/foto1/900/500" alt="" />
+            <span>Kapadokya’ya bu yıl da turist akını oldu</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto2/440/320" alt="" />
+            <span>Ünlü dizi oyuncusu sosyal medyayı salladı</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto3/440/320" alt="" />
+            <span>Yeni süper araba modeli hayran bıraktı</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto4/440/320" alt="" />
+            <span>Şık giyimli güzeller galerisi</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto5/440/320" alt="" />
+            <span>Yağmura yakalanan vatandaşlar</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto6/440/320" alt="" />
+            <span>Doğa ve orman manzaraları</span>
+          </a>
+          <a class="photo-card" href="#">
+            <img src="https://picsum.photos/seed/foto7/440/320" alt="" />
+            <span>Galata Kulesi yıllara meydan okuyor</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÇOK OKUNANLAR -->
+    <section class="section container" id="cok-okunanlar">
+      <div class="section__head">
+        <h2>Günün Çok Okunanları</h2>
+      </div>
+      <div class="popular-grid">
+        <ol class="popular-list">
+          <li><a href="#"><em>01</em><span class="cat cat--foto">Foto</span><strong>Kapadokya’ya bu yıl da turist akını oldu</strong></a></li>
+          <li><a href="#"><em>02</em><span class="cat cat--ekonomi">Ekonomi</span><strong>Mayıs ayı enflasyon rakamları açıklandı</strong></a></li>
+          <li><a href="#"><em>03</em><span class="cat cat--politika">Politika</span><strong>Ekonomi mesajları gündemde</strong></a></li>
+          <li><a href="#"><em>04</em><span class="cat cat--politika">Politika</span><strong>Faiz artışı mesajı</strong></a></li>
+          <li><a href="#"><em>05</em><span class="cat cat--ekonomi">Ekonomi</span><strong>Asgari ücrete ara zam olacak mı?</strong></a></li>
+          <li><a href="#"><em>06</em><span class="cat cat--gundem">Gündem</span><strong>Meteoroloji’den kritik uyarı</strong></a></li>
+        </ol>
+        <ol class="popular-list" start="7">
+          <li><a href="#"><em>07</em><span class="cat cat--magazin">Magazin</span><strong>Instagram’dan kazandığı para</strong></a></li>
+          <li><a href="#"><em>08</em><span class="cat cat--foto">Foto</span><strong>Ünlü dizi oyuncusu sosyal medyayı salladı</strong></a></li>
+          <li><a href="#"><em>09</em><span class="cat cat--ekonomi">Ekonomi</span><strong>Yerli otomobile yoğun ilgi</strong></a></li>
+          <li><a href="#"><em>10</em><span class="cat cat--gundem">Gündem</span><strong>32 il için flaş uyarı</strong></a></li>
+          <li><a href="#"><em>11</em><span class="cat cat--ekonomi">Ekonomi</span><strong>Erken emeklilik mümkün mü?</strong></a></li>
+          <li><a href="#"><em>12</em><span class="cat cat--spor">Spor</span><strong>Süper Lig’de yaş ortalaması</strong></a></li>
+          <li><a href="#"><em>13</em><span class="cat cat--tech">Teknoloji</span><strong>Milyonlarca hesap silinebilir</strong></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ÖNE ÇIKANLAR ÜÇLÜ -->
+    <section class="section section--alt" id="one-cikanlar">
+      <div class="container highlights">
+        <div>
+          <div class="section__head"><h2>Ekonomide Öne Çıkanlar</h2></div>
+          <article class="story story--row story--highlight">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/h1/220/150" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Mayıs ayı enflasyon rakamları açıklandı</a></h3></div>
+          </article>
+          <ul class="bullet-list">
+            <li><a href="#">Asgari ücrete ara zam olacak mı?</a></li>
+            <li><a href="#">Yerli otomobile yoğun ilgi</a></li>
+            <li><a href="#">Erken emeklilik mümkün mü?</a></li>
+            <li><a href="#">Kirada yüzde 25 zam sınırı</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="section__head"><h2>Sporda Öne Çıkanlar</h2></div>
+          <article class="story story--row story--highlight">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/h2/220/150" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Süper Lig’de takımların yaş ortalaması 27,51</a></h3></div>
+          </article>
+          <ul class="bullet-list">
+            <li><a href="#">Devler Ligi’nde dayanışma kampanyası</a></li>
+            <li><a href="#">Yayın gelirinde en fazla pay</a></li>
+            <li><a href="#">Play-off zamanı</a></li>
+            <li><a href="#">Sakatlık şoku</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="section__head"><h2>Dünyada Öne Çıkanlar</h2></div>
+          <article class="story story--row story--highlight">
+            <a href="#" class="story__media"><img src="https://picsum.photos/seed/h3/220/150" alt="" /></a>
+            <div class="story__body"><h3><a href="#">Maç sırasında tribün çöktü</a></h3></div>
+          </article>
+          <ul class="bullet-list">
+            <li><a href="#">Yanardağ harekete geçti</a></li>
+            <li><a href="#">Akdeniz’de göçmen faciası</a></li>
+            <li><a href="#">Skandal diplomatik adım</a></li>
+            <li><a href="#">Erken seçim kararı</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVİSLER: YAYINLAR + NAMAZ + ECZANE -->
+    <section class="section container services-row" id="servisler">
+      <div class="service-card" id="yayinlar">
+        <div class="section__head">
+          <h2>Yayınlarımız</h2>
+          <a class="all-link" href="#">Tümü</a>
+        </div>
+        <div class="pubs">
+          <a href="#" class="pub">
+            <img src="https://picsum.photos/seed/gaz1/200/280" alt="" />
+            <span>Akış Haber Gazetesi<br />26 Temmuz 2026</span>
+          </a>
+          <a href="#" class="pub">
+            <img src="https://picsum.photos/seed/gaz2/200/280" alt="" />
+            <span>Sağlık Dergisi — Sayı 1</span>
+          </a>
+        </div>
+      </div>
+      <div class="service-card" id="namaz">
+        <div class="section__head"><h2>Namaz Vakitleri</h2></div>
+        <p class="prayer-date" id="prayerDate">24 Temmuz 2026 — Cuma</p>
+        <label class="sr-only" for="prayerCity">Şehir</label>
+        <select id="prayerCity" class="prayer-select"></select>
+        <ul class="prayer-times" id="prayerTimes">
+          <li><span>İmsak</span><strong>04:12</strong></li>
+          <li><span>Güneş</span><strong>05:48</strong></li>
+          <li><span>Öğle</span><strong>13:12</strong></li>
+          <li><span>İkindi</span><strong>16:58</strong></li>
+          <li><span>Akşam</span><strong>20:24</strong></li>
+          <li><span>Yatsı</span><strong>21:52</strong></li>
+        </ul>
+      </div>
+      <div class="service-card" id="eczane">
+        <div class="section__head"><h2>Nöbetçi Eczaneler</h2></div>
+        <ul class="pharmacy-list">
+          <li>
+            <strong>Merkez Eczanesi</strong>
+            <span>Atatürk Cad. No:12</span>
+            <a href="tel:+902241112233">0224 111 22 33</a>
+          </li>
+          <li>
+            <strong>Yeşilova Eczanesi</strong>
+            <span>Cumhuriyet Mah. 45. Sk.</span>
+            <a href="tel:+902244445566">0224 444 55 66</a>
+          </li>
+          <li>
+            <strong>Şifa Eczanesi</strong>
+            <span>Osmangazi Meydanı</span>
+            <a href="tel:+902247778899">0224 777 88 99</a>
+          </li>
+        </ul>
+        <a class="btn-outline" href="#">Tüm nöbetçi eczaneler</a>
+      </div>
+    </section>
+
+    <!-- RESMİ İLANLAR -->
+    <section class="section section--alt" id="ilanlar">
+      <div class="container">
+        <div class="section__head">
+          <h2>Resmi İlanlar</h2>
+          <a class="all-link" href="#">Tümü</a>
+        </div>
+        <div class="ilan-grid">
+          <a href="#" class="ilan-item"><span>İhale</span><strong>Belediye hizmet alımı ihalesi</strong><time>26.07.2026</time></a>
+          <a href="#" class="ilan-item"><span>Duyuru</span><strong>İmar planı askıya çıkarıldı</strong><time>25.07.2026</time></a>
+          <a href="#" class="ilan-item"><span>İlan</span><strong>Kamulaştırma kararı tebliği</strong><time>24.07.2026</time></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EK: BÜLTEN -->
+    <section class="newsletter" id="bulten">
+      <div class="container newsletter__inner">
+        <div>
+          <h2>Günün özeti e-postanda</h2>
+          <p>Sabah bülteni ile manşetleri, piyasa özetini ve son dakikaları kaçırma.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm">
+          <label class="sr-only" for="emailInput">E-posta</label>
+          <input id="emailInput" type="email" placeholder="E-posta adresiniz" required />
+          <button type="submit">Abone ol</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--light" href="index.html">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="36" height="36"><rect width="40" height="40" rx="4" fill="currentColor"/><path d="M8 28V12h6.2c3.4 0 5.4 1.8 5.4 4.5 0 1.8-.9 3.2-2.5 3.9L22 28h-5.2l-4-6.8H13V28H8zm5-10.8h1c1.4 0 2.2-.7 2.2-1.8S15.4 14 14 14h-1v3.2zM24 28l4.8-16H34L29.2 28H24z" fill="#0B1220"/></svg>
+          </span>
+          <span class="brand__text"><span class="brand__name">Akış</span><span class="brand__tag">Haber</span></span>
+        </a>
+        <p>Özgün haber portalı teması. Gündemden spora, ekonomiden magazına kadar günlük akış.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">Fb</a>
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="Youtube">Yt</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+        <div class="app-badges">
+          <a href="#" class="app-badge">Uygulamayı İndir — iOS</a>
+          <a href="#" class="app-badge">Uygulamayı İndir — Android</a>
+        </div>
+      </div>
+      <div>
+        <h3>Kategoriler</h3>
+        <ul>
+          <li><a href="#gundem">Gündem</a></li>
+          <li><a href="#ekonomi">Ekonomi</a></li>
+          <li><a href="#spor">Spor</a></li>
+          <li><a href="#politika">Politika</a></li>
+          <li><a href="#magazin">Magazin</a></li>
+          <li><a href="#dunya">Dünya</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Servisler</h3>
+        <ul>
+          <li><a href="#eczane">Nöbetçi Eczaneler</a></li>
+          <li><a href="#namaz">Namaz Vakitleri</a></li>
+          <li><a href="#hava">Hava Durumu</a></li>
+          <li><a href="#puan">Puan Durumları</a></li>
+          <li><a href="#kripto">Kripto Para</a></li>
+          <li><a href="#yayinlar">Yayınlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Hakkımızda</h3>
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="#yazarlar">Yazarlar</a></li>
+          <li><a href="#">Künye</a></li>
+          <li><a href="#">Gizlilik Politikası</a></li>
+          <li><a href="#">İletişim</a></li>
+          <li id="uyelik"><a href="#">Üyelik</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2026 Akış Haber. Tüm hakları saklıdır. | Özgün HTML Haber Teması</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBİL ALT NAV -->
+  <nav class="mobile-dock" aria-label="Hızlı erişim">
+    <a href="index.html" class="is-active"><span>Ana</span></a>
+    <a href="#video"><span>Video</span></a>
+    <button type="button" id="dockSearch"><span>Ara</span></button>
+    <a href="#yazarlar"><span>Yazar</span></a>
+    <a href="#servisler"><span>Servis</span></a>
+  </nav>
+
+  <!-- ARAMA MODAL -->
+  <div class="search-modal" id="searchModal" hidden>
+    <div class="search-modal__panel" role="dialog" aria-modal="true" aria-label="Site içi arama">
+      <form id="searchForm">
+        <input type="search" id="searchInput" placeholder="Haber, yazar veya kategori ara…" autocomplete="off" />
+        <button type="submit">Ara</button>
+      </form>
+      <button type="button" class="search-modal__close" id="searchClose" aria-label="Kapat">×</button>
+      <p class="search-hint">Örnek: enflasyon, spor, burç, namaz</p>
+    </div>
+  </div>
+
+  <button type="button" class="back-top" id="backTop" aria-label="Yukarı çık">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
