@@ -1,0 +1,2433 @@
+{
+  "brand": "BalabanWidgets",
+  "generatedAt": "2026-07-28T07:32:44.454Z",
+  "dayCount": 365,
+  "categories": [
+    {
+      "id": "maneviyat",
+      "name": "Maneviyat",
+      "color": "#ff4d6d"
+    },
+    {
+      "id": "ilham",
+      "name": "İlham",
+      "color": "#a78bfa"
+    },
+    {
+      "id": "verimlilik",
+      "name": "Verimlilik",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "yasam",
+      "name": "Yaşam",
+      "color": "#10b981"
+    },
+    {
+      "id": "bilgi",
+      "name": "Bilgi",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "tasarim",
+      "name": "Tasarım",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "zaman",
+      "name": "Zaman",
+      "color": "#6366f1"
+    },
+    {
+      "id": "araclar",
+      "name": "Araçlar",
+      "color": "#64748b"
+    },
+    {
+      "id": "eglence",
+      "name": "Eğlence",
+      "color": "#ec4899"
+    },
+    {
+      "id": "sosyal",
+      "name": "Sosyal",
+      "color": "#14b8a6"
+    },
+    {
+      "id": "matematik",
+      "name": "Matematik",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "metin",
+      "name": "Metin Araçları",
+      "color": "#0ea5e9"
+    },
+    {
+      "id": "erisilebilirlik",
+      "name": "Erişilebilirlik",
+      "color": "#64748b"
+    },
+    {
+      "id": "ses",
+      "name": "Ses & Medya",
+      "color": "#f43f5e"
+    },
+    {
+      "id": "finans",
+      "name": "Finans",
+      "color": "#16a34a"
+    },
+    {
+      "id": "saglik",
+      "name": "Sağlık",
+      "color": "#0d9488"
+    },
+    {
+      "id": "egitim",
+      "name": "Eğitim",
+      "color": "#7c3aed"
+    },
+    {
+      "id": "donusturucu",
+      "name": "Dönüştürücü",
+      "color": "#0284c7"
+    },
+    {
+      "id": "icerik",
+      "name": "İçerik",
+      "color": "#db2777"
+    }
+  ],
+  "widgets": [
+    {
+      "id": "g001",
+      "title": "Pomodoro Zamanlayıcı",
+      "type": "pomodoro",
+      "cat": "zaman",
+      "icon": "⏱",
+      "theme": "coral",
+      "local": true,
+      "featured": true,
+      "priority": 1
+    },
+    {
+      "id": "g002",
+      "title": "Geri Sayım",
+      "type": "countdown",
+      "cat": "zaman",
+      "icon": "⏳",
+      "theme": "blue",
+      "local": true,
+      "featured": true,
+      "priority": 2
+    },
+    {
+      "id": "g003",
+      "title": "Zikir Sayacı",
+      "type": "zikir-counter",
+      "cat": "maneviyat",
+      "icon": "📿",
+      "theme": "violet",
+      "local": true,
+      "featured": true,
+      "priority": 3
+    },
+    {
+      "id": "g004",
+      "title": "Yapılacaklar Listesi",
+      "type": "todo-list",
+      "cat": "verimlilik",
+      "icon": "☑",
+      "theme": "lime",
+      "local": true,
+      "featured": true,
+      "priority": 4
+    },
+    {
+      "id": "g005",
+      "title": "QR Kod Üretici",
+      "type": "qr-generator",
+      "cat": "araclar",
+      "icon": "▣",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 5
+    },
+    {
+      "id": "g006",
+      "title": "Parola Üretici",
+      "type": "password-generator",
+      "cat": "metin",
+      "icon": "🔐",
+      "theme": "pink",
+      "local": true,
+      "featured": true,
+      "priority": 6
+    },
+    {
+      "id": "g007",
+      "title": "Dünya Saatleri",
+      "type": "world-clocks",
+      "cat": "zaman",
+      "icon": "🌍",
+      "theme": "blue",
+      "local": true,
+      "featured": true,
+      "priority": 7
+    },
+    {
+      "id": "g008",
+      "title": "Nefes Egzersizi",
+      "type": "breathing-guide",
+      "cat": "yasam",
+      "icon": "◯",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 8
+    },
+    {
+      "id": "g009",
+      "title": "Su İçme Sayacı",
+      "type": "water-counter",
+      "cat": "yasam",
+      "icon": "💧",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 9
+    },
+    {
+      "id": "g010",
+      "title": "Hicri Tarih",
+      "type": "hijri-date",
+      "cat": "maneviyat",
+      "icon": "☪",
+      "theme": "violet",
+      "local": true,
+      "featured": true,
+      "priority": 10
+    },
+    {
+      "id": "g011",
+      "title": "Ay Evresi",
+      "type": "moon-phase",
+      "cat": "zaman",
+      "icon": "🌙",
+      "theme": "violet",
+      "local": true,
+      "featured": true,
+      "priority": 11
+    },
+    {
+      "id": "g012",
+      "title": "KDV Hesaplayıcı",
+      "type": "vat-calc",
+      "cat": "matematik",
+      "icon": "%",
+      "theme": "sun",
+      "local": true,
+      "featured": true,
+      "priority": 12
+    },
+    {
+      "id": "g013",
+      "title": "Alışkanlık Streak",
+      "type": "habit-streak",
+      "cat": "verimlilik",
+      "icon": "🔥",
+      "theme": "coral",
+      "local": true,
+      "featured": true,
+      "priority": 13
+    },
+    {
+      "id": "g014",
+      "title": "Kronometre",
+      "type": "stopwatch",
+      "cat": "zaman",
+      "icon": "⏲",
+      "theme": "blue",
+      "local": true,
+      "featured": true,
+      "priority": 14
+    },
+    {
+      "id": "g015",
+      "title": "Gradient Üretici",
+      "type": "gradient-gen",
+      "cat": "tasarim",
+      "icon": "◐",
+      "theme": "pink",
+      "local": true,
+      "featured": true,
+      "priority": 15
+    },
+    {
+      "id": "g111",
+      "title": "Kar-Zarar Hesaplayıcı",
+      "type": "profit-loss-calc",
+      "cat": "finans",
+      "icon": "₺",
+      "theme": "coral",
+      "local": true,
+      "featured": true,
+      "priority": 16
+    },
+    {
+      "id": "g112",
+      "title": "Başa Baş (Break-even)",
+      "type": "break-even-calc",
+      "cat": "finans",
+      "icon": "⚖",
+      "theme": "blue",
+      "local": true,
+      "featured": true,
+      "priority": 17
+    },
+    {
+      "id": "g113",
+      "title": "Komisyon Hesaplayıcı",
+      "type": "commission-calc",
+      "cat": "finans",
+      "icon": "%",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 18
+    },
+    {
+      "id": "g114",
+      "title": "Taksit Bölücü",
+      "type": "installment-split",
+      "cat": "finans",
+      "icon": "≡",
+      "theme": "violet",
+      "local": true,
+      "featured": true,
+      "priority": 19
+    },
+    {
+      "id": "g115",
+      "title": "Bütçe 50/30/20",
+      "type": "budget-503020",
+      "cat": "finans",
+      "icon": "◔",
+      "theme": "lime",
+      "local": true,
+      "featured": true,
+      "priority": 20
+    },
+    {
+      "id": "g116",
+      "title": "Birikim Hedefi",
+      "type": "savings-goal",
+      "cat": "finans",
+      "icon": "🎯",
+      "theme": "sun",
+      "local": true,
+      "featured": true,
+      "priority": 21
+    },
+    {
+      "id": "g119",
+      "title": "Doğuma Kalan Gün",
+      "type": "days-until-birth",
+      "cat": "zaman",
+      "icon": "🎂",
+      "theme": "pink",
+      "local": true,
+      "featured": true,
+      "priority": 22
+    },
+    {
+      "id": "g120",
+      "title": "Yılın Kaçıncı Günü",
+      "type": "day-of-year",
+      "cat": "zaman",
+      "icon": "#",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 23
+    },
+    {
+      "id": "g123",
+      "title": "Günlük Su İhtiyacı",
+      "type": "water-intake",
+      "cat": "saglik",
+      "icon": "💧",
+      "theme": "aqua",
+      "local": true,
+      "featured": true,
+      "priority": 24
+    },
+    {
+      "id": "g124",
+      "title": "Kalori İhtiyacı (BMR)",
+      "type": "calorie-calc",
+      "cat": "saglik",
+      "icon": "🔥",
+      "theme": "coral",
+      "local": true,
+      "featured": true,
+      "priority": 25
+    },
+    {
+      "id": "g128",
+      "title": "Ortalama Not",
+      "type": "grade-average",
+      "cat": "egitim",
+      "icon": "A",
+      "theme": "blue",
+      "local": true,
+      "featured": true,
+      "priority": 26
+    },
+    {
+      "id": "g117",
+      "title": "Basit Faiz",
+      "type": "simple-interest",
+      "cat": "finans",
+      "icon": "∑",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g118",
+      "title": "Bileşik Faiz",
+      "type": "compound-interest",
+      "cat": "finans",
+      "icon": "📈",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g121",
+      "title": "Pomodoro Tur Hesabı",
+      "type": "pomodoro-cycles",
+      "cat": "zaman",
+      "icon": "⏱",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g122",
+      "title": "Saat Farkı (hh:mm)",
+      "type": "time-diff",
+      "cat": "zaman",
+      "icon": "⌚",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g125",
+      "title": "Makro Dağılımı",
+      "type": "macro-calc",
+      "cat": "saglik",
+      "icon": "🥗",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g126",
+      "title": "İdeal Kilo Aralığı",
+      "type": "ideal-weight",
+      "cat": "saglik",
+      "icon": "⚖",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g127",
+      "title": "Nabız Bölgeleri",
+      "type": "heart-rate-zones",
+      "cat": "saglik",
+      "icon": "❤",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g129",
+      "title": "Ağırlıklı Ortalama",
+      "type": "weighted-average",
+      "cat": "egitim",
+      "icon": "Σ",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g130",
+      "title": "Net Hesaplayıcı",
+      "type": "net-score",
+      "cat": "egitim",
+      "icon": "✓",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g131",
+      "title": "Yüzdelik Dilim",
+      "type": "percentile-calc",
+      "cat": "egitim",
+      "icon": "%",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g132",
+      "title": "EBOB / EKOK",
+      "type": "gcd-lcm",
+      "cat": "egitim",
+      "icon": "∞",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g133",
+      "title": "Üs / Kök",
+      "type": "power-root",
+      "cat": "egitim",
+      "icon": "x²",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g134",
+      "title": "Denklem Çözücü (ax+b=0)",
+      "type": "linear-equation",
+      "cat": "egitim",
+      "icon": "ax",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g135",
+      "title": "Oran-Orantı",
+      "type": "ratio-proportion",
+      "cat": "egitim",
+      "icon": "∷",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g136",
+      "title": "Kesir-Ondalık-Yüzde",
+      "type": "fraction-decimal-percent",
+      "cat": "egitim",
+      "icon": "½",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g137",
+      "title": "Geometri Alan/Çevre",
+      "type": "geometry-calc",
+      "cat": "egitim",
+      "icon": "△",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g138",
+      "title": "cm ↔ inch",
+      "type": "cm-inch",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g139",
+      "title": "kg ↔ lb",
+      "type": "kg-lb",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g140",
+      "title": "°C ↔ °F",
+      "type": "c-f",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g141",
+      "title": "km ↔ mil",
+      "type": "km-mile",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g142",
+      "title": "litre ↔ galon",
+      "type": "liter-gallon",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g143",
+      "title": "m² ↔ ft²",
+      "type": "area-converter",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g144",
+      "title": "byte ↔ KB/MB/GB",
+      "type": "byte-converter",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g145",
+      "title": "dakika ↔ saat",
+      "type": "minute-hour",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g146",
+      "title": "yüzde ↔ puan",
+      "type": "percent-point",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g147",
+      "title": "tarih formatı",
+      "type": "date-format",
+      "cat": "donusturucu",
+      "icon": "⇄",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g148",
+      "title": "Konuşma Süresi",
+      "type": "speaking-time",
+      "cat": "icerik",
+      "icon": "🎙",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g149",
+      "title": "Metin Yoğunluğu",
+      "type": "text-density",
+      "cat": "icerik",
+      "icon": "≋",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g150",
+      "title": "İçerik Hedefi",
+      "type": "content-goal",
+      "cat": "icerik",
+      "icon": "✍",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g151",
+      "title": "Yayın Takvimi Gün Sayısı",
+      "type": "publish-calendar",
+      "cat": "icerik",
+      "icon": "🗓",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g016",
+      "title": "Güneş Doğuş / Batış",
+      "type": "sun-times",
+      "cat": "zaman",
+      "icon": "☀",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g017",
+      "title": "Hafta Numarası",
+      "type": "week-number",
+      "cat": "zaman",
+      "icon": "#",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g018",
+      "title": "Çeyrek Sayacı",
+      "type": "quarter-counter",
+      "cat": "zaman",
+      "icon": "¼",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g019",
+      "title": "Bugünkü Saniye",
+      "type": "seconds-today",
+      "cat": "zaman",
+      "icon": "Σ",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g020",
+      "title": "Yaş Hesaplayıcı",
+      "type": "age-calc",
+      "cat": "zaman",
+      "icon": "🎂",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g021",
+      "title": "Tarih Farkı",
+      "type": "date-diff",
+      "cat": "zaman",
+      "icon": "↔",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g022",
+      "title": "Çalışma Günü Sayacı",
+      "type": "workdays-calc",
+      "cat": "zaman",
+      "icon": "💼",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g023",
+      "title": "Yüzde Hesaplayıcı",
+      "type": "percent-calc",
+      "cat": "matematik",
+      "icon": "%",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g024",
+      "title": "İndirim Hesaplayıcı",
+      "type": "discount-calc",
+      "cat": "matematik",
+      "icon": "↓",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g025",
+      "title": "BMI Hesaplayıcı",
+      "type": "bmi-calc",
+      "cat": "matematik",
+      "icon": "⚖",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g026",
+      "title": "Birim Dönüştürücü",
+      "type": "unit-converter",
+      "cat": "matematik",
+      "icon": "⇄",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g027",
+      "title": "Kesir / Yüzde",
+      "type": "fraction-converter",
+      "cat": "matematik",
+      "icon": "½",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g028",
+      "title": "Bahşiş Hesaplayıcı",
+      "type": "tip-calc",
+      "cat": "matematik",
+      "icon": "₺",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g029",
+      "title": "Yatırım Simülatörü",
+      "type": "investment-sim",
+      "cat": "matematik",
+      "icon": "📈",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g030",
+      "title": "Rastgele Sayı",
+      "type": "random-number",
+      "cat": "matematik",
+      "icon": "?",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g031",
+      "title": "Yazı Tura",
+      "type": "coin-flip",
+      "cat": "matematik",
+      "icon": "🪙",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g032",
+      "title": "Zar Seti",
+      "type": "multi-dice",
+      "cat": "matematik",
+      "icon": "⚄",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g033",
+      "title": "Şans Çarkı",
+      "type": "wheel",
+      "cat": "matematik",
+      "icon": "◎",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g034",
+      "title": "Karakter / Kelime Sayacı",
+      "type": "char-counter",
+      "cat": "metin",
+      "icon": "Aa",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g035",
+      "title": "Lorem Ipsum",
+      "type": "lorem-ipsum",
+      "cat": "metin",
+      "icon": "¶",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g036",
+      "title": "Büyük/Küçük Harf",
+      "type": "case-converter",
+      "cat": "metin",
+      "icon": "Aa",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g037",
+      "title": "Slug Üretici",
+      "type": "slug-generator",
+      "cat": "metin",
+      "icon": "─",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g038",
+      "title": "Markdown Önizleme",
+      "type": "markdown-preview",
+      "cat": "metin",
+      "icon": "M↓",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g039",
+      "title": "Okuma Süresi",
+      "type": "reading-time",
+      "cat": "metin",
+      "icon": "📖",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g040",
+      "title": "UUID Üretici",
+      "type": "uuid-generator",
+      "cat": "metin",
+      "icon": "#",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g041",
+      "title": "Renk Kodu Dönüştürücü",
+      "type": "color-converter",
+      "cat": "metin",
+      "icon": "◉",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g042",
+      "title": "Kontrast Kontrolü",
+      "type": "contrast-checker",
+      "cat": "metin",
+      "icon": "◑",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g043",
+      "title": "Metin Karşılaştırıcı",
+      "type": "text-diff",
+      "cat": "metin",
+      "icon": "≠",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g044",
+      "title": "Tipografi Ölçeği",
+      "type": "typography-scale",
+      "cat": "tasarim",
+      "icon": "T",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g045",
+      "title": "Gölge Önizleyici",
+      "type": "shadow-preview",
+      "cat": "tasarim",
+      "icon": "▢",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g046",
+      "title": "Border Radius",
+      "type": "radius-preview",
+      "cat": "tasarim",
+      "icon": "◻",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g047",
+      "title": "Spacing Demo",
+      "type": "spacing-demo",
+      "cat": "tasarim",
+      "icon": "⊞",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g048",
+      "title": "İkon Önizleme",
+      "type": "icon-preview",
+      "cat": "tasarim",
+      "icon": "★",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g049",
+      "title": "Skeleton Loader",
+      "type": "skeleton-demo",
+      "cat": "tasarim",
+      "icon": "▭",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g050",
+      "title": "Progress Stilleri",
+      "type": "progress-styles",
+      "cat": "tasarim",
+      "icon": "▓",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g051",
+      "title": "Tab Demo",
+      "type": "tabs-demo",
+      "cat": "tasarim",
+      "icon": "⊟",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g052",
+      "title": "Accordion Demo",
+      "type": "accordion-demo",
+      "cat": "tasarim",
+      "icon": "≡",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g053",
+      "title": "Tooltip Demo",
+      "type": "tooltip-demo",
+      "cat": "tasarim",
+      "icon": "?",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g054",
+      "title": "Breadcrumb Demo",
+      "type": "breadcrumb-demo",
+      "cat": "tasarim",
+      "icon": "›",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g055",
+      "title": "Pagination Demo",
+      "type": "pagination-demo",
+      "cat": "tasarim",
+      "icon": "«»",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g056",
+      "title": "Yıldız Puanlama",
+      "type": "rating-stars",
+      "cat": "tasarim",
+      "icon": "★",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g057",
+      "title": "Tag / Pill",
+      "type": "tag-pills",
+      "cat": "tasarim",
+      "icon": "●",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g058",
+      "title": "Avatar Üretici",
+      "type": "avatar-gen",
+      "cat": "tasarim",
+      "icon": "@",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g059",
+      "title": "Günlük Checklist",
+      "type": "daily-checklist",
+      "cat": "verimlilik",
+      "icon": "✓",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g060",
+      "title": "Adım Hedefi",
+      "type": "steps-goal",
+      "cat": "yasam",
+      "icon": "👟",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g061",
+      "title": "Uyku Döngüsü",
+      "type": "sleep-calc",
+      "cat": "yasam",
+      "icon": "☾",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g062",
+      "title": "Masa Kalk Hatırlatıcı",
+      "type": "stand-reminder",
+      "cat": "yasam",
+      "icon": "⏰",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g063",
+      "title": "Eisenhower Matrisi",
+      "type": "eisenhower",
+      "cat": "verimlilik",
+      "icon": "⊞",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g064",
+      "title": "Mini Kanban",
+      "type": "kanban-mini",
+      "cat": "verimlilik",
+      "icon": "▣",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g065",
+      "title": "Hızlı Not Defteri",
+      "type": "quick-notes",
+      "cat": "verimlilik",
+      "icon": "✎",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g066",
+      "title": "Haftalık Hedef",
+      "type": "weekly-goal",
+      "cat": "verimlilik",
+      "icon": "🎯",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g067",
+      "title": "Odak Müziği",
+      "type": "focus-music-link",
+      "cat": "verimlilik",
+      "icon": "♫",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g068",
+      "title": "Sayı Tahmin Oyunu",
+      "type": "number-guess",
+      "cat": "eglence",
+      "icon": "?",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g069",
+      "title": "Taş Kağıt Makas",
+      "type": "rps",
+      "cat": "eglence",
+      "icon": "✊",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g070",
+      "title": "Hafıza Kartı",
+      "type": "memory-cards",
+      "cat": "eglence",
+      "icon": "▣",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g071",
+      "title": "Kelime Karıştırıcı",
+      "type": "word-scramble",
+      "cat": "eglence",
+      "icon": "↯",
+      "theme": "pink",
+      "local": true,
+      "bank": "karisik_kelimeler"
+    },
+    {
+      "id": "g072",
+      "title": "Ne Yesem?",
+      "type": "food-wheel",
+      "cat": "eglence",
+      "icon": "🍽",
+      "theme": "sun",
+      "local": true,
+      "bank": "yemekler"
+    },
+    {
+      "id": "g073",
+      "title": "Kitap Çarkı",
+      "type": "book-wheel",
+      "cat": "eglence",
+      "icon": "📚",
+      "theme": "lime",
+      "local": true,
+      "bank": "kitaplar"
+    },
+    {
+      "id": "g074",
+      "title": "Günün Şakası",
+      "type": "joke-card",
+      "cat": "eglence",
+      "icon": "☺",
+      "theme": "coral",
+      "local": true,
+      "bank": "sakalar"
+    },
+    {
+      "id": "g075",
+      "title": "Emoji Seçici",
+      "type": "emoji-picker",
+      "cat": "eglence",
+      "icon": "😊",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g076",
+      "title": "Renk Oyunu",
+      "type": "color-game",
+      "cat": "eglence",
+      "icon": "🎨",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g077",
+      "title": "Mini Snake",
+      "type": "mini-snake",
+      "cat": "eglence",
+      "icon": "◆",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g078",
+      "title": "Günün Kelimesi (TR)",
+      "type": "word-tr",
+      "cat": "bilgi",
+      "icon": "W",
+      "theme": "coral",
+      "local": true,
+      "bank": "kelime_tr"
+    },
+    {
+      "id": "g079",
+      "title": "Word of the Day",
+      "type": "word-en",
+      "cat": "bilgi",
+      "icon": "A",
+      "theme": "blue",
+      "local": true,
+      "bank": "kelime_en"
+    },
+    {
+      "id": "g080",
+      "title": "Mini Quiz",
+      "type": "mini-quiz",
+      "cat": "bilgi",
+      "icon": "?",
+      "theme": "violet",
+      "local": true,
+      "bank": "quiz"
+    },
+    {
+      "id": "g081",
+      "title": "Tarihte Bugün",
+      "type": "history-today",
+      "cat": "bilgi",
+      "icon": "📅",
+      "theme": "sun",
+      "local": true,
+      "bank": "tarihte_bugun"
+    },
+    {
+      "id": "g082",
+      "title": "Coğrafya İpucu",
+      "type": "geo-tip",
+      "cat": "bilgi",
+      "icon": "🗺",
+      "theme": "aqua",
+      "local": true,
+      "bank": "cografya"
+    },
+    {
+      "id": "g083",
+      "title": "Bilim Notu",
+      "type": "science-fact",
+      "cat": "bilgi",
+      "icon": "⚗",
+      "theme": "lime",
+      "local": true,
+      "bank": "bilim"
+    },
+    {
+      "id": "g084",
+      "title": "Programlama Terimi",
+      "type": "dev-term",
+      "cat": "bilgi",
+      "icon": "</>",
+      "theme": "blue",
+      "local": true,
+      "bank": "dev_terms"
+    },
+    {
+      "id": "g085",
+      "title": "Klavye Kısayolu",
+      "type": "shortcut-tip",
+      "cat": "bilgi",
+      "icon": "⌨",
+      "theme": "pink",
+      "local": true,
+      "bank": "shortcuts"
+    },
+    {
+      "id": "g086",
+      "title": "UX Kuralı",
+      "type": "ux-rule",
+      "cat": "bilgi",
+      "icon": "UX",
+      "theme": "violet",
+      "local": true,
+      "bank": "ux_rules"
+    },
+    {
+      "id": "g087",
+      "title": "SEO İpucu",
+      "type": "seo-tip",
+      "cat": "bilgi",
+      "icon": "↗",
+      "theme": "coral",
+      "local": true,
+      "bank": "seo_tips"
+    },
+    {
+      "id": "g088",
+      "title": "Esma-ül Hüsna",
+      "type": "esma-card",
+      "cat": "maneviyat",
+      "icon": "✦",
+      "theme": "violet",
+      "local": true,
+      "bank": "esma"
+    },
+    {
+      "id": "g089",
+      "title": "Dua Kartı",
+      "type": "dua-card",
+      "cat": "maneviyat",
+      "icon": "🤲",
+      "theme": "coral",
+      "local": true,
+      "bank": "dualar"
+    },
+    {
+      "id": "g090",
+      "title": "Kıble Pusulası",
+      "type": "qibla-compass",
+      "cat": "maneviyat",
+      "icon": "🧭",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g091",
+      "title": "İftar Sayacı",
+      "type": "ramadan-countdown",
+      "cat": "maneviyat",
+      "icon": "🌙",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g092",
+      "title": "Cuma Mesajı",
+      "type": "friday-message",
+      "cat": "maneviyat",
+      "icon": "🕌",
+      "theme": "lime",
+      "local": true,
+      "bank": "cuma"
+    },
+    {
+      "id": "g093",
+      "title": "Şükür Günlüğü",
+      "type": "gratitude-log",
+      "cat": "maneviyat",
+      "icon": "♡",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g094",
+      "title": "Takip Et Butonları",
+      "type": "follow-buttons",
+      "cat": "sosyal",
+      "icon": "↗",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g095",
+      "title": "Paylaş Linkleri",
+      "type": "share-links",
+      "cat": "sosyal",
+      "icon": "⎘",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g096",
+      "title": "İletişim Kartı",
+      "type": "contact-card",
+      "cat": "sosyal",
+      "icon": "✉",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g097",
+      "title": "Yorum Kutusu UI",
+      "type": "comment-ui",
+      "cat": "sosyal",
+      "icon": "💬",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g098",
+      "title": "Profil Kartı",
+      "type": "profile-card",
+      "cat": "sosyal",
+      "icon": "@",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g099",
+      "title": "Sosyal İkon Barı",
+      "type": "social-icons",
+      "cat": "sosyal",
+      "icon": "◎",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g100",
+      "title": "RSS Butonu",
+      "type": "rss-button",
+      "cat": "sosyal",
+      "icon": "⌁",
+      "theme": "sun",
+      "local": true
+    },
+    {
+      "id": "g101",
+      "title": "Yazı Boyutu",
+      "type": "font-size-toggle",
+      "cat": "erisilebilirlik",
+      "icon": "A+",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g102",
+      "title": "Yüksek Kontrast",
+      "type": "high-contrast",
+      "cat": "erisilebilirlik",
+      "icon": "◐",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g103",
+      "title": "Karanlık Mod",
+      "type": "dark-mode",
+      "cat": "erisilebilirlik",
+      "icon": "☾",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g104",
+      "title": "Atla Linki Demo",
+      "type": "skip-link-demo",
+      "cat": "erisilebilirlik",
+      "icon": "⤵",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "g105",
+      "title": "Renk Körlüğü Sim",
+      "type": "colorblind-sim",
+      "cat": "erisilebilirlik",
+      "icon": "👁",
+      "theme": "pink",
+      "local": true
+    },
+    {
+      "id": "g106",
+      "title": "Odak Halkası",
+      "type": "focus-ring-demo",
+      "cat": "erisilebilirlik",
+      "icon": "◎",
+      "theme": "lime",
+      "local": true
+    },
+    {
+      "id": "g107",
+      "title": "Beyaz Gürültü",
+      "type": "white-noise",
+      "cat": "ses",
+      "icon": "♪",
+      "theme": "blue",
+      "local": true
+    },
+    {
+      "id": "g108",
+      "title": "Metronom",
+      "type": "metronome",
+      "cat": "ses",
+      "icon": "♩",
+      "theme": "coral",
+      "local": true
+    },
+    {
+      "id": "g109",
+      "title": "Ses Görselleştirici",
+      "type": "audio-visualizer",
+      "cat": "ses",
+      "icon": "〰",
+      "theme": "violet",
+      "local": true
+    },
+    {
+      "id": "g110",
+      "title": "Dalga Animasyonu",
+      "type": "wave-animation",
+      "cat": "ses",
+      "icon": "≈",
+      "theme": "aqua",
+      "local": true
+    },
+    {
+      "id": "w01",
+      "title": "Günün Ayeti",
+      "cat": "maneviyat",
+      "type": "text",
+      "bank": "ayetler",
+      "icon": "✦",
+      "theme": "coral"
+    },
+    {
+      "id": "w02",
+      "title": "Günün Hadisi",
+      "cat": "maneviyat",
+      "type": "text",
+      "bank": "hadisler",
+      "icon": "◉",
+      "theme": "aqua"
+    },
+    {
+      "id": "w03",
+      "title": "Manevi Not",
+      "cat": "maneviyat",
+      "type": "note",
+      "bank": "manevi_not",
+      "icon": "☪",
+      "theme": "violet"
+    },
+    {
+      "id": "w04",
+      "title": "Şükür Kartı",
+      "cat": "maneviyat",
+      "type": "text",
+      "bank": "affirmations",
+      "icon": "♡",
+      "theme": "pink"
+    },
+    {
+      "id": "w05",
+      "title": "Sabır Hatırlatıcı",
+      "cat": "maneviyat",
+      "type": "badge",
+      "bank": "manevi_not",
+      "icon": "◎",
+      "theme": "lime"
+    },
+    {
+      "id": "w06",
+      "title": "Dua Niyeti",
+      "cat": "maneviyat",
+      "type": "quote-card",
+      "bank": "sorular",
+      "icon": "✧",
+      "theme": "coral"
+    },
+    {
+      "id": "w07",
+      "title": "Hayırlı Gün",
+      "cat": "maneviyat",
+      "type": "chip",
+      "bank": "ruh_halleri",
+      "icon": "✿",
+      "theme": "sun"
+    },
+    {
+      "id": "w08",
+      "title": "Gönül Dengesi",
+      "cat": "maneviyat",
+      "type": "progress",
+      "bank": "sayilar",
+      "icon": "◐",
+      "theme": "aqua"
+    },
+    {
+      "id": "w09",
+      "title": "Merhamet Sözü",
+      "cat": "maneviyat",
+      "type": "text",
+      "bank": "sozler",
+      "icon": "❀",
+      "theme": "pink"
+    },
+    {
+      "id": "w10",
+      "title": "Sessizlik Kartı",
+      "cat": "maneviyat",
+      "type": "note",
+      "bank": "kelimeler",
+      "icon": "○",
+      "theme": "violet",
+      "effect": "soft-glow"
+    },
+    {
+      "id": "w11",
+      "title": "Günün Sözü",
+      "cat": "ilham",
+      "type": "quote-card",
+      "bank": "sozler",
+      "icon": "❝",
+      "theme": "violet"
+    },
+    {
+      "id": "w12",
+      "title": "Affirmation",
+      "cat": "ilham",
+      "type": "text",
+      "bank": "affirmations",
+      "icon": "★",
+      "theme": "pink"
+    },
+    {
+      "id": "w13",
+      "title": "Günün Kelimesi",
+      "cat": "ilham",
+      "type": "badge",
+      "bank": "kelimeler",
+      "icon": "Aa",
+      "theme": "coral"
+    },
+    {
+      "id": "w14",
+      "title": "İlham Sorusu",
+      "cat": "ilham",
+      "type": "text",
+      "bank": "sorular",
+      "icon": "?",
+      "theme": "aqua"
+    },
+    {
+      "id": "w15",
+      "title": "Mikro Hedef",
+      "cat": "ilham",
+      "type": "chip",
+      "bank": "mikro_hedefler",
+      "icon": "→",
+      "theme": "lime"
+    },
+    {
+      "id": "w16",
+      "title": "Motivasyon Notu",
+      "cat": "ilham",
+      "type": "note",
+      "bank": "sozler",
+      "icon": "✎",
+      "theme": "sun"
+    },
+    {
+      "id": "w17",
+      "title": "Cesaret Rozeti",
+      "cat": "ilham",
+      "type": "badge",
+      "bank": "ruh_halleri",
+      "icon": "▲",
+      "theme": "coral"
+    },
+    {
+      "id": "w18",
+      "title": "Yaratıcılık Kartı",
+      "cat": "ilham",
+      "type": "palette",
+      "bank": "renkler",
+      "icon": "◈",
+      "theme": "violet"
+    },
+    {
+      "id": "w19",
+      "title": "Günün Sayısı",
+      "cat": "ilham",
+      "type": "counter",
+      "bank": "sayilar",
+      "icon": "#",
+      "theme": "aqua"
+    },
+    {
+      "id": "w20",
+      "title": "Parıltı Sözü",
+      "cat": "ilham",
+      "type": "text",
+      "bank": "eglence",
+      "icon": "✧",
+      "theme": "pink",
+      "effect": "shimmer"
+    },
+    {
+      "id": "w21",
+      "title": "Günün İpucu",
+      "cat": "verimlilik",
+      "type": "text",
+      "bank": "ipuclari",
+      "icon": "◎",
+      "theme": "blue"
+    },
+    {
+      "id": "w22",
+      "title": "Verimlilik Hack",
+      "cat": "verimlilik",
+      "type": "text",
+      "bank": "verimlilik",
+      "icon": "⚡",
+      "theme": "sun"
+    },
+    {
+      "id": "w23",
+      "title": "Pomodoro Hatırlatıcı",
+      "cat": "verimlilik",
+      "type": "progress",
+      "bank": "sayilar",
+      "icon": "⏱",
+      "theme": "coral"
+    },
+    {
+      "id": "w24",
+      "title": "Öncelik Chip",
+      "cat": "verimlilik",
+      "type": "chip",
+      "bank": "mikro_hedefler",
+      "icon": "1",
+      "theme": "lime"
+    },
+    {
+      "id": "w25",
+      "title": "Alışkanlık Takibi",
+      "cat": "verimlilik",
+      "type": "text",
+      "bank": "aliskanliklar",
+      "icon": "✓",
+      "theme": "aqua"
+    },
+    {
+      "id": "w26",
+      "title": "Odak Blok",
+      "cat": "verimlilik",
+      "type": "note",
+      "bank": "verimlilik",
+      "icon": "▣",
+      "theme": "violet"
+    },
+    {
+      "id": "w27",
+      "title": "Görev Rozeti",
+      "cat": "verimlilik",
+      "type": "badge",
+      "bank": "mikro_hedefler",
+      "icon": "☑",
+      "theme": "blue"
+    },
+    {
+      "id": "w28",
+      "title": "Checklist Mini",
+      "cat": "verimlilik",
+      "type": "mini-form",
+      "bank": "mikro_hedefler",
+      "icon": "≡",
+      "theme": "lime"
+    },
+    {
+      "id": "w29",
+      "title": "İlerleme Çubuğu",
+      "cat": "verimlilik",
+      "type": "year-progress",
+      "icon": "▓",
+      "theme": "blue"
+    },
+    {
+      "id": "w30",
+      "title": "Hızlı Toggle",
+      "cat": "verimlilik",
+      "type": "toggle",
+      "bank": "ruh_halleri",
+      "icon": "⏻",
+      "theme": "aqua"
+    },
+    {
+      "id": "w31",
+      "title": "Sağlık İpucu",
+      "cat": "yasam",
+      "type": "text",
+      "bank": "saglik",
+      "icon": "+",
+      "theme": "lime"
+    },
+    {
+      "id": "w32",
+      "title": "Su Hatırlatıcı",
+      "cat": "yasam",
+      "type": "badge",
+      "bank": "aliskanliklar",
+      "icon": "💧",
+      "theme": "aqua"
+    },
+    {
+      "id": "w33",
+      "title": "Ruh Hâli",
+      "cat": "yasam",
+      "type": "mood",
+      "bank": "ruh_halleri",
+      "icon": "☺",
+      "theme": "pink"
+    },
+    {
+      "id": "w34",
+      "title": "Nefes Kartı",
+      "cat": "yasam",
+      "type": "progress",
+      "bank": "sayilar",
+      "icon": "◯",
+      "theme": "violet",
+      "effect": "pulse"
+    },
+    {
+      "id": "w35",
+      "title": "Uyku Notu",
+      "cat": "yasam",
+      "type": "note",
+      "bank": "saglik",
+      "icon": "☾",
+      "theme": "violet"
+    },
+    {
+      "id": "w36",
+      "title": "Yürüyüş Çağrısı",
+      "cat": "yasam",
+      "type": "chip",
+      "bank": "aliskanliklar",
+      "icon": "→",
+      "theme": "lime"
+    },
+    {
+      "id": "w37",
+      "title": "Beslenme Mini",
+      "cat": "yasam",
+      "type": "text",
+      "bank": "saglik",
+      "icon": "☀",
+      "theme": "sun"
+    },
+    {
+      "id": "w38",
+      "title": "Denge Ölçer",
+      "cat": "yasam",
+      "type": "slider-demo",
+      "bank": "sayilar",
+      "icon": "⇔",
+      "theme": "aqua"
+    },
+    {
+      "id": "w39",
+      "title": "Şükür Listesi",
+      "cat": "yasam",
+      "type": "mini-form",
+      "bank": "affirmations",
+      "icon": "☰",
+      "theme": "coral"
+    },
+    {
+      "id": "w40",
+      "title": "Günün Ritmi",
+      "cat": "yasam",
+      "type": "text",
+      "bank": "ipuclari",
+      "icon": "♫",
+      "theme": "pink"
+    },
+    {
+      "id": "w41",
+      "title": "Günün Bilgisi",
+      "cat": "bilgi",
+      "type": "text",
+      "bank": "bilgiler",
+      "icon": "ⓘ",
+      "theme": "aqua"
+    },
+    {
+      "id": "w42",
+      "title": "Tech İpucu",
+      "cat": "bilgi",
+      "type": "text",
+      "bank": "tech",
+      "icon": "</>",
+      "theme": "blue"
+    },
+    {
+      "id": "w43",
+      "title": "Kelime Kartı",
+      "cat": "bilgi",
+      "type": "badge",
+      "bank": "kelimeler",
+      "icon": "W",
+      "theme": "violet"
+    },
+    {
+      "id": "w44",
+      "title": "Soru-Cevap",
+      "cat": "bilgi",
+      "type": "quote-card",
+      "bank": "sorular",
+      "icon": "Q",
+      "theme": "coral"
+    },
+    {
+      "id": "w45",
+      "title": "Öğrenme Notu",
+      "cat": "bilgi",
+      "type": "note",
+      "bank": "tech",
+      "icon": "✎",
+      "theme": "lime"
+    },
+    {
+      "id": "w46",
+      "title": "Trivia Chip",
+      "cat": "bilgi",
+      "type": "chip",
+      "bank": "bilgiler",
+      "icon": "★",
+      "theme": "sun"
+    },
+    {
+      "id": "w47",
+      "title": "Kod Snippet Kart",
+      "cat": "bilgi",
+      "type": "code-card",
+      "bank": "tech",
+      "icon": "{ }",
+      "theme": "blue"
+    },
+    {
+      "id": "w48",
+      "title": "Sayısal Bilgi",
+      "cat": "bilgi",
+      "type": "counter",
+      "bank": "sayilar",
+      "icon": "Σ",
+      "theme": "aqua"
+    },
+    {
+      "id": "w49",
+      "title": "Flashcard",
+      "cat": "bilgi",
+      "type": "quote-card",
+      "bank": "kelimeler",
+      "icon": "▣",
+      "theme": "pink"
+    },
+    {
+      "id": "w50",
+      "title": "İpucu Banner",
+      "cat": "bilgi",
+      "type": "toast-demo",
+      "bank": "ipuclari",
+      "icon": "!",
+      "theme": "coral"
+    },
+    {
+      "id": "w51",
+      "title": "Günün Paleti",
+      "cat": "tasarim",
+      "type": "palette",
+      "bank": "renkler",
+      "icon": "▣",
+      "theme": "sun"
+    },
+    {
+      "id": "w52",
+      "title": "Gradient Adı",
+      "cat": "tasarim",
+      "type": "palette",
+      "bank": "gradient_isim",
+      "icon": "◐",
+      "theme": "violet"
+    },
+    {
+      "id": "w53",
+      "title": "Tasarım İpucu",
+      "cat": "tasarim",
+      "type": "text",
+      "bank": "tasarim",
+      "icon": "✦",
+      "theme": "coral"
+    },
+    {
+      "id": "w54",
+      "title": "Buton Seti",
+      "cat": "tasarim",
+      "type": "button-set",
+      "bank": "mikro_hedefler",
+      "icon": "▢",
+      "theme": "blue"
+    },
+    {
+      "id": "w55",
+      "title": "Chip Paketi",
+      "cat": "tasarim",
+      "type": "chip",
+      "bank": "kelimeler",
+      "icon": "●",
+      "theme": "pink"
+    },
+    {
+      "id": "w56",
+      "title": "Gölgeli Kart",
+      "cat": "tasarim",
+      "type": "note",
+      "bank": "tasarim",
+      "icon": "▭",
+      "theme": "aqua"
+    },
+    {
+      "id": "w57",
+      "title": "Loader Demo",
+      "cat": "tasarim",
+      "type": "loader",
+      "icon": "⟳",
+      "theme": "lime",
+      "effect": "spin"
+    },
+    {
+      "id": "w58",
+      "title": "Kontrast Rozeti",
+      "cat": "tasarim",
+      "type": "badge",
+      "bank": "renkler",
+      "icon": "◑",
+      "theme": "violet"
+    },
+    {
+      "id": "w59",
+      "title": "Tipografi Kartı",
+      "cat": "tasarim",
+      "type": "quote-card",
+      "bank": "sozler",
+      "icon": "T",
+      "theme": "coral"
+    },
+    {
+      "id": "w60",
+      "title": "Hover Glow",
+      "cat": "tasarim",
+      "type": "effect",
+      "bank": "renkler",
+      "icon": "✧",
+      "theme": "pink",
+      "effect": "glow"
+    },
+    {
+      "id": "w61",
+      "title": "Canlı Saat",
+      "cat": "zaman",
+      "type": "clock",
+      "icon": "⌚",
+      "theme": "blue"
+    },
+    {
+      "id": "w62",
+      "title": "Takvim Günü",
+      "cat": "zaman",
+      "type": "calendar",
+      "icon": "📅",
+      "theme": "coral"
+    },
+    {
+      "id": "w63",
+      "title": "Yıl İlerlemesi",
+      "cat": "zaman",
+      "type": "year-progress",
+      "icon": "%",
+      "theme": "lime"
+    },
+    {
+      "id": "w64",
+      "title": "Hafta Sonu Sayacı",
+      "cat": "zaman",
+      "type": "countdown-weekend",
+      "icon": "↘",
+      "theme": "violet"
+    },
+    {
+      "id": "w65",
+      "title": "Gün No",
+      "cat": "zaman",
+      "type": "counter",
+      "bank": "sayilar",
+      "icon": "#",
+      "theme": "aqua"
+    },
+    {
+      "id": "w66",
+      "title": "Zaman Notu",
+      "cat": "zaman",
+      "type": "note",
+      "bank": "ipuclari",
+      "icon": "⌛",
+      "theme": "sun"
+    },
+    {
+      "id": "w67",
+      "title": "Rutin Chip",
+      "cat": "zaman",
+      "type": "chip",
+      "bank": "aliskanliklar",
+      "icon": "↻",
+      "theme": "pink"
+    },
+    {
+      "id": "w68",
+      "title": "Dakika Odak",
+      "cat": "zaman",
+      "type": "progress",
+      "bank": "sayilar",
+      "icon": "●",
+      "theme": "blue"
+    },
+    {
+      "id": "w69",
+      "title": "Tarih Rozeti",
+      "cat": "zaman",
+      "type": "badge",
+      "bank": "kelimeler",
+      "icon": "▣",
+      "theme": "coral"
+    },
+    {
+      "id": "w70",
+      "title": "Nabız Efekt",
+      "cat": "zaman",
+      "type": "effect",
+      "bank": "ruh_halleri",
+      "icon": "♥",
+      "theme": "pink",
+      "effect": "pulse"
+    },
+    {
+      "id": "w71",
+      "title": "Zar At",
+      "cat": "araclar",
+      "type": "dice",
+      "icon": "⚄",
+      "theme": "blue"
+    },
+    {
+      "id": "w72",
+      "title": "Rastgele Sayı",
+      "cat": "araclar",
+      "type": "counter",
+      "bank": "sayilar",
+      "icon": "?",
+      "theme": "aqua"
+    },
+    {
+      "id": "w73",
+      "title": "Renk Kopyala",
+      "cat": "araclar",
+      "type": "palette",
+      "bank": "renkler",
+      "icon": "▤",
+      "theme": "violet"
+    },
+    {
+      "id": "w74",
+      "title": "Hızlı Not",
+      "cat": "araclar",
+      "type": "mini-form",
+      "bank": "sorular",
+      "icon": "✎",
+      "theme": "sun"
+    },
+    {
+      "id": "w75",
+      "title": "On/Off Anahtar",
+      "cat": "araclar",
+      "type": "toggle",
+      "bank": "ruh_halleri",
+      "icon": "⏻",
+      "theme": "lime"
+    },
+    {
+      "id": "w76",
+      "title": "Seviye Kaydırıcı",
+      "cat": "araclar",
+      "type": "slider-demo",
+      "bank": "sayilar",
+      "icon": "═",
+      "theme": "coral"
+    },
+    {
+      "id": "w77",
+      "title": "Toast Bildirim",
+      "cat": "araclar",
+      "type": "toast-demo",
+      "bank": "ipuclari",
+      "icon": "⇪",
+      "theme": "pink"
+    },
+    {
+      "id": "w78",
+      "title": "Buton Demo",
+      "cat": "araclar",
+      "type": "button-set",
+      "bank": "mikro_hedefler",
+      "icon": "▣",
+      "theme": "blue"
+    },
+    {
+      "id": "w79",
+      "title": "Kod Bloğu",
+      "cat": "araclar",
+      "type": "code-card",
+      "bank": "tech",
+      "icon": "</>",
+      "theme": "aqua"
+    },
+    {
+      "id": "w80",
+      "title": "Yükleniyor",
+      "cat": "araclar",
+      "type": "loader",
+      "icon": "⟳",
+      "theme": "violet",
+      "effect": "spin"
+    },
+    {
+      "id": "w81",
+      "title": "Eğlence Sözü",
+      "cat": "eglence",
+      "type": "text",
+      "bank": "eglence",
+      "icon": "☺",
+      "theme": "pink"
+    },
+    {
+      "id": "w82",
+      "title": "Şanslı Zar",
+      "cat": "eglence",
+      "type": "dice",
+      "icon": "🎲",
+      "theme": "coral"
+    },
+    {
+      "id": "w83",
+      "title": "Mood Seçici",
+      "cat": "eglence",
+      "type": "mood",
+      "bank": "ruh_halleri",
+      "icon": "☻",
+      "theme": "sun"
+    },
+    {
+      "id": "w84",
+      "title": "Şans Sayısı",
+      "cat": "eglence",
+      "type": "counter",
+      "bank": "sayilar",
+      "icon": "7",
+      "theme": "violet"
+    },
+    {
+      "id": "w85",
+      "title": "Komik Chip",
+      "cat": "eglence",
+      "type": "chip",
+      "bank": "eglence",
+      "icon": "★",
+      "theme": "lime"
+    },
+    {
+      "id": "w86",
+      "title": "Parti Badge",
+      "cat": "eglence",
+      "type": "badge",
+      "bank": "ruh_halleri",
+      "icon": "✦",
+      "theme": "pink",
+      "effect": "bounce"
+    },
+    {
+      "id": "w87",
+      "title": "Confetti Kart",
+      "cat": "eglence",
+      "type": "effect",
+      "bank": "eglence",
+      "icon": "✶",
+      "theme": "coral",
+      "effect": "confetti"
+    },
+    {
+      "id": "w88",
+      "title": "Oyun Notu",
+      "cat": "eglence",
+      "type": "note",
+      "bank": "eglence",
+      "icon": "▶",
+      "theme": "aqua"
+    },
+    {
+      "id": "w89",
+      "title": "Flip Söz",
+      "cat": "eglence",
+      "type": "quote-card",
+      "bank": "sozler",
+      "icon": "⇄",
+      "theme": "violet"
+    },
+    {
+      "id": "w90",
+      "title": "Şans Paleti",
+      "cat": "eglence",
+      "type": "palette",
+      "bank": "renkler",
+      "icon": "◈",
+      "theme": "sun"
+    },
+    {
+      "id": "w91",
+      "title": "Paylaşım Sözü",
+      "cat": "sosyal",
+      "type": "quote-card",
+      "bank": "sozler",
+      "icon": "↗",
+      "theme": "aqua"
+    },
+    {
+      "id": "w92",
+      "title": "Teşekkür Kartı",
+      "cat": "sosyal",
+      "type": "note",
+      "bank": "affirmations",
+      "icon": "♥",
+      "theme": "pink"
+    },
+    {
+      "id": "w93",
+      "title": "Soru Paylaş",
+      "cat": "sosyal",
+      "type": "text",
+      "bank": "sorular",
+      "icon": "?",
+      "theme": "coral"
+    },
+    {
+      "id": "w94",
+      "title": "Profil Rozeti",
+      "cat": "sosyal",
+      "type": "badge",
+      "bank": "kelimeler",
+      "icon": "@",
+      "theme": "blue"
+    },
+    {
+      "id": "w95",
+      "title": "Durum Chip",
+      "cat": "sosyal",
+      "type": "chip",
+      "bank": "ruh_halleri",
+      "icon": "●",
+      "theme": "lime"
+    },
+    {
+      "id": "w96",
+      "title": "Davet Butonu",
+      "cat": "sosyal",
+      "type": "button-set",
+      "bank": "mikro_hedefler",
+      "icon": "+",
+      "theme": "violet"
+    },
+    {
+      "id": "w97",
+      "title": "Yorum Kutusu",
+      "cat": "sosyal",
+      "type": "mini-form",
+      "bank": "sorular",
+      "icon": "💬",
+      "theme": "aqua"
+    },
+    {
+      "id": "w98",
+      "title": "Bildirim Demo",
+      "cat": "sosyal",
+      "type": "toast-demo",
+      "bank": "ipuclari",
+      "icon": "🔔",
+      "theme": "sun"
+    },
+    {
+      "id": "w99",
+      "title": "Topluluk Notu",
+      "cat": "sosyal",
+      "type": "text",
+      "bank": "sozler",
+      "icon": "☰",
+      "theme": "coral"
+    },
+    {
+      "id": "w100",
+      "title": "Soft Glow Kart",
+      "cat": "sosyal",
+      "type": "effect",
+      "bank": "renkler",
+      "icon": "✦",
+      "theme": "pink",
+      "effect": "soft-glow"
+    }
+  ]
+}

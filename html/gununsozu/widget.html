@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Günün Sözü — Widget</title>
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; }
+  </style>
+</head>
+<body>
+  <div id="widget" data-gunun-sozu></div>
+  <script src="gunun-sozu-widget.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const el = document.getElementById('widget');
+      const theme = params.get('theme');
+      const color = params.get('color');
+      const dark = params.get('dark');
+
+      if (color) el.setAttribute('data-color', color.startsWith('#') ? color : '#' + color);
+      else if (theme) el.setAttribute('data-theme', theme);
+      if (dark === '1' || dark === 'true') el.setAttribute('data-dark', 'true');
+
+      const ro = new ResizeObserver(() => {
+        if (window.parent === window) return;
+        const h = Math.ceil(el.getBoundingClientRect().height);
+        window.parent.postMessage({ type: 'gunun-sozu-resize', height: h }, '*');
+      });
+      ro.observe(el);
+    })();
+  </script>
+</body>
+</html>

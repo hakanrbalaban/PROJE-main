@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://balabanwidgets.com/sitemap.xml

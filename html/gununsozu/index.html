@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Günün Sözü — Gömülebilir Widget</title>
+  <meta name="description" content="Her gün otomatik değişen Günün Sözü widget’ı. 10 hazır renk veya paletten seçin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #2a2622;
+      --muted: #6b645c;
+      --card: #fff;
+      --moss: #5f7354;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 20%, rgb(122 143 106 / 0.12), transparent 50%),
+        radial-gradient(ellipse 70% 50% at 90% 80%, rgb(61 56 50 / 0.06), transparent 45%),
+        linear-gradient(165deg, #f6f4f1 0%, #ebe6df 48%, #e4ddd4 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+
+    h1 {
+      margin: 0 0 0.4rem;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      font-weight: 600;
+    }
+
+    .lead {
+      margin: 0 0 2rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      max-width: 40rem;
+    }
+
+    h2 {
+      margin: 2.5rem 0 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+
+    .preview-wrap {
+      max-width: 480px;
+    }
+
+    .panel {
+      background: rgb(255 255 255 / 0.72);
+      border-radius: 1rem;
+      padding: 1.1rem 1.2rem 1.25rem;
+      box-shadow: 0 8px 28px -12px rgb(26 24 22 / 0.12);
+    }
+
+    .panel-label {
+      margin: 0 0 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 560px) {
+      .swatches { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      color: var(--muted);
+    }
+
+    .swatch-dot {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 44px;
+      border-radius: 999px;
+      border: 2px solid rgb(255 255 255 / 0.9);
+      box-shadow: 0 0 0 1px rgb(26 24 22 / 0.12), 0 4px 10px rgb(26 24 22 / 0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .swatch:hover .swatch-dot { transform: scale(1.08); }
+
+    .swatch[aria-pressed="true"] .swatch-dot {
+      box-shadow: 0 0 0 2px #2a2622, 0 4px 12px rgb(26 24 22 / 0.18);
+      transform: scale(1.06);
+    }
+
+    .swatch span {
+      font-size: 0.65rem;
+      font-weight: 500;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .palette-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgb(61 56 50 / 0.1);
+    }
+
+    .palette-row label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .palette-row input[type="color"] {
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      border: 0;
+      border-radius: 0.65rem;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .palette-row input[type="text"] {
+      width: 7.5rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid rgb(61 56 50 / 0.18);
+      border-radius: 0.65rem;
+      font: inherit;
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .palette-row .check {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .embed-box {
+      position: relative;
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 8px 28px -12px rgb(26 24 22 / 0.12);
+    }
+
+    .embed-box pre {
+      margin: 0;
+      padding: 0.85rem 1rem;
+      overflow-x: auto;
+      border-radius: 0.65rem;
+      background: #1a1816;
+      color: #ebe6df;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .embed-box button.copy-btn {
+      position: absolute;
+      top: 1.35rem;
+      right: 1.35rem;
+      border: 0;
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.65rem;
+      background: #3d3832;
+      color: #f6f4f1;
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .embed-box button.copy-btn:hover { background: #5f7354; }
+
+    .note {
+      margin: 0.65rem 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    code {
+      font-size: 0.9em;
+      padding: 0.1em 0.35em;
+      border-radius: 0.3em;
+      background: rgb(26 24 22 / 0.06);
+    }
+
+    .grid.sizes {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 720px) {
+      .grid.sizes {
+        grid-template-columns: 1fr 1fr 1.4fr;
+        align-items: start;
+      }
+    }
+
+    .slot {
+      background: rgb(255 255 255 / 0.35);
+      border: 1px dashed rgb(61 56 50 / 0.18);
+      border-radius: 1rem;
+      padding: 0.75rem;
+    }
+
+    .slot figcaption {
+      margin: 0 0 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .slot.narrow { max-width: 260px; }
+    .slot.medium { max-width: 360px; }
+
+    iframe.demo-frame {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      border: 0;
+      border-radius: 1rem;
+      min-height: 260px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Günün Sözü</h1>
+    <p class="lead">
+      10 hazır renkten seçin veya paletten kendi renginizi belirleyin.
+      Widget her siteye script veya iframe ile eklenebilir.
+    </p>
+
+    <h2>Renk seç</h2>
+    <div class="panel">
+      <p class="panel-label">Hazır 10 renk</p>
+      <div class="swatches" id="theme-swatches" role="listbox" aria-label="Hazır renk temaları"></div>
+
+      <div class="palette-row">
+        <label for="custom-color">Paletten seç</label>
+        <input type="color" id="custom-color" value="#22c55e" aria-label="Özel renk" />
+        <input type="text" id="custom-hex" value="#22c55e" maxlength="7" spellcheck="false" aria-label="Hex renk kodu" />
+        <label class="check">
+          <input type="checkbox" id="custom-dark" />
+          Koyu zemin
+        </label>
+      </div>
+    </div>
+
+    <h2>Canlı önizleme</h2>
+    <div class="preview-wrap">
+      <div id="preview" data-gunun-sozu data-theme="moss"></div>
+    </div>
+
+    <h2>Embed kodu</h2>
+    <div class="embed-box">
+      <button type="button" class="copy-btn" data-copy-embed="script">Kopyala</button>
+      <pre id="embed-script"></pre>
+      <p class="note">
+        Hazır tema: <code>data-theme="ocean"</code> ·
+        Palet rengi: <code>data-color="#2f6f8f"</code>
+      </p>
+    </div>
+
+    <div class="embed-box" style="margin-top:1rem">
+      <button type="button" class="copy-btn" data-copy-embed="iframe">Kopyala</button>
+      <pre id="embed-iframe"></pre>
+      <p class="note">iframe için <code>?theme=ocean</code> veya <code>?color=2f6f8f</code> kullanın.</p>
+    </div>
+
+    <h2>Farklı genişlikler</h2>
+    <div class="grid sizes">
+      <figure class="slot narrow">
+        <figcaption>~260px</figcaption>
+        <div data-gunun-sozu data-theme="moss" class="sync-theme"></div>
+      </figure>
+      <figure class="slot medium">
+        <figcaption>~360px</figcaption>
+        <div data-gunun-sozu data-theme="moss" class="sync-theme"></div>
+      </figure>
+      <figure class="slot">
+        <figcaption>Geniş</figcaption>
+        <div data-gunun-sozu data-theme="moss" class="sync-theme"></div>
+      </figure>
+    </div>
+
+    <h2>iframe örnek</h2>
+    <iframe class="demo-frame" id="demo-frame" src="widget.html?theme=moss" title="Günün Sözü" loading="lazy"></iframe>
+  </div>
+
+  <script src="gunun-sozu-widget.js"></script>
+  <script>
+    (function () {
+      const base = new URL('.', location.href).href.replace(/\/$/, '');
+      const preview = document.getElementById('preview');
+      const swatches = document.getElementById('theme-swatches');
+      const colorInput = document.getElementById('custom-color');
+      const hexInput = document.getElementById('custom-hex');
+      const darkInput = document.getElementById('custom-dark');
+      const frame = document.getElementById('demo-frame');
+      const scriptPre = document.getElementById('embed-script');
+      const iframePre = document.getElementById('embed-iframe');
+
+      let mode = 'theme'; // theme | color
+      let theme = 'moss';
+      let color = '#22c55e';
+
+      function allTargets() {
+        return [preview, ...document.querySelectorAll('.sync-theme')];
+      }
+
+      function buildSwatches() {
+        const themes = window.GununSozu.themes;
+        swatches.innerHTML = '';
+        Object.entries(themes).forEach(([key, t]) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'swatch';
+          btn.setAttribute('role', 'option');
+          btn.setAttribute('aria-pressed', key === theme && mode === 'theme' ? 'true' : 'false');
+          btn.dataset.theme = key;
+          btn.title = t.label;
+          btn.innerHTML = `<i class="swatch-dot" style="background:${t.accent}"></i><span>${t.label}</span>`;
+          btn.addEventListener('click', () => selectTheme(key));
+          swatches.appendChild(btn);
+        });
+      }
+
+      function refreshSwatchState() {
+        swatches.querySelectorAll('.swatch').forEach((btn) => {
+          btn.setAttribute(
+            'aria-pressed',
+            mode === 'theme' && btn.dataset.theme === theme ? 'true' : 'false'
+          );
+        });
+      }
+
+      function updateEmbed() {
+        let attrs = 'data-gunun-sozu';
+        let qs = '';
+
+        if (mode === 'color') {
+          attrs += ` data-color="${color}"`;
+          if (darkInput.checked) attrs += ' data-dark="true"';
+          qs = `color=${encodeURIComponent(color.replace('#', ''))}`;
+          if (darkInput.checked) qs += '&dark=1';
+        } else {
+          attrs += ` data-theme="${theme}"`;
+          qs = `theme=${encodeURIComponent(theme)}`;
+        }
+
+        scriptPre.textContent =
+          `<div ${attrs}></div>\n` +
+          `<script src="${base}/gunun-sozu-widget.js" async><\/script>`;
+
+        iframePre.textContent =
+          `<iframe\n` +
+          `  src="${base}/widget.html?${qs}"\n` +
+          `  title="Günün Sözü"\n` +
+          `  loading="lazy"\n` +
+          `  style="width:100%;max-width:480px;border:0;min-height:280px;overflow:hidden;"\n` +
+          `></iframe>`;
+
+        frame.src = `widget.html?${qs}`;
+      }
+
+      function applyToWidgets() {
+        allTargets().forEach((el) => {
+          if (mode === 'color') {
+            window.GununSozu.setColor(el, color, darkInput.checked);
+          } else {
+            window.GununSozu.setTheme(el, theme);
+          }
+        });
+        updateEmbed();
+        refreshSwatchState();
+      }
+
+      function selectTheme(name) {
+        mode = 'theme';
+        theme = name;
+        const accent = window.GununSozu.themes[name].accent;
+        colorInput.value = accent;
+        hexInput.value = accent;
+        darkInput.checked = !!window.GununSozu.themes[name].dark;
+        applyToWidgets();
+      }
+
+      function selectColor(hex) {
+        const normalized = hex.startsWith('#') ? hex : `#${hex}`;
+        if (!/^#[0-9a-fA-F]{6}$/.test(normalized)) return;
+        mode = 'color';
+        color = normalized.toLowerCase();
+        colorInput.value = color;
+        hexInput.value = color;
+        applyToWidgets();
+      }
+
+      colorInput.addEventListener('input', () => selectColor(colorInput.value));
+      hexInput.addEventListener('change', () => selectColor(hexInput.value.trim()));
+      hexInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') selectColor(hexInput.value.trim());
+      });
+      darkInput.addEventListener('change', () => {
+        if (mode === 'color') applyToWidgets();
+      });
+
+      document.querySelectorAll('[data-copy-embed]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.getAttribute('data-copy-embed') === 'script' ? 'embed-script' : 'embed-iframe';
+          try {
+            await navigator.clipboard.writeText(document.getElementById(id).textContent);
+            btn.textContent = 'Kopyalandı';
+            setTimeout(() => { btn.textContent = 'Kopyala'; }, 1600);
+          } catch {
+            btn.textContent = 'Hata';
+          }
+        });
+      });
+
+      window.addEventListener('message', (e) => {
+        if (e.data?.type !== 'gunun-sozu-resize') return;
+        frame.style.height = e.data.height + 'px';
+      });
+
+      buildSwatches();
+      updateEmbed();
+    })();
+  </script>
+</body>
+</html>

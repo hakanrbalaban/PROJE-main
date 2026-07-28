@@ -1,0 +1,1462 @@
+[
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir bildirimi kapat — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir nefes egzersizi yap — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli hedefini gözden geçir — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah plan yaz — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle mola ver — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam su iç — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık yürü — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük not al — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir öncelik seç — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir dosya topla — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli bildirimi kapat — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah nefes egzersizi yap — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle hedefini gözden geçir — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam plan yaz — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık mola ver — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük su iç — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir yürü — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir not al — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli öncelik seç — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah dosya topla — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle bildirimi kapat — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam nefes egzersizi yap — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık hedefini gözden geçir — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük plan yaz — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir mola ver — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir su iç — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli yürü — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah not al — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle öncelik seç — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam dosya topla — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık bildirimi kapat — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük nefes egzersizi yap — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Kısa bir hedefini gözden geçir — enerji yükselir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sessiz bir plan yaz — dağınıklık azalır.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Düzenli mola ver — odak artar.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Sabah su iç — stres düşer.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Öğle yürü — ilerleme görünür olur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Akşam not al — alışkanlık tutunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Haftalık öncelik seç — zihin netleşir.",
+    "kaynak": "BalabanWidgets İpucu"
+  },
+  {
+    "metin": "Günlük dosya topla — tempo korunur.",
+    "kaynak": "BalabanWidgets İpucu"
+  }
+]

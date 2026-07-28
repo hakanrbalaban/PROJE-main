@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BalabanWidgets — 210+ Telifsiz Widget</title>
+  <meta name="description" content="210+ yerel, telifsiz widget: pomodoro, sayaç, hesaplayıcı, oyun, manevi araçlar ve daha fazlası." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--3" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">B</span>
+      <div>
+        <h1 class="brand-name">Balaban<span>Widgets</span></h1>
+        <p class="brand-tag">210+ widget · 14 kategori · 365 gün · tamamen yerel</p>
+      </div>
+    </div>
+    <p class="date-badge" id="dateBadge"></p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Widget Galerisi</h2>
+      <p>Pomodoro, sayaç, hesaplayıcı, QR, zikir, todo ve 100+ yerel araç — hepsi tarayıcıda çalışır, dış API yok. Kaliteli widget'lar en üstte.</p>
+    </section>
+
+    <section class="toolbar">
+      <div class="search-wrap">
+        <input type="search" id="searchInput" placeholder="Widget ara..." autocomplete="off" />
+      </div>
+      <div class="cat-scroll" id="catFilters" role="tablist" aria-label="Kategoriler"></div>
+      <p class="result-count" id="resultCount"></p>
+    </section>
+
+    <section class="widget-grid" id="widgetGrid" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>BalabanWidgets</strong> · Telifsiz / özgün içerik · Kopyala & Embed</p>
+    <nav class="legal-links" aria-label="Yasal bağlantılar">
+      <a href="about.html">Hakkında</a>
+      <a href="privacy.html">Gizlilik Politikası</a>
+      <a href="cookies.html">Çerez Politikası</a>
+      <a href="terms.html">Kullanım Şartları</a>
+      <a href="contact.html">İletişim</a>
+    </nav>
+  </footer>
+
+  <div class="modal" id="embedModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header">
+        <h3 id="modalTitle">HTML Kodunu Al</h3>
+        <button type="button" class="icon-btn" data-close aria-label="Kapat">×</button>
+      </header>
+      <p class="modal-hint">Bu kodu sitenizin HTML'ine yapıştırın:</p>
+      <textarea id="embedCode" readonly rows="10"></textarea>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" id="copyEmbedBtn">Kodu Kopyala</button>
+        <button type="button" class="btn btn-ghost" data-close>Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/widgets/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

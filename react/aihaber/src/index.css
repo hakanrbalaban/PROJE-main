@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+:root {
+  --ink: #041814;
+  --panel: #0a2f29;
+  --panel-2: #0f3d35;
+  --mist: #d8efe8;
+  --volt: #d6ff3c;
+  --volt-dim: #a8c92e;
+  --coral: #ff6b4a;
+  --amber: #ffb347;
+  --ocean: #2ec4b6;
+  --aurora: #7dd3fc;
+  --plum: #c4a1ff;
+  --line: rgba(216, 239, 232, 0.12);
+  --glow: rgba(214, 255, 60, 0.18);
+  --font-display: 'Bricolage Grotesque', Georgia, serif;
+  --font-body: 'Sora', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--mist);
+  background:
+    radial-gradient(1200px 700px at 85% -10%, rgba(214, 255, 60, 0.12), transparent 55%),
+    radial-gradient(900px 500px at -10% 20%, rgba(46, 196, 182, 0.14), transparent 50%),
+    linear-gradient(165deg, #031510 0%, #062a26 42%, #0a1f2a 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(216, 239, 232, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 239, 232, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--volt);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    transform: scaleX(0.7);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pulse-line {
+  transform-origin: left center;
+  animation: pulse-line 2.4s ease-in-out infinite;
+}
+
+.ticker-track {
+  animation: ticker 42s linear infinite;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(216, 239, 232, 0.06), rgba(214, 255, 60, 0.1), rgba(216, 239, 232, 0.06));
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
