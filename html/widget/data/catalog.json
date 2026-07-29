@@ -1,6 +1,6 @@
 {
   "brand": "BalabanWidgets",
-  "generatedAt": "2026-07-28T07:32:44.454Z",
+  "generatedAt": "2026-07-28T21:50:31.797Z",
   "dayCount": 365,
   "categories": [
     {
@@ -102,7 +102,7 @@
   "widgets": [
     {
       "id": "g001",
-      "title": "Pomodoro Zamanlayıcı",
+      "title": "Odak Zamanlayıcı",
       "type": "pomodoro",
       "cat": "zaman",
       "icon": "⏱",
@@ -146,7 +146,7 @@
     },
     {
       "id": "g005",
-      "title": "QR Kod Üretici",
+      "title": "Desen Üretici",
       "type": "qr-generator",
       "cat": "araclar",
       "icon": "▣",
@@ -406,7 +406,7 @@
     },
     {
       "id": "g121",
-      "title": "Pomodoro Tur Hesabı",
+      "title": "Odak Tur Hesabı",
       "type": "pomodoro-cycles",
       "cat": "zaman",
       "icon": "⏱",
@@ -1081,7 +1081,7 @@
     },
     {
       "id": "g063",
-      "title": "Eisenhower Matrisi",
+      "title": "Öncelik Matrisi",
       "type": "eisenhower",
       "cat": "verimlilik",
       "icon": "⊞",
@@ -1173,7 +1173,7 @@
     },
     {
       "id": "g073",
-      "title": "Kitap Çarkı",
+      "title": "Tür Çarkı",
       "type": "book-wheel",
       "cat": "eglence",
       "icon": "📚",
@@ -1530,7 +1530,7 @@
     },
     {
       "id": "w01",
-      "title": "Günün Ayeti",
+      "title": "Manevi İlham",
       "cat": "maneviyat",
       "type": "text",
       "bank": "ayetler",
@@ -1539,7 +1539,7 @@
     },
     {
       "id": "w02",
-      "title": "Günün Hadisi",
+      "title": "Hayırlı Hatırlatma",
       "cat": "maneviyat",
       "type": "text",
       "bank": "hadisler",
@@ -1730,7 +1730,7 @@
     },
     {
       "id": "w23",
-      "title": "Pomodoro Hatırlatıcı",
+      "title": "Odak Bloğu Hatırlatıcı",
       "cat": "verimlilik",
       "type": "progress",
       "bank": "sayilar",

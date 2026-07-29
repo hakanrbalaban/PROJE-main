@@ -7,11 +7,11 @@ function w(id, title, type, cat, icon, theme, extra = {}) {
 }
 
 const featured = [
-  w("g001", "Pomodoro Zamanlayıcı", "pomodoro", "zaman", "⏱", "coral", { featured: true, priority: 1 }),
+  w("g001", "Odak Zamanlayıcı", "pomodoro", "zaman", "⏱", "coral", { featured: true, priority: 1 }),
   w("g002", "Geri Sayım", "countdown", "zaman", "⏳", "blue", { featured: true, priority: 2 }),
   w("g003", "Zikir Sayacı", "zikir-counter", "maneviyat", "📿", "violet", { featured: true, priority: 3 }),
   w("g004", "Yapılacaklar Listesi", "todo-list", "verimlilik", "☑", "lime", { featured: true, priority: 4 }),
-  w("g005", "QR Kod Üretici", "qr-generator", "araclar", "▣", "aqua", { featured: true, priority: 5 }),
+  w("g005", "Desen Üretici", "qr-generator", "araclar", "▣", "aqua", { featured: true, priority: 5 }),
   w("g006", "Parola Üretici", "password-generator", "metin", "🔐", "pink", { featured: true, priority: 6 }),
   w("g007", "Dünya Saatleri", "world-clocks", "zaman", "🌍", "blue", { featured: true, priority: 7 }),
   w("g008", "Nefes Egzersizi", "breathing-guide", "yasam", "◯", "aqua", { featured: true, priority: 8 }),
@@ -84,7 +84,7 @@ const verimlilik = [
   w("g060", "Adım Hedefi", "steps-goal", "yasam", "👟", "aqua"),
   w("g061", "Uyku Döngüsü", "sleep-calc", "yasam", "☾", "violet"),
   w("g062", "Masa Kalk Hatırlatıcı", "stand-reminder", "yasam", "⏰", "coral"),
-  w("g063", "Eisenhower Matrisi", "eisenhower", "verimlilik", "⊞", "blue"),
+  w("g063", "Öncelik Matrisi", "eisenhower", "verimlilik", "⊞", "blue"),
   w("g064", "Mini Kanban", "kanban-mini", "verimlilik", "▣", "pink"),
   w("g065", "Hızlı Not Defteri", "quick-notes", "verimlilik", "✎", "sun"),
   w("g066", "Haftalık Hedef", "weekly-goal", "verimlilik", "🎯", "lime"),
@@ -97,7 +97,7 @@ const eglence = [
   w("g070", "Hafıza Kartı", "memory-cards", "eglence", "▣", "violet"),
   w("g071", "Kelime Karıştırıcı", "word-scramble", "eglence", "↯", "pink", { bank: "karisik_kelimeler" }),
   w("g072", "Ne Yesem?", "food-wheel", "eglence", "🍽", "sun", { bank: "yemekler" }),
-  w("g073", "Kitap Çarkı", "book-wheel", "eglence", "📚", "lime", { bank: "kitaplar" }),
+  w("g073", "Tür Çarkı", "book-wheel", "eglence", "📚", "lime", { bank: "kitaplar" }),
   w("g074", "Günün Şakası", "joke-card", "eglence", "☺", "coral", { bank: "sakalar" }),
   w("g075", "Emoji Seçici", "emoji-picker", "eglence", "😊", "pink"),
   w("g076", "Renk Oyunu", "color-game", "eglence", "🎨", "aqua"),
@@ -166,7 +166,7 @@ const finansHesap = [
 const zamanHesap = [
   w("g119", "Doğuma Kalan Gün", "days-until-birth", "zaman", "🎂", "pink", { featured: true, priority: 22 }),
   w("g120", "Yılın Kaçıncı Günü", "day-of-year", "zaman", "#", "aqua", { featured: true, priority: 23 }),
-  w("g121", "Pomodoro Tur Hesabı", "pomodoro-cycles", "zaman", "⏱", "coral"),
+  w("g121", "Odak Tur Hesabı", "pomodoro-cycles", "zaman", "⏱", "coral"),
   w("g122", "Saat Farkı (hh:mm)", "time-diff", "zaman", "⌚", "blue"),
 ];
 

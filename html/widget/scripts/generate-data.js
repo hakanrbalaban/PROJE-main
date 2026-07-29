@@ -157,13 +157,13 @@ const productivity = [
   "2 dakikadan kısa işleri hemen yap.",
   "Aynı tür işleri grupla (batching).",
   "Günde 3 öncelik kuralı uygula.",
-  "Pomodoro: 25 odak + 5 mola.",
+  "Odak bloğu: 25 odak + 5 mola.",
   "İş bitince sekmeleri kapat.",
   "Toplantıya gündemle gir.",
   "İleri tarihli hatırlatıcı kur.",
 ];
 
-/* Manevi — kısa, genel, telifsiz özgün ilham + bilinen meal/anlam özetleri bankası ayrı tutulacak */
+/* Manevi — yalnızca özgün / telifsiz ilham (meal veya hadis çevirisi yok) */
 const spiritual = make365((d) => ({
   metin: combine(
     [
@@ -178,32 +178,33 @@ const spiritual = make365((d) => ({
   kaynak: "BalabanWidgets · Manevi Not",
 }));
 
-const ayetPool = [
-  { metin: "Şüphesiz zorlukla beraber bir kolaylık vardır.", kaynak: "İnşirah 94:6" },
-  { metin: "Allah, sabredenlerle beraberdir.", kaynak: "Bakara 2:153" },
-  { metin: "Kalpler ancak Allah'ı anmakla huzur bulur.", kaynak: "Ra'd 13:28" },
-  { metin: "Allah size kolaylık diler, zorluk dilemez.", kaynak: "Bakara 2:185" },
-  { metin: "Rabbinize dua edin.", kaynak: "A'râf 7:55 (özet meal)" },
-  { metin: "Allah, güzel davrananları sever.", kaynak: "Âl-i İmrân 3:134" },
-  { metin: "Kim Allah'a dayanırsa, O ona yeter.", kaynak: "Talâk 65:3" },
-  { metin: "İyilik ve takva üzere yardımlaşın.", kaynak: "Mâide 5:2" },
-  { metin: "Allah, bağışlayandır, merhametlidir.", kaynak: "Bakara 2:173" },
-  { metin: "Biz insanı en güzel şekilde yarattık.", kaynak: "Tîn 95:4" },
-  { metin: "Rabbinin nimetini anlat.", kaynak: "Duhâ 93:11" },
-  { metin: "Nerede olursanız olun, O sizinle beraberdir.", kaynak: "Hadîd 57:4" },
+/* Özgün manevi ilham — ayet/hadis meal kopyası değil */
+const ilhamPool = [
+  { metin: "Zorluk geçicidir; sabırla bir adım daha at.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Sakin bir niyet, günün yükünü hafifletir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Şükür, küçük bir anda bile huzur açar.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Kolaylaştır; işini ve sözünü yumuşak tut.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Gülümsemek, paylaştığın bir iyiliktir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Temizlik, düzen ve netlik içe huzur verir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Niyetini düzelt; işin yönü onunla değişir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Güzel ahlak, en görünür hayırdır.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Merhamet gösteren, merhamet bulur.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Dürüst iş, uzun soluklu güven kurar.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Kısa bir dua, uzun bir güne yön verir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "İyilik üzere yardımlaşmak, gönlü büyütür.", kaynak: "BalabanWidgets · Özgün" },
 ];
 
-const hadisPool = [
-  { metin: "Kolaylaştırınız, zorlaştırmayınız.", kaynak: "Buhârî & Müslim" },
-  { metin: "Gülümsemek sadakadır.", kaynak: "Tirmizî" },
-  { metin: "Temizlik imanın yarısıdır.", kaynak: "Müslim" },
-  { metin: "Ameller niyetlere göredir.", kaynak: "Buhârî & Müslim" },
-  { metin: "En hayırlınız ahlakı en güzel olanınızdır.", kaynak: "Buhârî & Müslim" },
-  { metin: "Merhamet edenlere Rahman merhamet eder.", kaynak: "Ebû Dâvûd" },
-  { metin: "Mümin, müminin aynasıdır.", kaynak: "Ebû Dâvûd" },
-  { metin: "Allah, işini sağlam yapanı sever.", kaynak: "Taberânî" },
-  { metin: "Hayâ imandandır.", kaynak: "Buhârî & Müslim" },
-  { metin: "Dua, ibadetin özüdür.", kaynak: "Tirmizî" },
+const hatirlatmaPool = [
+  { metin: "Bugün birine kolaylık göster.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Sözünü yumuşak, işini sağlam tut.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Küçük bir iyilik, büyük bir iz bırakabilir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Öfkeyi bir nefes ertele; sonra konuş.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Paylaştığın bilgi, gizli tuttuğundan daha bereketli olabilir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Doğruluk, en kısa yoldur.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Başkasının aynası ol; nazikçe yansıt.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Hayâ, kalbi koruyan bir perdedir.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Dua et, sonra elinden geleni yap.", kaynak: "BalabanWidgets · Özgün" },
+  { metin: "Teşekkür etmeyi erteleme.", kaynak: "BalabanWidgets · Özgün" },
 ];
 
 /* Bankalar */
@@ -267,8 +268,8 @@ const banks = {
     kaynak: "BalabanWidgets Verimlilik",
   })),
   manevi_not: spiritual,
-  ayetler: make365((d) => pick(ayetPool, d)),
-  hadisler: make365((d) => pick(hadisPool, d)),
+  ayetler: make365((d) => pick(ilhamPool, d)),
+  hadisler: make365((d) => pick(hatirlatmaPool, d)),
   affirmations: make365((d) => ({
     metin: `Ben ${pick(["odaklı", "yeterli", "cesur", "sabırlı", "yaratıcı", "sakin", "güçlü", "net"], d)} bir şekilde ilerliyorum.`,
     kaynak: "BalabanWidgets Affirmation",
@@ -371,7 +372,7 @@ const banks = {
       "Ctrl+Z — geri al",
       "Ctrl+Shift+T — kapanan sekmeyi aç",
       "Alt+Tab — pencere değiştir",
-      "Win+V — pano geçmişi (Windows 10+)",
+      "Win+V — pano geçmişi (birçok masaüstü sistemde)",
     ], d),
     kaynak: "BalabanWidgets Kısayol",
   })),
@@ -433,7 +434,7 @@ const banks = {
     kaynak: "BalabanWidgets",
   })),
   kitaplar: make365((d) => ({
-    metin: pick(["Simyacı", "Suç ve Ceza", "1984", "Küçük Prens", "Sefiller", "Dönüşüm", "Satranç", "İnce Memed", "Çalıkuşu", "Saatleri Ayarlama Enstitüsü"], d),
+    metin: pick(["Roman", "Şiir", "Bilim", "Tarih", "Felsefe", "Biyografi", "Deneme", "Masal", "Gezi", "Klasik"], d),
     kaynak: "BalabanWidgets",
   })),
   karisik_kelimeler: make365((d) => ({
@@ -480,8 +481,8 @@ const categories = [
  */
 const widgets = [
   // Maneviyat (10)
-  { id: "w01", title: "Günün Ayeti", cat: "maneviyat", type: "text", bank: "ayetler", icon: "✦", theme: "coral" },
-  { id: "w02", title: "Günün Hadisi", cat: "maneviyat", type: "text", bank: "hadisler", icon: "◉", theme: "aqua" },
+  { id: "w01", title: "Manevi İlham", cat: "maneviyat", type: "text", bank: "ayetler", icon: "✦", theme: "coral" },
+  { id: "w02", title: "Hayırlı Hatırlatma", cat: "maneviyat", type: "text", bank: "hadisler", icon: "◉", theme: "aqua" },
   { id: "w03", title: "Manevi Not", cat: "maneviyat", type: "note", bank: "manevi_not", icon: "☪", theme: "violet" },
   { id: "w04", title: "Şükür Kartı", cat: "maneviyat", type: "text", bank: "affirmations", icon: "♡", theme: "pink" },
   { id: "w05", title: "Sabır Hatırlatıcı", cat: "maneviyat", type: "badge", bank: "manevi_not", icon: "◎", theme: "lime" },
@@ -506,7 +507,7 @@ const widgets = [
   // Verimlilik (10)
   { id: "w21", title: "Günün İpucu", cat: "verimlilik", type: "text", bank: "ipuclari", icon: "◎", theme: "blue" },
   { id: "w22", title: "Verimlilik Hack", cat: "verimlilik", type: "text", bank: "verimlilik", icon: "⚡", theme: "sun" },
-  { id: "w23", title: "Pomodoro Hatırlatıcı", cat: "verimlilik", type: "progress", bank: "sayilar", icon: "⏱", theme: "coral" },
+  { id: "w23", title: "Odak Bloğu Hatırlatıcı", cat: "verimlilik", type: "progress", bank: "sayilar", icon: "⏱", theme: "coral" },
   { id: "w24", title: "Öncelik Chip", cat: "verimlilik", type: "chip", bank: "mikro_hedefler", icon: "1", theme: "lime" },
   { id: "w25", title: "Alışkanlık Takibi", cat: "verimlilik", type: "text", bank: "aliskanliklar", icon: "✓", theme: "aqua" },
   { id: "w26", title: "Odak Blok", cat: "verimlilik", type: "note", bank: "verimlilik", icon: "▣", theme: "violet" },

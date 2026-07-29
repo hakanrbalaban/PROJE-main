@@ -153,7 +153,7 @@
       <ul>${tips.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
 
       <h3>Kısa Not</h3>
-      <p>Bu widget tamamen yerel çalışır; dış API veya telifli veri akışı gerektirmez.</p>
+      <p>Bu widget tamamen yerel çalışır; harici font CDN’i veya zorunlu dış API yoktur. İçerik özgün metin bankalarından gelir (MIT).</p>
     `;
   }
 
@@ -165,8 +165,8 @@
         a: "Widget içindeki alanları doldurup ilgili butona basın. Sonuç anında kart içinde görüntülenir.",
       },
       {
-        q: "Bu widget telifsiz mi?",
-        a: "Evet. Bu widget tamamen yerel çalışır ve varsayılan yapıda dış API veya telifli veri akışı zorunlu değildir.",
+        q: "Bu widget özgün mü? Nasıl lisanslanır?",
+        a: "Evet — özgün yerel kod ve metin. Embed/kopyalama MIT Lisansı ile serbesttir; kaynak bildirimi korunmalıdır. Harici font CDN’i veya zorunlu dış API yoktur.",
       },
       {
         q: "Mobilde çalışır mı?",
@@ -176,15 +176,15 @@
   }
 
   function injectSeoSchema(widget) {
-    const canonical = `https://balabanwidgets.com/widgets/${widget.id}.html`;
+    const canonical = `https://widgets.trportal.com.tr/widgets/${widget.id}.html`;
     const faqItems = faqForWidget(widget);
 
     const breadcrumb = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://balabanwidgets.com/" },
-        { "@type": "ListItem", position: 2, name: "Widget Galerisi", item: "https://balabanwidgets.com/index.html" },
+        { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://widgets.trportal.com.tr/" },
+        { "@type": "ListItem", position: 2, name: "Widget Galerisi", item: "https://widgets.trportal.com.tr/index.html" },
         { "@type": "ListItem", position: 3, name: widget.title, item: canonical },
       ],
     };
@@ -320,7 +320,7 @@
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", desc);
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.setAttribute("href", `https://balabanwidgets.com/widgets/${widget.id}.html`);
+    if (canonical) canonical.setAttribute("href", `https://widgets.trportal.com.tr/widgets/${widget.id}.html`);
     guideEl.innerHTML = longGuide(widget);
     renderSimilarWidgets(catalog, widget);
     cardWrap.appendChild(buildCard(widget, item));

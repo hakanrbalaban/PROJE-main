@@ -458,7 +458,7 @@ window.BWEngine = (() => {
       return wrapTool('<textarea rows="2" data-input="weekly-goal" placeholder="Bu hafta..."></textarea>' + row(btn("Kaydet", "weekly-goal-save")));
     },
     "focus-music-link": function () {
-      return wrapTool('<input data-input="music-q" value="lofi focus" />' + row(btn("YouTube Ara", "music-search")));
+      return wrapTool('<input data-input="music-q" value="lofi focus" />' + row(btn("Müzik ara", "music-search")));
     },
 
     "number-guess": function () {
@@ -478,7 +478,7 @@ window.BWEngine = (() => {
       return wrapTool('<input type="hidden" data-input="wheel-list" value="' + bank + '" /><div class="w-big" data-wheel-result>?</div>' + row(btn("Çevir", "wheel-spin")));
     },
     "book-wheel": function (w, item) {
-      const bank = itemText(item) || "Roman,Şiir,Bilim,Tarih,Felsefe";
+      const bank = itemText(item) || "Roman,Şiir,Bilim,Tarih,Felsefe,Deneme,Masal,Gezi";
       return wrapTool('<input type="hidden" data-input="wheel-list" value="' + bank + '" /><div class="w-big" data-wheel-result>?</div>' + row(btn("Çevir", "wheel-spin")));
     },
     "joke-card": function (w, item, ctx) { return bankCard(item, ctx.esc); },
@@ -533,7 +533,7 @@ window.BWEngine = (() => {
       return wrapTool('<div class="w-row"><button type="button" class="w-btn-sm" data-action="noop">Takip Et</button><button type="button" class="w-btn-sm" data-action="noop">Abone</button></div>'.replace(/<div class="w-row"/g, '<div class="w-row"').replace(/<\/motion>/g, '</div>').replace(/<\/motion>/g, '</div>').replace(/<\/motion>/g, '</div>').replace(/<\/motion>/g, '</div>'));
     },
     "share-links": function () {
-      return wrapTool('<div class="w-row"><button type="button" class="w-btn-sm" data-action="share-wa">WhatsApp</button><button type="button" class="w-btn-sm" data-action="share-tg">Telegram</button><button type="button" class="w-btn-sm" data-action="share-x">X</button></div>');
+      return wrapTool('<div class="w-row"><button type="button" class="w-btn-sm" data-action="share-wa">Paylaş (WA)</button><button type="button" class="w-btn-sm" data-action="share-tg">Paylaş (TG)</button><button type="button" class="w-btn-sm" data-action="share-x">Paylaş (X)</button></div>');
     },
     "contact-card": function () {
       return wrapTool('<p class="w-text"><strong>Balaban</strong></p><p class="w-out">info@example.com</p><p class="w-out">+90 555 000 00 00</p>');
@@ -584,8 +584,9 @@ window.BWEngine = (() => {
     },
     "qr-generator": function () {
       return wrapTool(
-        field("Metin / URL", '<input type="text" data-input="qr-text" placeholder="https://balabanwidgets.example" value="BalabanWidgets" />') +
+        field("Metin", '<input type="text" data-input="qr-text" placeholder="BalabanWidgets" value="BalabanWidgets" />') +
         '<canvas width="120" height="120" data-qr-canvas style="display:block;margin:8px auto;border-radius:8px;border:1px solid #e2e8f0"></canvas>' +
+        '<p class="w-out">Dekoratif desen (tarama kodu değil)</p>' +
         row(btn("Oluştur", "qr-gen") + btn("Metni Kopyala", "qr-copy"))
       );
     },
@@ -669,6 +670,15 @@ window.BWEngine = (() => {
     },
     "geometry-calc": function () {
       return wrapTool(field("Şekil", '<select data-input="geo-shape"><option value="square">Kare</option><option value="rect">Dikdörtgen</option><option value="circle">Daire</option><option value="tri">Üçgen</option></select>') + field("a", '<input type="number" data-input="geo-a" value="10" />') + field("b/r/h", '<input type="number" data-input="geo-b" value="5" />') + '<p class="w-out" data-out="geo">—</p>' + row(btn("Hesapla", "geometry-calc")));
+    },
+    "cm-inch": function () {
+      return wrapTool(field("cm", '<input type="number" data-input="cmv" placeholder="10" />') + '<p class="w-out" data-out="cmv">—</p>');
+    },
+    "kg-lb": function () {
+      return wrapTool(field("kg", '<input type="number" data-input="kgv" placeholder="10" />') + '<p class="w-out" data-out="kgv">—</p>');
+    },
+    "c-f": function () {
+      return wrapTool(field("°C", '<input type="number" data-input="cfv" placeholder="25" />') + '<p class="w-out" data-out="cfv">—</p>');
     },
     "km-mile": function () {
       return wrapTool(field("km", '<input type="number" data-input="kmv" />') + '<p class="w-out" data-out="kmv">—</p>');
@@ -1466,7 +1476,7 @@ window.BWEngine = (() => {
           if (((h + x * 17 + y * 31) % 5) < 2) fill(x, y);
         }
       }
-      helpers.showToast && helpers.showToast("QR deseni oluşturuldu");
+      helpers.showToast && helpers.showToast("Desen oluşturuldu");
     },
     "qr-copy": function (card, el, helpers) {
       const text = getVal(card, '[data-input="qr-text"]') || "";
@@ -1542,6 +1552,9 @@ window.BWEngine = (() => {
       if (el.matches('[data-input="u-len"]')) setOut(card, "u-len", (Number(el.value) / 2.54).toFixed(2) + " inch");
       if (el.matches('[data-input="u-mass"]')) setOut(card, "u-mass", (Number(el.value) * 2.20462).toFixed(2) + " lb");
       if (el.matches('[data-input="u-temp"]')) setOut(card, "u-temp", (Number(el.value) * 9/5 + 32).toFixed(1) + " °F");
+      if (el.matches('[data-input="cmv"]')) setOut(card, "cmv", (Number(el.value) / 2.54).toFixed(3) + " inch");
+      if (el.matches('[data-input="kgv"]')) setOut(card, "kgv", (Number(el.value) * 2.20462).toFixed(3) + " lb");
+      if (el.matches('[data-input="cfv"]')) setOut(card, "cfv", (Number(el.value) * 9 / 5 + 32).toFixed(2) + " °F");
       if (el.matches('[data-input="kmv"]')) setOut(card, "kmv", (Number(el.value) * 0.621371).toFixed(3) + " mil");
       if (el.matches('[data-input="lgv"]')) setOut(card, "lgv", (Number(el.value) * 0.264172).toFixed(3) + " galon");
       if (el.matches('[data-input="acv"]')) setOut(card, "acv", (Number(el.value) * 10.7639).toFixed(3) + " ft²");
