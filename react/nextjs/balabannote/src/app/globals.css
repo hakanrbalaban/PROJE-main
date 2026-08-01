@@ -173,6 +173,65 @@ input {
   font-size: 0.78rem;
 }
 
+.sidebar-search-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar-search {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 0.65rem;
+  padding: 0.5rem 2rem 0.5rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 550;
+  color: var(--ink);
+  outline: none;
+}
+
+.sidebar-search:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(26, 155, 142, 0.16);
+}
+
+.sidebar-search-clear {
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.sidebar-search-clear:hover {
+  background: rgba(15, 44, 58, 0.08);
+  color: var(--ink);
+}
+
+.sidebar-label-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.08rem;
+}
+
+.sidebar-page-meta {
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .sidebar-section {
   display: flex;
   flex-direction: column;
@@ -489,6 +548,57 @@ input {
   gap: 0.5rem;
   padding: 0.55rem 0.85rem 0;
   flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.data-folder-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: auto;
+  min-width: 0;
+  max-width: min(52vw, 28rem);
+}
+
+.folder-btn {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.folder-btn:hover:not(:disabled) {
+  background: #ecfeff;
+  border-color: rgba(13, 148, 136, 0.35);
+  color: #0f766e;
+}
+
+.folder-path {
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.folder-msg {
+  font-size: 0.68rem;
+  color: #0f766e;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.folder-hint {
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  opacity: 0.75;
+  white-space: nowrap;
 }
 
 .sync-pill,
@@ -1349,6 +1459,109 @@ input {
 .page-theme-select select:focus {
   border-color: var(--teal);
   box-shadow: 0 0 0 3px rgba(26, 155, 142, 0.18);
+}
+
+.font-picker {
+  position: relative;
+  z-index: 40;
+}
+
+.font-picker-trigger {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+  border-radius: 0.55rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  min-width: 8.5rem;
+  max-width: 11rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.font-picker-trigger:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(26, 155, 142, 0.18);
+}
+
+.font-picker-current {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.font-picker-panel {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  width: min(18rem, 70vw);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px rgba(15, 44, 58, 0.16);
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.font-picker-search {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.font-picker-search:focus {
+  border-color: var(--teal);
+}
+
+.font-picker-scroll {
+  max-height: 16rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.font-picker-group-title {
+  margin: 0.2rem 0 0.15rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.font-picker-item {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  border-radius: 0.45rem;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.86rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.font-picker-item:hover {
+  background: rgba(26, 155, 142, 0.1);
+}
+
+.font-picker-empty {
+  margin: 0.4rem 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: center;
 }
 
 .hybrid-text {

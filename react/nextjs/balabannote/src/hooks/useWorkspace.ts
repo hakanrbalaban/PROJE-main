@@ -132,7 +132,14 @@ export function useWorkspace(enabled: boolean) {
   }, []);
 
   const setActivePage = useCallback((id: string) => {
-    setWorkspace((ws) => ({ ...ws, activePageId: id }));
+    setWorkspace((ws) => {
+      const page = ws.pages.find((p) => p.id === id);
+      return {
+        ...ws,
+        activePageId: id,
+        activeNotebookId: page?.notebookId ?? ws.activeNotebookId,
+      };
+    });
   }, []);
 
   const addNotebook = useCallback(() => {

@@ -44,7 +44,7 @@ export function AuthScreen({
         <BrandLogo size={56} className="auth-logo" />
         <h1>Balaban Note</h1>
         <p className="auth-lead">
-          Giriş yap — notlar, çizimler, formüller ve todo’lar MySQL’de kalır.
+          Giriş yap — notlar SQLite’ta kalır (XAMPP/MySQL gerekmez).
         </p>
 
         <div className="auth-tabs" role="tablist">

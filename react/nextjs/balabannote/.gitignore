@@ -19,10 +19,15 @@
 
 # production
 /build
+/dist-electron
 
 # misc
 .DS_Store
 *.pem
+/data
+*.db
+*.db-wal
+*.db-shm
 
 # debug
 npm-debug.log*

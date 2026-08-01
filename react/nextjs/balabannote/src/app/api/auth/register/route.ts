@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     console.error("register", err);
     const message =
       err instanceof Error && /ECONNREFUSED|ENOTFOUND|ER_ACCESS/i.test(err.message)
-        ? "MySQL’e bağlanılamadı. XAMPP’te MySQL’i başlat."
+        ? "Veritabanına bağlanılamadı"
         : err instanceof Error
           ? `Kayıt başarısız: ${err.message}`
           : "Kayıt başarısız";

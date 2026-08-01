@@ -1,23 +1,35 @@
 {
   "name": "balabannote",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
+  "description": "Balaban Note — yaz, çiz, planla (Next.js + Electron)",
+  "author": "Balaban",
+  "main": "electron/main.cjs",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "db:setup": "node scripts/setup-db.mjs"
+    "db:setup": "node scripts/setup-db.mjs",
+    "electron:prepare": "node scripts/electron-prepare.cjs",
+    "electron:dev": "concurrently -k -n NEXT,ELECTRON -c teal,magenta \"next dev --webpack -p 3456\" \"wait-on http://127.0.0.1:3456 && electron .\"",
+    "electron:build": "npm run build && npm run electron:prepare",
+    "electron:refresh": "node scripts/electron-refresh.cjs",
+    "electron:pack": "npm run electron:build && electron-builder --dir",
+    "electron:dist": "npm run electron:build && electron-builder -p never",
+    "electron:publish": "npm run electron:build && electron-builder -p always"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "electron-updater": "^6.8.9",
     "jose": "^6.2.6",
     "katex": "^0.18.1",
     "lucide-react": "^1.28.0",
     "mysql2": "^3.23.2",
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sql.js": "^1.14.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -26,9 +38,87 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sql.js": "^1.4.11",
+    "chokidar": "^5.0.0",
+    "concurrently": "^9.2.1",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.5"
+  },
+  "build": {
+    "appId": "com.balaban.note",
+    "productName": "Balaban Note",
+    "copyright": "Copyright © Balaban",
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "electron/resources"
+    },
+    "npmRebuild": false,
+    "afterPack": "./scripts/electron-after-pack.cjs",
+    "files": [
+      "electron/**/*",
+      "package.json",
+      "node_modules/electron-updater/**/*",
+      "node_modules/builder-util-runtime/**/*",
+      "node_modules/lodash.escaperegexp/**/*",
+      "node_modules/lodash.isequal/**/*",
+      "node_modules/js-yaml/**/*",
+      "node_modules/sax/**/*",
+      "node_modules/semver/**/*",
+      "node_modules/tiny-typed-emitter/**/*",
+      "node_modules/fs-extra/**/*",
+      "node_modules/graceful-fs/**/*",
+      "node_modules/jsonfile/**/*",
+      "node_modules/universalify/**/*",
+      "node_modules/debug/**/*",
+      "node_modules/ms/**/*",
+      "node_modules/argparse/**/*",
+      "node_modules/sql.js/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": ".next/standalone",
+        "to": "standalone",
+        "filter": [
+          "**/*",
+          "!dist-electron/**",
+          "!**/dist-electron/**"
+        ]
+      }
+    ],
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://example.com/balaban-note-updates/"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "BalabanNote-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Balaban Note"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office"
+    }
   }
 }

@@ -1,10 +1,12 @@
 "use client";
 
 import { AuthScreen } from "@/components/AuthScreen";
+import { DataFolderControl } from "@/components/DataFolderControl";
 import { BoardCanvas } from "@/components/editors/BoardCanvas";
 import { HybridNoteEditor } from "@/components/editors/HybridNoteEditor";
 import { TodoEditor } from "@/components/editors/TodoEditor";
 import { BrandLogo } from "@/components/BrandLogo";
+import { NoteFontsLoader } from "@/components/NoteFontsLoader";
 import { Sidebar } from "@/components/Sidebar";
 import { useAuth } from "@/hooks/useAuth";
 import { useWorkspace } from "@/hooks/useWorkspace";
@@ -44,7 +46,7 @@ export function AppShell() {
       <div className="boot-screen">
         <BrandLogo size={64} className="boot-logo" />
         <p className="brand-name">Balaban Note</p>
-        <p className="boot-caption">Defter MySQL’den yükleniyor…</p>
+        <p className="boot-caption">Defter yükleniyor…</p>
       </div>
     );
   }
@@ -55,13 +57,15 @@ export function AppShell() {
       ? "Kaydediliyor…"
       : ws.syncState === "error"
         ? ws.syncError ?? "Kayıt hatası"
-        : "MySQL’de kayıtlı";
+        : "Kayıtlı";
 
   return (
     <div className="app-shell">
+      <NoteFontsLoader />
       <Sidebar
         notebooks={ws.workspace.notebooks}
         pages={ws.notebookPages}
+        allPages={ws.workspace.pages}
         activeNotebookId={ws.workspace.activeNotebookId}
         activePageId={ws.workspace.activePageId}
         onSelectNotebook={ws.setActiveNotebook}
@@ -76,6 +80,7 @@ export function AppShell() {
 
       <main className="workspace">
         <div className="workspace-topbar">
+          <DataFolderControl />
           <span className={`sync-pill ${ws.syncState}`}>{syncLabel}</span>
           <span className="user-pill">{auth.user.name || auth.user.email}</span>
           <button

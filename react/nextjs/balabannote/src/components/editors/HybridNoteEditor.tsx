@@ -34,6 +34,7 @@ import {
 } from "@/components/Icons";
 import { Tip } from "@/components/Tip";
 import { FormulaDialog } from "@/components/FormulaDialog";
+import { FontPicker } from "@/components/FontPicker";
 import { FormulaLayer } from "@/components/editors/FormulaLayer";
 import {
   NoteDiagramLayer,
@@ -153,6 +154,18 @@ function applyFontSize(size: string, root: HTMLElement | null) {
   candidates.forEach((el) => {
     const span = document.createElement("span");
     span.style.fontSize = size;
+    while (el.firstChild) span.appendChild(el.firstChild);
+    el.replaceWith(span);
+  });
+}
+
+function applyFontFamily(family: string, root: HTMLElement | null) {
+  if (!root) return;
+  document.execCommand("styleWithCSS", false, "true");
+  document.execCommand("fontName", false, family);
+  root.querySelectorAll("font[face]").forEach((el) => {
+    const span = document.createElement("span");
+    span.style.fontFamily = family;
     while (el.firstChild) span.appendChild(el.firstChild);
     el.replaceWith(span);
   });
@@ -625,6 +638,14 @@ export function HybridNoteEditor({
                 ))}
               </select>
             </label>
+            <FontPicker
+              onRememberSelection={rememberSelection}
+              onPick={(family) => {
+                restoreTextSelection(savedRange.current, textRef.current);
+                applyFontFamily(family, textRef.current);
+                if (textRef.current) onContentChange(textRef.current.innerHTML);
+              }}
+            />
             <span className="toolbar-sep" />
             <Tip label="Kalın">
               <button type="button" className="icon-tool" aria-label="Kalın" onMouseDown={(e) => runFmt(e, "bold")}>
