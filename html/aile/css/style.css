@@ -783,6 +783,7 @@ body.is-ready .hero__meta{opacity:1;transform:none;transition-delay:.74s;}
   .nav__links.is-open a:nth-child(5){transition-delay:.32s;}
   .nav__links.is-open a:nth-child(6){transition-delay:.38s;}
   .nav__links.is-open a:nth-child(7){transition-delay:.44s;}
+  .nav__links.is-open a:nth-child(8){transition-delay:.5s;}
   .nav__links a::after{display:none;}
   .burger{display:block;}
 
@@ -830,3 +831,79 @@ body.is-ready .hero__meta{opacity:1;transform:none;transition-delay:.74s;}
   .hero__desc,.hero__eyebrow,.hero__cta,.hero__meta{opacity:1;transform:none;}
 }
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px;}
+
+/* ---------- 22. Yasal bölüm ---------- */
+.legal{background:linear-gradient(to bottom,var(--bg-2),var(--bg));}
+.legal__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
+.legal__card{
+  padding:clamp(1.3rem,2.4vw,1.9rem);border-radius:var(--r-l);
+  background:var(--surface);border:1px solid var(--line);
+  transition:.45s var(--ease);
+}
+.legal__card:hover{border-color:color-mix(in srgb,var(--accent) 35%,transparent);transform:translateY(-4px);}
+.legal__card--wide{grid-column:1 / -1;}
+.legal__card h3{font-family:var(--font-d);font-weight:400;font-size:1.45rem;margin:0 0 .6rem;}
+.legal__card p{margin:0;font-size:.92rem;}
+.legal__card a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.legal__card code{
+  font-size:.82em;padding:.1em .4em;border-radius:6px;
+  background:var(--surface-2);border:1px solid var(--line);
+}
+.footer__consent-reset{
+  margin-top:.7rem;padding:0;border:0;background:none;cursor:pointer;
+  font:inherit;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--txt-dim);text-decoration:underline;text-underline-offset:3px;
+}
+.footer__consent-reset:hover{color:var(--accent);}
+
+/* ---------- 23. Onay bandı (DMCA / cache) ---------- */
+.consent{
+  position:fixed;inset:0;z-index:10000;
+  display:grid;place-items:end center;
+  padding:clamp(1rem,3vw,2rem);
+  background:color-mix(in srgb,var(--bg) 72%,transparent);
+  backdrop-filter:blur(10px);
+}
+.consent[hidden]{display:none !important;}
+.consent__panel{
+  width:min(640px,100%);
+  padding:clamp(1.5rem,3vw,2.2rem);
+  border-radius:var(--r-xl);
+  background:var(--bg-2);border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  animation:consentIn .55s var(--ease-out);
+}
+@keyframes consentIn{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+.consent__eyebrow{
+  margin:0 0 .5rem;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);
+}
+.consent__title{
+  font-family:var(--font-d);font-weight:400;font-size:clamp(1.5rem,3vw,2rem);
+  margin:0 0 .9rem;line-height:1.15;
+}
+.consent__text{margin:0 0 1rem;font-size:.92rem;color:var(--txt-soft);}
+.consent__text a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.consent__checks{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.45rem;}
+.consent__checks li{
+  position:relative;padding:.55rem .8rem .55rem 2.1rem;
+  border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);
+  font-size:.84rem;color:var(--txt-soft);
+}
+.consent__checks li::before{
+  content:"";position:absolute;left:.75rem;top:50%;translate:0 -50%;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 22%,transparent);
+}
+.consent__actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:flex-end;}
+
+@media (max-width:860px){
+  .legal__grid{grid-template-columns:1fr;}
+  .legal__card--wide{grid-column:auto;}
+  .consent{place-items:center;}
+  .consent__actions{justify-content:stretch;}
+  .consent__actions .btn{flex:1;justify-content:center;}
+}
+
+body.consent-open{overflow:hidden;}
+body.consent-open .loader{pointer-events:none;}
+

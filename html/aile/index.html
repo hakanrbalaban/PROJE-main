@@ -12,7 +12,7 @@
 <meta property="og:image" content="images/sahil-sarilma.webp" />
 <meta property="og:type" content="website" />
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23e6b980'/%3E%3Cstop offset='.5' stop-color='%23e58a9a'/%3E%3Cstop offset='1' stop-color='%238b7cf0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%2314101c'%3EB%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -51,6 +51,7 @@
     <a href="#album">Albüm</a>
     <a href="#sozler">Sözlerimiz</a>
     <a href="#defter">Defter</a>
+    <a href="#yasal">Yasal</a>
   </nav>
 
   <div class="nav__actions">
@@ -633,6 +634,45 @@
   </div>
 </section>
 
+<!-- ============ YASAL / DMCA / ÖNBELLEK ============ -->
+<section class="section legal" id="yasal">
+  <div class="wrap">
+    <header class="head reveal">
+      <p class="kicker">Yasal &amp; Telif</p>
+      <h2 class="h2">Şeffaf haklar, <em>temiz</em> kullanım.</h2>
+      <p class="head__desc">Kod açık lisanslıdır; fotoğraflar aileye aittir. Fontlar SIL OFL 1.1 ile gelir.</p>
+    </header>
+
+    <div class="legal__grid">
+      <article class="legal__card reveal">
+        <h3>Site kodu</h3>
+        <p>HTML, CSS ve JavaScript <strong>MIT</strong> lisansıyla sunulur. Üçüncü taraf JS/CSS kütüphanesi yoktur. Ayrıntı: <a href="LICENSE">LICENSE</a>.</p>
+      </article>
+      <article class="legal__card reveal">
+        <h3>Fontlar</h3>
+        <p><strong>Cormorant Garamond</strong> ve <strong>Outfit</strong> Google Fonts üzerinden yüklenir; lisansları <strong>SIL OFL 1.1</strong>’dir. Ticari web kullanımı serbesttir. Atıf: <a href="CREDITS.md">CREDITS.md</a>.</p>
+      </article>
+      <article class="legal__card reveal">
+        <h3>Fotoğraflar &amp; rıza</h3>
+        <p>Tüm görseller Balaban ailesine / ilgili fotoğrafçıya aittir; <strong>MIT kapsamında değildir</strong>. Aile üyeleri adına bu sitede yayımlanma rızası beyan edilmiştir. İzinsiz ticari kullanım ve kazıma yasaktır.</p>
+      </article>
+      <article class="legal__card reveal">
+        <h3>Önbellek (cache)</h3>
+        <p>GitHub Pages / CDN içeriği önbelleğe alabilir. Tarayıcınızda tema, yasal onay ve ziyaretçi defteri <code>localStorage</code> ile saklanır; sunucuya kişisel form verisi gönderilmez.</p>
+      </article>
+      <article class="legal__card legal__card--wide reveal">
+        <h3>DMCA / hak ihlali bildirimi</h3>
+        <p>
+          Telif hakkı ihlali iddiasında bulunuyorsanız GitHub’un DMCA sürecini izleyin:
+          <a href="https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy" rel="noopener noreferrer" target="_blank">GitHub DMCA Policy</a>.
+          Depo iletişimi: <a href="https://github.com/hakanrbalaban/balaban-ailesi" rel="noopener noreferrer" target="_blank">hakanrbalaban/balaban-ailesi</a>.
+          Fotoğraf veya isimlerin kaldırılmasını istiyorsanız Issues üzerinden yazmanız yeterlidir.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- ============ FOOTER ============ -->
@@ -650,12 +690,15 @@
       <a href="#kokler">Kökler</a>
       <a href="#akraba">Akrabalar</a>
       <a href="#album">Albüm</a>
-      <a href="#defter">Defter</a>
+      <a href="#yasal">Yasal</a>
+      <a href="LICENSE">LICENSE</a>
+      <a href="CREDITS.md">CREDITS</a>
     </nav>
 
     <p class="footer__note">
-      <span id="year">2026</span> &middot; Hakan Rüştü &middot; Merve &middot; Gökhan
+      <span id="year">2026</span> &middot; Kod: MIT &middot; Fotoğraflar: aile hakları saklı
       <br /><em>“Aziz &amp; Özcan’ın evi — Rüştü’den Turcan’a uzanan soy.”</em>
+      <br /><button type="button" class="footer__consent-reset" id="consentReset">Yasal onayı yeniden göster</button>
     </p>
   </div>
   <button class="to-top" id="toTop" type="button" aria-label="Yukarı çık"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
@@ -675,6 +718,33 @@
       <small id="lbCounter"></small>
     </figcaption>
   </figure>
+</div>
+
+<!-- ============ YASAL ONAY BANDI (DMCA / ÖNBELLEK) ============ -->
+<div class="consent" id="consent" role="dialog" aria-modal="true" aria-labelledby="consentTitle" hidden>
+  <div class="consent__panel">
+    <p class="consent__eyebrow">Yasal bilgilendirme</p>
+    <h2 class="consent__title" id="consentTitle">DMCA, önbellek ve gizlilik onayı</h2>
+    <p class="consent__text">
+      Bu site aile fotoğrafları ve kişisel isimler içerir. Kod <strong>MIT</strong>, fontlar
+      <strong>SIL OFL 1.1</strong>, fotoğraflar <strong>aile mülkiyetindedir</strong>.
+      GitHub Pages içeriği CDN’de önbelleğe alınabilir; tema / onay / defter notları
+      tarayıcınızda saklanır. Devam ederek
+      <a href="#yasal">yasal bilgilendirmeyi</a>,
+      <a href="CREDITS.md">atıfları</a> ve
+      <a href="https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy" rel="noopener noreferrer" target="_blank">DMCA politikasını</a>
+      okuduğunuzu ve kabul ettiğinizi onaylarsınız.
+    </p>
+    <ul class="consent__checks">
+      <li>Fotoğraf ve isimlerin aile rızasıyla yayımlandığını anlıyorum</li>
+      <li>Önbellek (cache) ve yerel depolama bilgisini kabul ediyorum</li>
+      <li>Telif ihlali için DMCA / depo Issues yolunu biliyorum</li>
+    </ul>
+    <div class="consent__actions">
+      <a class="btn btn--ghost" href="#yasal">Ayrıntıları oku</a>
+      <button type="button" class="btn btn--primary" id="consentAccept">Onaylıyorum, siteye gir</button>
+    </div>
+  </div>
 </div>
 
 <script src="js/main.js"></script>

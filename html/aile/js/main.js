@@ -505,4 +505,87 @@
   /* ---------- Yıl ---------- */
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- DMCA / önbellek / gizlilik onayı ---------- */
+  (function consentGate() {
+    const KEY = "aile-yasal-onay";
+    const VER = "1"; // metin değişince artırın
+    const box = $("#consent");
+    const accept = $("#consentAccept");
+    const reset = $("#consentReset");
+    if (!box) return;
+
+    const stored = (() => {
+      try {
+        return localStorage.getItem(KEY);
+      } catch {
+        return null;
+      }
+    })();
+
+    function open() {
+      box.hidden = false;
+      document.body.classList.add("consent-open", "is-locked");
+      accept?.focus();
+    }
+
+    function close() {
+      box.hidden = true;
+      document.body.classList.remove("consent-open", "is-locked");
+    }
+
+    if (stored !== VER) open();
+    else close();
+
+    accept?.addEventListener("click", () => {
+      try {
+        localStorage.setItem(KEY, VER);
+      } catch {
+        /* depolama kapalıysa yalnızca bu oturumda geçer */
+      }
+      close();
+    });
+
+    // Ayrıntı linki: onay kaydetmeden yasal bölüme in
+    box.querySelectorAll('a[href="#yasal"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        close();
+        const target = document.getElementById("yasal");
+        if (target) {
+          target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+        }
+        // Onay hâlâ zorunlu — kısa süre sonra bandı yeniden aç
+        setTimeout(() => {
+          let ok = false;
+          try {
+            ok = localStorage.getItem(KEY) === VER;
+          } catch {
+            ok = false;
+          }
+          if (!ok) open();
+        }, 12000);
+      });
+    });
+
+    reset?.addEventListener("click", () => {
+      try {
+        localStorage.removeItem(KEY);
+      } catch {
+        /* ignore */
+      }
+      open();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Panel dışına tıklayınca kapanmasın — bilinçli onay zorunlu
+    box.addEventListener("click", (e) => {
+      if (e.target === box) {
+        box.querySelector(".consent__panel")?.animate(
+          [{ transform: "translateX(0)" }, { transform: "translateX(-6px)" }, { transform: "translateX(6px)" }, { transform: "translateX(0)" }],
+          { duration: 320 }
+        );
+      }
+    });
+  })();
 })();

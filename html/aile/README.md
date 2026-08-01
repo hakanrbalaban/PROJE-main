@@ -1,58 +1,53 @@
 # Balaban Ailesi — Aile Tanıtım Sitesi
 
-Projedeki fotoğraflar kullanılarak hazırlanmış, tek sayfalık modern bir aile tanıtım
-sitesi. Saf HTML, CSS ve JavaScript ile yazıldı; herhangi bir kurulum veya derleme
-adımı gerektirmez.
+Tek sayfalık aile tanıtım sitesi. Saf HTML, CSS ve JavaScript; derleme gerekmez.
+
+**Canlı site:** https://hakanrbalaban.github.io/balaban-ailesi/
 
 ## Çalıştırma
 
-`index.html` dosyasına çift tıklamanız yeterli. Dilerseniz basit bir sunucu da
-kullanabilirsiniz:
+`index.html` dosyasına çift tıklayın veya:
 
 ```bash
 python -m http.server 5500
 ```
 
-Ardından tarayıcıdan `http://localhost:5500` adresini açın.
-
-## Dosya Yapısı
+## Dosya yapısı
 
 ```
 aile/
-├─ index.html          Tüm bölümler ve metinler
-├─ css/style.css       Tasarım, animasyonlar, açık/koyu tema, responsive
-├─ js/main.js          Slider, galeri, lightbox, sayaçlar, ziyaretçi defteri
-└─ images/             10 adet fotoğraf (.webp)
+├─ index.html
+├─ LICENSE              Kod: MIT · Fotoğraflar: aile hakları saklı
+├─ CREDITS.md           Font, görsel ve DMCA atıfları
+├─ README.md
+├─ css/style.css
+├─ js/main.js
+└─ images/              Aile fotoğrafları (.webp)
 ```
 
-## Bölümler
+## Aile (özet)
 
-| Bölüm | İçerik |
+- **Anne & baba:** Özcan · Aziz Balaban  
+- **Çocuklar:** Hakan Rüştü · Merve · Gökhan  
+- **Baba tarafı:** Rüştü & Emet Balaban  
+- **Anne tarafı:** Cemil & Turcan  
+
+Ayrıntılı soyağacı sitede **Aile / Kökler / Akrabalar** bölümlerindedir.
+
+## Telif ve yasal
+
+| Öğe | Durum |
 | --- | --- |
-| Hero | Ken Burns efektli tam ekran slayt, animasyonlu başlık, canlı gün sayacı |
-| Hikâyemiz | Çerçeveli fotoğraf kompozisyonu, aile ilkeleri, imza animasyonu |
-| Sayaçlar | Görünür olunca sayan istatistikler |
-| Biz Kimiz | Aile üyesi kartları |
-| Zaman Tüneli | Kaydırmayla dolan çizgi, dönüşümlü kartlar |
-| Albüm | Filtrelenebilir galeri + tam ekran lightbox |
-| Sözlerimiz | Otomatik geçişli alıntı döngüsü |
-| Küçük Şeyler | Sevilen alışkanlıklar kartları |
-| Ziyaretçi Defteri | Tarayıcıda saklanan notlar (localStorage) |
+| HTML/CSS/JS | MIT (`LICENSE`) |
+| Fontlar (Cormorant Garamond, Outfit) | SIL OFL 1.1 via Google Fonts |
+| Fotoğraflar | Aile mülkiyeti — MIT dışı (`CREDITS.md`) |
+| Üçüncü taraf sprite/ikon paketi | Yok |
 
-## Kişiselleştirme
-
-Site şu aile üyeleriyle güncellendi:
-
-**Kardeşler (Balaban):** Hakan Rüştü, Gökhan, Merve, Özcan, Aziz  
-**Baba tarafı:** Rüştü Balaban, Emet Balaban  
-**Anne tarafı:** Cemil Gökçen, Turcan Gökçen
-
-Fotoğraf–kişi eşleşmesini değiştirmek için `index.html` içindeki `#biz` bölümündeki
-`img src` yollarını güncellemeniz yeterli.
+Ziyaretçiler ilk girişte **DMCA / önbellek / gizlilik onay bandını** kabul eder.
+Ayrıntılar: sitede `#yasal` ve `CREDITS.md`.
 
 ## Notlar
 
-- Ziyaretçi defterine yazılanlar yalnızca o tarayıcıda saklanır, sunucuya gitmez.
-- Tema tercihi (açık/koyu) hatırlanır.
-- Klavye ile gezinti desteklenir; lightbox'ta ok tuşları ve `Esc` çalışır.
-- `prefers-reduced-motion` açıksa animasyonlar devre dışı kalır.
+- Ziyaretçi defteri yalnızca tarayıcı `localStorage` kullanır.
+- Tema tercihi ve yasal onay da yerelde saklanır.
+- `prefers-reduced-motion` açıksa animasyonlar kapanır.
