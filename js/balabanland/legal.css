@@ -1,0 +1,100 @@
+/* Shared legal / info pages for Balaban Farm */
+:root {
+  --cream: #fff6e8;
+  --ink: #1f1710;
+  --gold: #f0c36a;
+  --leaf: #a8d96a;
+  --panel: rgba(31, 23, 16, 0.92);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 0%, #a8d96a44, transparent 55%),
+    linear-gradient(165deg, #1a3d28 0%, #0f2418 45%, #1c140e 100%);
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+a { color: var(--gold); font-weight: 800; }
+a:hover { color: var(--leaf); }
+
+.legal-wrap {
+  width: min(920px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.legal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.legal-brand {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.72rem;
+  color: #f4e2b0;
+  text-decoration: none;
+}
+
+.legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+}
+
+.legal-nav a { text-decoration: none; opacity: 0.9; }
+.legal-nav a:hover { opacity: 1; text-decoration: underline; }
+
+.legal-card {
+  background: var(--panel);
+  border: 2px solid #f4e2b055;
+  border-radius: 16px;
+  padding: 26px 22px;
+  backdrop-filter: blur(6px);
+}
+
+.legal-card h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.7rem, 2.2vw, 0.95rem);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #fff6e8;
+}
+
+.legal-card h2 {
+  font-size: 1.05rem;
+  margin: 22px 0 8px;
+  color: #ffe7a0;
+}
+
+.legal-card p, .legal-card li {
+  opacity: 0.92;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.legal-card ul { padding-left: 1.2em; margin-bottom: 12px; }
+.legal-card code {
+  background: #0f241866;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.88em;
+}
+
+.meta { font-size: 0.8rem; opacity: 0.7; margin-bottom: 16px; }
+
+.legal-footer {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  text-align: center;
+}

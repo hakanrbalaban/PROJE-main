@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0f2418" />
+  <title>Balaban Farm — Bahar Macerası</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Balaban Farm</h1>
+          <p class="tagline">Bahar Macerası</p>
+        </div>
+      </div>
+      <div class="hud">
+        <div class="hud-item"><span class="label">Seviye</span><span id="hud-level">1</span></div>
+        <div class="hud-item gold"><span class="label">Para</span><span id="hud-money">0</span></div>
+        <div class="hud-item"><span class="label">Skor</span><span id="hud-score">0</span></div>
+        <div class="hud-item"><span class="label">Can</span><span id="hud-hearts">3</span></div>
+        <div class="hud-item"><span class="label">Hedef</span><span id="hud-goal">—</span></div>
+      </div>
+    </header>
+
+    <main class="stage-wrap">
+      <canvas id="game" width="960" height="640"></canvas>
+
+      <aside class="toolbar" id="toolbar">
+        <div class="tool active" data-tool="hand" title="El / Topla (E)"><span>El</span><kbd>E</kbd></div>
+        <div class="tool" data-tool="hoe" title="Tohum ek (1)"><span>Ek</span><kbd>1</kbd></div>
+        <div class="tool" data-tool="soil" title="Toprak koy (4)"><span>Toprak</span><kbd>4</kbd></div>
+        <div class="tool" data-tool="water" title="Sula (2)"><span>Su</span><kbd>2</kbd></div>
+        <div class="tool" data-tool="harvest" title="Hasat / Hayvan kes-sat (3)"><span>Hasat</span><kbd>3</kbd></div>
+        <div class="tool" data-tool="feed" title="Hayvan besle (F)"><span>Besle</span><kbd>F</kbd></div>
+        <div class="fx-slot" id="fx-slot"></div>
+      </aside>
+
+      <!-- Yan küçük simgeler: market + envanter -->
+      <div class="side-dock" id="side-dock">
+        <button type="button" class="side-icon" id="btn-toggle-panel" title="Market (I)" aria-label="Market">
+          <canvas id="icon-market" width="28" height="28"></canvas>
+          <span>Market</span>
+        </button>
+        <button type="button" class="side-icon" id="btn-toggle-inv" title="Envanter (B)" aria-label="Envanter">
+          <canvas id="icon-inv" width="28" height="28"></canvas>
+          <span>Çanta</span>
+        </button>
+      </div>
+
+      <div class="inv-bar pregame" id="inv-bar" aria-label="Envanter">
+        <div class="inv-bar-head">
+          <span class="inv-bar-title">Envanter</span>
+          <button type="button" class="panel-close" id="btn-close-inv" title="Kapat">×</button>
+        </div>
+        <div class="inv-scroll" id="inv-scroll">
+          <div class="inv-sections">
+            <div class="inv-section">
+              <div class="inv-bar-label">Toprak</div>
+              <div class="inv-slots" id="soil-slots"></div>
+            </div>
+            <div class="inv-section">
+              <div class="inv-bar-label">Tohum</div>
+              <div class="inv-slots" id="seed-slots"></div>
+            </div>
+            <div class="inv-section">
+              <div class="inv-bar-label">Yem</div>
+              <div class="inv-slots" id="feed-slots"></div>
+            </div>
+          </div>
+          <div class="inv-selected" id="inv-selected">Seçili: —</div>
+        </div>
+      </div>
+
+      <aside class="farm-panel" id="farm-panel">
+        <div class="farm-panel-head">
+          <h3>Market</h3>
+          <button type="button" class="panel-close" id="btn-close-panel" title="Kapat">×</button>
+        </div>
+        <div class="farm-tabs">
+          <button type="button" class="farm-tab" data-tab="soil">Toprak</button>
+          <button type="button" class="farm-tab active" data-tab="seeds">Tohum</button>
+          <button type="button" class="farm-tab" data-tab="feed">Yem</button>
+          <button type="button" class="farm-tab" data-tab="crops">Hasat</button>
+        </div>
+        <div class="farm-scroll">
+          <div class="farm-tab-body hidden" id="tab-soil"></div>
+          <div class="farm-tab-body hidden" id="tab-seeds"></div>
+          <div class="farm-tab-body hidden" id="tab-feed"></div>
+          <div class="farm-tab-body hidden" id="tab-crops"></div>
+        </div>
+        <p class="farm-hint" id="farm-hint">Marketten ürün seç / satın al</p>
+      </aside>
+
+      <div id="overlay" class="overlay">
+        <div class="panel">
+          <p class="eyebrow" id="overlay-eyebrow">Hoş geldin</p>
+          <h2 id="overlay-title">Balaban Farm</h2>
+          <p id="overlay-text">Ek, hasat et, hayvanları besle, kelebek ve çiçek topla. Tuzaklardan kaç!</p>
+          <ul class="controls">
+            <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> hareket · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla</li>
+            <li><strong>Fare / dokun:</strong> toprak koy · ek / sula / hasat · hayvan besle</li>
+            <li>Mobilde ekrandaki oklar + <strong>Zıpla / Eylem</strong> butonları</li>
+            <li>Sağdaki <strong>Market</strong> / <strong>Çanta</strong> · <kbd>I</kbd> / <kbd>B</kbd> · sınırsız seviye</li>
+            <li>Marketten <strong>toprak</strong>, tohum &amp; yem satın al</li>
+          </ul>
+          <p class="credits-line">
+            Sprite:
+            <a href="https://danieldiggle.itch.io/sunnyside" target="_blank" rel="noopener noreferrer">Sunnyside World</a>
+            ·
+            <a href="CREDITS.md" target="_blank" rel="noopener">Credits</a>
+            ·
+            <a href="LICENSE.txt" target="_blank" rel="noopener">Lisans</a>
+            ·
+            <a href="about.html">Hakkımızda</a>
+            ·
+            <a href="contact.html">İletişim</a>
+            ·
+            <a href="cache.html">Önbellek</a>
+            ·
+            <a href="dmca.html">DMCA</a>
+          </p>
+          <div class="start-actions">
+            <button id="btn-start" class="btn">Çiftliğe Gir</button>
+            <button type="button" id="btn-new-game" class="btn btn-secondary hidden">Yeni Oyun</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="site-notice" class="site-notice" hidden>
+        <div class="site-notice-panel" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+          <p class="eyebrow">Çerez / Cookie uyarısı</p>
+          <h2 id="notice-title">Çerez ve yerel veri bildirimi</h2>
+          <div class="notice-body">
+            <p>Bu siteye ilk kez giriyorsun. Devam etmeden önce onayını istiyoruz:</p>
+            <ul>
+              <li><strong>Zorunlu çerez (cookie):</strong> Kullanmıyoruz. Reklam / analitik çerezi yok.</li>
+              <li><strong>Yerel depolama (localStorage):</strong> Oyun kaydı (<code>balabanland_save_v1</code>) ve bu çerez uyarısı onayı (<code>balabanland_notice_v1</code>) tarayıcında tutulur. Sunucuya hesap gönderilmez.</li>
+              <li><strong>Önbellek:</strong> Görsel, CSS ve JS dosyaları tarayıcı önbelleğine alınabilir (sayfa hızı için).</li>
+              <li><strong>Üçüncü taraf:</strong> Yazı tipleri Google Fonts CDN’den yüklenir; font dosyaları tarayıcıda önbelleğe alınabilir.</li>
+            </ul>
+            <p>
+              Ayrıntılar:
+              <a href="cache.html">Önbellek / Çerez politikası</a>
+              ·
+              <a href="about.html">Hakkımızda</a>
+              ·
+              <a href="contact.html">İletişim</a>
+              ·
+              <a href="dmca.html">DMCA</a>
+            </p>
+            <p class="notice-small">“Kabul et” ile localStorage kullanımını onaylarsın; uyarı bir daha çıkmaz. İstediğin zaman tarayıcı ayarlarından site verilerini silebilirsin.</p>
+          </div>
+          <div class="notice-actions">
+            <button type="button" id="btn-notice-ok" class="btn">Kabul et</button>
+            <a class="btn btn-secondary notice-link-btn" href="cache.html">Detayları oku</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="transition" class="transition hidden"></div>
+      <div id="toast" class="toast hidden"></div>
+
+      <div class="touch-ui" id="touch-ui" aria-hidden="true">
+        <div class="touch-pad" id="touch-pad">
+          <button type="button" class="touch-btn" data-dir="up" aria-label="Yukarı">▲</button>
+          <button type="button" class="touch-btn" data-dir="left" aria-label="Sol">◀</button>
+          <button type="button" class="touch-btn" data-dir="down" aria-label="Aşağı">▼</button>
+          <button type="button" class="touch-btn" data-dir="right" aria-label="Sağ">▶</button>
+        </div>
+        <div class="touch-actions">
+          <button type="button" class="touch-act" id="touch-jump" aria-label="Zıpla">Zıpla</button>
+          <button type="button" class="touch-act accent" id="touch-act" aria-label="Eylem">Eylem</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="hintbar">
+      <span id="level-name">Bahçe Evi</span>
+      <span class="sep">•</span>
+      <span id="hint-text">Toprağa ek, sula, hasat et — para kazan</span>
+      <span class="sep">•</span>
+      <a class="legal-mini" href="about.html">Hakkımızda</a>
+      <a class="legal-mini" href="contact.html">İletişim</a>
+      <a class="legal-mini" href="cache.html">Önbellek</a>
+      <a class="legal-mini" href="dmca.html">DMCA</a>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var KEY = "balabanland_cookie_v1";
+      var box = document.getElementById("site-notice");
+      var btn = document.getElementById("btn-notice-ok");
+      if (!box || !btn) return;
+      try {
+        if (localStorage.getItem(KEY)) return;
+      } catch (e) { /* show notice anyway */ }
+      box.hidden = false;
+      btn.addEventListener("click", function () {
+        try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+        box.hidden = true;
+      });
+    })();
+  </script>
+  <script src="game.js"></script>
+</body>
+</html>

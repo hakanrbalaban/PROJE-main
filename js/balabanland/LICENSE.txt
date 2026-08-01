@@ -1,0 +1,11 @@
+/**
+ * Balaban Farm — license / attribution summary.
+ *
+ * Full credits: CREDITS.md
+ * Font OFL texts: licenses/fonts/
+ *
+ * Pixel art: Sunnyside World by danieldiggle
+ * https://danieldiggle.itch.io/sunnyside  (Licence V1)
+ *
+ * Game code in this folder is original to the project unless noted in CREDITS.md.
+ */
