@@ -15,6 +15,36 @@
   const canvas = document.getElementById("game");
   const ctx = canvas.getContext("2d");
   ctx.imageSmoothingEnabled = false;
+  let bufferScale = 1;
+
+  function fitCanvasBuffer() {
+    const wrap = canvas.parentElement;
+    if (!wrap) return;
+    const availW = Math.max(1, wrap.clientWidth);
+    const availH = Math.max(1, wrap.clientHeight);
+    // Tarayıcı alanını kapla (cover): oran korunur, kenarlar hafif kırpılabilir
+    const fit = Math.max(availW / VIEW_W, availH / VIEW_H) || 1;
+    const cssW = Math.max(1, Math.floor(VIEW_W * fit));
+    const cssH = Math.max(1, Math.floor(VIEW_H * fit));
+    canvas.style.width = cssW + "px";
+    canvas.style.height = cssH + "px";
+
+    const dpr = Math.min(2.5, window.devicePixelRatio || 1);
+    const next = Math.max(1, Math.min(3, Math.round(fit * dpr)));
+    if (canvas.width === VIEW_W * next && canvas.height === VIEW_H * next) {
+      bufferScale = next;
+      return;
+    }
+    bufferScale = next;
+    canvas.width = VIEW_W * bufferScale;
+    canvas.height = VIEW_H * bufferScale;
+    ctx.imageSmoothingEnabled = false;
+  }
+
+  function setViewTransform(extra = 1) {
+    const s = bufferScale * extra;
+    ctx.setTransform(s, 0, 0, s, 0, 0);
+  }
 
   const $ = (id) => document.getElementById(id);
   const hud = {
@@ -310,6 +340,54 @@
     overlay.classList.add("hidden");
   }
 
+  function isBrowserFullscreen() {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
+  }
+
+  function syncFullscreenButtons() {
+    const on = isBrowserFullscreen();
+    const dockBtn = $("btn-fullscreen");
+    const startBtn = $("btn-fullscreen-start");
+    if (dockBtn) {
+      dockBtn.classList.toggle("is-fs", on);
+      dockBtn.title = on ? "Tam ekrandan çık" : "Tam ekran";
+      dockBtn.setAttribute("aria-label", on ? "Tam ekrandan çık" : "Tam ekran");
+      const lab = dockBtn.querySelector(".fs-label");
+      if (lab) lab.textContent = on ? "Çık" : "Tam";
+    }
+    if (startBtn) {
+      startBtn.classList.toggle("is-fs", on);
+      startBtn.textContent = on ? "Tam Ekrandan Çık" : "Tam Ekran";
+    }
+  }
+
+  function toggleBrowserFullscreen() {
+    try {
+      if (isBrowserFullscreen()) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
+        if (exit) {
+          const p = exit.call(document);
+          if (p && typeof p.catch === "function") p.catch(() => {});
+        }
+      } else {
+        const root = document.documentElement;
+        const req = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
+        if (req) {
+          const p = req.call(root);
+          if (p && typeof p.catch === "function") p.catch(() => {});
+        } else {
+          showToast("Bu tarayıcı tam ekranı desteklemiyor");
+        }
+      }
+    } catch (e) {
+      showToast("Tam ekran açılamadı");
+    }
+    setTimeout(() => {
+      syncFullscreenButtons();
+      fitCanvasBuffer();
+    }, 120);
+  }
+
   /* ---- localStorage kayıt ---- */
   const SAVE_KEY = "balabanland_save_v1";
   let saveDirty = false;
@@ -469,7 +547,7 @@
       state.player.dir = data.player.dir || "right";
     }
     state.mode = "play";
-    state.invOpen = true;
+    state.invOpen = false;
     state.panelOpen = false;
     initClouds();
     hud.levelName.textContent = level.name;
@@ -1082,7 +1160,8 @@
     state.progress = { harvest: 0, feed: 0, collect: 0, moneyEarned: 0 };
     state.player = makePlayer(built.start.x, built.start.y);
     state.mode = "play";
-    state.invOpen = true;
+    state.invOpen = false;
+    state.panelOpen = false;
     initClouds();
     hud.levelName.textContent = level.name;
     hud.hint.textContent = level.blurb;
@@ -1127,6 +1206,11 @@
     hud.score.textContent = String(state.score);
     hud.hearts.textContent = String(state.hearts);
     hud.goal.textContent = `${p.harvest}/${g.harvest}H ${p.feed}/${g.feed}B ${p.collect}/${g.collect}T`;
+    const goalStrip = $("goal-strip-text");
+    if (goalStrip) {
+      goalStrip.textContent =
+        `Para ${state.money}/${g.money} · Hasat ${p.harvest}/${g.harvest} · Besle ${p.feed}/${g.feed} · Topla ${p.collect}/${g.collect}`;
+    }
     const fx = [];
     const pl = state.player;
     if (pl) {
@@ -1319,6 +1403,10 @@
     const tools = $("toolbar");
     if (dock) dock.classList.toggle("pregame", !playing);
     if (tools) tools.classList.toggle("pregame", !playing);
+    const statusHud = $("topbar-hud");
+    if (statusHud) statusHud.classList.toggle("pregame", !playing);
+    const goalStrip = $("goal-strip");
+    if (goalStrip) goalStrip.classList.toggle("pregame", !playing);
     document.body.classList.toggle("playing", playing);
   }
 
@@ -2917,7 +3005,7 @@
   }
 
   function render() {
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    setViewTransform(1);
     ctx.clearRect(0, 0, VIEW_W, VIEW_H);
 
     // sky
@@ -2928,7 +3016,7 @@
     ctx.fillStyle = sky;
     ctx.fillRect(0, 0, VIEW_W, VIEW_H);
 
-    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
+    setViewTransform(SCALE);
     ctx.translate(-state.camX, -state.camY);
 
     drawParallaxBack();
@@ -2975,27 +3063,13 @@
     drawHarvestFX();
     drawFloatTexts();
 
-    // screen space UI vignette + objective
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    // screen space vignette
+    setViewTransform(1);
     const vg = ctx.createRadialGradient(VIEW_W / 2, VIEW_H / 2, VIEW_H * 0.25, VIEW_W / 2, VIEW_H / 2, VIEW_H * 0.8);
     vg.addColorStop(0, "rgba(0,0,0,0)");
     vg.addColorStop(1, "rgba(10,20,8,0.3)");
     ctx.fillStyle = vg;
     ctx.fillRect(0, 0, VIEW_W, VIEW_H);
-
-    if (state.mode === "play" && state.goal) {
-      const g = state.goal, p = state.progress;
-      ctx.fillStyle = "rgba(31,23,16,0.6)";
-      ctx.fillRect(12, 12, 420, 44);
-      ctx.strokeStyle = "rgba(244,226,176,0.35)";
-      ctx.strokeRect(12.5, 12.5, 419, 43);
-      ctx.fillStyle = "#ffe7a0";
-      ctx.font = "12px Nunito, sans-serif";
-      ctx.fillText(
-        `Para ${state.money}/${g.money} · Hasat ${p.harvest}/${g.harvest} · Besle ${p.feed}/${g.feed} · Topla ${p.collect}/${g.collect}`,
-        22, 38
-      );
-    }
   }
 
   /* ---- loop ---- */
@@ -3028,7 +3102,7 @@
 
     if (ready && state.map) render();
     else {
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      setViewTransform(1);
       ctx.fillStyle = "#2f6b3a";
       ctx.fillRect(0, 0, VIEW_W, VIEW_H);
       ctx.fillStyle = "#fff";
@@ -3218,8 +3292,10 @@
   const invBar = $("inv-bar");
   const invHead = invBar && invBar.querySelector(".inv-bar-head");
   if (invHead) {
-    invHead.addEventListener("click", () => {
-      if (!state.invOpen) setInvOpen(true);
+    invHead.addEventListener("click", (e) => {
+      if (e.target.closest(".panel-close")) return;
+      if (state.mode !== "play") return;
+      setInvOpen(!state.invOpen);
     });
   }
 
@@ -3294,6 +3370,28 @@
     });
   }
 
+  const btnFs = $("btn-fullscreen");
+  const btnFsStart = $("btn-fullscreen-start");
+  if (btnFs) btnFs.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleBrowserFullscreen();
+  });
+  if (btnFsStart) btnFsStart.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleBrowserFullscreen();
+  });
+  document.addEventListener("fullscreenchange", () => {
+    syncFullscreenButtons();
+    setTimeout(fitCanvasBuffer, 80);
+  });
+  document.addEventListener("webkitfullscreenchange", () => {
+    syncFullscreenButtons();
+    setTimeout(fitCanvasBuffer, 80);
+  });
+  syncFullscreenButtons();
+
   window.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") saveGame();
   });
@@ -3301,10 +3399,28 @@
     saveGame();
   });
 
+  let resizeTimer = 0;
+  function onViewportResize() {
+    fitCanvasBuffer();
+  }
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(onViewportResize, 80);
+  });
+  window.addEventListener("orientationchange", () => {
+    setTimeout(onViewportResize, 120);
+  });
+  if (window.ResizeObserver) {
+    const wrap = canvas.parentElement;
+    if (wrap) new ResizeObserver(onViewportResize).observe(wrap);
+  }
+  fitCanvasBuffer();
+
   refreshTitleForSave();
 
   loadAll()
     .then(() => {
+      fitCanvasBuffer();
       paintSideIcons();
       syncPanelUi();
       refreshTitleForSave();

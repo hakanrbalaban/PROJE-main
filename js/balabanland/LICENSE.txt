@@ -3,9 +3,16 @@
  *
  * Full credits: CREDITS.md
  * Font OFL texts: licenses/fonts/
+ * Local storage / cache policy: cache.html
  *
  * Pixel art: Sunnyside World by danieldiggle
  * https://danieldiggle.itch.io/sunnyside  (Licence V1)
  *
  * Game code in this folder is original to the project unless noted in CREDITS.md.
+ *
+ * Display (informational, not a license term):
+ * - Logical game view: 960 x 640
+ * - Scales to the browser viewport (cover fit); optional Fullscreen API
+ * - Progress and tip acknowledgements use browser localStorage only
+ *   (see balabanland_save_v1, balabanland_cookie_v1, balabanland_orient_v1)
  */

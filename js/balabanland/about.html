@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Hakkımızda | Balaban Farm</title>
   <meta name="description" content="Balaban Farm hakkında bilgi." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@
     </div>
     <main class="legal-card">
       <h1>Hakkımızda</h1>
-      <p class="meta">Balaban Farm — HTML5 çiftlik oyunu</p>
+      <p class="meta">Balaban Farm — HTML5 çiftlik oyunu · Son güncelleme: 01.08.2026</p>
 
       <h2>Proje</h2>
       <p>Balaban Farm; tarayıcıda çalışan, ekme–sulama–hasat ve hayvan besleme odaklı bir çiftlik oyunudur. Kod <strong>HTML / CSS / JavaScript</strong> ile yazılmıştır; sunucu zorunlu değildir.</p>
@@ -36,12 +36,24 @@
       <h2>Amaç</h2>
       <p>Eğlenceli, hafif ve mümkün olduğunca şeffaf lisanslı bir tarayıcı oyunu sunmak; ilerlemeyi cihaz üzerinde saklamak (localStorage).</p>
 
+      <h2>Platform ve arayüz</h2>
+      <ul>
+        <li>Masaüstü ve mobil tarayıcılar (dokunmatik yön tuşları + Zıpla / Eylem)</li>
+        <li>Üst şerit: alet butonları ve skor bilgileri (Seviye, Para, Skor, Can, Hedef)</li>
+        <li>İsteğe bağlı <strong>Tam Ekran</strong> (tarayıcı Fullscreen API)</li>
+        <li>Mantıksal görünüm <strong>960 × 640</strong>; ekranı cover ile doldurur (oran korunur)</li>
+        <li>Mobilde yatay (landscape) kullanım önerilir; ilk girişte yönlendirme ipucu çıkabilir</li>
+      </ul>
+
       <h2>İçerik ve varlıklar</h2>
       <ul>
         <li>Oyun mantığı ve arayüz metinleri projeye aittir.</li>
         <li>Pixel art sprite’lar <strong>Sunnyside World</strong> (danieldiggle) paketine dayanır; ayrıntılar için <a href="CREDITS.md">CREDITS.md</a> ve <a href="LICENSE.txt">LICENSE.txt</a>.</li>
         <li>Yazı tipleri: Nunito ve Press Start 2P (SIL OFL 1.1).</li>
       </ul>
+
+      <h2>Veri saklama</h2>
+      <p>Oyun kaydı ve onaylar yalnızca tarayıcı <strong>localStorage</strong> alanındadır. Ayrıntılar: <a href="cache.html">Önbellek / Çerez</a>.</p>
 
       <h2>Sorumluluk</h2>
       <p>Oyun eğlence amaçlıdır. Finansal, hukuki veya profesyonel tavsiye yerine geçmez. Kayıtlar yalnızca tarayıcınızda tutulur; hesabınızı veya cihazınızı paylaşıyorsanız kayıtlar o cihazda kalır.</p>

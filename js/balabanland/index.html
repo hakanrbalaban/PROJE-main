@@ -10,39 +10,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
   <div id="app">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <div>
-          <h1>Balaban Farm</h1>
-          <p class="tagline">Bahar Macerası</p>
+    <header class="topbar" id="topbar">
+      <button type="button" class="hud-toggle" id="btn-toggle-hud" aria-expanded="false" aria-controls="topbar-hud" title="Skor panelini aç">
+        <span class="hud-toggle-icon" aria-hidden="true"></span>
+        <span class="hud-toggle-label">Skor</span>
+      </button>
+      <div class="topbar-body" id="topbar-body">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1>Balaban Farm</h1>
+            <p class="tagline">Bahar Macerası</p>
+          </div>
+        </div>
+        <div class="topbar-center" id="topbar-center">
+          <aside class="toolbar pregame" id="toolbar">
+            <div class="tool active" data-tool="hand" title="El / Topla (E)"><span>El</span><kbd>E</kbd></div>
+            <div class="tool" data-tool="hoe" title="Tohum ek (1)"><span>Ek</span><kbd>1</kbd></div>
+            <div class="tool" data-tool="soil" title="Toprak koy (4)"><span>Toprak</span><kbd>4</kbd></div>
+            <div class="tool" data-tool="water" title="Sula (2)"><span>Su</span><kbd>2</kbd></div>
+            <div class="tool" data-tool="harvest" title="Hasat / Hayvan kes-sat (3)"><span>Hasat</span><kbd>3</kbd></div>
+            <div class="tool" data-tool="feed" title="Hayvan besle (F)"><span>Besle</span><kbd>F</kbd></div>
+            <div class="fx-slot" id="fx-slot"></div>
+          </aside>
+          <div class="hud status-hud pregame" id="topbar-hud" aria-label="Oyun bilgileri">
+            <div class="hud-item"><span class="label">Seviye</span><span id="hud-level">1</span></div>
+            <div class="hud-item gold"><span class="label">Para</span><span id="hud-money">0</span></div>
+            <div class="hud-item"><span class="label">Skor</span><span id="hud-score">0</span></div>
+            <div class="hud-item"><span class="label">Can</span><span id="hud-hearts">3</span></div>
+            <div class="hud-item"><span class="label">Hedef</span><span id="hud-goal">—</span></div>
+          </div>
+        </div>
+        <div class="goal-strip pregame" id="goal-strip" aria-label="Seviye hedefi">
+          <span id="goal-strip-text">Hedef —</span>
         </div>
       </div>
-      <div class="hud">
-        <div class="hud-item"><span class="label">Seviye</span><span id="hud-level">1</span></div>
-        <div class="hud-item gold"><span class="label">Para</span><span id="hud-money">0</span></div>
-        <div class="hud-item"><span class="label">Skor</span><span id="hud-score">0</span></div>
-        <div class="hud-item"><span class="label">Can</span><span id="hud-hearts">3</span></div>
-        <div class="hud-item"><span class="label">Hedef</span><span id="hud-goal">—</span></div>
-      </div>
+      <button type="button" class="hud-close" id="btn-close-hud" title="Kapat">
+        <span class="hud-close-x" aria-hidden="true"></span>
+        <span class="hud-close-text">Kapat</span>
+      </button>
     </header>
 
     <main class="stage-wrap">
       <canvas id="game" width="960" height="640"></canvas>
 
-      <aside class="toolbar" id="toolbar">
-        <div class="tool active" data-tool="hand" title="El / Topla (E)"><span>El</span><kbd>E</kbd></div>
-        <div class="tool" data-tool="hoe" title="Tohum ek (1)"><span>Ek</span><kbd>1</kbd></div>
-        <div class="tool" data-tool="soil" title="Toprak koy (4)"><span>Toprak</span><kbd>4</kbd></div>
-        <div class="tool" data-tool="water" title="Sula (2)"><span>Su</span><kbd>2</kbd></div>
-        <div class="tool" data-tool="harvest" title="Hasat / Hayvan kes-sat (3)"><span>Hasat</span><kbd>3</kbd></div>
-        <div class="tool" data-tool="feed" title="Hayvan besle (F)"><span>Besle</span><kbd>F</kbd></div>
-        <div class="fx-slot" id="fx-slot"></div>
-      </aside>
 
       <!-- Yan küçük simgeler: market + envanter -->
       <div class="side-dock" id="side-dock">
@@ -53,6 +68,10 @@
         <button type="button" class="side-icon" id="btn-toggle-inv" title="Envanter (B)" aria-label="Envanter">
           <canvas id="icon-inv" width="28" height="28"></canvas>
           <span>Çanta</span>
+        </button>
+        <button type="button" class="side-icon side-fs" id="btn-fullscreen" title="Tam ekran" aria-label="Tam ekran">
+          <span class="fs-glyph" aria-hidden="true"></span>
+          <span class="fs-label">Tam</span>
         </button>
       </div>
 
@@ -100,72 +119,6 @@
         <p class="farm-hint" id="farm-hint">Marketten ürün seç / satın al</p>
       </aside>
 
-      <div id="overlay" class="overlay">
-        <div class="panel">
-          <p class="eyebrow" id="overlay-eyebrow">Hoş geldin</p>
-          <h2 id="overlay-title">Balaban Farm</h2>
-          <p id="overlay-text">Ek, hasat et, hayvanları besle, kelebek ve çiçek topla. Tuzaklardan kaç!</p>
-          <ul class="controls">
-            <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> hareket · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla</li>
-            <li><strong>Fare / dokun:</strong> toprak koy · ek / sula / hasat · hayvan besle</li>
-            <li>Mobilde ekrandaki oklar + <strong>Zıpla / Eylem</strong> butonları</li>
-            <li>Sağdaki <strong>Market</strong> / <strong>Çanta</strong> · <kbd>I</kbd> / <kbd>B</kbd> · sınırsız seviye</li>
-            <li>Marketten <strong>toprak</strong>, tohum &amp; yem satın al</li>
-          </ul>
-          <p class="credits-line">
-            Sprite:
-            <a href="https://danieldiggle.itch.io/sunnyside" target="_blank" rel="noopener noreferrer">Sunnyside World</a>
-            ·
-            <a href="CREDITS.md" target="_blank" rel="noopener">Credits</a>
-            ·
-            <a href="LICENSE.txt" target="_blank" rel="noopener">Lisans</a>
-            ·
-            <a href="about.html">Hakkımızda</a>
-            ·
-            <a href="contact.html">İletişim</a>
-            ·
-            <a href="cache.html">Önbellek</a>
-            ·
-            <a href="dmca.html">DMCA</a>
-          </p>
-          <div class="start-actions">
-            <button id="btn-start" class="btn">Çiftliğe Gir</button>
-            <button type="button" id="btn-new-game" class="btn btn-secondary hidden">Yeni Oyun</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="site-notice" class="site-notice" hidden>
-        <div class="site-notice-panel" role="dialog" aria-modal="true" aria-labelledby="notice-title">
-          <p class="eyebrow">Çerez / Cookie uyarısı</p>
-          <h2 id="notice-title">Çerez ve yerel veri bildirimi</h2>
-          <div class="notice-body">
-            <p>Bu siteye ilk kez giriyorsun. Devam etmeden önce onayını istiyoruz:</p>
-            <ul>
-              <li><strong>Zorunlu çerez (cookie):</strong> Kullanmıyoruz. Reklam / analitik çerezi yok.</li>
-              <li><strong>Yerel depolama (localStorage):</strong> Oyun kaydı (<code>balabanland_save_v1</code>) ve bu çerez uyarısı onayı (<code>balabanland_notice_v1</code>) tarayıcında tutulur. Sunucuya hesap gönderilmez.</li>
-              <li><strong>Önbellek:</strong> Görsel, CSS ve JS dosyaları tarayıcı önbelleğine alınabilir (sayfa hızı için).</li>
-              <li><strong>Üçüncü taraf:</strong> Yazı tipleri Google Fonts CDN’den yüklenir; font dosyaları tarayıcıda önbelleğe alınabilir.</li>
-            </ul>
-            <p>
-              Ayrıntılar:
-              <a href="cache.html">Önbellek / Çerez politikası</a>
-              ·
-              <a href="about.html">Hakkımızda</a>
-              ·
-              <a href="contact.html">İletişim</a>
-              ·
-              <a href="dmca.html">DMCA</a>
-            </p>
-            <p class="notice-small">“Kabul et” ile localStorage kullanımını onaylarsın; uyarı bir daha çıkmaz. İstediğin zaman tarayıcı ayarlarından site verilerini silebilirsin.</p>
-          </div>
-          <div class="notice-actions">
-            <button type="button" id="btn-notice-ok" class="btn">Kabul et</button>
-            <a class="btn btn-secondary notice-link-btn" href="cache.html">Detayları oku</a>
-          </div>
-        </div>
-      </div>
-
       <div id="transition" class="transition hidden"></div>
       <div id="toast" class="toast hidden"></div>
 
@@ -194,22 +147,188 @@
       <a class="legal-mini" href="dmca.html">DMCA</a>
     </footer>
   </div>
+
+  <div id="overlay" class="overlay">
+    <div class="panel start-panel">
+      <div class="panel-scroll">
+        <p class="eyebrow" id="overlay-eyebrow">Hoş geldin</p>
+        <h2 id="overlay-title">Balaban Farm</h2>
+        <p id="overlay-text">Ek, hasat et, hayvanları besle, kelebek ve çiçek topla. Tuzaklardan kaç!</p>
+        <ul class="controls">
+          <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> hareket · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla</li>
+          <li><strong>Fare / dokun:</strong> toprak koy · ek / sula / hasat · hayvan besle</li>
+          <li class="controls-desktop">Mobilde ekrandaki oklar + <strong>Zıpla / Eylem</strong></li>
+          <li class="controls-desktop">Market / Çanta · <kbd>I</kbd> / <kbd>B</kbd> · sınırsız seviye</li>
+          <li class="controls-desktop">Marketten <strong>toprak</strong>, tohum &amp; yem satın al</li>
+        </ul>
+        <p class="credits-line">
+          <a href="https://danieldiggle.itch.io/sunnyside" target="_blank" rel="noopener noreferrer">Sunnyside</a>
+          · <a href="CREDITS.md" target="_blank" rel="noopener">Credits</a>
+          · <a href="about.html">Hakkımızda</a>
+          · <a href="contact.html">İletişim</a>
+          · <a href="cache.html">Önbellek</a>
+          · <a href="dmca.html">DMCA</a>
+        </p>
+      </div>
+      <div class="start-actions">
+        <button id="btn-start" class="btn">Çiftliğe Gir</button>
+        <button type="button" id="btn-new-game" class="btn btn-secondary hidden">Yeni Oyun</button>
+        <button type="button" id="btn-fullscreen-start" class="btn btn-fs">Tam Ekran</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="orient-tip" class="orient-tip" hidden>
+    <div class="orient-tip-panel" role="dialog" aria-modal="true" aria-labelledby="orient-title">
+      <div class="orient-phone" aria-hidden="true">
+        <span class="orient-phone-frame"></span>
+        <span class="orient-arrow">↻</span>
+      </div>
+      <h2 id="orient-title">Ekranı yatay çevir</h2>
+      <p>Mobilde oyun yatay (landscape) modda daha rahat oynanır. Telefonunu yan çevir.</p>
+      <button type="button" id="btn-orient-ok" class="btn">Tamam</button>
+    </div>
+  </div>
+
+  <div id="site-notice" class="site-notice" hidden>
+    <div class="site-notice-panel" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+      <div class="notice-scroll">
+        <p class="eyebrow">Çerez / Cookie uyarısı</p>
+        <h2 id="notice-title">Çerez ve yerel veri bildirimi</h2>
+        <div class="notice-body">
+          <p>Bu siteye ilk kez giriyorsun. Devam etmeden önce onayını istiyoruz:</p>
+          <ul>
+            <li><strong>Zorunlu çerez:</strong> Kullanmıyoruz. Reklam / analitik çerezi yok.</li>
+            <li><strong>localStorage:</strong> Oyun kaydı (<code>balabanland_save_v1</code>), bu uyarı onayı (<code>balabanland_cookie_v1</code>) ve mobil yatay-çevir ipucu (<code>balabanland_orient_v1</code>) tarayıcında tutulur.</li>
+            <li><strong>Önbellek:</strong> Görsel / CSS / JS tarayıcıda cache’lenebilir (<code>?v=</code> sürüm parametresi).</li>
+            <li><strong>Fontlar:</strong> Google Fonts CDN (önbelleğe alınabilir).</li>
+            <li><strong>Ekran:</strong> Mantıksal görünüm 960×640; tarayıcıya cover ile sığar. Tam ekran isteğe bağlıdır (ekstra veri yazılmaz).</li>
+          </ul>
+          <p class="notice-links">
+            <a href="cache.html">Önbellek</a>
+            · <a href="about.html">Hakkımızda</a>
+            · <a href="contact.html">İletişim</a>
+            · <a href="dmca.html">DMCA</a>
+          </p>
+          <p class="notice-small">“Kabul et” ile onaylarsın; uyarı bir daha çıkmaz.</p>
+        </div>
+      </div>
+      <div class="notice-actions">
+        <button type="button" id="btn-notice-ok" class="btn">Kabul et</button>
+        <a class="btn btn-secondary notice-link-btn" href="cache.html">Detayları oku</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
-      var KEY = "balabanland_cookie_v1";
+      var COOKIE_KEY = "balabanland_cookie_v1";
+      var ORIENT_KEY = "balabanland_orient_v1";
       var box = document.getElementById("site-notice");
       var btn = document.getElementById("btn-notice-ok");
-      if (!box || !btn) return;
-      try {
-        if (localStorage.getItem(KEY)) return;
-      } catch (e) { /* show notice anyway */ }
-      box.hidden = false;
-      btn.addEventListener("click", function () {
-        try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
-        box.hidden = true;
+      var orient = document.getElementById("orient-tip");
+      var orientBtn = document.getElementById("btn-orient-ok");
+
+      function isPortraitMobile() {
+        return window.matchMedia("(max-width: 900px) and (orientation: portrait)").matches;
+      }
+
+      function showOrientIfNeeded() {
+        if (!orient) return;
+        try {
+          if (localStorage.getItem(ORIENT_KEY)) return;
+        } catch (e) {}
+        if (!isPortraitMobile()) return;
+        orient.hidden = false;
+        document.documentElement.classList.add("orient-open");
+      }
+
+      function hideOrient(save) {
+        if (!orient) return;
+        orient.hidden = true;
+        document.documentElement.classList.remove("orient-open");
+        if (save) {
+          try { localStorage.setItem(ORIENT_KEY, String(Date.now())); } catch (e) {}
+        }
+      }
+
+      if (orientBtn) {
+        orientBtn.addEventListener("click", function () {
+          hideOrient(true);
+        });
+      }
+
+      window.addEventListener("orientationchange", function () {
+        if (!isPortraitMobile()) hideOrient(false);
       });
+      window.addEventListener("resize", function () {
+        if (!isPortraitMobile() && orient && !orient.hidden) hideOrient(false);
+      });
+
+      if (box && btn) {
+        try {
+          if (localStorage.getItem(COOKIE_KEY)) {
+            showOrientIfNeeded();
+          } else {
+            box.hidden = false;
+            document.documentElement.classList.add("notice-open");
+            btn.addEventListener("click", function () {
+              try { localStorage.setItem(COOKIE_KEY, String(Date.now())); } catch (e) {}
+              box.hidden = true;
+              document.documentElement.classList.remove("notice-open");
+              showOrientIfNeeded();
+            });
+          }
+        } catch (e) {
+          box.hidden = false;
+          document.documentElement.classList.add("notice-open");
+          btn.addEventListener("click", function () {
+            box.hidden = true;
+            document.documentElement.classList.remove("notice-open");
+            showOrientIfNeeded();
+          });
+        }
+      } else {
+        showOrientIfNeeded();
+      }
+
+      var hudBtn = document.getElementById("btn-toggle-hud");
+      var hudClose = document.getElementById("btn-close-hud");
+      var hudLabel = hudBtn && hudBtn.querySelector(".hud-toggle-label");
+      var topbar = document.getElementById("topbar");
+
+      function setHudOpen(open) {
+        open = !!open;
+        document.body.classList.toggle("hud-open", open);
+        if (hudBtn) {
+          hudBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          hudBtn.setAttribute("title", open ? "Skor panelini kapat" : "Skor panelini aç");
+          hudBtn.classList.toggle("is-open", open);
+          if (hudLabel) hudLabel.textContent = open ? "Kapat" : "Skor";
+        }
+      }
+
+      // Tek dinleyici — mobilde güvenilir kapatma
+      if (topbar) {
+        topbar.addEventListener("click", function (e) {
+          var closeEl = e.target.closest("#btn-close-hud");
+          var openEl = e.target.closest("#btn-toggle-hud");
+          if (closeEl) {
+            e.preventDefault();
+            e.stopPropagation();
+            setHudOpen(false);
+            return;
+          }
+          if (openEl) {
+            e.preventDefault();
+            e.stopPropagation();
+            setHudOpen(!document.body.classList.contains("hud-open"));
+          }
+        });
+      }
+      setHudOpen(false);
     })();
   </script>
-  <script src="game.js"></script>
+  <script src="game.js?v=13"></script>
 </body>
 </html>

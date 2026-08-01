@@ -97,4 +97,32 @@ a:hover { color: var(--leaf); }
   font-size: 0.8rem;
   opacity: 0.75;
   text-align: center;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 700px) {
+  .legal-wrap {
+    width: min(100%, calc(100% - 16px));
+    padding: 16px 0 max(28px, env(safe-area-inset-bottom, 0px));
+  }
+  .legal-card {
+    padding: 18px 14px;
+    border-radius: 12px;
+  }
+  .legal-card h1 {
+    font-size: 0.62rem;
+  }
+  .legal-card h2 {
+    font-size: 0.95rem;
+  }
+  .legal-card p, .legal-card li {
+    font-size: 0.88rem;
+  }
+  .legal-brand {
+    font-size: 0.58rem;
+  }
+  .legal-nav {
+    font-size: 0.75rem;
+    gap: 8px 10px;
+  }
 }

@@ -31,12 +31,20 @@ Google Fonts CDN üzerinden yüklenir. OFL metinleri `licenses/fonts/` altındad
 
 ## Kod
 
-Oyun mantığı (`game.js`, `index.html`, `style.css`) proje için yazılmıştır; bilinen harici lisanslı kod bloğu kopyası yoktur.
+Oyun mantığı (`game.js`, `index.html`, `style.css`, `legal.css`) proje için yazılmıştır; bilinen harici lisanslı kod bloğu kopyası yoktur.
+
+## Teknik / ekran
+
+- Mantıksal görünüm: **960 × 640** px
+- Ekrana sığdırma: viewport **cover** (oran korunur; kenarlar kırpılabilir)
+- Tam ekran: tarayıcı Fullscreen API (ekstra depolama yok)
+- Mobil: dokunmatik pad + üst HUD (aletler / skor)
 
 ## Yerel kayıt / önbellek
 
-- Oyun kaydı: tarayıcı `localStorage` anahtarı `balabanland_save_v1`
-- İlk bilgilendirme / çerez onayı: `balabanland_cookie_v1`
+- Oyun kaydı: `balabanland_save_v1`
+- Çerez / yerel veri onayı: `balabanland_cookie_v1`
+- Mobil yatay-çevir ipucu onayı: `balabanland_orient_v1`
 - Ayrıntı: [cache.html](cache.html)
 
 ## Yasal sayfalar
@@ -45,6 +53,7 @@ Oyun mantığı (`game.js`, `index.html`, `style.css`) proje için yazılmışt�
 - [İletişim](contact.html)
 - [Önbellek](cache.html)
 - [DMCA / Telif](dmca.html)
+- [LICENSE.txt](LICENSE.txt)
 
 ## Not
 
