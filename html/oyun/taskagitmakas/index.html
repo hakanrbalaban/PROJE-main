@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taş Kağıt Makas | Profesyonel Oyun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-shapes">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="app">
+
+    <header class="topbar">
+      <h1 class="logo">✊✋✌️ <span>Taş Kağıt Makas</span></h1>
+      <div class="header-actions">
+        <button id="soundBtn" class="icon-btn" title="Ses Aç/Kapat" aria-label="Ses Aç/Kapat">🔊</button>
+        <button id="resetBtn" class="icon-btn" title="Skoru Sıfırla" aria-label="Skoru Sıfırla">🔄</button>
+      </div>
+    </header>
+
+    <section class="scoreboard">
+      <div class="score-card player">
+        <span class="score-label">SEN</span>
+        <span class="score-value" id="playerScore">0</span>
+      </div>
+      <div class="score-vs">
+        <span class="vs-text">VS</span>
+        <div class="round-info">
+          <span id="roundCount">Tur 0</span>
+        </div>
+      </div>
+      <div class="score-card computer">
+        <span class="score-label">BİLGİSAYAR</span>
+        <span class="score-value" id="computerScore">0</span>
+      </div>
+    </section>
+
+    <section class="arena">
+      <div class="hand-slot player-slot">
+        <div class="hand-circle" id="playerHand">
+          <span class="hand-emoji">❔</span>
+        </div>
+        <p class="hand-caption">Sen</p>
+      </div>
+
+      <div class="center-status">
+        <div id="resultBadge" class="result-badge hidden">Berabere</div>
+        <div id="countdown" class="countdown hidden">3</div>
+      </div>
+
+      <div class="hand-slot computer-slot">
+        <div class="hand-circle" id="computerHand">
+          <span class="hand-emoji">❔</span>
+        </div>
+        <p class="hand-caption">Bilgisayar</p>
+      </div>
+    </section>
+
+    <p id="messageText" class="message-text">Bir seçim yap ve oyunu başlat!</p>
+
+    <section class="choices">
+      <button class="choice-btn" data-choice="rock" aria-label="Taş">
+        <span class="choice-emoji">✊</span>
+        <span class="choice-name">Taş</span>
+      </button>
+      <button class="choice-btn" data-choice="paper" aria-label="Kağıt">
+        <span class="choice-emoji">✋</span>
+        <span class="choice-name">Kağıt</span>
+      </button>
+      <button class="choice-btn" data-choice="scissors" aria-label="Makas">
+        <span class="choice-emoji">✌️</span>
+        <span class="choice-name">Makas</span>
+      </button>
+    </section>
+
+    <section class="history">
+      <h3>Geçmiş</h3>
+      <div id="historyList" class="history-list">
+        <span class="history-empty">Henüz oyun oynanmadı</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Yapımcı: Taş Kağıt Makas Studio &copy; 2024</p>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

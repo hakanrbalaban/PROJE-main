@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>Social - Profil</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="social-header">
+    <div class="container-fluid px-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-link d-md-none me-2" id="mobileMenuToggle">
+          <i class="bi bi-list fs-4 text-white"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <i class="bi bi-facebook text-white me-1"></i>
+          <span class="text-white logo">Social</span>
+        </a>
+      </div>
+
+      <div class="d-none d-md-block">
+        <input type="text" class="search-box" placeholder="Facebook'ta ara">
+      </div>
+
+      <div class="d-flex align-items-center">
+        <div class="d-none d-md-flex nav-icons">
+          <a href="index.html" title="Anasayfa"><i class="bi bi-house-fill"></i></a>
+          <a href="watch.html" title="Vidyo"><i class="bi bi-play-circle"></i></a>
+          <a href="groups.html" title="Gruplar"><i class="bi bi-people-fill"></i></a>
+          <a href="messages.html" title="Mesajlar"><i class="bi bi-chat-left-text-fill"></i></a>
+        </div>
+        <div class="position-relative me-2">
+          <a href="#" class="text-white text-decoration-none" id="themeToggle" title="Tema değiştir">
+            <i class="bi bi-moon"></i>
+          </a>
+        </div>
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../img/profile.jpg" alt="Profile" class="rounded-circle border" width="36" height="36">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profile.html">Profilim</a></li>
+          <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="login.html" onclick="socialApp.handleLogout()">Çıkış Yap</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-md-none" id="mobileOverlay" style="z-index: 999; display: none;"></div>
+
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block" id="sidebar">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="profile.html" class="sidebar-item active">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainFeed">
+      <div class="profile-card">
+        <div class="profile-cover">
+          <img src="https://picsum.photos/seed/cover/800/200" alt="cover" style="width:100%; height:100%; object-fit:cover;">
+          <button class="btn btn-sm btn-light position-absolute top-50 start-50 translate-middle" style="border-radius: 50%;">
+            <i class="bi bi-camera-fill"></i>
+          </button>
+        </div>
+        <div class="profile-info">
+          <img src="../img/profile.jpg" alt="profile" class="profile-img">
+          <h2>Demo Kullanıcı</h2>
+          <p class="text-muted">@demokullanici · 150 gönderi · 450 takipçi · 320 takip edilen</p>
+          <button class="btn btn-primary mb-2">
+            <i class="bi bi-pencil me-1"></i>Profili Düzenle
+          </button>
+        </div>
+      </div>
+
+      <div class="profile-nav">
+        <button class="profile-nav-item active">
+          <i class="bi bi-grid-3x3-gap-fill me-1"></i> Gönderiler
+        </button>
+        <button class="profile-nav-item">
+          <i class="bi bi-play-circle me-1"></i> Videolar
+        </button>
+        <button class="profile-nav-item">
+          <i class="bi bi-image me-1"></i> Fotoğraflar
+        </button>
+        <button class="profile-nav-item">
+          <i class="bi bi-people me-1"></i> Arkadaşlar
+        </button>
+        <button class="profile-nav-item">
+          <i class="bi bi-list-ul me-1"></i> Hakkında
+        </button>
+      </div>
+
+      <div class="row g-2 mt-1">
+        <div class="col-6 col-md-4">
+          <div class="post-card">
+            <img src="https://picsum.photos/seed/p1/300/300" alt="post" class="post-image">
+            <div class="post-actions">
+              <button class="action-btn like-btn">
+                <i class="bi bi-heart"></i>
+                <span class="like-count">34 Beğeni</span>
+              </button>
+              <button class="action-btn">
+                <i class="bi bi-chat-left"></i>2 Yorum
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="post-card">
+            <img src="https://picsum.photos/seed/p2/300/300" alt="post" class="post-image">
+            <div class="post-actions">
+              <button class="action-btn like-btn">
+                <i class="bi bi-heart"></i>
+                <span class="like-count">18 Beğeni</span>
+              </button>
+              <button class="action-btn">
+                <i class="bi bi-chat-left"></i>5 Yorum
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="post-card">
+            <img src="https://picsum.photos/seed/p3/300/300" alt="post" class="post-image">
+            <div class="post-actions">
+              <button class="action-btn like-btn">
+                <i class="bi bi-heart"></i>
+                <span class="like-count">52 Beğeni</span>
+              </button>
+              <button class="action-btn">
+                <i class="bi bi-chat-left"></i>11 Yorum
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="post-card">
+            <img src="https://picsum.photos/seed/p4/300/300" alt="post" class="post-image">
+            <div class="post-actions">
+              <button class="action-btn like-btn">
+                <i class="bi bi-heart"></i>
+                <span class="like-count">9 Beğeni</span>
+              </button>
+              <button class="action-btn">
+                <i class="bi bi-chat-left"></i>1 Yorum
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="d-none d-lg-block" id="rightSidebar">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="profile.html" class="sidebar-item active">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header bg-white border-0">
+            <h6 class="mb-0 font-weight-bold">
+              <i class="bi bi-star text-warning me-2"></i>
+              Öne çıkan
+            </h6>
+          </div>
+          <div class="card-body">
+            <img src="https://picsum.photos/seed/sponsored/280/100" alt="sponsored" class="img-fluid rounded">
+            <p class="small text-muted mt-2">Sponsorlu içerik</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

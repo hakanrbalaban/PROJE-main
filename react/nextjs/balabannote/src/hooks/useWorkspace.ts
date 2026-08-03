@@ -12,6 +12,7 @@ import {
 import type {
   BoardShape,
   InkStroke,
+  NoteComment,
   NotePage,
   NoteFormula,
   PageKind,
@@ -36,16 +37,19 @@ export function useWorkspace(enabled: boolean) {
   );
   const [syncError, setSyncError] = useState<string | null>(null);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const allowServerSave = useRef(false);
   const skipNextSave = useRef(true);
 
   useEffect(() => {
     if (!enabled) {
       setHydrated(false);
+      allowServerSave.current = false;
       return;
     }
 
     let cancelled = false;
     skipNextSave.current = true;
+    allowServerSave.current = false;
 
     (async () => {
       try {
@@ -57,6 +61,7 @@ export function useWorkspace(enabled: boolean) {
           setWorkspace(parsed ?? createDefaultWorkspace());
           setHydrated(true);
           setSyncState("saved");
+          allowServerSave.current = true;
         }
       } catch (err) {
         console.error(err);
@@ -64,7 +69,11 @@ export function useWorkspace(enabled: boolean) {
           setWorkspace(loadWorkspace());
           setHydrated(true);
           setSyncState("error");
-          setSyncError("Sunucuya bağlanılamadı — yerel kopya açıldı");
+          setSyncError(
+            "Sunucuya bağlanılamadı — yerel kopya (sunucuya yazılmaz)",
+          );
+          // Prevent clobbering server with stale localStorage
+          allowServerSave.current = false;
         }
       }
     })();
@@ -80,6 +89,10 @@ export function useWorkspace(enabled: boolean) {
 
     if (skipNextSave.current) {
       skipNextSave.current = false;
+      return;
+    }
+
+    if (!allowServerSave.current) {
       return;
     }
 
@@ -111,18 +124,27 @@ export function useWorkspace(enabled: boolean) {
   }, [workspace, hydrated, enabled]);
 
   const activeNotebook = workspace.notebooks.find(
-    (n) => n.id === workspace.activeNotebookId,
+    (n) => n.id === workspace.activeNotebookId && !n.deletedAt,
   );
   const activePage = workspace.pages.find(
-    (p) => p.id === workspace.activePageId,
+    (p) => p.id === workspace.activePageId && !p.deletedAt,
   );
+  const liveNotebooks = workspace.notebooks.filter((n) => !n.deletedAt);
   const notebookPages = workspace.pages
-    .filter((p) => p.notebookId === workspace.activeNotebookId)
+    .filter(
+      (p) => p.notebookId === workspace.activeNotebookId && !p.deletedAt,
+    )
     .sort((a, b) => b.updatedAt - a.updatedAt);
+  const trashPages = workspace.pages
+    .filter((p) => !!p.deletedAt)
+    .sort((a, b) => (b.deletedAt ?? 0) - (a.deletedAt ?? 0));
+  const trashNotebooks = workspace.notebooks
+    .filter((n) => !!n.deletedAt)
+    .sort((a, b) => (b.deletedAt ?? 0) - (a.deletedAt ?? 0));
 
   const setActiveNotebook = useCallback((id: string) => {
     setWorkspace((ws) => {
-      const first = ws.pages.find((p) => p.notebookId === id);
+      const first = ws.pages.find((p) => p.notebookId === id && !p.deletedAt);
       return {
         ...ws,
         activeNotebookId: id,
@@ -171,14 +193,23 @@ export function useWorkspace(enabled: boolean) {
 
   const deleteNotebook = useCallback((id: string) => {
     setWorkspace((ws) => {
-      const notebooks = ws.notebooks.filter((n) => n.id !== id);
-      const pages = ws.pages.filter((p) => p.notebookId !== id);
+      const now = Date.now();
+      const notebooks = ws.notebooks.map((n) =>
+        n.id === id ? { ...n, deletedAt: now } : n,
+      );
+      const pages = ws.pages.map((p) =>
+        p.notebookId === id && !p.deletedAt
+          ? { ...p, deletedAt: now }
+          : p,
+      );
+      const liveNbs = notebooks.filter((n) => !n.deletedAt);
       const activeNotebookId =
         ws.activeNotebookId === id
-          ? (notebooks[0]?.id ?? null)
+          ? (liveNbs[0]?.id ?? null)
           : ws.activeNotebookId;
       const activePageId =
-        pages.find((p) => p.notebookId === activeNotebookId)?.id ?? null;
+        pages.find((p) => p.notebookId === activeNotebookId && !p.deletedAt)
+          ?.id ?? null;
       return { notebooks, pages, activeNotebookId, activePageId };
     });
   }, []);
@@ -197,12 +228,73 @@ export function useWorkspace(enabled: boolean) {
           kind === "note"
             ? "<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>"
             : undefined,
-        strokes: kind === "note" ? [] : undefined,
+        strokes: kind === "note" || kind === "board" ? [] : undefined,
         shapes: kind === "note" || kind === "board" ? [] : undefined,
         formulas: kind === "note" ? [] : undefined,
+        comments: kind === "note" ? [] : undefined,
         todos: kind === "todo" ? [] : undefined,
         bgColor: kind === "note" ? "#F7F9FB" : undefined,
         pattern: kind === "note" ? "lined" : undefined,
+      };
+      return {
+        ...ws,
+        pages: [...ws.pages, page],
+        activePageId: id,
+      };
+    });
+  }, []);
+
+  const addPageFromTemplate = useCallback(async (templateId: string) => {
+    const res = await fetch(`/api/templates/${templateId}`, {
+      credentials: "include",
+    });
+    if (!res.ok) {
+      throw new Error("Şablon yüklenemedi");
+    }
+    const detail = (await res.json()) as {
+      page: Omit<NotePage, "id" | "notebookId" | "updatedAt"> & {
+        title: string;
+        kind: PageKind;
+      };
+    };
+    const snap = detail.page;
+    setWorkspace((ws) => {
+      if (!ws.activeNotebookId) return ws;
+      const id = uid("pg");
+      const page: NotePage = {
+        id,
+        notebookId: ws.activeNotebookId,
+        title: snap.title || "Şablon",
+        kind: snap.kind,
+        updatedAt: Date.now(),
+        content: snap.content,
+        strokes: snap.strokes
+          ? structuredClone(snap.strokes)
+          : snap.kind === "note" || snap.kind === "board"
+            ? []
+            : undefined,
+        shapes: snap.shapes
+          ? structuredClone(snap.shapes)
+          : snap.kind === "note" || snap.kind === "board"
+            ? []
+            : undefined,
+        formulas: snap.formulas
+          ? structuredClone(snap.formulas)
+          : snap.kind === "note"
+            ? []
+            : undefined,
+        comments: snap.comments
+          ? structuredClone(snap.comments)
+          : snap.kind === "note"
+            ? []
+            : undefined,
+        todos: snap.todos
+          ? structuredClone(snap.todos)
+          : snap.kind === "todo"
+            ? []
+            : undefined,
+        bgColor: snap.bgColor,
+        pattern: snap.pattern,
       };
       return {
         ...ws,
@@ -225,14 +317,93 @@ export function useWorkspace(enabled: boolean) {
 
   const deletePage = useCallback((id: string) => {
     setWorkspace((ws) => {
-      const pages = ws.pages.filter((p) => p.id !== id);
+      const now = Date.now();
+      const pages = ws.pages.map((p) =>
+        p.id === id ? { ...p, deletedAt: now, pinned: false } : p,
+      );
       const activePageId =
         ws.activePageId === id
-          ? (pages.find((p) => p.notebookId === ws.activeNotebookId)?.id ??
-            null)
+          ? (pages.find(
+              (p) => p.notebookId === ws.activeNotebookId && !p.deletedAt,
+            )?.id ?? null)
           : ws.activePageId;
       return { ...ws, pages, activePageId };
     });
+  }, []);
+
+  const restorePage = useCallback((id: string) => {
+    setWorkspace((ws) => {
+      const page = ws.pages.find((p) => p.id === id);
+      if (!page) return ws;
+      const notebooks = ws.notebooks.map((n) =>
+        n.id === page.notebookId && n.deletedAt
+          ? { ...n, deletedAt: undefined }
+          : n,
+      );
+      const pages = ws.pages.map((p) =>
+        p.id === id ? { ...p, deletedAt: undefined, updatedAt: Date.now() } : p,
+      );
+      return {
+        ...ws,
+        notebooks,
+        pages,
+        activeNotebookId: page.notebookId,
+        activePageId: id,
+      };
+    });
+  }, []);
+
+  const restoreNotebook = useCallback((id: string) => {
+    setWorkspace((ws) => {
+      const nb = ws.notebooks.find((n) => n.id === id);
+      if (!nb) return ws;
+      const batchAt = nb.deletedAt;
+      const notebooks = ws.notebooks.map((n) =>
+        n.id === id ? { ...n, deletedAt: undefined } : n,
+      );
+      const pages = ws.pages.map((p) => {
+        if (p.notebookId !== id || !p.deletedAt) return p;
+        // Restore pages soft-deleted with this notebook (same batch)
+        if (
+          batchAt != null &&
+          Math.abs((p.deletedAt ?? 0) - batchAt) < 2000
+        ) {
+          return { ...p, deletedAt: undefined, updatedAt: Date.now() };
+        }
+        return p;
+      });
+      const first = pages.find((p) => p.notebookId === id && !p.deletedAt);
+      return {
+        ...ws,
+        notebooks,
+        pages,
+        activeNotebookId: id,
+        activePageId: first?.id ?? null,
+      };
+    });
+  }, []);
+
+  const purgePage = useCallback((id: string) => {
+    setWorkspace((ws) => ({
+      ...ws,
+      pages: ws.pages.filter((p) => p.id !== id),
+    }));
+  }, []);
+
+  const purgeNotebook = useCallback((id: string) => {
+    setWorkspace((ws) => ({
+      ...ws,
+      notebooks: ws.notebooks.filter((n) => n.id !== id),
+      pages: ws.pages.filter((p) => p.notebookId !== id),
+    }));
+  }, []);
+
+  const emptyTrash = useCallback(() => {
+    setWorkspace((ws) => ({
+      ...ws,
+      notebooks: ws.notebooks.filter((n) => !n.deletedAt),
+      pages: ws.pages.filter((p) => !p.deletedAt),
+    }));
   }, []);
 
   const updatePageContent = useCallback((id: string, content: string) => {
@@ -271,6 +442,15 @@ export function useWorkspace(enabled: boolean) {
     }));
   }, []);
 
+  const updateComments = useCallback((id: string, comments: NoteComment[]) => {
+    setWorkspace((ws) => ({
+      ...ws,
+      pages: ws.pages.map((p) =>
+        p.id === id ? { ...p, comments, updatedAt: Date.now() } : p,
+      ),
+    }));
+  }, []);
+
   const updatePageTheme = useCallback(
     (id: string, theme: { bgColor?: string; pattern?: PagePattern }) => {
       setWorkspace((ws) => ({
@@ -292,6 +472,17 @@ export function useWorkspace(enabled: boolean) {
     }));
   }, []);
 
+  const togglePagePinned = useCallback((id: string) => {
+    setWorkspace((ws) => ({
+      ...ws,
+      pages: ws.pages.map((p) =>
+        p.id === id
+          ? { ...p, pinned: !p.pinned, updatedAt: Date.now() }
+          : p,
+      ),
+    }));
+  }, []);
+
   return {
     hydrated,
     syncState,
@@ -299,20 +490,31 @@ export function useWorkspace(enabled: boolean) {
     workspace,
     activeNotebook,
     activePage,
+    liveNotebooks,
     notebookPages,
+    trashPages,
+    trashNotebooks,
     setActiveNotebook,
     setActivePage,
     addNotebook,
     renameNotebook,
     deleteNotebook,
     addPage,
+    addPageFromTemplate,
     renamePage,
     deletePage,
+    restorePage,
+    restoreNotebook,
+    purgePage,
+    purgeNotebook,
+    emptyTrash,
     updatePageContent,
     updateStrokes,
     updateShapes,
     updateFormulas,
+    updateComments,
     updatePageTheme,
     updateTodos,
+    togglePagePinned,
   };
 }

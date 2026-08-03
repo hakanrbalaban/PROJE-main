@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>Social - Gruplar</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="social-header">
+    <div class="container-fluid px-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-link d-md-none me-2" id="mobileMenuToggle">
+          <i class="bi bi-list fs-4 text-white"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <i class="bi bi-facebook text-white me-1"></i>
+          <span class="text-white logo">Social</span>
+        </a>
+      </div>
+
+      <div class="d-none d-md-block">
+        <input type="text" class="search-box" placeholder="Facebook'ta ara">
+      </div>
+
+      <div class="d-flex align-items-center">
+        <div class="d-none d-md-flex nav-icons">
+          <a href="index.html" title="Anasayfa"><i class="bi bi-house-fill"></i></a>
+          <a href="watch.html" title="Vidyo"><i class="bi bi-play-circle"></i></a>
+          <a href="groups.html" title="Gruplar" class="active"><i class="bi bi-people-fill"></i></a>
+          <a href="messages.html" title="Mesajlar"><i class="bi bi-chat-left-text-fill"></i></a>
+        </div>
+        <div class="position-relative me-2">
+          <a href="#" class="text-white text-decoration-none" id="themeToggle" title="Tema değiştir">
+            <i class="bi bi-moon"></i>
+          </a>
+        </div>
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../img/profile.jpg" alt="Profile" class="rounded-circle border" width="36" height="36">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profile.html">Profilim</a></li>
+          <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="login.html" onclick="socialApp.handleLogout()">Çıkış Yap</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-md-none" id="mobileOverlay" style="z-index: 999; display: none;"></div>
+
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block" id="sidebar">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item active">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="profile.html" class="sidebar-item">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainFeed">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Gruplar</h5>
+        <button class="btn btn-sm btn-primary">
+          <i class="bi bi-plus-lg"></i> Grup Oluştur
+        </button>
+      </div>
+
+      <div class="mb-3">
+        <div class="input-group">
+          <input type="text" class="form-control border-0" placeholder="Gruplar ara..." style="border-radius: 999px;">
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g1/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Türkçe Programlama</h6>
+              <p class="text-muted small">1.2K üye · 12 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g2/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Fotoğraf Sanatı</h6>
+              <p class="text-muted small">842 üye · 5 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g3/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Kitap Kurdukları</h6>
+              <p class="text-muted small">2.1K üye · 8 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g4/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Yabancı Dizi Severler</h6>
+              <p class="text-muted small">3.4K üye · 15 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g5/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Mobil Geliştirme</h6>
+              <p class="text-muted small">567 üye · 3 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card h-100 border-0" style="border-radius: 12px;">
+            <img src="https://picsum.photos/seed/g6/200/120" alt="group" class="card-img-top" style="border-radius: 12px 12px 0 0;">
+            <div class="card-body">
+              <h6 class="card-title mb-1">Seyahat Tutkunları</h6>
+              <p class="text-muted small">932 üye · 7 yeni gönderi</p>
+              <button class="btn btn-sm btn-primary w-100">Katıl</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="d-none col-xl-3 d-xl-block">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item active">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="profile.html" class="sidebar-item">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-header bg-white border-0">
+            <h6 class="mb-0 font-weight-bold">
+              <i class="bi bi-star text-warning me-2"></i>
+              Öne çıkan
+            </h6>
+          </div>
+          <div class="card-body">
+            <img src="https://picsum.photos/seed/sponsored/280/100" alt="sponsored" class="img-fluid rounded">
+            <p class="small text-muted mt-2">Sponsorlu içerik</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

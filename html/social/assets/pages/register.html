@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>Kayıt Ol - Social</title>
+</head>
+
+<body class="auth-bg">
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="text-center mb-4">
+        <i class="bi bi-facebook text-primary" style="font-size: 50px;"></i>
+      </div>
+      <h1 class="text-center mb-3">Social</h1>
+      <p class="text-center">Facebook'a benzeyen bir sosyal ağ.</p>
+
+      <form id="registerForm" onsubmit="socialApp.handleRegister(event)">
+        <input type="text" id="registerName" class="auth-input" placeholder="Ad ve soyad" required>
+        <input type="email" id="registerEmail" class="auth-input" placeholder="E-posta" required>
+        <input type="password" id="registerPassword" class="auth-input" placeholder="Yeni şifre" required>
+        <button type="submit" class="auth-btn">Kayıt Ol</button>
+      </form>
+
+      <div class="auth-divider">veya</div>
+
+      <button class="auth-btn" style="background: #4267b2;">
+        <i class="bi bi-facebook me-2"></i>Facebook ile kaydol
+      </button>
+
+      <a href="login.html" class="auth-link">Zaten bir hesabın var mı? Giriş yap</a>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

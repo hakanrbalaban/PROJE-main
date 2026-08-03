@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>Social - Anasayfa</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="social-header">
+    <div class="container-fluid px-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-link d-md-none me-2" id="mobileMenuToggle">
+          <i class="bi bi-list fs-4 text-white"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <i class="bi bi-facebook text-white me-1"></i>
+          <span class="text-white logo">Social</span>
+        </a>
+      </div>
+
+      <div class="d-none d-md-block">
+        <input type="text" class="search-box" placeholder="Facebook'ta ara">
+      </div>
+
+      <div class="d-flex align-items-center">
+        <div class="d-none d-md-flex nav-icons">
+          <a href="index.html" class="active" title="Anasayfa"><i class="bi bi-house-fill"></i></a>
+          <a href="watch.html" title="Vidyo"><i class="bi bi-play-circle"></i></a>
+          <a href="groups.html" title="Gruplar"><i class="bi bi-people-fill"></i></a>
+          <a href="messages.html" title="Mesajlar"><i class="bi bi-chat-left-text-fill"></i></a>
+        </div>
+        <div class="position-relative">
+          <a href="#" class="text-white text-decoration-none" id="themeToggle" title="Tema değiştir">
+            <i class="bi bi-moon"></i>
+          </a>
+        </div>
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../img/profile.jpg" alt="Profile" class="rounded-circle border" width="36" height="36">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profile.html">Profilim</a></li>
+          <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="login.html" onclick="socialApp.handleLogout()">Çıkış Yap</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-md-none" id="mobileOverlay" style="z-index: 999; display: none;"></div>
+
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block" id="sidebar">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item active">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="#" class="sidebar-item">
+            <i class="bi bi-bell sidebar-icon"></i>
+            <span>Bildirimler</span>
+          </a>
+          <a href="profile.html" class="sidebar-item">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Feed -->
+    <div id="mainFeed">
+      <!-- Create Post -->
+      <div class="post-composer">
+        <div class="d-flex align-items-center">
+          <img src="../img/profile.jpg" alt="profile" class="rounded-circle border" width="40" height="40">
+          <textarea id="postInput" class="composer-input" placeholder="Schreib etwas..." rows="1" style="margin-left: 12px;"></textarea>
+        </div>
+        <div id="postImagePreview" style="display:none; margin-top: 8px;"></div>
+        <div class="composer-actions">
+          <label class="action-item text-success">
+            <input type="file" class="d-none" id="postImageInput">
+            <i class="bi bi-image"></i>
+            <span>Fotoğraf</span>
+          </label>
+          <label class="action-item text-danger">
+            <i class="bi bi-emoji-smile-fill"></i>
+            <span>Emoji</span>
+          </label>
+          <label class="action-item text-primary">
+            <i class="bi bi-play-circle"></i>
+            <span>Vidyo</span>
+          </label>
+          <label class="action-item text-warning">
+            <i class="bi bi-geo-alt"></i>
+            <span>Lokasyon</span>
+          </label>
+          <button id="postButton" class="btn btn-primary ms-auto post-submit-btn" disabled>
+            Gönder
+          </button>
+        </div>
+      </div>
+
+      <!-- Stories -->
+      <div class="stories">
+        <div class="text-center">
+          <div class="story-circle user-story" style="border-color:#1877f2;">
+            <img src="../img/profile.jpg" alt="profile" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+          </div>
+          <small class="text-muted d-block mt-1" style="font-size:11px;">Hikayeni ekle</small>
+        </div>
+        <div class="text-center">
+          <img src="https://i.pravatar.com/150/?u=user1" alt="story" class="story-circle">
+          <small class="text-muted d-block mt-1" style="font-size:11px;">Alex</small>
+        </div>
+        <div class="text-center">
+          <img src="https://i.pravatar.com/150/?u=user2" alt="story" class="story-circle">
+          <small class="text-muted d-block mt-1" style="font-size:11px;">Maria</small>
+        </div>
+        <div class="text-center">
+          <img src="https://i.pravatar.com/150/?u=user3" alt="story" class="story-circle">
+          <small class="text-muted d-block mt-1" style="font-size:11px;">John</small>
+        </div>
+        <div class="text-center">
+          <img src="https://i.pravatar.com/150/?u=user4" alt="story" class="story-circle">
+          <small class="text-muted d-block mt-1" style="font-size:11px;">Sofia</small>
+        </div>
+        <div class="text-center">
+          <img src="https://i.pravatar.com/150/?u=user5" alt="story" class="story-circle">
+          <small class="text-muted d-block mt-1" style="font-size:11px;">Mike</small>
+        </div>
+      </div>
+
+      <!-- Posts Container -->
+      <div id="postsContainer">
+        <!-- Post 1 -->
+        <div class="post-card">
+          <div class="post-header">
+            <img src="https://i.pravatar.com/150/?u=author1" alt="Author" class="post-author-img">
+            <div>
+              <div class="post-author-name">Alex Johnson</div>
+              <div class="post-time text-muted small">2 saat önce</div>
+            </div>
+            <div class="post-menu dropdown">
+              <i class="bi bi-three-dots-vertical" id="postMenu1" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="postMenu1">
+                <li><a class="dropdown-item" href="#">Sakla</a></li>
+                <li><a class="dropdown-item" href="#">Gizle</a></li>
+                <li><a class="dropdown-item" href="#">Rapor et</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="post-body">
+            Harika bir hafta sonu! Arkadaşlarla buluştuk, güzel sohbetler ettik ve harika yemekler yedik.
+          </div>
+          <img src="https://picsum.photos/seed/p1/600/400" alt="post" class="post-image">
+          <div class="post-actions">
+            <button class="action-btn like-btn">
+              <i class="bi bi-heart"></i>
+              <span class="like-count">42 Beğeni</span>
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-chat-left"></i>
+              12 Yorum
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-share"></i>
+              Paylaş
+            </button>
+          </div>
+          <div class="comment-section">
+            <div class="comment">
+              <img src="https://i.pravatar.com/150/?u=commenter1" alt="Maria" class="comment-author-img">
+              <div class="comment-content">
+                <span class="comment-author-name">Maria Silva:</span>
+                <span class="comment-text">Harika görünüyor! Katılalım bir dahaki sefere :)</span>
+              </div>
+            </div>
+            <div class="show-comments text-muted small">Daha fazla yorum göster</div>
+          </div>
+          <div class="input-group p-2 pt-0 border-top-0">
+            <input type="text" class="form-control rounded-0 border-0 bg-transparent composer-input-small" placeholder="Yorum yap...">
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post-card">
+          <div class="post-header">
+            <img src="https://i.pravatar.com/150/?u=author2" alt="Author" class="post-author-img">
+            <div>
+              <div class="post-author-name">Sofia Martinez</div>
+              <div class="post-time text-muted small">4 saat önce</div>
+            </div>
+            <div class="post-menu dropdown">
+              <i class="bi bi-three-dots-vertical" id="postMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="postMenu2">
+                <li><a class="dropdown-item" href="#">Sakla</a></li>
+                <li><a class="dropdown-item" href="#">Gizle</a></li>
+                <li><a class="dropdown-item" href="#">Rapor et</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="post-body">
+            Yeni evcil hayvanımı tanıyın! Bu kızımsı, adını vurgaladım. Çok sevinçliyim!
+          </div>
+          <img src="https://picsum.photos/seed/p2/600/400" alt="post" class="post-image">
+          <div class="post-actions">
+            <button class="action-btn like-btn">
+              <i class="bi bi-heart"></i>
+              <span class="like-count">88 Beğeni</span>
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-chat-left"></i>
+              18 Yorum
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-share"></i>
+              Paylaş
+            </button>
+          </div>
+          <div class="comment-section">
+            <div class="comment">
+              <img src="https://i.pravatar.com/150/?u=commenter2" alt="John" class="comment-author-img">
+              <div class="comment-content">
+                <span class="comment-author-name">John Doe:</span>
+                <span class="comment-text">Nasıl bir tür? Çok sevimli görünüyor!</span>
+              </div>
+            </div>
+            <div class="show-comments text-muted small">Daha fazla yorum göster</div>
+          </div>
+          <div class="input-group p-2 pt-0 border-top-0">
+            <input type="text" class="form-control rounded-0 border-0 bg-transparent composer-input-small" placeholder="Yorum yap...">
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post-card">
+          <div class="post-header">
+            <img src="https://i.pravatar.com/150/?u=author3" alt="Author" class="post-author-img">
+            <div>
+              <div class="post-author-name">John Smith</div>
+              <div class="post-time text-muted small">1 gün önce</div>
+            </div>
+            <div class="post-menu dropdown">
+              <i class="bi bi-three-dots-vertical" id="postMenu3" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="postMenu3">
+                <li><a class="dropdown-item" href="#">Sakla</a></li>
+                <li><a class="dropdown-item" href="#">Gizle</a></li>
+                <li><a class="dropdown-item" href="#">Rapor et</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="post-body">
+            Geziye çıkıp gördüğüm manzaralar gerçekten muazzamdı. Doğa tutkum artıyor her geçen gün.
+          </div>
+          <div class="post-actions">
+            <button class="action-btn like-btn">
+              <i class="bi bi-heart"></i>
+              <span class="like-count">25 Beğeni</span>
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-chat-left"></i>
+              5 Yorum
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-share"></i>
+              Paylaş
+            </button>
+          </div>
+          <div class="comment-section">
+            <div class="show-comments text-muted small">Tüm yorumları göster</div>
+            <div class="show-more_comments" style="display:none;">
+              <div class="comment">
+                <img src="https://i.pravatar.com/150/?u=commenter3" alt="Maria" class="comment-author-img">
+                <div class="comment-content">
+                  <span class="comment-author-name">Maria Silva:</span>
+                  <span class="comment-text">Harika fotoğraflar!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group p-2 pt-0 border-top-0">
+            <input type="text" class="form-control rounded-0 border-0 bg-transparent composer-input-small" placeholder="Yorum yap...">
+          </div>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="post-card">
+          <div class="post-header">
+            <img src="https://i.pravatar.com/150/?u=author4" alt="Author" class="post-author-img">
+            <div>
+              <div class="post-author-name">Emma Wilson</div>
+              <div class="post-time text-muted small">2 gün önce</div>
+            </div>
+            <div class="post-menu dropdown">
+              <i class="bi bi-three-dots-vertical" id="postMenu4" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="postMenu4">
+                <li><a class="dropdown-item" href="#">Sakla</a></li>
+                <li><a class="dropdown-item" href="#">Gizle</a></li>
+                <li><a class="dropdown-item" href="#">Rapor et</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="post-body">
+            Yeni kitabım "Başarının 7 Sırrı" çıktı! Herkese tavsiye ederim.
+          </div>
+          <div class="post-actions">
+            <button class="action-btn like-btn">
+              <i class="bi bi-heart"></i>
+              <span class="like-count">156 Beğeni</span>
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-chat-left"></i>
+              23 Yorum
+            </button>
+            <button class="action-btn">
+              <i class="bi bi-share"></i>
+              Paylaş
+            </button>
+          </div>
+          <div class="comment-section">
+            <div class="show-comments text-muted small">Tüm yorumları göster</div>
+          </div>
+          <div class="input-group p-2 pt-0 border-top-0">
+            <input type="text" class="form-control rounded-0 border-0 bg-transparent composer-input-small" placeholder="Yorum yap...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="d-none d-lg-block" id="rightSidebar">
+      <div class="position-sticky pt-3">
+        <!-- Contacts -->
+        <div class="card mb-3">
+          <div class="card-header bg-white border-0">
+            <h6 class="mb-0 font-weight-bold">
+              <i class="bi bi-people-fill text-primary me-2"></i>
+              Kontaklar
+          </h6>
+          </div>
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center p-2 hover-bg" style="cursor:pointer;">
+              <div class="position-relative">
+                <img src="https://i.pravatar.com/150/?u=c1" alt="contact" class="rounded-circle border" width="36" height="36">
+                <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle" style="width:10px; height:10px;"></span>
+              </div>
+              <span class="ms-2">Maria Silva</span>
+            </div>
+            <div class="d-flex align-items-center p-2 hover-bg" style="cursor:pointer;">
+              <div class="position-relative">
+                <img src="https://i.pravatar.com/150/?u=c2" alt="contact" class="rounded-circle border" width="36" height="36">
+                <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle" style="width:10px; height:10px;"></span>
+              </div>
+              <span class="ms-2">John Doe</span>
+            </div>
+            <div class="d-flex align-items-center p-2 hover-bg" style="cursor:pointer;">
+              <div class="position-relative">
+                <img src="https://i.pravatar.com/150/?u=c3" alt="contact" class="rounded-circle border" width="36" height="36">
+                <span class="position-absolute bottom-0 end-0 bg-secondary border border-2 border-white rounded-circle" style="width:10px; height:10px;"></span>
+              </div>
+              <span class="ms-2">Emma Wilson</span>
+            </div>
+            <div class="d-flex align-items-center p-2 hover-bg" style="cursor:pointer;">
+              <div class="position-relative">
+                <img src="https://i.pravatar.com/150/?u=c4" alt="contact" class="rounded-circle border" width="36" height="36">
+                <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle" style="width:10px; height:10px;"></span>
+              </div>
+              <span class="ms-2">Mike Chen</span>
+            </div>
+            <div class="d-flex align-items-center p-2 hover-bg" style="cursor:pointer;">
+              <div class="position-relative">
+                <img src="https://i.pravatar.com/150/?u=c5" alt="contact" class="rounded-circle border" width="36" height="36">
+                <span class="position-absolute bottom-0 end-0 bg-success border border-2 border-white rounded-circle" style="width:10px; height:10px;"></span>
+              </div>
+              <span class="ms-2">Sofia Martinez</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sponsored -->
+        <div class="card mb-3">
+          <div class="card-header bg-white border-0">
+            <h6 class="mb-0 font-weight-bold">
+              <i class="bi bi-star text-warning me-2"></i>
+              Öne çıkan
+            </h6>
+          </div>
+          <div class="card-body">
+            <img src="https://picsum.photos/seed/sponsored/280/100" alt="sponsored" class="img-fluid rounded">
+            <p class="small text-muted mt-2">Sponsorlu içerik</p>
+          </div>
+        </div>
+
+        <div class="text-center text-muted small pb-3">
+          <span>© 2026 Social Network</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

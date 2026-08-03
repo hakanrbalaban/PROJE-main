@@ -1,6 +1,7 @@
 "use client";
 
 import { BrandLogo } from "@/components/BrandLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useState } from "react";
 
 type AuthScreenProps = {
@@ -40,6 +41,9 @@ export function AuthScreen({
 
   return (
     <div className="auth-screen">
+      <div className="auth-theme-slot">
+        <ThemeToggle />
+      </div>
       <div className="auth-card">
         <BrandLogo size={56} className="auth-logo" />
         <h1>Balaban Note</h1>

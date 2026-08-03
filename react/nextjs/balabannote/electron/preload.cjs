@@ -16,4 +16,9 @@ contextBridge.exposeInMainWorld("balabanDesktop", {
     ipcRenderer.on("data-folder-changed", handler);
     return () => ipcRenderer.removeListener("data-folder-changed", handler);
   },
+  onAppCommand: (callback) => {
+    const handler = (_event, cmd) => callback(cmd);
+    ipcRenderer.on("app-command", handler);
+    return () => ipcRenderer.removeListener("app-command", handler);
+  },
 });

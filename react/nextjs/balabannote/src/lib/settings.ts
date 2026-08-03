@@ -4,6 +4,8 @@ import path from "path";
 export type AppSettings = {
   /** Notların kaydedildiği klasör (SQLite burada tutulur) */
   dataDir?: string;
+  /** Şablon kütüphanesi klasörü (varsayılan D:\\BalabanNote\\templates) */
+  templatesDir?: string;
 };
 
 function dataRoot() {

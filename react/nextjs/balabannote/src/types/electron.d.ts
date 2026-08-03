@@ -11,6 +11,13 @@ type BalabanDataFolder = {
   dbPath: string;
 };
 
+type BalabanAppCommand =
+  | "undo"
+  | "redo"
+  | "zoom-in"
+  | "zoom-out"
+  | "zoom-reset";
+
 interface BalabanDesktop {
   isElectron: true;
   platform: NodeJS.Platform;
@@ -30,6 +37,7 @@ interface BalabanDesktop {
   onDataFolderChanged: (
     callback: (payload: BalabanDataFolder) => void,
   ) => () => void;
+  onAppCommand: (callback: (cmd: BalabanAppCommand) => void) => () => void;
 }
 
 interface Window {

@@ -243,8 +243,17 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
+      // Stylus/kalem: arka planda RAF ve timer yavaşlamasın
+      backgroundThrottling: false,
     },
   });
+
+  try {
+    mainWindow.webContents.setBackgroundThrottling(false);
+    mainWindow.webContents.setFrameRate(120);
+  } catch {
+    /* older electron */
+  }
 
   mainWindow.once("ready-to-show", () => mainWindow?.show());
 
@@ -448,6 +457,12 @@ function setupAutoUpdater() {
   });
 }
 
+function sendAppCommand(cmd) {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.webContents.send("app-command", cmd);
+  }
+}
+
 function buildMenu() {
   const template = [
     {
@@ -511,8 +526,22 @@ function buildMenu() {
     {
       label: "Düzenle",
       submenu: [
-        { role: "undo", label: "Geri al" },
-        { role: "redo", label: "Yinele" },
+        {
+          label: "Geri al",
+          accelerator: "CmdOrCtrl+Z",
+          click: () => sendAppCommand("undo"),
+        },
+        {
+          label: "Yinele",
+          accelerator: "CmdOrCtrl+Shift+Z",
+          click: () => sendAppCommand("redo"),
+        },
+        {
+          label: "Yinele",
+          accelerator: "CmdOrCtrl+Y",
+          click: () => sendAppCommand("redo"),
+          visible: false,
+        },
         { type: "separator" },
         { role: "cut", label: "Kes" },
         { role: "copy", label: "Kopyala" },
@@ -524,9 +553,21 @@ function buildMenu() {
       label: "Görünüm",
       submenu: [
         { role: "togglefullscreen", label: "Tam ekran" },
-        { role: "zoomIn", label: "Yakınlaştır" },
-        { role: "zoomOut", label: "Uzaklaştır" },
-        { role: "resetZoom", label: "Varsayılan zoom" },
+        {
+          label: "Yakınlaştır",
+          accelerator: "CmdOrCtrl+=",
+          click: () => sendAppCommand("zoom-in"),
+        },
+        {
+          label: "Uzaklaştır",
+          accelerator: "CmdOrCtrl+-",
+          click: () => sendAppCommand("zoom-out"),
+        },
+        {
+          label: "Varsayılan zoom",
+          accelerator: "CmdOrCtrl+0",
+          click: () => sendAppCommand("zoom-reset"),
+        },
       ],
     },
   ];
@@ -585,18 +626,45 @@ app.whenReady().then(async () => {
       process.env.DB_DRIVER = process.env.DB_DRIVER || "sqlite";
     }
 
-    // Yerel yazı tiplerini (queryLocalFonts) izinle
+    // Kamera / mikrofon / ekran yakalama / yerel fontlar
     try {
       const { session } = require("electron");
+      const allow = new Set([
+        "media",
+        "display-capture",
+        "local-fonts",
+        "clipboard-sanitized-write",
+      ]);
       session.defaultSession.setPermissionRequestHandler(
         (_wc, permission, callback) => {
-          if (permission === "local-fonts") {
-            callback(true);
-            return;
-          }
-          callback(false);
+          callback(allow.has(permission));
         },
       );
+      session.defaultSession.setPermissionCheckHandler(
+        (_wc, permission) => allow.has(permission),
+      );
+      // Ekran paylaşımı (screenshot) — Electron 37+
+      if (typeof session.defaultSession.setDisplayMediaRequestHandler === "function") {
+        session.defaultSession.setDisplayMediaRequestHandler(
+          async (_wc, callback) => {
+            try {
+              const { desktopCapturer } = require("electron");
+              const sources = await desktopCapturer.getSources({
+                types: ["screen", "window"],
+                thumbnailSize: { width: 0, height: 0 },
+              });
+              const primary = sources[0];
+              if (!primary) {
+                callback({});
+                return;
+              }
+              callback({ video: primary });
+            } catch {
+              callback({});
+            }
+          },
+        );
+      }
     } catch {
       /* ignore */
     }

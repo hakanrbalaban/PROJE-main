@@ -34,10 +34,29 @@ export type BoardShapeKind =
   | "triangle"
   | "hexagon"
   | "parallelogram"
+  | "cylinder"
+  | "cloud"
+  | "star"
+  | "callout"
+  | "document"
+  | "process"
   | "arrow"
   | "line"
+  | "connector"
   | "text"
-  | "sticky";
+  | "sticky"
+  | "chartBar"
+  | "chartPie"
+  | "chartLine";
+
+export type BoardLineStyle = "solid" | "dashed" | "dotted";
+export type BoardArrowEnds = "none" | "end" | "start" | "both";
+
+export type BoardChartData = {
+  labels: string[];
+  values: number[];
+  colors?: string[];
+};
 
 export type BoardShape = {
   id: string;
@@ -52,6 +71,11 @@ export type BoardShape = {
   text?: string;
   x2?: number;
   y2?: number;
+  lineStyle?: BoardLineStyle;
+  arrowEnds?: BoardArrowEnds;
+  /** Elbow connector mid points (absolute coords) */
+  points?: { x: number; y: number }[];
+  chart?: BoardChartData;
 };
 
 export type TodoItem = {
@@ -83,6 +107,13 @@ export type PagePattern =
   | "margin"
   | "none";
 
+export type NoteComment = {
+  id: string;
+  text: string;
+  createdAt: number;
+  updatedAt: number;
+};
+
 export type NotePage = {
   id: string;
   notebookId: string;
@@ -93,7 +124,12 @@ export type NotePage = {
   strokes?: InkStroke[];
   shapes?: BoardShape[];
   formulas?: NoteFormula[];
+  comments?: NoteComment[];
   todos?: TodoItem[];
+  /** Notion-style favorite / OneNote pin */
+  pinned?: boolean;
+  /** Soft-deleted → recycle bin */
+  deletedAt?: number;
   /** Note paper background */
   bgColor?: string;
   pattern?: PagePattern;
@@ -134,6 +170,8 @@ export type Notebook = {
   title: string;
   color: string;
   createdAt: number;
+  /** Soft-deleted → recycle bin */
+  deletedAt?: number;
 };
 
 export type Workspace = {

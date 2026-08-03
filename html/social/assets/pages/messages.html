@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>Social - Mesajlar</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="social-header">
+    <div class="container-fluid px-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-link d-md-none me-2" id="mobileMenuToggle">
+          <i class="bi bi-list fs-4 text-white"></i>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <i class="bi bi-facebook text-white me-1"></i>
+          <span class="text-white logo">Social</span>
+        </a>
+      </div>
+
+      <div class="d-none d-md-block">
+        <input type="text" class="search-box" placeholder="Facebook'ta ara">
+      </div>
+
+      <div class="d-flex align-items-center">
+        <div class="d-none d-md-flex nav-icons">
+          <a href="index.html" title="Anasayfa"><i class="bi bi-house-fill"></i></a>
+          <a href="watch.html" title="Vidyo"><i class="bi bi-play-circle"></i></a>
+          <a href="groups.html" title="Gruplar"><i class="bi bi-people-fill"></i></a>
+          <a href="messages.html" title="Mesajlar"><i class="bi bi-chat-left-text-fill"></i></a>
+        </div>
+        <div class="position-relative me-2">
+          <a href="#" class="text-white text-decoration-none" id="themeToggle" title="Tema değiştir">
+            <i class="bi bi-moon"></i>
+          </a>
+        </div>
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../img/profile.jpg" alt="Profile" class="rounded-circle border" width="36" height="36">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="profile.html">Profilim</a></li>
+          <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="login.html" onclick="socialApp.handleLogout()">Çıkış Yap</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-md-none" id="mobileOverlay" style="z-index: 999; display: none;"></div>
+
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <div class="d-none d-lg-block" id="sidebar">
+      <div class="position-sticky pt-3">
+        <div class="list-group">
+          <a href="index.html" class="sidebar-item">
+            <i class="bi bi-house-fill sidebar-icon"></i>
+            <span>Anasayfa</span>
+          </a>
+          <a href="watch.html" class="sidebar-item">
+            <i class="bi bi-play-circle sidebar-icon"></i>
+            <span>Vidyo</span>
+          </a>
+          <a href="groups.html" class="sidebar-item">
+            <i class="bi bi-people-fill sidebar-icon"></i>
+            <span>Gruplar</span>
+          </a>
+          <a href="messages.html" class="sidebar-item active">
+            <i class="bi bi-chat-left-text-fill sidebar-icon"></i>
+            <span>Mesajlar</span>
+          </a>
+          <a href="profile.html" class="sidebar-item">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            <span>Profil</span>
+          </a>
+          <a href="login.html" class="sidebar-item" onclick="socialApp.handleLogout()">
+            <i class="bi bi-box-arrow-right sidebar-icon"></i>
+            <span>Çıkış Yap</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainFeed">
+      <div class="card h-100" style="border-radius: 12px; overflow: hidden;">
+        <div class="card-header bg-white border-0 p-3">
+          <h5 class="mb-0">
+            <i class="bi bi-chat-left-text-fill text-primary me-2"></i>
+            Mesajlar
+          </h5>
+          <input type="text" class="form-control mt-2" placeholder="Mesaj ara..." style="border-radius: 999px;">
+        </div>
+
+        <div class="conversation-list">
+          <div class="conversation-item active">
+            <img src="https://i.pravatar.com/150/?u=maria" alt="Maria" class="conv-img">
+            <div class="conv-content">
+              <div class="conv-name">Maria Silva</div>
+              <div class="conv-msg">Merhaba, nasılsın?</div>
+            </div>
+            <div class="conv-time text-end">
+              <div class="text-muted small">10:23</div>
+              <span class="badge bg-primary rounded-circle">3</span>
+            </div>
+          </div>
+
+          <div class="conversation-item">
+            <img src="https://i.pravatar.com/150/?u=john" alt="John" class="conv-img">
+            <div class="conv-content">
+              <div class="conv-name">John Doe</div>
+              <div class="conv-msg">Toplantı saat 15:00'de başlıyor.</div>
+            </div>
+            <div class="conv-time text-end">
+              <div class="text-muted small">08:45</div>
+            </div>
+          </div>
+
+          <div class="conversation-item">
+            <img src="https://i.pravatar.com/150/?u=emma" alt="Emma" class="conv-img">
+            <div class="conv-content">
+              <div class="conv-name">Emma Wilson</div>
+              <div class="conv-msg">Yeni kitabın için tebrikler!</div>
+            </div>
+            <div class="conv-time text-end">
+              <div class="text-muted small">Dün</div>
+            </div>
+          </div>
+
+          <div class="conversation-item">
+            <img src="https://i.pravatar.com/150/?u=sofia" alt="Sofia" class="conv-img">
+            <div class="conv-content">
+              <div class="conv-name">Sofia Martinez</div>
+              <div class="conv-msg">Köpeğin çok sevimli görünüyor!</div>
+            </div>
+            <div class="conv-time text-end">
+              <div class="text-muted small">Sal</div>
+            </div>
+          </div>
+
+          <div class="conversation-item">
+            <img src="https://i.pravatar.com/150/?u=mike" alt="Mike" class="conv-img">
+            <div class="conv-content">
+              <div class="conv-name">Mike Chen</div>
+              <div class="conv-msg">Proje için öneri gönderdi.</div>
+            </div>
+            <div class="conv-time text-end">
+              <div class="text-muted small">Pzt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar with Chat -->
+    <div class="d-none d-lg-block" id="rightSidebar">
+      <div class="card h-100" style="border-radius: 12px; overflow: hidden;">
+        <div class="chat-area">
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-bubble received">
+              Merhaba! Nasılsın?
+            </div>
+            <div class="chat-bubble sent">
+              Merhaba Maria! İyiyim, sen nasılsın?
+            </div>
+            <div class="chat-bubble received">
+              Ben de iyiyim. Yeni film önerebilir misin?
+            </div>
+            <div class="chat-bubble sent">
+              Elbette! "Everything Everywhere" çok iyi bir film. Izler misin?
+            </div>
+            <div class="chat-bubble received">
+              Tabii ki, izleyebilirim. Teşekkürler!
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" class="form-control" placeholder="Mesaj yaz..." id="chatInput">
+            <button class="btn btn-primary" onclick="sendMessage()">
+              <i class="bi bi-send"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script>
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const messages = document.getElementById('chatMessages');
+      if (input.value.trim()) {
+        const msg = document.createElement('div');
+        msg.className = 'chat-bubble sent';
+        msg.textContent = input.value;
+        messages.appendChild(msg);
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+
+    document.getElementById('chatInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+
+</html>
