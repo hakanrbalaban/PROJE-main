@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#050814" />
+<title>Neon Brick — Tuğla Kırma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="game-wrap" id="game-wrap">
+  <canvas id="game-canvas"></canvas>
+
+  <!-- ======= HUD ======= -->
+  <div class="hud" id="hud">
+    <div class="hud-left">
+      <div class="hud-score">
+        <span class="hud-label">SKOR</span>
+        <span class="hud-value" id="hud-score">000000</span>
+      </div>
+      <div class="hud-score">
+        <span class="hud-label">REKOR</span>
+        <span class="hud-value hud-high" id="hud-high">000000</span>
+      </div>
+    </div>
+
+    <div class="hud-center">
+      <div class="hud-level">
+        <span class="hud-label">SEVİYE</span>
+        <span class="hud-value hud-level-value" id="hud-level">1</span>
+      </div>
+      <div class="hud-effects" id="hud-effects"></div>
+    </div>
+
+    <div class="hud-right">
+      <div class="hud-lives" id="hud-lives"></div>
+      <button class="mute-btn" id="btn-mute" type="button" title="Ses aç / kapat">🔊</button>
+    </div>
+
+    <div class="combo-badge hidden" id="combo-badge">KOMBO x2</div>
+  </div>
+
+  <!-- ======= MENU ======= -->
+  <div class="overlay" id="screen-menu">
+    <div class="overlay-inner">
+      <div class="title-block">
+        <h1 class="game-title">NEON<span>&nbsp;BRICK</span></h1>
+        <p class="game-subtitle">TUĞLA KIRMA</p>
+      </div>
+      <p class="best-score">EN İYİ SKOR&nbsp;&nbsp;<b id="menu-high">000000</b></p>
+      <button class="neon-btn primary" id="btn-start" type="button">▶ OYUNA BAŞLA</button>
+      <div class="controls-hint">
+        <div><span class="key">🖱 Fare</span>&nbsp; / &nbsp;<span class="key">← →</span>&nbsp; / &nbsp;<span class="key">A D</span> — Raketi hareket ettir</div>
+        <div><span class="key">Boşluk</span>&nbsp; / &nbsp;<span class="key">Tıkla</span> — Topu fırlat</div>
+        <div><span class="key">P</span>&nbsp; / &nbsp;<span class="key">Esc</span> — Duraklat</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= PAUSE ======= -->
+  <div class="overlay hidden" id="screen-pause">
+    <div class="overlay-inner">
+      <h2 class="overlay-title">DURAKLATILDI</h2>
+      <button class="neon-btn primary" id="btn-resume" type="button">▶ DEVAM ET</button>
+      <button class="neon-btn" id="btn-restart" type="button">↻ BAŞTAN BAŞLA</button>
+      <button class="neon-btn ghost" id="btn-quit" type="button">⌂ ANA MENÜ</button>
+    </div>
+  </div>
+
+  <!-- ======= LEVEL COMPLETE ======= -->
+  <div class="overlay hidden" id="screen-levelcomplete">
+    <div class="overlay-inner">
+      <h2 class="overlay-title level-done">SEVİYE <span id="level-done-num">1</span> TAMAM!</h2>
+      <p class="stat-row">Seviye Bonusu: <b id="lv-bonus">+0</b></p>
+      <p class="stat-row">Toplam Skor: <b id="lv-score">0</b></p>
+      <button class="neon-btn primary" id="btn-next" type="button">SONRAKİ SEVİYE ▶</button>
+    </div>
+  </div>
+
+  <!-- ======= GAME OVER ======= -->
+  <div class="overlay hidden" id="screen-gameover">
+    <div class="overlay-inner">
+      <h2 class="overlay-title game-over-title">OYUN BİTTİ</h2>
+      <p class="stat-row">Ulaşılan Seviye: <b id="final-level">1</b></p>
+      <p class="stat-row">Skor: <b id="final-score">0</b></p>
+      <p class="stat-row">En İyi Skor: <b id="final-high">0</b></p>
+      <button class="neon-btn primary" id="btn-again" type="button">↻ TEKRAR DENE</button>
+      <button class="neon-btn ghost" id="btn-menu" type="button">⌂ ANA MENÜ</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

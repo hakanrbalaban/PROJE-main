@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' b:responsive='true' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/Atom/b' xmlns:data='http://www.google.com/2005/Atom/data' xmlns:expr='http://www.google.com/2005/Atom/expr'>
+<head>
+<title><data:blog.pageTitle/></title>
+<b:skin><![CDATA[]]></b:skin>
+</head>
+<body>
+<b:section id='main' showaddelement='yes'/>
+</body>
+</html>

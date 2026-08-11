@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Tuğla Kırma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <h1>Tuğla Kırma</h1>
+      </div>
+      <div class="hud">
+        <div class="hud-chip score">
+          <span class="k">Skor</span>
+          <span class="v" id="score">0</span>
+        </div>
+        <div class="hud-chip level">
+          <span class="k">Seviye</span>
+          <span class="v" id="level">1</span>
+        </div>
+        <div class="hud-chip lives">
+          <span class="k">Can</span>
+          <span class="v" id="lives">❤❤❤</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="power-bar" id="powerBar" aria-live="polite"></div>
+
+    <main class="stage">
+      <canvas id="game" aria-label="Tuğla kırma oyun alanı"></canvas>
+
+      <div class="overlay" id="overlay">
+        <div class="panel">
+          <p class="eyebrow" id="eyebrow">Neon Arcade</p>
+          <h2 id="title">Tuğla Kırma</h2>
+          <p id="message">Sınırsız seviye · neon tuğlalar · güçlendirmeleri yakala.</p>
+          <ul class="legend">
+            <li><i class="c-life"></i> Can</li>
+            <li><i class="c-multi"></i> Çoklu top</li>
+            <li><i class="c-break"></i> Kırıcı</li>
+            <li><i class="c-wide"></i> Geniş raket</li>
+            <li><i class="c-slow"></i> Yavaş top</li>
+            <li><i class="c-fire"></i> Ateş topu</li>
+          </ul>
+          <button type="button" class="btn" id="actionBtn">Başla</button>
+          <p class="hint">← → · fare · dokunma · boşluk = fırlat · P = duraklat</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

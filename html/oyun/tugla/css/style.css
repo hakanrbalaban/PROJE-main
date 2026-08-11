@@ -1,0 +1,424 @@
+/* ============================================================
+   NEON BRICK — Tuğla Kırma | Vanilla JS
+   Neon / Cyberpunk tema
+   ============================================================ */
+
+:root {
+  --bg-0: #050814;
+  --bg-1: #0a0f24;
+  --panel: rgba(10, 15, 36, 0.82);
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff2d95;
+  --neon-purple: #9d4dff;
+  --neon-yellow: #ffe600;
+  --neon-green: #39ff88;
+  --text-main: #e8f6ff;
+  --text-dim: #7f9bb8;
+  --danger: #ff3b5c;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --glow-cyan: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 24px rgba(0, 240, 255, 0.35);
+  --glow-pink: 0 0 8px rgba(255, 45, 149, 0.8), 0 0 24px rgba(255, 45, 149, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 30%, var(--bg-1) 0%, var(--bg-0) 70%);
+  font-family: var(--font-body);
+  color: var(--text-main);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* ---------- Oyun sarmalayıcı ---------- */
+.game-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: none;
+}
+
+/* ---------- HUD ---------- */
+.hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: linear-gradient(180deg, rgba(5, 8, 20, 0.9) 0%, rgba(5, 8, 20, 0) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hud-left, .hud-right, .hud-center {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hud-score {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.hud-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+}
+
+.hud-value {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+  letter-spacing: 2px;
+}
+
+.hud-value.hud-high {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.7), 0 0 20px rgba(255, 230, 0, 0.3);
+}
+
+.hud-level-value {
+  color: var(--neon-pink);
+  text-shadow: var(--glow-pink);
+  font-size: 24px;
+}
+
+.hud-effects {
+  display: flex;
+  gap: 6px;
+  min-height: 20px;
+}
+
+.effect-chip {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid currentColor;
+  color: var(--neon-green);
+  text-shadow: 0 0 6px rgba(57, 255, 136, 0.6);
+  animation: chipIn 0.3s ease;
+}
+
+.effect-chip.warn {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 6px rgba(255, 230, 0, 0.6);
+}
+
+@keyframes chipIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.hud-lives {
+  display: flex;
+  gap: 6px;
+  font-size: 18px;
+}
+
+.hud-lives .life {
+  filter: drop-shadow(0 0 6px rgba(255, 45, 149, 0.8));
+  animation: lifePop 0.3s ease;
+}
+
+.hud-lives .life.lost {
+  filter: grayscale(1) opacity(0.35);
+}
+
+@keyframes lifePop {
+  from { transform: scale(1.6); }
+  to   { transform: scale(1); }
+}
+
+.mute-btn {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 16px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mute-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--neon-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ---------- Kombo rozeti ---------- */
+.combo-badge {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.9), 0 0 30px rgba(255, 230, 0, 0.4);
+  animation: comboPop 0.4s ease;
+  pointer-events: none;
+  z-index: 6;
+}
+
+@keyframes comboPop {
+  0%   { transform: translateX(-50%) scale(0.4); opacity: 0; }
+  60%  { transform: translateX(-50%) scale(1.25); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+/* ---------- Overlay ekranlar ---------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 5, 14, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10;
+  animation: fadeIn 0.3s ease;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.overlay-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 50px;
+  background: var(--panel);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.12), inset 0 0 30px rgba(0, 240, 255, 0.04);
+  max-width: 92vw;
+  text-align: center;
+}
+
+/* ---------- Başlık ---------- */
+.title-block {
+  margin-bottom: 6px;
+}
+
+.game-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(38px, 7vw, 64px);
+  letter-spacing: 4px;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan), 0 0 60px rgba(0, 240, 255, 0.3);
+  line-height: 1;
+}
+
+.game-title span {
+  color: var(--neon-pink);
+  text-shadow: var(--glow-pink), 0 0 60px rgba(255, 45, 149, 0.3);
+}
+
+.game-subtitle {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 8px;
+  color: var(--text-dim);
+  margin-top: 10px;
+}
+
+.best-score {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+
+.best-score b {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.6);
+  font-size: 16px;
+}
+
+.overlay-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.overlay-title.level-done {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px rgba(57, 255, 136, 0.8), 0 0 30px rgba(57, 255, 136, 0.3);
+}
+
+.overlay-title.game-over-title {
+  color: var(--danger);
+  text-shadow: 0 0 8px rgba(255, 59, 92, 0.8), 0 0 30px rgba(255, 59, 92, 0.3);
+}
+
+.stat-row {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.stat-row b {
+  color: var(--text-main);
+  font-size: 20px;
+}
+
+/* ---------- Neon butonlar ---------- */
+.neon-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 13px 34px;
+  border-radius: 10px;
+  border: 1px solid var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--neon-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  min-width: 220px;
+}
+
+.neon-btn:hover {
+  background: rgba(0, 240, 255, 0.2);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+.neon-btn:active {
+  transform: translateY(0);
+}
+
+.neon-btn.primary {
+  border-color: var(--neon-pink);
+  background: rgba(255, 45, 149, 0.1);
+  color: var(--neon-pink);
+}
+
+.neon-btn.primary:hover {
+  background: rgba(255, 45, 149, 0.22);
+  box-shadow: var(--glow-pink);
+}
+
+.neon-btn.ghost {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--text-dim);
+}
+
+.neon-btn.ghost:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+  box-shadow: none;
+}
+
+/* ---------- Kontrol ipuçları ---------- */
+.controls-hint {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.controls-hint .key {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 5px;
+  padding: 2px 7px;
+  background: rgba(0, 240, 255, 0.06);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .hud {
+    height: 52px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .hud-value {
+    font-size: 15px;
+  }
+
+  .hud-label {
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .hud-left, .hud-right, .hud-center {
+    gap: 10px;
+  }
+
+  .hud-effects {
+    display: none;
+  }
+
+  .overlay-inner {
+    padding: 28px 24px;
+    gap: 14px;
+  }
+
+  .neon-btn {
+    min-width: 190px;
+    padding: 11px 24px;
+    font-size: 12px;
+  }
+
+  .controls-hint {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/Atom/b' xmlns:data='http://www.google.com/2005/Atom/data' xmlns:expr='http://www.google.com/2005/Atom/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<b:include data='blog' name='all-head-content'/>
+<title><data:blog.pageTitle/></title>
+<b:skin><![CDATA[
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Sora:wght@300;400;500;600&display=swap');
+/* Sükûn — calm forest mist */
+:root {
+  --ink: #15241f;
+  --ink-soft: #2a3f37;
+  --mist: #d7e6df;
+  --fog: #eef5f1;
+  --leaf: #3d6b5a;
+  --leaf-deep: #244a3c;
+  --moss: #5f8f78;
+  --sand: #c8b89a;
+  --white: #f7fbf8;
+  --line: rgba(21, 36, 31, 0.12);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Sora", system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --space: clamp(1.25rem, 3vw, 2.5rem);
+  --max: 68rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(95, 143, 120, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(200, 184, 154, 0.2), transparent 50%),
+    linear-gradient(180deg, var(--fog) 0%, var(--mist) 40%, #c9ddd3 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--leaf-deep);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: 1rem var(--space);
+  transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
+}
+
+.site-header.is-scrolled {
+  background: rgba(238, 245, 241, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s var(--ease);
+}
+
+.site-header.is-scrolled .logo {
+  color: var(--ink);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: rgba(247, 251, 248, 0.9);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color 0.3s var(--ease), opacity 0.3s;
+}
+
+.site-nav a:hover {
+  color: var(--white);
+  opacity: 0.85;
+}
+
+.site-header.is-scrolled .site-nav a {
+  color: var(--ink-soft);
+}
+
+.nav-toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 1.5px;
+  background: var(--white);
+  transition: background 0.3s, transform 0.3s var(--ease);
+}
+
+.site-header.is-scrolled .nav-toggle span {
+  background: var(--ink);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  align-items: end;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(21, 36, 31, 0.25) 0%, rgba(21, 36, 31, 0.55) 55%, rgba(21, 36, 31, 0.78) 100%),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80") center / cover no-repeat;
+  transform: scale(1.04);
+  animation: hero-drift 28s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  from { transform: scale(1.04) translate(0, 0); }
+  to { transform: scale(1.08) translate(-1.5%, -1%); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(6rem, 18vh, 10rem) var(--space) clamp(3rem, 8vh, 5rem);
+  animation: rise-in 1s var(--ease) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 10vw, 6.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
+}
+
+.hero-lead {
+  margin: 0 0 1.75rem;
+  max-width: 36ch;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(247, 251, 248, 0.88);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid transparent;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--sand);
+  color: var(--ink);
+  border-color: var(--sand);
+}
+
+.btn-primary:hover {
+  background: #d4c4a8;
+  color: var(--ink);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+
+.hero .btn-ghost {
+  color: var(--white);
+  border-color: rgba(247, 251, 248, 0.45);
+}
+
+.hero .btn-ghost:hover {
+  border-color: var(--white);
+  background: rgba(247, 251, 248, 0.08);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Sections */
+.section {
+  padding: clamp(4rem, 10vw, 7rem) var(--space);
+}
+
+.section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.section-inner.narrow {
+  max-width: 40rem;
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.section-lead {
+  margin: 0 0 2.5rem;
+  max-width: 38ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+/* Why */
+.why-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.why-list li {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.why-list li.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-list strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.why-list span {
+  color: var(--ink-soft);
+}
+
+/* Techniques */
+.tech-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.filter-btn:hover {
+  border-color: var(--leaf);
+  color: var(--ink);
+}
+
+.filter-btn.is-active {
+  background: var(--leaf-deep);
+  border-color: var(--leaf-deep);
+  color: var(--white);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1.75rem 2rem;
+}
+
+.tech-item {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+  transition: opacity 0.35s var(--ease);
+}
+
+.tech-item.is-hidden {
+  display: none;
+}
+
+.tech-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+}
+
+.tech-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.tech-item > p:not(.tech-meta) {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.tech-item ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.tech-item li + li {
+  margin-top: 0.35rem;
+}
+
+.tech-item:focus-visible {
+  outline: 2px solid var(--leaf);
+  outline-offset: 4px;
+}
+
+/* Breath */
+.breath {
+  background: linear-gradient(160deg, var(--leaf-deep) 0%, #1a3329 55%, #243d34 100%);
+  color: var(--white);
+}
+
+.breath h2,
+.breath .section-lead {
+  color: var(--white);
+}
+
+.breath .section-lead {
+  opacity: 0.85;
+}
+
+.breath-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.field span {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.field select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(247, 251, 248, 0.25);
+  background: rgba(247, 251, 248, 0.08);
+  color: var(--white);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23f7fbf8' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.field select option {
+  color: var(--ink);
+  background: var(--fog);
+}
+
+.hint {
+  margin: 0 0 1.5rem;
+  font-size: 0.88rem;
+  opacity: 0.65;
+}
+
+.breath-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.breath .btn-primary {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+.breath .btn-ghost {
+  color: var(--white);
+  border-color: rgba(247, 251, 248, 0.35);
+}
+
+.breath-stage {
+  display: grid;
+  place-items: center;
+  gap: 1.25rem;
+  min-height: 22rem;
+}
+
+.breath-orb {
+  width: min(16rem, 70vw);
+  height: min(16rem, 70vw);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 35% 30%, rgba(215, 230, 223, 0.35), rgba(95, 143, 120, 0.2) 45%, rgba(36, 74, 60, 0.5));
+  border: 1px solid rgba(247, 251, 248, 0.2);
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.breath-orb[data-phase="idle"] {
+  transform: scale(0.85);
+}
+
+.breath-label {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: block;
+}
+
+.breath-count {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.breath-cycles {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+/* Timer */
+.timer-layout {
+  display: grid;
+  gap: 2.5rem;
+  justify-items: start;
+}
+
+.timer-panel {
+  width: min(100%, 28rem);
+}
+
+.timer-display {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 12vw, 5.5rem);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  color: var(--leaf-deep);
+}
+
+.timer-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.preset {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.preset:hover {
+  border-color: var(--leaf);
+}
+
+.preset.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.timer .btn-ghost {
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+.timer .btn-ghost:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.timer-streak {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.timer-streak strong {
+  color: var(--leaf-deep);
+  font-weight: 500;
+}
+
+/* Knowledge */
+.knowledge-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.knowledge-list article {
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+.knowledge-list h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.6rem;
+}
+
+.knowledge-list p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+/* Daily tip */
+.tip {
+  padding-top: 0;
+}
+
+.tip-inner {
+  text-align: left;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.tip h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.tip p {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+
+.tip .btn-ghost {
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+/* Disclaimer */
+.disclaimer-bar {
+  padding: 1.25rem var(--space);
+  background: rgba(21, 36, 31, 0.06);
+  border-bottom: 1px solid var(--line);
+}
+
+.disclaimer-bar p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.disclaimer-bar strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Footer */
+.site-footer {
+  padding: 3rem var(--space) 2.5rem;
+  border-top: 1px solid var(--line);
+  background: rgba(21, 36, 31, 0.04);
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-legal {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-legal p {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 52rem;
+}
+
+.footer-legal .credit {
+  margin-bottom: 0;
+  font-size: 0.78rem;
+}
+
+.site-footer a {
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--leaf-deep);
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-legal a {
+  font-size: inherit;
+}
+
+/* Mobile nav */
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    position: fixed;
+    inset: 0 0 auto;
+    top: 0;
+    padding: 5rem var(--space) 1.5rem;
+    background: rgba(21, 36, 31, 0.96);
+    flex-direction: column;
+    gap: 1rem;
+    transform: translateY(-110%);
+    transition: transform 0.4s var(--ease);
+    pointer-events: none;
+  }
+
+  .site-nav.is-open {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-nav a {
+    color: var(--white) !important;
+    font-size: 1.1rem;
+  }
+
+  .site-header.nav-open .nav-toggle span:first-child {
+    transform: translateY(2.75px) rotate(45deg);
+  }
+
+  .site-header.nav-open .nav-toggle span:last-child {
+    transform: translateY(-2.75px) rotate(-45deg);
+  }
+
+  .site-header.nav-open .nav-toggle span,
+  .site-header.nav-open.is-scrolled .nav-toggle span {
+    background: var(--white);
+  }
+
+  .breath-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .breath-stage {
+    order: -1;
+    min-height: 18rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-media,
+  .hero-content,
+  .why-list li {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .breath-orb {
+    transition: none;
+  }
+}
+
+/* Blogger gizle */
+#navbar-iframe,.navbar,.Header,.header,.header-outer,.header-inner,
+.titlewrapper,.descriptionwrapper,.blog-name,h1.title,
+.sidebar,.sidebar-wrapper,.column-left-outer,.column-right-outer,
+.widget.BlogSearch,.widget.Profile,.widget.Attribution,.widget.FollowByEmail,
+.widget.ReportAbuse,.footer,.footer-outer,.footer-inner,#footer-wrapper,
+.blog-feeds,.status-msg-wrap,#blog-pager,.blog-pager{
+  display:none!important;height:0!important;overflow:hidden!important;margin:0!important;padding:0!important;
+}
+body,.content-outer,.content-inner,.main-outer,.main-inner,.region-inner,
+.columns-inner,.column-center-outer,.column-center-inner,.section,.widget,.widget-content,
+#main,#main-wrapper{
+  width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
+  float:none!important;background:transparent!important;border:none!important;box-shadow:none!important;
+}
+.site-header,.site-header.is-scrolled{
+  background:rgba(238,245,241,.92)!important;backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(21,36,31,.12);
+}
+.site-header .logo,.site-header.is-scrolled .logo{color:#15241f!important}
+.site-header .site-nav a,.site-header.is-scrolled .site-nav a{color:#2a3f37!important}
+.site-header .nav-toggle span,.site-header.is-scrolled .nav-toggle span{background:#15241f!important}
+]]></b:skin>
+</head>
+<body>
+<b:section id='sukun' maxwidgets='1' showaddelement='no'>
+<b:widget id='HTML1' locked='true' title='Sukun' type='HTML' version='2' visible='true'>
+<b:widget-settings>
+<b:widget-setting name='content'><![CDATA[
+<a class="skip-link" href="#icerik">İçeriğe atla</a>
+
+  <header class="site-header" id="ust">
+    <div class="header-inner">
+      <a class="logo" href="#ust" aria-label="Sükûn ana sayfa">Sükûn</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Ana menü">
+        <a href="#neden">Neden</a>
+        <a href="#teknikler">Teknikler</a>
+        <a href="#nefes">Nefes</a>
+        <a href="#zamanlayici">Zamanlayıcı</a>
+        <a href="#bilgiler">Bilgiler</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="icerik">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" role="img" aria-label="Sisli ormanda sakin bir sabah"></div>
+      <div class="hero-content">
+        <p class="brand">Sükûn</p>
+        <h1 id="hero-title">Zihin durur, nefes kalır.</h1>
+        <p class="hero-lead">Günlük meditasyon teknikleri, rehberli nefes pratikleri ve dinginlik hakkında genel bilgiler.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#nefes">Nefes pratiğine başla</a>
+          <a class="btn btn-ghost" href="#teknikler">Teknikleri keşfet</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="disclaimer-bar" role="note" aria-label="Önemli uyarı">
+      <div class="section-inner narrow">
+        <p><strong>Önemli:</strong> Sükûn eğitim ve farkındalık amaçlı genel bilgidir; tıbbi teşhis, tedavi veya profesyonel sağlık hizmeti değildir. Sağlık durumunuz için hekim veya yetkili uzmana danışın. Acil durumda 112’yi arayın.</p>
+      </div>
+    </aside>
+
+    <section class="section why" id="neden" aria-labelledby="neden-title">
+      <div class="section-inner narrow">
+        <h2 id="neden-title">Neden meditasyon?</h2>
+        <p class="section-lead">Kısa, bilinçli pratikler birçok kişi için sakinlik, odak ve duygusal dengeyi desteklemeye yardımcı olabilir. Sonuçlar kişiden kişiye değişir.</p>
+        <ul class="why-list">
+          <li>
+            <strong>Stresle yumuşak ilişki</strong>
+            <span>Bazı araştırmalarda farkındalık pratikleri, stres tepkisini yumuşatma ve rahatlama hissiyle ilişkilendirilir.</span>
+          </li>
+          <li>
+            <strong>Dikkat alıştırması</strong>
+            <span>Düzenli pratik, dikkati geri getirme becerisini güçlendirmeye yardımcı olabilir; bir “odak kası” gibi düşünülebilir.</span>
+          </li>
+          <li>
+            <strong>Duyguları adlandırmak</strong>
+            <span>Farkındalık, tepki vermeden önce kısa bir boşluk yaratmaya yardımcı olabilir — seçim alanı açılır.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section techniques" id="teknikler" aria-labelledby="teknikler-title">
+      <div class="section-inner">
+        <h2 id="teknikler-title">Meditasyon teknikleri</h2>
+        <p class="section-lead">İhtiyacına göre bir yöntem seç. Her teknik kendi ritminde çalışır.</p>
+
+        <div class="tech-filters" role="tablist" aria-label="Teknik kategorileri">
+          <button type="button" class="filter-btn is-active" role="tab" aria-selected="true" data-filter="all">Tümü</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="nefes">Nefes</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="beden">Beden</button>
+          <button type="button" class="filter-btn" role="tab" aria-selected="false" data-filter="zihin">Zihin</button>
+        </div>
+
+        <div class="tech-grid" id="tech-grid">
+          <article class="tech-item" data-category="nefes" tabindex="0">
+            <h3>Nefes farkındalığı</h3>
+            <p class="tech-meta">5–20 dk · Başlangıç</p>
+            <p>Burnundan giren ve çıkan nefesi izle. Zihin dağıldığında yargılamadan nefese dön. Anapanasati’nin özü budur.</p>
+            <ol>
+              <li>Rahat bir oturuş bul, omurgayı dik tut.</li>
+              <li>Dikkatini burun deliklerine veya göğüs hareketine ver.</li>
+              <li>Her dağılışta nazikçe geri dön — başarı buradadır.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="nefes" tabindex="0">
+            <h3>Kutu nefesi</h3>
+            <p class="tech-meta">4–10 dk · Odak</p>
+            <p>Dört eşit aşama: al, tut, ver, tut. Sakinleşme ve odak için sık tercih edilen basit bir ritimdir.</p>
+            <ol>
+              <li>4 saniye burundan al.</li>
+              <li>4 saniye tut.</li>
+              <li>4 saniye ver.</li>
+              <li>4 saniye boşlukta kal; tekrarla.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="nefes" tabindex="0">
+            <h3>4-7-8 nefesi</h3>
+            <p class="tech-meta">3–8 dk · Uyku &amp; sakinlik</p>
+            <p>Dr. Andrew Weil’in popülerleştirdiği ritim: uzun tutuş ve yavaş boşaltım birçok kişi için sakinleşmeye yardımcı olabilir. Baş dönmesi olursa hemen bırakın.</p>
+            <ol>
+              <li>4 saniye burundan al.</li>
+              <li>7 saniye tut.</li>
+              <li>8 saniye ağızdan yavaşça ver.</li>
+              <li>4 tur yap; baş dönmesi olursa dur.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="beden" tabindex="0">
+            <h3>Beden taraması</h3>
+            <p class="tech-meta">10–30 dk · Derin rahatlama</p>
+            <p>Dikkatini ayaklardan başa taşı. Gerilimi fark et, zorla gevşetme — sadece fark etmeye izin ver.</p>
+            <ol>
+              <li>Sırtüstü veya oturarak başla.</li>
+              <li>Ayaklardan yukarı, bölge bölge ilerle.</li>
+              <li>Sıcaklık, ağırlık, karıncalanma not et.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="beden" tabindex="0">
+            <h3>Yürüme meditasyonu</h3>
+            <p class="tech-meta">10–20 dk · Hareket</p>
+            <p>Adımların ritmini fark et. Ofiste, parkta veya koridorda yapılabilir; oturmak zor geldiğinde idealdir.</p>
+            <ol>
+              <li>Yavaş ve bilinçli adım at.</li>
+              <li>“Kaldırma – taşıma – koyma” diye adlandırabilirsin.</li>
+              <li>Gözler yumuşak odak, çevre yargılamadan geçsin.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="zihin" tabindex="0">
+            <h3>Şefkat (Metta)</h3>
+            <p class="tech-meta">10–15 dk · Duygu</p>
+            <p>Kendine ve başkalarına iyi dilekler gönder. Öfke ve iç eleştiriyle daha yumuşak bir ilişki kurmaya yardımcı olabilir.</p>
+            <ol>
+              <li>“Mutlu olayım, güvende olayım” diye başla.</li>
+              <li>Sevilen birine, sonra tarafsıza genişlet.</li>
+              <li>Zor bir kişiyi sona bırak; zorlama.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="zihin" tabindex="0">
+            <h3>Mantra meditasyonu</h3>
+            <p class="tech-meta">10–20 dk · Odak</p>
+            <p>Tek bir kelime veya ses (ör. “om”, “huzur”, “şimdi”) zihni demirler. Düşünceler gelince mantraya dön.</p>
+            <ol>
+              <li>Sessizce veya fısıltıyla tekrarla.</li>
+              <li>Nefesle senkronize etmeye çalışma zorunluluğu yok.</li>
+              <li>Tempo doğal kalsın.</li>
+            </ol>
+          </article>
+
+          <article class="tech-item" data-category="zihin" tabindex="0">
+            <h3>Açık farkındalık</h3>
+            <p class="tech-meta">15–30 dk · İleri</p>
+            <p>Ses, düşünce, duygu — hepsini gökyüzündeki bulutlar gibi izle. Hiçbirine tutunma, hiçbirini itme.</p>
+            <ol>
+              <li>Önce nefesi birkaç dakika sabitle.</li>
+              <li>Ardından tüm deneyime kapıyı aç.</li>
+              <li>“Düşünce var”, “ses var” diye etiketle, bırak.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section breath" id="nefes" aria-labelledby="nefes-title">
+      <div class="section-inner breath-layout">
+        <div class="breath-copy">
+          <h2 id="nefes-title">Rehberli nefes</h2>
+          <p class="section-lead">Daireyle birlikte nefes al ve ver. Ritmi seç, başlat, bedenine bırak.</p>
+
+          <div class="breath-controls">
+            <label class="field">
+              <span>Ritim</span>
+              <select id="breath-pattern" aria-describedby="pattern-hint">
+                <option value="box">Kutu nefesi (4-4-4-4)</option>
+                <option value="calm">Sakinleştirici (4-0-6-0)</option>
+                <option value="478">4-7-8 nefesi</option>
+                <option value="coherent">Uyumlu nefes (5-0-5-0)</option>
+              </select>
+            </label>
+            <p class="hint" id="pattern-hint">Her döngü ekranda yazıyla da gösterilir.</p>
+            <div class="breath-actions">
+              <button type="button" class="btn btn-primary" id="breath-toggle">Başlat</button>
+              <button type="button" class="btn btn-ghost" id="breath-reset" disabled="disabled">Sıfırla</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="breath-stage" aria-live="polite">
+          <div class="breath-orb" id="breath-orb" data-phase="idle">
+            <span class="breath-label" id="breath-label">Hazır</span>
+            <span class="breath-count" id="breath-count"></span>
+          </div>
+          <p class="breath-cycles">Tur: <span id="breath-cycles">0</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timer" id="zamanlayici" aria-labelledby="timer-title">
+      <div class="section-inner timer-layout">
+        <div class="timer-copy">
+          <h2 id="timer-title">Sessiz oturuş</h2>
+          <p class="section-lead">Süre seç, çanı dinle, gözlerini kapat. Bittiğinde nazik bir sesle uyanırsın.</p>
+        </div>
+
+        <div class="timer-panel" role="group" aria-label="Meditasyon zamanlayıcısı">
+          <div class="timer-display" id="timer-display" aria-live="polite">05:00</div>
+          <div class="timer-presets" role="group" aria-label="Süre seç">
+            <button type="button" class="preset is-active" data-minutes="5">5 dk</button>
+            <button type="button" class="preset" data-minutes="10">10 dk</button>
+            <button type="button" class="preset" data-minutes="15">15 dk</button>
+            <button type="button" class="preset" data-minutes="20">20 dk</button>
+          </div>
+          <div class="timer-actions">
+            <button type="button" class="btn btn-primary" id="timer-toggle">Başlat</button>
+            <button type="button" class="btn btn-ghost" id="timer-reset">Sıfırla</button>
+          </div>
+          <p class="timer-streak">Üst üste pratik: <strong id="streak-count">0</strong> gün</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section knowledge" id="bilgiler" aria-labelledby="bilgiler-title">
+      <div class="section-inner">
+        <h2 id="bilgiler-title">Bilmeye değer</h2>
+        <p class="section-lead">Kısa, net ve uygulanabilir. Mitleri değil, işe yarayan çerçeveleri.</p>
+
+        <div class="knowledge-list">
+          <article>
+            <h3>Zihin boşalmaz — izlenir</h3>
+            <p>Meditasyon düşünceyi silmek değildir. Amaç, düşünceleri fark edip onlara yapışmamaktır. Dağıldığını fark etmek bile pratiktir.</p>
+          </article>
+          <article>
+            <h3>Tutarlılık, süreye baskın gelir</h3>
+            <p>Günde 5 dakika, haftada bir 40 dakikadan daha sürdürülebilir sonuç verir. Alışkanlık, motivasyondan önce gelir.</p>
+          </article>
+          <article>
+            <h3>Rahatsızlık geçicidir</h3>
+            <p>Kaşıntı, sıkıntı, huzursuzluk sık görülür. Bir süre izle; çoğu dalga gibi gelir ve geçer. Dayanılmazsa pozisyon değiştir.</p>
+          </article>
+          <article>
+            <h3>Uyku ≠ meditasyon</h3>
+            <p>Uyukluyorsan sırtını dikleştir veya gözlerini biraz aç. Amaç uyanık farkındalık; sakinlik bilinçsizlik demek değildir.</p>
+          </article>
+          <article>
+            <h3>Araştırmalar ne diyor?</h3>
+            <p>MBSR ve benzeri programlar üzerine yapılan çalışmalarda stres, kaygı ve ağrı algısı gibi alanlarda fayda bildirilmiştir. Bu bir tedavi garantisi değildir; sonuçlar kişiden kişiye değişir.</p>
+          </article>
+          <article>
+            <h3>Ne zaman profesyonel destek?</h3>
+            <p>Travma, depresyon, panik veya başka bir ruh sağlığı öykünüz varsa önce hekim veya yetkili uzmana danışın. Meditasyon teşhis, ilaç veya terapinin yerine geçmez.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tip" aria-labelledby="tip-title">
+      <div class="section-inner narrow tip-inner">
+        <h2 id="tip-title">Bugünkü mini pratik</h2>
+        <p id="daily-tip">Yükleniyor…</p>
+        <button type="button" class="btn btn-ghost" id="tip-refresh">Başka bir pratik</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Sükûn</p>
+      <a href="#ust">Yukarı dön</a>
+    </div>
+    <div class="footer-legal section-inner">
+      <p>Sükûn tıbbi tavsiye, teşhis veya tedavi sunmaz; içerik genel bilgilendirme ve kişisel pratik içindir. Sağlık kararlarınızı nitelikli bir sağlık profesyoneline danışarak verin. Acil durumda 112’yi arayın.</p>
+      <p class="credit">Hero görseli: <a href="https://unsplash.com/photos/green-leaf-tree-on-forest-during-daytime-1441974231531-c6227db76b6e" rel="noopener noreferrer" target="_blank">Unsplash</a> / <a href="https://unsplash.com/@sebas_photography" rel="noopener noreferrer" target="_blank">Sebastian Unrau</a> — <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash Lisansı</a>.</p>
+    </div>
+  </footer>
+<script type='text/javascript'>
+(() => {
+  "use strict";
+
+  /* ---------- Header / nav ---------- */
+  const header = document.querySelector(".site-header");
+  const navToggle = document.querySelector(".nav-toggle");
+  const siteNav = document.getElementById("site-nav");
+
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 40);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  navToggle?.addEventListener("click", () => {
+    const open = siteNav.classList.toggle("is-open");
+    header.classList.toggle("nav-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Menüyü kapat" : "Menüyü aç");
+  });
+
+  siteNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("is-open");
+      header.classList.remove("nav-open");
+      navToggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* ---------- Reveal why list ---------- */
+  const whyItems = document.querySelectorAll(".why-list li");
+  if (whyItems.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    whyItems.forEach((el, i) => {
+      el.style.transitionDelay = `${i * 100}ms`;
+      io.observe(el);
+    });
+  } else {
+    whyItems.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ---------- Technique filters ---------- */
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const techItems = document.querySelectorAll(".tech-item");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      filterBtns.forEach((b) => {
+        b.classList.toggle("is-active", b === btn);
+        b.setAttribute("aria-selected", String(b === btn));
+      });
+      techItems.forEach((item) => {
+        const show = filter === "all" || item.dataset.category === filter;
+        item.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+
+  /* ---------- Breath guide ---------- */
+  const PATTERNS = {
+    box: {
+      phases: [
+        { name: "Al", seconds: 4, scale: 1.15 },
+        { name: "Tut", seconds: 4, scale: 1.15 },
+        { name: "Ver", seconds: 4, scale: 0.78 },
+        { name: "Tut", seconds: 4, scale: 0.78 },
+      ],
+    },
+    calm: {
+      phases: [
+        { name: "Al", seconds: 4, scale: 1.12 },
+        { name: "Ver", seconds: 6, scale: 0.78 },
+      ],
+    },
+    "478": {
+      phases: [
+        { name: "Al", seconds: 4, scale: 1.15 },
+        { name: "Tut", seconds: 7, scale: 1.15 },
+        { name: "Ver", seconds: 8, scale: 0.75 },
+      ],
+    },
+    coherent: {
+      phases: [
+        { name: "Al", seconds: 5, scale: 1.12 },
+        { name: "Ver", seconds: 5, scale: 0.78 },
+      ],
+    },
+  };
+
+  const breathToggle = document.getElementById("breath-toggle");
+  const breathReset = document.getElementById("breath-reset");
+  const breathPattern = document.getElementById("breath-pattern");
+  const breathOrb = document.getElementById("breath-orb");
+  const breathLabel = document.getElementById("breath-label");
+  const breathCount = document.getElementById("breath-count");
+  const breathCyclesEl = document.getElementById("breath-cycles");
+
+  let breathRunning = false;
+  let breathRaf = null;
+  let breathTimeout = null;
+  let phaseIndex = 0;
+  let cycles = 0;
+  let phaseStarted = 0;
+  let currentPhases = PATTERNS.box.phases;
+
+  const setOrbScale = (scale) => {
+    breathOrb.style.transform = `scale(${scale})`;
+  };
+
+  const stopBreathLoop = () => {
+    if (breathRaf) cancelAnimationFrame(breathRaf);
+    if (breathTimeout) clearTimeout(breathTimeout);
+    breathRaf = null;
+    breathTimeout = null;
+  };
+
+  const resetBreathUI = () => {
+    stopBreathLoop();
+    breathRunning = false;
+    phaseIndex = 0;
+    cycles = 0;
+    breathToggle.textContent = "Başlat";
+    breathReset.disabled = true;
+    breathPattern.disabled = false;
+    breathLabel.textContent = "Hazır";
+    breathCount.textContent = "";
+    breathCyclesEl.textContent = "0";
+    breathOrb.dataset.phase = "idle";
+    setOrbScale(0.85);
+  };
+
+  const runPhase = () => {
+    if (!breathRunning) return;
+    const phase = currentPhases[phaseIndex];
+    breathOrb.dataset.phase = phase.name.toLowerCase();
+    breathLabel.textContent = phase.name;
+    setOrbScale(phase.scale);
+    phaseStarted = performance.now();
+
+    const tick = (now) => {
+      if (!breathRunning) return;
+      const elapsed = (now - phaseStarted) / 1000;
+      const left = Math.max(0, Math.ceil(phase.seconds - elapsed));
+      breathCount.textContent = `${left} sn`;
+      if (elapsed < phase.seconds) {
+        breathRaf = requestAnimationFrame(tick);
+      }
+    };
+    breathRaf = requestAnimationFrame(tick);
+
+    breathTimeout = setTimeout(() => {
+      if (!breathRunning) return;
+      phaseIndex += 1;
+      if (phaseIndex >= currentPhases.length) {
+        phaseIndex = 0;
+        cycles += 1;
+        breathCyclesEl.textContent = String(cycles);
+      }
+      runPhase();
+    }, phase.seconds * 1000);
+  };
+
+  breathToggle?.addEventListener("click", () => {
+    if (breathRunning) {
+      breathRunning = false;
+      stopBreathLoop();
+      breathToggle.textContent = "Devam";
+      breathLabel.textContent = "Duraklatıldı";
+      breathCount.textContent = "";
+      return;
+    }
+    currentPhases = PATTERNS[breathPattern.value]?.phases || PATTERNS.box.phases;
+    breathRunning = true;
+    breathToggle.textContent = "Duraklat";
+    breathReset.disabled = false;
+    breathPattern.disabled = true;
+    if (breathOrb.dataset.phase === "idle") {
+      phaseIndex = 0;
+    }
+    runPhase();
+  });
+
+  breathReset?.addEventListener("click", resetBreathUI);
+
+  breathPattern?.addEventListener("change", () => {
+    if (!breathRunning) {
+      currentPhases = PATTERNS[breathPattern.value]?.phases || PATTERNS.box.phases;
+    }
+  });
+
+  /* ---------- Meditation timer ---------- */
+  const timerDisplay = document.getElementById("timer-display");
+  const timerToggle = document.getElementById("timer-toggle");
+  const timerReset = document.getElementById("timer-reset");
+  const presets = document.querySelectorAll(".preset");
+  const streakCount = document.getElementById("streak-count");
+
+  let totalSeconds = 5 * 60;
+  let remaining = totalSeconds;
+  let timerId = null;
+  let timerRunning = false;
+
+  const formatTime = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  };
+
+  const updateTimerDisplay = () => {
+    timerDisplay.textContent = formatTime(remaining);
+  };
+
+  const playBell = () => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(528, now);
+      osc.frequency.exponentialRampToValueAtTime(264, now + 2.2);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.25, now + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.5);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 2.6);
+      setTimeout(() => ctx.close(), 3000);
+    } catch {
+      /* audio unavailable */
+    }
+  };
+
+  const STREAK_KEY = "sukun-streak";
+  const LAST_KEY = "sukun-last-practice";
+
+  const loadStreak = () => {
+    const streak = Number(localStorage.getItem(STREAK_KEY) || 0);
+    streakCount.textContent = String(streak);
+  };
+
+  const recordPractice = () => {
+    const today = new Date().toDateString();
+    const last = localStorage.getItem(LAST_KEY);
+    let streak = Number(localStorage.getItem(STREAK_KEY) || 0);
+
+    if (last === today) {
+      loadStreak();
+      return;
+    }
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    if (last === yesterday.toDateString()) {
+      streak += 1;
+    } else {
+      streak = 1;
+    }
+    localStorage.setItem(STREAK_KEY, String(streak));
+    localStorage.setItem(LAST_KEY, today);
+    loadStreak();
+  };
+
+  const stopTimer = () => {
+    if (timerId) clearInterval(timerId);
+    timerId = null;
+    timerRunning = false;
+    timerToggle.textContent = "Başlat";
+  };
+
+  const completeTimer = () => {
+    stopTimer();
+    remaining = 0;
+    updateTimerDisplay();
+    playBell();
+    recordPractice();
+    timerLabelDone();
+  };
+
+  const timerLabelDone = () => {
+    timerDisplay.setAttribute("aria-label", "Süre doldu");
+  };
+
+  timerToggle?.addEventListener("click", () => {
+    if (timerRunning) {
+      stopTimer();
+      return;
+    }
+    if (remaining <= 0) remaining = totalSeconds;
+    timerRunning = true;
+    timerToggle.textContent = "Duraklat";
+    playBell();
+    timerId = setInterval(() => {
+      remaining -= 1;
+      updateTimerDisplay();
+      if (remaining <= 0) completeTimer();
+    }, 1000);
+  });
+
+  timerReset?.addEventListener("click", () => {
+    stopTimer();
+    remaining = totalSeconds;
+    updateTimerDisplay();
+  });
+
+  presets.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      presets.forEach((p) => p.classList.toggle("is-active", p === btn));
+      totalSeconds = Number(btn.dataset.minutes) * 60;
+      stopTimer();
+      remaining = totalSeconds;
+      updateTimerDisplay();
+    });
+  });
+
+  loadStreak();
+  updateTimerDisplay();
+
+  /* ---------- Daily tip ---------- */
+  const TIPS = [
+    "Üç derin nefes al. Her verişte omuzlarını bir milim daha bırak.",
+    "Bir bardak suyu yudum yudum iç; her yudumda sadece tadı fark et.",
+    "Pencereden bir noktaya bak. 60 saniye boyunca sadece bak — düşünme.",
+    "Sağ elini göğsüne koy. Kalp atışını hisset, yargılamadan.",
+    "Yürürken ayak tabanlarının yere değdiği anı say: on adım yeter.",
+    "Bir düşünceyi bulut gibi izle: geldi, geçti. Peşinden koşma.",
+    "Çeneni gevşet, dilini damağından ayır. Çoğu gerilim orada saklanır.",
+    "Bugün birine (veya kendine) sessizce iyi dilek gönder: güvende olsun.",
+    "Telefonu ters çevir, beş dakika hiçbir ekrana bakma.",
+    "Nefesini burnundan al, ağızdan uzun ver. Dört tur yeter.",
+  ];
+
+  const tipEl = document.getElementById("daily-tip");
+  const tipRefresh = document.getElementById("tip-refresh");
+
+  const showTip = () => {
+    const dayIndex = Math.floor(Date.now() / 86400000) % TIPS.length;
+    const randomBoost = tipRefresh?.dataset.random;
+    const index = randomBoost
+      ? Number(randomBoost) % TIPS.length
+      : dayIndex;
+    tipEl.textContent = TIPS[index];
+  };
+
+  tipRefresh?.addEventListener("click", () => {
+    let next = Math.floor(Math.random() * TIPS.length);
+    const current = tipEl.textContent;
+    let guard = 0;
+    while (TIPS[next] === current && guard < 8) {
+      next = Math.floor(Math.random() * TIPS.length);
+      guard += 1;
+    }
+    tipRefresh.dataset.random = String(next);
+    tipEl.textContent = TIPS[next];
+  });
+
+  showTip();
+})();
+
+</script>
+]]></b:widget-setting>
+</b:widget-settings>
+<b:includable id='main'><data:content/></b:includable>
+</b:widget>
+</b:section>
+<b:section id='main' showaddelement='yes'>
+<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'/>
+</b:section>
+</body>
+</html>
